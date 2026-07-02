@@ -4,7 +4,15 @@ Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuar
 
 ## Proxima versao
 
-Status: em desenvolvimento.
+Status: aguardando planejamento.
+
+### Destaques previstos
+
+- Sprint 05 - Estoque.
+- Controle de quantidade atual por produto.
+- Movimentacoes de entrada, saida e ajuste.
+
+## 0.5.0 - Validacao ampliada
 
 ### Destaques
 
@@ -17,6 +25,7 @@ Status: em desenvolvimento.
 
 - A Sprint 04 foi concluida conforme processo oficial de release.
 - Estoque, lista de compras e inteligencia artificial ainda nao fazem parte desta entrega.
+- Versao preparada para validacao ampliada antes das proximas sprints.
 
 ## 0.1.0 - Base inicial
 

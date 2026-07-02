@@ -17,6 +17,13 @@ Tipos de mudanca:
 
 ### Added
 
+- Retrospectivas oficiais das Sprints 01, 02 e 03 em `docs/sprints/`.
+- Indice atualizado da pasta `docs/sprints/`.
+
+## [0.5.0] - 2026-07-02
+
+### Added
+
 - Documentacao oficial do projeto.
 - Roadmap de desenvolvimento.
 - Regras de contribuicao.
@@ -47,6 +54,11 @@ Tipos de mudanca:
 - Roadmap com status oficiais por sprint.
 - Correcoes de consistencia documental antes da transicao para desenvolvimento.
 - Sprint 04 concluida conforme processo oficial de release.
+
+### Verified
+
+- `flutter analyze` executado com sucesso.
+- `flutter test` executado com sucesso.
 
 ## [0.1.0] - 2026-07-02
 
