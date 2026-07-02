@@ -15,6 +15,10 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+Nenhuma mudanca registrada.
+
+## [0.5.0] - 2026-07-02
+
 ### Added
 
 - Modulo de Estoque com Clean Architecture, Riverpod e Repository Pattern.

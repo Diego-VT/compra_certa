@@ -2,7 +2,7 @@
 
 Aplicativo Flutter preparado para evoluir como uma solucao de apoio a compras, organizacao de itens e modulos inteligentes futuros.
 
-O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos e Sprint 05 de Estoque em revisao. Lista de compras e inteligencia artificial ainda nao foram implementadas.
+O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos e modulo de Estoque com release `0.5.0` preparada localmente. Lista de compras e inteligencia artificial ainda nao foram implementadas.
 
 ## Documentacao oficial
 
@@ -212,7 +212,7 @@ Android SDK, licencas Android, Chrome e recursos de rede foram reconhecidos corr
 
 1. Habilitar Developer Mode no Windows.
 2. Rodar `flutter pub get` novamente apos habilitar Developer Mode.
-3. Revisar e aprovar a Sprint 05.
-4. Preparar a versao `0.5.0` somente apos aprovacao.
+3. Resolver a verificacao SSH do GitHub para concluir o push pendente.
+4. Criar tag Git da versao `0.5.0` somente apos aprovacao.
 5. Iniciar Sprint 06 - Historico de Compras.
 6. Manter entidades, contratos e casos de uso antes das telas nas proximas features.

@@ -4,11 +4,22 @@ Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuar
 
 ## Proxima versao
 
-Status: Sprint 05 validada tecnicamente, com commit local criado e push pendente por verificacao SSH do GitHub. Preparacao formal da versao `0.5.0` deve ocorrer em etapa propria de release.
+Status: versao `0.6.0` planejada para Historico de Compras apos resolucao do push pendente da `0.5.0`.
 
-### Destaques em preparacao
+### Destaques previstos
 
-- Versao 0.5.0 - Estoque.
+- Historico de compras.
+- Registro de compras realizadas.
+- Itens de compra.
+- Consultas por periodo.
+- Base para relatorios e consumo futuro.
+
+## 0.5.0 - Estoque
+
+Status: preparada localmente em 2026-07-02. Commit local criado; push e tag Git pendentes por verificacao SSH do GitHub.
+
+### Destaques
+
 - Controle de quantidade atual por produto.
 - Movimentacoes de entrada, saida e ajuste.
 - Identificacao de produtos ativos abaixo do minimo.
@@ -16,9 +27,9 @@ Status: Sprint 05 validada tecnicamente, com commit local criado e push pendente
 
 ### Observacoes
 
-- A versao 0.5.0 ainda nao foi preparada como release final.
+- Release preparada conforme `VERSIONING.md` e `docs/RELEASE_PROCESS.md`.
 - `flutter analyze` e `flutter test` foram executados com sucesso.
-- Sprint 05 aprovada para commit e push, com envio ao GitHub pendente por verificacao de host SSH.
+- O envio ao GitHub e a criacao de tag Git dependem de aprovacao e resolucao da verificacao SSH.
 
 ## 0.4.0 - Melhorias em Produtos
 

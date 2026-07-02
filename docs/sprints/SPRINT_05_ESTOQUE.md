@@ -2,7 +2,7 @@
 
 ## Status
 
-Validada tecnicamente, commit local criado e push pendente por verificacao SSH do GitHub.
+Release `0.5.0` preparada localmente; push e tag Git pendentes por verificacao SSH do GitHub.
 
 ## Objetivo
 
@@ -96,8 +96,10 @@ Nova feature `estoque` seguindo Clean Architecture.
 - [x] Relatorio final preparado.
 - [x] Aprovacao do usuario para commit e push.
 - [x] Commit local criado.
+- [x] Release `0.5.0` preparada localmente.
 - [x] Push autorizado.
 - [ ] Push concluido.
+- [ ] Tag Git `0.5.0` criada.
 
 ## Resultado da Revisao
 

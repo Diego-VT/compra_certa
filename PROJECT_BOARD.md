@@ -26,6 +26,7 @@ Nenhum item ativo no momento.
 ## Review
 
 - Sprint 05 - Estoque.
+- Release 0.5.0 - Estoque.
 - Diretrizes de performance.
 - Processo de release.
 
