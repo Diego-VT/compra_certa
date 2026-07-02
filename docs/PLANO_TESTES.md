@@ -33,6 +33,7 @@ Exemplos atuais:
 
 - filtro de produtos por nome, categoria e status;
 - alteracao logica de status do produto.
+- regras de estoque para entrada, saida, ajuste e minimo.
 
 ## Testes de repository
 
@@ -118,9 +119,9 @@ Devem validar:
 
 No modulo Produtos, parte das regras ja e validada em testes de datasource. Testes de widget do formulario devem ser adicionados quando o fluxo visual se estabilizar.
 
-## Testes futuros de estoque
+## Testes atuais de estoque
 
-Devem cobrir:
+Cobrem:
 
 - criacao de estoque para produto;
 - ajuste de quantidade;
@@ -128,8 +129,11 @@ Devem cobrir:
 - movimentacoes de saida;
 - status abaixo do minimo;
 - status adequado;
-- status acima do ideal.
-- consulta otimizada de produtos abaixo do minimo.
+- status acima do ideal;
+- bloqueio de estoque negativo;
+- bloqueio de movimentacao para produto inativo;
+- consulta de produtos ativos abaixo do minimo;
+- exclusao de produto com saldo igual ao minimo da consulta de reposicao.
 
 ## Testes futuros de lista de compras
 

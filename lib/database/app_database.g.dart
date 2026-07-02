@@ -1502,12 +1502,849 @@ class ProdutosCompanion extends UpdateCompanion<Produto> {
   }
 }
 
+class $EstoquesTable extends Estoques with TableInfo<$EstoquesTable, Estoque> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $EstoquesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _produtoIdMeta = const VerificationMeta(
+    'produtoId',
+  );
+  @override
+  late final GeneratedColumn<int> produtoId = GeneratedColumn<int>(
+    'produto_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'UNIQUE REFERENCES produtos (id)',
+    ),
+  );
+  static const VerificationMeta _quantidadeAtualMeta = const VerificationMeta(
+    'quantidadeAtual',
+  );
+  @override
+  late final GeneratedColumn<double> quantidadeAtual = GeneratedColumn<double>(
+    'quantidade_atual',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _atualizadoEmMeta = const VerificationMeta(
+    'atualizadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> atualizadoEm = GeneratedColumn<DateTime>(
+    'atualizado_em',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    produtoId,
+    quantidadeAtual,
+    atualizadoEm,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'estoques';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<Estoque> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('produto_id')) {
+      context.handle(
+        _produtoIdMeta,
+        produtoId.isAcceptableOrUnknown(data['produto_id']!, _produtoIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_produtoIdMeta);
+    }
+    if (data.containsKey('quantidade_atual')) {
+      context.handle(
+        _quantidadeAtualMeta,
+        quantidadeAtual.isAcceptableOrUnknown(
+          data['quantidade_atual']!,
+          _quantidadeAtualMeta,
+        ),
+      );
+    }
+    if (data.containsKey('atualizado_em')) {
+      context.handle(
+        _atualizadoEmMeta,
+        atualizadoEm.isAcceptableOrUnknown(
+          data['atualizado_em']!,
+          _atualizadoEmMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  Estoque map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Estoque(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      produtoId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}produto_id'],
+      )!,
+      quantidadeAtual: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}quantidade_atual'],
+      )!,
+      atualizadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}atualizado_em'],
+      )!,
+    );
+  }
+
+  @override
+  $EstoquesTable createAlias(String alias) {
+    return $EstoquesTable(attachedDatabase, alias);
+  }
+}
+
+class Estoque extends DataClass implements Insertable<Estoque> {
+  final int id;
+  final int produtoId;
+  final double quantidadeAtual;
+  final DateTime atualizadoEm;
+  const Estoque({
+    required this.id,
+    required this.produtoId,
+    required this.quantidadeAtual,
+    required this.atualizadoEm,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['produto_id'] = Variable<int>(produtoId);
+    map['quantidade_atual'] = Variable<double>(quantidadeAtual);
+    map['atualizado_em'] = Variable<DateTime>(atualizadoEm);
+    return map;
+  }
+
+  EstoquesCompanion toCompanion(bool nullToAbsent) {
+    return EstoquesCompanion(
+      id: Value(id),
+      produtoId: Value(produtoId),
+      quantidadeAtual: Value(quantidadeAtual),
+      atualizadoEm: Value(atualizadoEm),
+    );
+  }
+
+  factory Estoque.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Estoque(
+      id: serializer.fromJson<int>(json['id']),
+      produtoId: serializer.fromJson<int>(json['produtoId']),
+      quantidadeAtual: serializer.fromJson<double>(json['quantidadeAtual']),
+      atualizadoEm: serializer.fromJson<DateTime>(json['atualizadoEm']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'produtoId': serializer.toJson<int>(produtoId),
+      'quantidadeAtual': serializer.toJson<double>(quantidadeAtual),
+      'atualizadoEm': serializer.toJson<DateTime>(atualizadoEm),
+    };
+  }
+
+  Estoque copyWith({
+    int? id,
+    int? produtoId,
+    double? quantidadeAtual,
+    DateTime? atualizadoEm,
+  }) => Estoque(
+    id: id ?? this.id,
+    produtoId: produtoId ?? this.produtoId,
+    quantidadeAtual: quantidadeAtual ?? this.quantidadeAtual,
+    atualizadoEm: atualizadoEm ?? this.atualizadoEm,
+  );
+  Estoque copyWithCompanion(EstoquesCompanion data) {
+    return Estoque(
+      id: data.id.present ? data.id.value : this.id,
+      produtoId: data.produtoId.present ? data.produtoId.value : this.produtoId,
+      quantidadeAtual: data.quantidadeAtual.present
+          ? data.quantidadeAtual.value
+          : this.quantidadeAtual,
+      atualizadoEm: data.atualizadoEm.present
+          ? data.atualizadoEm.value
+          : this.atualizadoEm,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('Estoque(')
+          ..write('id: $id, ')
+          ..write('produtoId: $produtoId, ')
+          ..write('quantidadeAtual: $quantidadeAtual, ')
+          ..write('atualizadoEm: $atualizadoEm')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, produtoId, quantidadeAtual, atualizadoEm);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Estoque &&
+          other.id == this.id &&
+          other.produtoId == this.produtoId &&
+          other.quantidadeAtual == this.quantidadeAtual &&
+          other.atualizadoEm == this.atualizadoEm);
+}
+
+class EstoquesCompanion extends UpdateCompanion<Estoque> {
+  final Value<int> id;
+  final Value<int> produtoId;
+  final Value<double> quantidadeAtual;
+  final Value<DateTime> atualizadoEm;
+  const EstoquesCompanion({
+    this.id = const Value.absent(),
+    this.produtoId = const Value.absent(),
+    this.quantidadeAtual = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+  });
+  EstoquesCompanion.insert({
+    this.id = const Value.absent(),
+    required int produtoId,
+    this.quantidadeAtual = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+  }) : produtoId = Value(produtoId);
+  static Insertable<Estoque> custom({
+    Expression<int>? id,
+    Expression<int>? produtoId,
+    Expression<double>? quantidadeAtual,
+    Expression<DateTime>? atualizadoEm,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (produtoId != null) 'produto_id': produtoId,
+      if (quantidadeAtual != null) 'quantidade_atual': quantidadeAtual,
+      if (atualizadoEm != null) 'atualizado_em': atualizadoEm,
+    });
+  }
+
+  EstoquesCompanion copyWith({
+    Value<int>? id,
+    Value<int>? produtoId,
+    Value<double>? quantidadeAtual,
+    Value<DateTime>? atualizadoEm,
+  }) {
+    return EstoquesCompanion(
+      id: id ?? this.id,
+      produtoId: produtoId ?? this.produtoId,
+      quantidadeAtual: quantidadeAtual ?? this.quantidadeAtual,
+      atualizadoEm: atualizadoEm ?? this.atualizadoEm,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (produtoId.present) {
+      map['produto_id'] = Variable<int>(produtoId.value);
+    }
+    if (quantidadeAtual.present) {
+      map['quantidade_atual'] = Variable<double>(quantidadeAtual.value);
+    }
+    if (atualizadoEm.present) {
+      map['atualizado_em'] = Variable<DateTime>(atualizadoEm.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EstoquesCompanion(')
+          ..write('id: $id, ')
+          ..write('produtoId: $produtoId, ')
+          ..write('quantidadeAtual: $quantidadeAtual, ')
+          ..write('atualizadoEm: $atualizadoEm')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MovimentacoesEstoqueTable extends MovimentacoesEstoque
+    with TableInfo<$MovimentacoesEstoqueTable, MovimentacoesEstoqueData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MovimentacoesEstoqueTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _produtoIdMeta = const VerificationMeta(
+    'produtoId',
+  );
+  @override
+  late final GeneratedColumn<int> produtoId = GeneratedColumn<int>(
+    'produto_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES produtos (id)',
+    ),
+  );
+  static const VerificationMeta _tipoMeta = const VerificationMeta('tipo');
+  @override
+  late final GeneratedColumn<String> tipo = GeneratedColumn<String>(
+    'tipo',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _quantidadeMeta = const VerificationMeta(
+    'quantidade',
+  );
+  @override
+  late final GeneratedColumn<double> quantidade = GeneratedColumn<double>(
+    'quantidade',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _quantidadeAnteriorMeta =
+      const VerificationMeta('quantidadeAnterior');
+  @override
+  late final GeneratedColumn<double> quantidadeAnterior =
+      GeneratedColumn<double>(
+        'quantidade_anterior',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _quantidadeFinalMeta = const VerificationMeta(
+    'quantidadeFinal',
+  );
+  @override
+  late final GeneratedColumn<double> quantidadeFinal = GeneratedColumn<double>(
+    'quantidade_final',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _motivoMeta = const VerificationMeta('motivo');
+  @override
+  late final GeneratedColumn<String> motivo = GeneratedColumn<String>(
+    'motivo',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _criadoEmMeta = const VerificationMeta(
+    'criadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> criadoEm = GeneratedColumn<DateTime>(
+    'criado_em',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    produtoId,
+    tipo,
+    quantidade,
+    quantidadeAnterior,
+    quantidadeFinal,
+    motivo,
+    criadoEm,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'movimentacoes_estoque';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MovimentacoesEstoqueData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('produto_id')) {
+      context.handle(
+        _produtoIdMeta,
+        produtoId.isAcceptableOrUnknown(data['produto_id']!, _produtoIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_produtoIdMeta);
+    }
+    if (data.containsKey('tipo')) {
+      context.handle(
+        _tipoMeta,
+        tipo.isAcceptableOrUnknown(data['tipo']!, _tipoMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_tipoMeta);
+    }
+    if (data.containsKey('quantidade')) {
+      context.handle(
+        _quantidadeMeta,
+        quantidade.isAcceptableOrUnknown(data['quantidade']!, _quantidadeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_quantidadeMeta);
+    }
+    if (data.containsKey('quantidade_anterior')) {
+      context.handle(
+        _quantidadeAnteriorMeta,
+        quantidadeAnterior.isAcceptableOrUnknown(
+          data['quantidade_anterior']!,
+          _quantidadeAnteriorMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_quantidadeAnteriorMeta);
+    }
+    if (data.containsKey('quantidade_final')) {
+      context.handle(
+        _quantidadeFinalMeta,
+        quantidadeFinal.isAcceptableOrUnknown(
+          data['quantidade_final']!,
+          _quantidadeFinalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_quantidadeFinalMeta);
+    }
+    if (data.containsKey('motivo')) {
+      context.handle(
+        _motivoMeta,
+        motivo.isAcceptableOrUnknown(data['motivo']!, _motivoMeta),
+      );
+    }
+    if (data.containsKey('criado_em')) {
+      context.handle(
+        _criadoEmMeta,
+        criadoEm.isAcceptableOrUnknown(data['criado_em']!, _criadoEmMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MovimentacoesEstoqueData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MovimentacoesEstoqueData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      produtoId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}produto_id'],
+      )!,
+      tipo: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tipo'],
+      )!,
+      quantidade: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}quantidade'],
+      )!,
+      quantidadeAnterior: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}quantidade_anterior'],
+      )!,
+      quantidadeFinal: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}quantidade_final'],
+      )!,
+      motivo: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}motivo'],
+      ),
+      criadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}criado_em'],
+      )!,
+    );
+  }
+
+  @override
+  $MovimentacoesEstoqueTable createAlias(String alias) {
+    return $MovimentacoesEstoqueTable(attachedDatabase, alias);
+  }
+}
+
+class MovimentacoesEstoqueData extends DataClass
+    implements Insertable<MovimentacoesEstoqueData> {
+  final int id;
+  final int produtoId;
+  final String tipo;
+  final double quantidade;
+  final double quantidadeAnterior;
+  final double quantidadeFinal;
+  final String? motivo;
+  final DateTime criadoEm;
+  const MovimentacoesEstoqueData({
+    required this.id,
+    required this.produtoId,
+    required this.tipo,
+    required this.quantidade,
+    required this.quantidadeAnterior,
+    required this.quantidadeFinal,
+    this.motivo,
+    required this.criadoEm,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['produto_id'] = Variable<int>(produtoId);
+    map['tipo'] = Variable<String>(tipo);
+    map['quantidade'] = Variable<double>(quantidade);
+    map['quantidade_anterior'] = Variable<double>(quantidadeAnterior);
+    map['quantidade_final'] = Variable<double>(quantidadeFinal);
+    if (!nullToAbsent || motivo != null) {
+      map['motivo'] = Variable<String>(motivo);
+    }
+    map['criado_em'] = Variable<DateTime>(criadoEm);
+    return map;
+  }
+
+  MovimentacoesEstoqueCompanion toCompanion(bool nullToAbsent) {
+    return MovimentacoesEstoqueCompanion(
+      id: Value(id),
+      produtoId: Value(produtoId),
+      tipo: Value(tipo),
+      quantidade: Value(quantidade),
+      quantidadeAnterior: Value(quantidadeAnterior),
+      quantidadeFinal: Value(quantidadeFinal),
+      motivo: motivo == null && nullToAbsent
+          ? const Value.absent()
+          : Value(motivo),
+      criadoEm: Value(criadoEm),
+    );
+  }
+
+  factory MovimentacoesEstoqueData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MovimentacoesEstoqueData(
+      id: serializer.fromJson<int>(json['id']),
+      produtoId: serializer.fromJson<int>(json['produtoId']),
+      tipo: serializer.fromJson<String>(json['tipo']),
+      quantidade: serializer.fromJson<double>(json['quantidade']),
+      quantidadeAnterior: serializer.fromJson<double>(
+        json['quantidadeAnterior'],
+      ),
+      quantidadeFinal: serializer.fromJson<double>(json['quantidadeFinal']),
+      motivo: serializer.fromJson<String?>(json['motivo']),
+      criadoEm: serializer.fromJson<DateTime>(json['criadoEm']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'produtoId': serializer.toJson<int>(produtoId),
+      'tipo': serializer.toJson<String>(tipo),
+      'quantidade': serializer.toJson<double>(quantidade),
+      'quantidadeAnterior': serializer.toJson<double>(quantidadeAnterior),
+      'quantidadeFinal': serializer.toJson<double>(quantidadeFinal),
+      'motivo': serializer.toJson<String?>(motivo),
+      'criadoEm': serializer.toJson<DateTime>(criadoEm),
+    };
+  }
+
+  MovimentacoesEstoqueData copyWith({
+    int? id,
+    int? produtoId,
+    String? tipo,
+    double? quantidade,
+    double? quantidadeAnterior,
+    double? quantidadeFinal,
+    Value<String?> motivo = const Value.absent(),
+    DateTime? criadoEm,
+  }) => MovimentacoesEstoqueData(
+    id: id ?? this.id,
+    produtoId: produtoId ?? this.produtoId,
+    tipo: tipo ?? this.tipo,
+    quantidade: quantidade ?? this.quantidade,
+    quantidadeAnterior: quantidadeAnterior ?? this.quantidadeAnterior,
+    quantidadeFinal: quantidadeFinal ?? this.quantidadeFinal,
+    motivo: motivo.present ? motivo.value : this.motivo,
+    criadoEm: criadoEm ?? this.criadoEm,
+  );
+  MovimentacoesEstoqueData copyWithCompanion(
+    MovimentacoesEstoqueCompanion data,
+  ) {
+    return MovimentacoesEstoqueData(
+      id: data.id.present ? data.id.value : this.id,
+      produtoId: data.produtoId.present ? data.produtoId.value : this.produtoId,
+      tipo: data.tipo.present ? data.tipo.value : this.tipo,
+      quantidade: data.quantidade.present
+          ? data.quantidade.value
+          : this.quantidade,
+      quantidadeAnterior: data.quantidadeAnterior.present
+          ? data.quantidadeAnterior.value
+          : this.quantidadeAnterior,
+      quantidadeFinal: data.quantidadeFinal.present
+          ? data.quantidadeFinal.value
+          : this.quantidadeFinal,
+      motivo: data.motivo.present ? data.motivo.value : this.motivo,
+      criadoEm: data.criadoEm.present ? data.criadoEm.value : this.criadoEm,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MovimentacoesEstoqueData(')
+          ..write('id: $id, ')
+          ..write('produtoId: $produtoId, ')
+          ..write('tipo: $tipo, ')
+          ..write('quantidade: $quantidade, ')
+          ..write('quantidadeAnterior: $quantidadeAnterior, ')
+          ..write('quantidadeFinal: $quantidadeFinal, ')
+          ..write('motivo: $motivo, ')
+          ..write('criadoEm: $criadoEm')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    produtoId,
+    tipo,
+    quantidade,
+    quantidadeAnterior,
+    quantidadeFinal,
+    motivo,
+    criadoEm,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MovimentacoesEstoqueData &&
+          other.id == this.id &&
+          other.produtoId == this.produtoId &&
+          other.tipo == this.tipo &&
+          other.quantidade == this.quantidade &&
+          other.quantidadeAnterior == this.quantidadeAnterior &&
+          other.quantidadeFinal == this.quantidadeFinal &&
+          other.motivo == this.motivo &&
+          other.criadoEm == this.criadoEm);
+}
+
+class MovimentacoesEstoqueCompanion
+    extends UpdateCompanion<MovimentacoesEstoqueData> {
+  final Value<int> id;
+  final Value<int> produtoId;
+  final Value<String> tipo;
+  final Value<double> quantidade;
+  final Value<double> quantidadeAnterior;
+  final Value<double> quantidadeFinal;
+  final Value<String?> motivo;
+  final Value<DateTime> criadoEm;
+  const MovimentacoesEstoqueCompanion({
+    this.id = const Value.absent(),
+    this.produtoId = const Value.absent(),
+    this.tipo = const Value.absent(),
+    this.quantidade = const Value.absent(),
+    this.quantidadeAnterior = const Value.absent(),
+    this.quantidadeFinal = const Value.absent(),
+    this.motivo = const Value.absent(),
+    this.criadoEm = const Value.absent(),
+  });
+  MovimentacoesEstoqueCompanion.insert({
+    this.id = const Value.absent(),
+    required int produtoId,
+    required String tipo,
+    required double quantidade,
+    required double quantidadeAnterior,
+    required double quantidadeFinal,
+    this.motivo = const Value.absent(),
+    this.criadoEm = const Value.absent(),
+  }) : produtoId = Value(produtoId),
+       tipo = Value(tipo),
+       quantidade = Value(quantidade),
+       quantidadeAnterior = Value(quantidadeAnterior),
+       quantidadeFinal = Value(quantidadeFinal);
+  static Insertable<MovimentacoesEstoqueData> custom({
+    Expression<int>? id,
+    Expression<int>? produtoId,
+    Expression<String>? tipo,
+    Expression<double>? quantidade,
+    Expression<double>? quantidadeAnterior,
+    Expression<double>? quantidadeFinal,
+    Expression<String>? motivo,
+    Expression<DateTime>? criadoEm,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (produtoId != null) 'produto_id': produtoId,
+      if (tipo != null) 'tipo': tipo,
+      if (quantidade != null) 'quantidade': quantidade,
+      if (quantidadeAnterior != null) 'quantidade_anterior': quantidadeAnterior,
+      if (quantidadeFinal != null) 'quantidade_final': quantidadeFinal,
+      if (motivo != null) 'motivo': motivo,
+      if (criadoEm != null) 'criado_em': criadoEm,
+    });
+  }
+
+  MovimentacoesEstoqueCompanion copyWith({
+    Value<int>? id,
+    Value<int>? produtoId,
+    Value<String>? tipo,
+    Value<double>? quantidade,
+    Value<double>? quantidadeAnterior,
+    Value<double>? quantidadeFinal,
+    Value<String?>? motivo,
+    Value<DateTime>? criadoEm,
+  }) {
+    return MovimentacoesEstoqueCompanion(
+      id: id ?? this.id,
+      produtoId: produtoId ?? this.produtoId,
+      tipo: tipo ?? this.tipo,
+      quantidade: quantidade ?? this.quantidade,
+      quantidadeAnterior: quantidadeAnterior ?? this.quantidadeAnterior,
+      quantidadeFinal: quantidadeFinal ?? this.quantidadeFinal,
+      motivo: motivo ?? this.motivo,
+      criadoEm: criadoEm ?? this.criadoEm,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (produtoId.present) {
+      map['produto_id'] = Variable<int>(produtoId.value);
+    }
+    if (tipo.present) {
+      map['tipo'] = Variable<String>(tipo.value);
+    }
+    if (quantidade.present) {
+      map['quantidade'] = Variable<double>(quantidade.value);
+    }
+    if (quantidadeAnterior.present) {
+      map['quantidade_anterior'] = Variable<double>(quantidadeAnterior.value);
+    }
+    if (quantidadeFinal.present) {
+      map['quantidade_final'] = Variable<double>(quantidadeFinal.value);
+    }
+    if (motivo.present) {
+      map['motivo'] = Variable<String>(motivo.value);
+    }
+    if (criadoEm.present) {
+      map['criado_em'] = Variable<DateTime>(criadoEm.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MovimentacoesEstoqueCompanion(')
+          ..write('id: $id, ')
+          ..write('produtoId: $produtoId, ')
+          ..write('tipo: $tipo, ')
+          ..write('quantidade: $quantidade, ')
+          ..write('quantidadeAnterior: $quantidadeAnterior, ')
+          ..write('quantidadeFinal: $quantidadeFinal, ')
+          ..write('motivo: $motivo, ')
+          ..write('criadoEm: $criadoEm')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $CategoriasTable categorias = $CategoriasTable(this);
   late final $SeedExecutionsTable seedExecutions = $SeedExecutionsTable(this);
   late final $ProdutosTable produtos = $ProdutosTable(this);
+  late final $EstoquesTable estoques = $EstoquesTable(this);
+  late final $MovimentacoesEstoqueTable movimentacoesEstoque =
+      $MovimentacoesEstoqueTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -1516,6 +2353,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     categorias,
     seedExecutions,
     produtos,
+    estoques,
+    movimentacoesEstoque,
   ];
 }
 
@@ -2114,6 +2953,50 @@ final class $$ProdutosTableReferences
       manager.$state.copyWith(prefetchedData: [item]),
     );
   }
+
+  static MultiTypedResultKey<$EstoquesTable, List<Estoque>> _estoquesRefsTable(
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.estoques,
+    aliasName: 'produtos__id__estoques__produto_id',
+  );
+
+  $$EstoquesTableProcessedTableManager get estoquesRefs {
+    final manager = $$EstoquesTableTableManager(
+      $_db,
+      $_db.estoques,
+    ).filter((f) => f.produtoId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_estoquesRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<
+    $MovimentacoesEstoqueTable,
+    List<MovimentacoesEstoqueData>
+  >
+  _movimentacoesEstoqueRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.movimentacoesEstoque,
+        aliasName: 'produtos__id__movimentacoes_estoque__produto_id',
+      );
+
+  $$MovimentacoesEstoqueTableProcessedTableManager
+  get movimentacoesEstoqueRefs {
+    final manager = $$MovimentacoesEstoqueTableTableManager(
+      $_db,
+      $_db.movimentacoesEstoque,
+    ).filter((f) => f.produtoId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _movimentacoesEstoqueRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
 }
 
 class $$ProdutosTableFilterComposer
@@ -2196,6 +3079,56 @@ class $$ProdutosTableFilterComposer
           ),
     );
     return composer;
+  }
+
+  Expression<bool> estoquesRefs(
+    Expression<bool> Function($$EstoquesTableFilterComposer f) f,
+  ) {
+    final $$EstoquesTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.estoques,
+      getReferencedColumn: (t) => t.produtoId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EstoquesTableFilterComposer(
+            $db: $db,
+            $table: $db.estoques,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> movimentacoesEstoqueRefs(
+    Expression<bool> Function($$MovimentacoesEstoqueTableFilterComposer f) f,
+  ) {
+    final $$MovimentacoesEstoqueTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.movimentacoesEstoque,
+      getReferencedColumn: (t) => t.produtoId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$MovimentacoesEstoqueTableFilterComposer(
+            $db: $db,
+            $table: $db.movimentacoesEstoque,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
   }
 }
 
@@ -2353,6 +3286,57 @@ class $$ProdutosTableAnnotationComposer
     );
     return composer;
   }
+
+  Expression<T> estoquesRefs<T extends Object>(
+    Expression<T> Function($$EstoquesTableAnnotationComposer a) f,
+  ) {
+    final $$EstoquesTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.estoques,
+      getReferencedColumn: (t) => t.produtoId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EstoquesTableAnnotationComposer(
+            $db: $db,
+            $table: $db.estoques,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> movimentacoesEstoqueRefs<T extends Object>(
+    Expression<T> Function($$MovimentacoesEstoqueTableAnnotationComposer a) f,
+  ) {
+    final $$MovimentacoesEstoqueTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.movimentacoesEstoque,
+          getReferencedColumn: (t) => t.produtoId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$MovimentacoesEstoqueTableAnnotationComposer(
+                $db: $db,
+                $table: $db.movimentacoesEstoque,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
 }
 
 class $$ProdutosTableTableManager
@@ -2368,7 +3352,11 @@ class $$ProdutosTableTableManager
           $$ProdutosTableUpdateCompanionBuilder,
           (Produto, $$ProdutosTableReferences),
           Produto,
-          PrefetchHooks Function({bool categoriaId})
+          PrefetchHooks Function({
+            bool categoriaId,
+            bool estoquesRefs,
+            bool movimentacoesEstoqueRefs,
+          })
         > {
   $$ProdutosTableTableManager(_$AppDatabase db, $ProdutosTable table)
     : super(
@@ -2441,7 +3429,358 @@ class $$ProdutosTableTableManager
                 ),
               )
               .toList(),
-          prefetchHooksCallback: ({categoriaId = false}) {
+          prefetchHooksCallback:
+              ({
+                categoriaId = false,
+                estoquesRefs = false,
+                movimentacoesEstoqueRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (estoquesRefs) db.estoques,
+                    if (movimentacoesEstoqueRefs) db.movimentacoesEstoque,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (categoriaId) {
+                          state =
+                              state.withJoin(
+                                    currentTable: table,
+                                    currentColumn: table.categoriaId,
+                                    referencedTable: $$ProdutosTableReferences
+                                        ._categoriaIdTable(db),
+                                    referencedColumn: $$ProdutosTableReferences
+                                        ._categoriaIdTable(db)
+                                        .id,
+                                  )
+                                  as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (estoquesRefs)
+                        await $_getPrefetchedData<
+                          Produto,
+                          $ProdutosTable,
+                          Estoque
+                        >(
+                          currentTable: table,
+                          referencedTable: $$ProdutosTableReferences
+                              ._estoquesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$ProdutosTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).estoquesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.produtoId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (movimentacoesEstoqueRefs)
+                        await $_getPrefetchedData<
+                          Produto,
+                          $ProdutosTable,
+                          MovimentacoesEstoqueData
+                        >(
+                          currentTable: table,
+                          referencedTable: $$ProdutosTableReferences
+                              ._movimentacoesEstoqueRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$ProdutosTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).movimentacoesEstoqueRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.produtoId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $$ProdutosTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ProdutosTable,
+      Produto,
+      $$ProdutosTableFilterComposer,
+      $$ProdutosTableOrderingComposer,
+      $$ProdutosTableAnnotationComposer,
+      $$ProdutosTableCreateCompanionBuilder,
+      $$ProdutosTableUpdateCompanionBuilder,
+      (Produto, $$ProdutosTableReferences),
+      Produto,
+      PrefetchHooks Function({
+        bool categoriaId,
+        bool estoquesRefs,
+        bool movimentacoesEstoqueRefs,
+      })
+    >;
+typedef $$EstoquesTableCreateCompanionBuilder =
+    EstoquesCompanion Function({
+      Value<int> id,
+      required int produtoId,
+      Value<double> quantidadeAtual,
+      Value<DateTime> atualizadoEm,
+    });
+typedef $$EstoquesTableUpdateCompanionBuilder =
+    EstoquesCompanion Function({
+      Value<int> id,
+      Value<int> produtoId,
+      Value<double> quantidadeAtual,
+      Value<DateTime> atualizadoEm,
+    });
+
+final class $$EstoquesTableReferences
+    extends BaseReferences<_$AppDatabase, $EstoquesTable, Estoque> {
+  $$EstoquesTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static $ProdutosTable _produtoIdTable(_$AppDatabase db) =>
+      db.produtos.createAlias('estoques__produto_id__produtos__id');
+
+  $$ProdutosTableProcessedTableManager get produtoId {
+    final $_column = $_itemColumn<int>('produto_id')!;
+
+    final manager = $$ProdutosTableTableManager(
+      $_db,
+      $_db.produtos,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_produtoIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$EstoquesTableFilterComposer
+    extends Composer<_$AppDatabase, $EstoquesTable> {
+  $$EstoquesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get quantidadeAtual => $composableBuilder(
+    column: $table.quantidadeAtual,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$ProdutosTableFilterComposer get produtoId {
+    final $$ProdutosTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableFilterComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$EstoquesTableOrderingComposer
+    extends Composer<_$AppDatabase, $EstoquesTable> {
+  $$EstoquesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get quantidadeAtual => $composableBuilder(
+    column: $table.quantidadeAtual,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$ProdutosTableOrderingComposer get produtoId {
+    final $$ProdutosTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableOrderingComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$EstoquesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $EstoquesTable> {
+  $$EstoquesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<double> get quantidadeAtual => $composableBuilder(
+    column: $table.quantidadeAtual,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => column,
+  );
+
+  $$ProdutosTableAnnotationComposer get produtoId {
+    final $$ProdutosTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableAnnotationComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$EstoquesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $EstoquesTable,
+          Estoque,
+          $$EstoquesTableFilterComposer,
+          $$EstoquesTableOrderingComposer,
+          $$EstoquesTableAnnotationComposer,
+          $$EstoquesTableCreateCompanionBuilder,
+          $$EstoquesTableUpdateCompanionBuilder,
+          (Estoque, $$EstoquesTableReferences),
+          Estoque,
+          PrefetchHooks Function({bool produtoId})
+        > {
+  $$EstoquesTableTableManager(_$AppDatabase db, $EstoquesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$EstoquesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$EstoquesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$EstoquesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> produtoId = const Value.absent(),
+                Value<double> quantidadeAtual = const Value.absent(),
+                Value<DateTime> atualizadoEm = const Value.absent(),
+              }) => EstoquesCompanion(
+                id: id,
+                produtoId: produtoId,
+                quantidadeAtual: quantidadeAtual,
+                atualizadoEm: atualizadoEm,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int produtoId,
+                Value<double> quantidadeAtual = const Value.absent(),
+                Value<DateTime> atualizadoEm = const Value.absent(),
+              }) => EstoquesCompanion.insert(
+                id: id,
+                produtoId: produtoId,
+                quantidadeAtual: quantidadeAtual,
+                atualizadoEm: atualizadoEm,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$EstoquesTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({produtoId = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
@@ -2461,15 +3800,15 @@ class $$ProdutosTableTableManager
                       dynamic
                     >
                   >(state) {
-                    if (categoriaId) {
+                    if (produtoId) {
                       state =
                           state.withJoin(
                                 currentTable: table,
-                                currentColumn: table.categoriaId,
-                                referencedTable: $$ProdutosTableReferences
-                                    ._categoriaIdTable(db),
-                                referencedColumn: $$ProdutosTableReferences
-                                    ._categoriaIdTable(db)
+                                currentColumn: table.produtoId,
+                                referencedTable: $$EstoquesTableReferences
+                                    ._produtoIdTable(db),
+                                referencedColumn: $$EstoquesTableReferences
+                                    ._produtoIdTable(db)
                                     .id,
                               )
                               as T;
@@ -2486,19 +3825,412 @@ class $$ProdutosTableTableManager
       );
 }
 
-typedef $$ProdutosTableProcessedTableManager =
+typedef $$EstoquesTableProcessedTableManager =
     ProcessedTableManager<
       _$AppDatabase,
-      $ProdutosTable,
-      Produto,
-      $$ProdutosTableFilterComposer,
-      $$ProdutosTableOrderingComposer,
-      $$ProdutosTableAnnotationComposer,
-      $$ProdutosTableCreateCompanionBuilder,
-      $$ProdutosTableUpdateCompanionBuilder,
-      (Produto, $$ProdutosTableReferences),
-      Produto,
-      PrefetchHooks Function({bool categoriaId})
+      $EstoquesTable,
+      Estoque,
+      $$EstoquesTableFilterComposer,
+      $$EstoquesTableOrderingComposer,
+      $$EstoquesTableAnnotationComposer,
+      $$EstoquesTableCreateCompanionBuilder,
+      $$EstoquesTableUpdateCompanionBuilder,
+      (Estoque, $$EstoquesTableReferences),
+      Estoque,
+      PrefetchHooks Function({bool produtoId})
+    >;
+typedef $$MovimentacoesEstoqueTableCreateCompanionBuilder =
+    MovimentacoesEstoqueCompanion Function({
+      Value<int> id,
+      required int produtoId,
+      required String tipo,
+      required double quantidade,
+      required double quantidadeAnterior,
+      required double quantidadeFinal,
+      Value<String?> motivo,
+      Value<DateTime> criadoEm,
+    });
+typedef $$MovimentacoesEstoqueTableUpdateCompanionBuilder =
+    MovimentacoesEstoqueCompanion Function({
+      Value<int> id,
+      Value<int> produtoId,
+      Value<String> tipo,
+      Value<double> quantidade,
+      Value<double> quantidadeAnterior,
+      Value<double> quantidadeFinal,
+      Value<String?> motivo,
+      Value<DateTime> criadoEm,
+    });
+
+final class $$MovimentacoesEstoqueTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $MovimentacoesEstoqueTable,
+          MovimentacoesEstoqueData
+        > {
+  $$MovimentacoesEstoqueTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $ProdutosTable _produtoIdTable(_$AppDatabase db) => db.produtos
+      .createAlias('movimentacoes_estoque__produto_id__produtos__id');
+
+  $$ProdutosTableProcessedTableManager get produtoId {
+    final $_column = $_itemColumn<int>('produto_id')!;
+
+    final manager = $$ProdutosTableTableManager(
+      $_db,
+      $_db.produtos,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_produtoIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$MovimentacoesEstoqueTableFilterComposer
+    extends Composer<_$AppDatabase, $MovimentacoesEstoqueTable> {
+  $$MovimentacoesEstoqueTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get tipo => $composableBuilder(
+    column: $table.tipo,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get quantidade => $composableBuilder(
+    column: $table.quantidade,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get quantidadeAnterior => $composableBuilder(
+    column: $table.quantidadeAnterior,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get quantidadeFinal => $composableBuilder(
+    column: $table.quantidadeFinal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get motivo => $composableBuilder(
+    column: $table.motivo,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$ProdutosTableFilterComposer get produtoId {
+    final $$ProdutosTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableFilterComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$MovimentacoesEstoqueTableOrderingComposer
+    extends Composer<_$AppDatabase, $MovimentacoesEstoqueTable> {
+  $$MovimentacoesEstoqueTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get tipo => $composableBuilder(
+    column: $table.tipo,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get quantidade => $composableBuilder(
+    column: $table.quantidade,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get quantidadeAnterior => $composableBuilder(
+    column: $table.quantidadeAnterior,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get quantidadeFinal => $composableBuilder(
+    column: $table.quantidadeFinal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get motivo => $composableBuilder(
+    column: $table.motivo,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$ProdutosTableOrderingComposer get produtoId {
+    final $$ProdutosTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableOrderingComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$MovimentacoesEstoqueTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MovimentacoesEstoqueTable> {
+  $$MovimentacoesEstoqueTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get tipo =>
+      $composableBuilder(column: $table.tipo, builder: (column) => column);
+
+  GeneratedColumn<double> get quantidade => $composableBuilder(
+    column: $table.quantidade,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get quantidadeAnterior => $composableBuilder(
+    column: $table.quantidadeAnterior,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get quantidadeFinal => $composableBuilder(
+    column: $table.quantidadeFinal,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get motivo =>
+      $composableBuilder(column: $table.motivo, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get criadoEm =>
+      $composableBuilder(column: $table.criadoEm, builder: (column) => column);
+
+  $$ProdutosTableAnnotationComposer get produtoId {
+    final $$ProdutosTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableAnnotationComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$MovimentacoesEstoqueTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MovimentacoesEstoqueTable,
+          MovimentacoesEstoqueData,
+          $$MovimentacoesEstoqueTableFilterComposer,
+          $$MovimentacoesEstoqueTableOrderingComposer,
+          $$MovimentacoesEstoqueTableAnnotationComposer,
+          $$MovimentacoesEstoqueTableCreateCompanionBuilder,
+          $$MovimentacoesEstoqueTableUpdateCompanionBuilder,
+          (MovimentacoesEstoqueData, $$MovimentacoesEstoqueTableReferences),
+          MovimentacoesEstoqueData,
+          PrefetchHooks Function({bool produtoId})
+        > {
+  $$MovimentacoesEstoqueTableTableManager(
+    _$AppDatabase db,
+    $MovimentacoesEstoqueTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MovimentacoesEstoqueTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MovimentacoesEstoqueTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$MovimentacoesEstoqueTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> produtoId = const Value.absent(),
+                Value<String> tipo = const Value.absent(),
+                Value<double> quantidade = const Value.absent(),
+                Value<double> quantidadeAnterior = const Value.absent(),
+                Value<double> quantidadeFinal = const Value.absent(),
+                Value<String?> motivo = const Value.absent(),
+                Value<DateTime> criadoEm = const Value.absent(),
+              }) => MovimentacoesEstoqueCompanion(
+                id: id,
+                produtoId: produtoId,
+                tipo: tipo,
+                quantidade: quantidade,
+                quantidadeAnterior: quantidadeAnterior,
+                quantidadeFinal: quantidadeFinal,
+                motivo: motivo,
+                criadoEm: criadoEm,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int produtoId,
+                required String tipo,
+                required double quantidade,
+                required double quantidadeAnterior,
+                required double quantidadeFinal,
+                Value<String?> motivo = const Value.absent(),
+                Value<DateTime> criadoEm = const Value.absent(),
+              }) => MovimentacoesEstoqueCompanion.insert(
+                id: id,
+                produtoId: produtoId,
+                tipo: tipo,
+                quantidade: quantidade,
+                quantidadeAnterior: quantidadeAnterior,
+                quantidadeFinal: quantidadeFinal,
+                motivo: motivo,
+                criadoEm: criadoEm,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$MovimentacoesEstoqueTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({produtoId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (produtoId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.produtoId,
+                                referencedTable:
+                                    $$MovimentacoesEstoqueTableReferences
+                                        ._produtoIdTable(db),
+                                referencedColumn:
+                                    $$MovimentacoesEstoqueTableReferences
+                                        ._produtoIdTable(db)
+                                        .id,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$MovimentacoesEstoqueTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MovimentacoesEstoqueTable,
+      MovimentacoesEstoqueData,
+      $$MovimentacoesEstoqueTableFilterComposer,
+      $$MovimentacoesEstoqueTableOrderingComposer,
+      $$MovimentacoesEstoqueTableAnnotationComposer,
+      $$MovimentacoesEstoqueTableCreateCompanionBuilder,
+      $$MovimentacoesEstoqueTableUpdateCompanionBuilder,
+      (MovimentacoesEstoqueData, $$MovimentacoesEstoqueTableReferences),
+      MovimentacoesEstoqueData,
+      PrefetchHooks Function({bool produtoId})
     >;
 
 class $AppDatabaseManager {
@@ -2510,4 +4242,8 @@ class $AppDatabaseManager {
       $$SeedExecutionsTableTableManager(_db, _db.seedExecutions);
   $$ProdutosTableTableManager get produtos =>
       $$ProdutosTableTableManager(_db, _db.produtos);
+  $$EstoquesTableTableManager get estoques =>
+      $$EstoquesTableTableManager(_db, _db.estoques);
+  $$MovimentacoesEstoqueTableTableManager get movimentacoesEstoque =>
+      $$MovimentacoesEstoqueTableTableManager(_db, _db.movimentacoesEstoque);
 }

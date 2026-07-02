@@ -2,7 +2,7 @@
 
 Aplicativo Flutter preparado para evoluir como uma solucao de apoio a compras, organizacao de itens e modulos inteligentes futuros.
 
-O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias e modulo de Produtos. Estoque, lista de compras e inteligencia artificial ainda nao foram implementados.
+O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos e Sprint 05 de Estoque em revisao. Lista de compras e inteligencia artificial ainda nao foram implementadas.
 
 ## Documentacao oficial
 
@@ -88,8 +88,23 @@ Decisoes importantes:
 - A tela de formulario valida nome, categoria, unidade de medida e quantidades numericas.
 - A listagem permite busca por nome, filtro por categoria e filtro por status.
 - Produtos nao sao removidos fisicamente; a ativacao/desativacao usa exclusao logica por `isAtivo`.
-- A listagem ja reserva um indicador visual para status de estoque futuro, sem implementar estoque nesta etapa.
-- Esta etapa nao implementa estoque, lista de compras ou inteligencia artificial.
+- A listagem permite acesso ao modulo de estoque.
+- Esta etapa nao implementa lista de compras ou inteligencia artificial.
+
+## Modulo de estoque
+
+O modulo `features/estoque` implementa o controle inicial de quantidade atual por produto.
+
+Decisoes importantes:
+
+- O banco local usa as tabelas `estoques` e `movimentacoes_estoque`.
+- Cada produto possui no maximo um saldo atual em `estoques`.
+- Toda entrada, saida ou ajuste gera registro em `movimentacoes_estoque`.
+- Saidas nao podem deixar o estoque negativo.
+- Produtos inativos nao recebem movimentacao operacional na Sprint 05.
+- Produtos ativos abaixo da quantidade minima sao identificados para reposicao futura.
+- A tela de estoque permite alternar entre todos os produtos e apenas itens abaixo do minimo.
+- O modulo segue Repository Pattern com datasource local, repository, usecases e providers Riverpod.
 
 ## Estrutura de pastas
 
@@ -138,6 +153,17 @@ lib/
         usecases/
       presentation/
         pages/
+    estoque/
+      application/
+      data/
+        datasources/
+        repositories/
+      domain/
+        entities/
+        repositories/
+        usecases/
+      presentation/
+        pages/
   assets/
     seeds/
       categorias_seed_compra_certa.json
@@ -156,6 +182,7 @@ C:\develop\flutter\bin\flutter.bat create --project-name compra_certa compra_cer
 C:\develop\flutter\bin\flutter.bat pub add flutter_riverpod go_router drift sqlite3_flutter_libs path path_provider dev:drift_dev dev:build_runner
 C:\develop\flutter\bin\cache\dart-sdk\bin\dart.exe format lib test
 C:\develop\flutter\bin\cache\dart-sdk\bin\dart.exe run build_runner build
+C:\develop\flutter\bin\cache\dart-sdk\bin\dart.exe run build_runner build --delete-conflicting-outputs
 C:\develop\flutter\bin\flutter.bat pub get
 C:\develop\flutter\bin\flutter.bat analyze
 C:\develop\flutter\bin\flutter.bat test
@@ -185,7 +212,7 @@ Android SDK, licencas Android, Chrome e recursos de rede foram reconhecidos corr
 
 1. Habilitar Developer Mode no Windows.
 2. Rodar `flutter pub get` novamente apos habilitar Developer Mode.
-3. Rodar `dart run build_runner build --delete-conflicting-outputs` quando as primeiras tabelas Drift forem criadas.
-4. Definir os modulos iniciais do dominio.
-5. Criar entidades, contratos e casos de uso antes das telas.
-6. Implementar telas apenas depois das regras e contratos principais estarem claros.
+3. Revisar e aprovar a Sprint 05.
+4. Preparar a versao `0.5.0` somente apos aprovacao.
+5. Iniciar Sprint 06 - Historico de Compras.
+6. Manter entidades, contratos e casos de uso antes das telas nas proximas features.

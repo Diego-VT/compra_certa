@@ -4,7 +4,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## Backlog
 
-- Estoque.
 - Historico de compras.
 - Lista de compras.
 - Dashboard.
@@ -17,8 +16,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## To Do
 
-- Planejar Sprint 05 - Estoque.
-- Definir modelo final de movimentacoes de estoque.
 - Detalhar regras da lista de compras.
 - Planejar estrategia de testes de release.
 
@@ -28,6 +25,7 @@ Nenhum item ativo no momento.
 
 ## Review
 
+- Sprint 05 - Estoque.
 - Diretrizes de performance.
 - Processo de release.
 

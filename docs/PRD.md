@@ -53,12 +53,16 @@ Criar uma base confiavel para cadastro, organizacao e evolucao inteligente de co
 - Filtro por categoria.
 - Filtro por status.
 - Ativacao/desativacao logica.
-- Preparacao visual para estoque futuro.
+
+### Estoque
+
+- Controle de quantidade atual por produto.
+- Movimentacoes de entrada, saida e ajuste.
+- Identificacao de produtos ativos abaixo do minimo.
+- Bloqueio de estoque negativo.
 
 ## Funcionalidades futuras
 
-- Estoque.
-- Movimentacoes de estoque.
 - Historico de compras.
 - Lista de compras.
 - Dashboard.
@@ -78,6 +82,9 @@ Criar uma base confiavel para cadastro, organizacao e evolucao inteligente de co
 - Quantidades minima e ideal devem ser nao negativas.
 - Produto nao deve ser excluido fisicamente.
 - Produto deve ser desativado por `isAtivo`.
+- Estoque nao pode ficar negativo.
+- Toda movimentacao de estoque deve registrar quantidade anterior e final.
+- Produtos inativos nao recebem movimentacao operacional na Sprint 05.
 
 ## Fluxos principais
 
@@ -107,6 +114,13 @@ Criar uma base confiavel para cadastro, organizacao e evolucao inteligente de co
 1. Usuario aciona controle de status.
 2. App altera `isAtivo`.
 3. Produto permanece no banco.
+
+### Ajustar estoque
+
+1. Usuario acessa Estoque.
+2. Seleciona um produto.
+3. Informa entrada, saida ou ajuste.
+4. App valida a quantidade e registra a movimentacao.
 
 ## Criterios de sucesso
 

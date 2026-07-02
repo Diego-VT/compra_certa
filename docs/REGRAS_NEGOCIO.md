@@ -54,32 +54,32 @@ Regra futura:
 
 ### Estoque minimo
 
-Regra futura:
-
-- Cada produto podera ter quantidade atual.
+- Cada produto pode ter quantidade atual.
 - Se quantidade atual for menor que `quantidadeMinima`, o produto deve ser sinalizado para reposicao.
+- A listagem de produtos abaixo do minimo deve priorizar produtos ativos.
 
 ### Estoque ideal
 
-Regra futura:
-
 - `quantidadeIdeal` indica quantidade recomendada.
+- Se a quantidade atual for maior que `quantidadeIdeal`, o produto pode ser sinalizado como acima do ideal.
 - Sugestoes devem considerar diferenca entre estoque atual e ideal.
 
 ### Movimentacoes
 
-Regra futura:
-
 - Alteracoes de estoque devem gerar movimentacao.
 - Movimentacoes devem indicar entrada, saida ou ajuste.
+- Entrada soma a quantidade informada ao saldo atual.
+- Saida subtrai a quantidade informada do saldo atual.
+- Ajuste define a quantidade atual absoluta.
+- A quantidade atual nao pode ficar negativa.
+- Produtos inativos nao podem receber movimentacao operacional na Sprint 05.
 - Movimentacoes nao devem ser apagadas em fluxos comuns.
 
 ### Performance em estoque
 
-Regra futura:
-
 - Consultas de estoque devem priorizar produtos ativos.
 - Produtos abaixo do minimo devem ser consultados por query otimizada.
+- A tela de estoque deve permitir visualizar rapidamente todos os produtos ou apenas os ativos abaixo do minimo.
 - Quando necessario, indices devem ser criados para `produtoId` e campos usados em filtros.
 
 ## Sugestao automatica de compra

@@ -40,7 +40,16 @@ class _ProdutosPageState extends ConsumerState<ProdutosPage> {
     final categoriasState = ref.watch(categoriasProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Produtos')),
+      appBar: AppBar(
+        title: const Text('Produtos'),
+        actions: [
+          IconButton(
+            tooltip: 'Estoque',
+            onPressed: () => context.goNamed(AppRoute.estoque.name),
+            icon: const Icon(Icons.inventory_outlined),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.goNamed(AppRoute.novoProduto.name),
         icon: const Icon(Icons.add),

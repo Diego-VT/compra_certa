@@ -43,12 +43,39 @@ class Produtos extends Table {
   DateTimeColumn get atualizadoEm => dateTime().nullable()();
 }
 
-@DriftDatabase(tables: [Categorias, SeedExecutions, Produtos])
+class Estoques extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get produtoId => integer().references(Produtos, #id).unique()();
+  RealColumn get quantidadeAtual => real().withDefault(const Constant(0))();
+  DateTimeColumn get atualizadoEm =>
+      dateTime().withDefault(currentDateAndTime)();
+}
+
+class MovimentacoesEstoque extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get produtoId => integer().references(Produtos, #id)();
+  TextColumn get tipo => text()();
+  RealColumn get quantidade => real()();
+  RealColumn get quantidadeAnterior => real()();
+  RealColumn get quantidadeFinal => real()();
+  TextColumn get motivo => text().nullable()();
+  DateTimeColumn get criadoEm => dateTime().withDefault(currentDateAndTime)();
+}
+
+@DriftDatabase(
+  tables: [
+    Categorias,
+    SeedExecutions,
+    Produtos,
+    Estoques,
+    MovimentacoesEstoque,
+  ],
+)
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration {
@@ -56,6 +83,10 @@ class AppDatabase extends _$AppDatabase {
       onUpgrade: (migrator, from, to) async {
         if (from < 2) {
           await migrator.createTable(produtos);
+        }
+        if (from < 3) {
+          await migrator.createTable(estoques);
+          await migrator.createTable(movimentacoesEstoque);
         }
       },
       beforeOpen: (details) async {

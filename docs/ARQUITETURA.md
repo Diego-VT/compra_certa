@@ -80,6 +80,7 @@ Atuais:
 - `categorias`
 - `produtos`
 - `bootstrap`
+- `estoque`
 
 ### `services/`
 
@@ -161,6 +162,8 @@ Rotas atuais:
 /produtos
 /produtos/novo
 /produtos/:id/editar
+/estoque
+/estoque/:produtoId/ajustar
 ```
 
 Boas praticas:
@@ -178,8 +181,10 @@ Tabelas atuais:
 - `categorias`
 - `produtos`
 - `seed_executions`
+- `estoques`
+- `movimentacoes_estoque`
 
-Schema atual: `2`.
+Schema atual: `3`.
 
 Boas praticas:
 

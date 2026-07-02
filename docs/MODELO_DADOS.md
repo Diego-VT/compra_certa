@@ -2,9 +2,9 @@
 
 ## Visao geral
 
-O banco local do CompraCerta usa Drift/SQLite. O modelo atual cobre categorias, produtos e controle de seeds. O modelo futuro prepara estoque, compras, listas e sugestoes inteligentes.
+O banco local do CompraCerta usa Drift/SQLite. O modelo atual cobre categorias, produtos, controle de seeds, estoque e movimentacoes de estoque. O modelo futuro prepara compras, listas e sugestoes inteligentes.
 
-Schema atual: `2`.
+Schema atual: `3`.
 
 ## Tabelas atuais
 
@@ -73,31 +73,49 @@ Representar itens que o usuario acompanha para compras, estoque e historico.
 
 - `categoriaId` referencia `categorias.id`.
 
-## Tabelas futuras
+## `estoques`
 
-## `estoque`
+### Justificativa
 
-Controlara quantidade atual por produto.
+Controlar a quantidade atual de cada produto de forma local e offline.
 
-Campos previstos:
+### Campos
 
-- `id`
-- `produtoId`
-- `quantidadeAtual`
-- `atualizadoEm`
+| Campo | Tipo | Descricao |
+| --- | --- | --- |
+| `id` | inteiro auto incrementado | Chave primaria. |
+| `produtoId` | inteiro unico | Produto vinculado. |
+| `quantidadeAtual` | real | Quantidade atual em estoque. |
+| `atualizadoEm` | data/hora | Ultima atualizacao do saldo. |
+
+### Relacionamentos
+
+- `produtoId` referencia `produtos.id`.
 
 ## `movimentacoes_estoque`
 
-Registrara entradas, saidas e ajustes.
+### Justificativa
 
-Campos previstos:
+Registrar entradas, saidas e ajustes de estoque para auditoria e evolucao futura do historico.
 
-- `id`
-- `produtoId`
-- `tipo`
-- `quantidade`
-- `motivo`
-- `criadoEm`
+### Campos
+
+| Campo | Tipo | Descricao |
+| --- | --- | --- |
+| `id` | inteiro auto incrementado | Chave primaria. |
+| `produtoId` | inteiro | Produto movimentado. |
+| `tipo` | texto | Tipo da movimentacao: entrada, saida ou ajuste. |
+| `quantidade` | real | Quantidade informada na movimentacao. |
+| `quantidadeAnterior` | real | Saldo antes da movimentacao. |
+| `quantidadeFinal` | real | Saldo apos a movimentacao. |
+| `motivo` | texto nullable | Motivo ou observacao opcional. |
+| `criadoEm` | data/hora | Data de criacao da movimentacao. |
+
+### Relacionamentos
+
+- `produtoId` referencia `produtos.id`.
+
+## Tabelas futuras
 
 ## `compras`
 
@@ -186,7 +204,8 @@ O modelo atual permite evoluir para inteligencia por:
 - categorias hierarquicas;
 - produtos ativos/inativos;
 - minimo e ideal por produto;
+- saldo atual por produto;
+- movimentacoes auditaveis de estoque;
 - historico futuro de compras;
-- movimentacoes futuras de estoque;
 - sugestoes auditaveis.
 - preferencias locais para notificacoes.

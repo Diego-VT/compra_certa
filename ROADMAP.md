@@ -108,7 +108,7 @@ Concluida.
 
 ### Status
 
-Planejada.
+Em revisao.
 
 ### Objetivo
 
@@ -116,7 +116,7 @@ Controlar quantidade atual de produtos.
 
 ### Entregas previstas
 
-- Tabela `estoque`.
+- Tabela `estoques`.
 - Tabela `movimentacoes_estoque`.
 - Status calculado por minimo e ideal.
 - Ajuste rapido de estoque.

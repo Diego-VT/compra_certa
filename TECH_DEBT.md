@@ -64,3 +64,17 @@ Impacto: risco de consumo desnecessario de memoria quando produtos e categorias 
 Acao recomendada: avaliar query com join e carregamento incremental antes de bases grandes ou relatorios.
 
 Status: aberta.
+
+### TD-004 - Ampliar testes de widget do modulo de estoque
+
+Prioridade: baixa.
+
+Modulo: estoque.
+
+Contexto: a Sprint 05 cobre as regras centrais de estoque com testes de datasource, mas ainda nao possui testes de widget para filtro visual, estados vazios e formulario de ajuste.
+
+Impacto: risco baixo de regressao visual ou de navegacao nao capturada por testes unitarios.
+
+Acao recomendada: criar testes de widget para a tela de estoque e para o formulario de ajuste antes da preparacao de release ampliada.
+
+Status: aberta.

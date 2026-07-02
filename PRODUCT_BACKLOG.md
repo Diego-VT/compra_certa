@@ -99,11 +99,11 @@ User Stories:
 
 Tasks:
 
-- Criar tabelas futuras de estoque.
+- Criar tabelas de estoque.
 - Criar usecases de entrada, saida e ajuste.
 - Criar testes de regras de minimo e ideal.
 
-Estimativa: media.
+Estimativa: em revisao.
 
 ## Epic E-004 - Compras e Historico
 
@@ -199,9 +199,9 @@ User Stories:
 
 - US-016: Como usuario, quero ver indicadores de reposicao.
 - US-017: Como usuario, quero receber sugestoes com base no consumo.
-- US-016: Como usuario, quero usar IA somente quando eu decidir.
-- US-017: Como usuario, quero relatorios simples de compras.
-- US-018: Como usuario, quero notificacoes de reposicao.
+- US-018: Como usuario, quero usar IA somente quando eu decidir.
+- US-019: Como usuario, quero relatorios simples de compras.
+- US-020: Como usuario, quero notificacoes de reposicao.
 
 Tasks:
 

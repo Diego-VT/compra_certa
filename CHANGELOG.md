@@ -15,7 +15,33 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
-Nenhuma mudanca registrada.
+### Added
+
+- Modulo de Estoque com Clean Architecture, Riverpod e Repository Pattern.
+- Tabelas Drift `estoques` e `movimentacoes_estoque`.
+- Migration do schema local para a versao `3`.
+- Tela de resumo de estoque.
+- Tela de ajuste de estoque por produto.
+- Filtro visual para produtos ativos abaixo do minimo na tela de estoque.
+- Movimentacoes de entrada, saida e ajuste.
+- Indicadores de estoque abaixo do minimo, adequado e acima do ideal.
+- Testes automatizados para regras de estoque.
+
+### Changed
+
+- Produtos agora possuem atalho de navegacao para Estoque.
+- Consulta de produtos abaixo do minimo passou a ser filtrada diretamente no banco.
+- Documentacao tecnica atualizada para refletir o schema `3` e a Sprint 05 em revisao.
+
+### Fixed
+
+- Rota invalida de ajuste de estoque agora retorna para a tela de estoque.
+- Documentacao alinhada ao nome real da tabela `estoques`.
+
+### Verified
+
+- `flutter analyze` executado com sucesso durante a Sprint 05.
+- `flutter test` executado com sucesso durante a Sprint 05.
 
 ## [0.4.0] - 2026-07-02
 
