@@ -8,11 +8,11 @@ Status: aguardando planejamento.
 
 ### Destaques previstos
 
-- Sprint 05 - Estoque.
+- Versao 0.5.0 - Estoque.
 - Controle de quantidade atual por produto.
 - Movimentacoes de entrada, saida e ajuste.
 
-## 0.5.0 - Validacao ampliada
+## 0.4.0 - Melhorias em Produtos
 
 ### Destaques
 
@@ -25,7 +25,7 @@ Status: aguardando planejamento.
 
 - A Sprint 04 foi concluida conforme processo oficial de release.
 - Estoque, lista de compras e inteligencia artificial ainda nao fazem parte desta entrega.
-- Versao preparada para validacao ampliada antes das proximas sprints.
+- Esta versao representa a conclusao da etapa de Melhorias em Produtos.
 
 ## 0.1.0 - Base inicial
 

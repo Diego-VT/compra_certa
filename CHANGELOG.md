@@ -15,12 +15,9 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
-### Added
+Nenhuma mudanca registrada.
 
-- Retrospectivas oficiais das Sprints 01, 02 e 03 em `docs/sprints/`.
-- Indice atualizado da pasta `docs/sprints/`.
-
-## [0.5.0] - 2026-07-02
+## [0.4.0] - 2026-07-02
 
 ### Added
 
@@ -45,6 +42,8 @@ Tipos de mudanca:
 - Guia de estilo de codigo.
 - Planejamento das sprints 04 a 13.
 - Organizacao da pasta `docs/` por area.
+- Retrospectivas oficiais das Sprints 01, 02 e 03 em `docs/sprints/`.
+- Indice atualizado da pasta `docs/sprints/`.
 - Melhorias da Sprint 04 em Produtos: busca, filtros, status logico e listagem enriquecida.
 
 ### Changed

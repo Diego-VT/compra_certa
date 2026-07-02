@@ -86,6 +86,23 @@ Formato sugerido:
 1.0.0
 ```
 
+## Mapa de Versoes do Roadmap
+
+O CompraCerta usa versoes pre-1.0 para representar a conclusao incremental das sprints principais.
+
+```text
+0.1.0 - Fundacao do projeto
+0.2.0 - Categorias
+0.3.0 - Produtos
+0.4.0 - Melhorias em Produtos
+0.5.0 - Estoque
+0.6.0 - Historico de Compras
+0.7.0 - Lista de Compras
+0.8.0 - Dashboard
+0.9.0 - Motor Inteligente Local
+1.0.0 - MVP pronto para release
+```
+
 ## Regras do Projeto
 
 - Toda release deve atualizar `CHANGELOG.md`.
