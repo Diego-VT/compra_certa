@@ -130,8 +130,12 @@ class _ProdutoFormPageState extends ConsumerState<ProdutoFormPage> {
     );
 
     try {
-      await ref.read(salvarProdutoUseCaseProvider).call(produto);
+      final produtoId = await ref.read(salvarProdutoUseCaseProvider).call(
+        produto,
+      );
       ref.invalidate(produtosProvider);
+      ref.invalidate(produtosListagemProvider);
+      ref.invalidate(produtoPorIdProvider(produtoId));
 
       if (mounted) {
         context.goNamed(AppRoute.produtos.name);

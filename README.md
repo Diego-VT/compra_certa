@@ -2,7 +2,43 @@
 
 Aplicativo Flutter preparado para evoluir como uma solucao de apoio a compras, organizacao de itens e modulos inteligentes futuros.
 
-Esta etapa cria apenas a base profissional do projeto. Nenhuma funcionalidade de cadastro, estoque, lista de compras ou inteligencia artificial foi implementada.
+O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias e modulo de Produtos. Estoque, lista de compras e inteligencia artificial ainda nao foram implementados.
+
+## Documentacao oficial
+
+O CompraCerta possui documentacao de produto, arquitetura, governanca e processo para orientar desenvolvimento humano e colaboracao com agentes de IA.
+
+Documentos principais na raiz:
+
+- `PRODUCT_VISION.md`: visao executiva, missao, valores e objetivos.
+- `PRODUCT_BACKLOG.md`: backlog organizado por epic, feature, user story, task e subtask.
+- `USER_STORIES.md`: historias de usuario no padrao Scrum.
+- `MVP.md`: escopo do MVP e evolucao por versao.
+- `PROJECT_BOARD.md`: quadro Kanban textual.
+- `MILESTONES.md`: marcos do projeto.
+- `ROADMAP.md`: sprints, status e evolucao tecnica.
+- `AGENTS.md`: regras para agentes de IA.
+- `CONTRIBUTING.md`: fluxo de contribuicao.
+- `DECISIONS.md`: decisoes arquiteturais.
+- `CHANGELOG.md`: historico tecnico no padrao Keep a Changelog.
+- `RELEASE_NOTES.md`: notas amigaveis de release.
+- `VERSIONING.md`: estrategia de versionamento semantico.
+- `SECURITY.md`: seguranca, privacidade e LGPD.
+- `TECH_DEBT.md`: registro de dividas tecnicas.
+- `UI_UX_GUIDELINES.md`: diretrizes de interface e experiencia.
+- `CODE_STYLE.md`: padroes oficiais de codigo.
+
+Documentos principais em `docs/`:
+
+- `docs/PRD.md`: requisitos de produto.
+- `docs/ARQUITETURA.md`: arquitetura e padroes.
+- `docs/MODELO_DADOS.md`: tabelas atuais e futuras.
+- `docs/REGRAS_NEGOCIO.md`: regras atuais e planejadas.
+- `docs/PLANO_TESTES.md`: estrategia de testes.
+- `docs/PRODUCT_STRATEGY.md`: estrategia, personas e jornada.
+- `docs/NON_FUNCTIONAL_REQUIREMENTS.md`: requisitos nao funcionais.
+- `docs/RELEASE_PROCESS.md`: processo oficial de release.
+- `docs/sprints/`: planejamento das proximas sprints.
 
 ## Tecnologias
 
@@ -50,6 +86,9 @@ Decisoes importantes:
 - O banco local usa a tabela `produtos` no Drift/SQLite.
 - O cadastro usa Repository Pattern com datasource local, repository, usecases e providers Riverpod.
 - A tela de formulario valida nome, categoria, unidade de medida e quantidades numericas.
+- A listagem permite busca por nome, filtro por categoria e filtro por status.
+- Produtos nao sao removidos fisicamente; a ativacao/desativacao usa exclusao logica por `isAtivo`.
+- A listagem ja reserva um indicador visual para status de estoque futuro, sem implementar estoque nesta etapa.
 - Esta etapa nao implementa estoque, lista de compras ou inteligencia artificial.
 
 ## Estrutura de pastas
