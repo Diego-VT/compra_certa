@@ -1,0 +1,5971 @@
+{
+  "metadata": {
+    "nomeBase": "Categorias Extra Mercado",
+    "totalCategorias": 596,
+    "fonte": "https://www.extramercado.com.br/sitemap/mapa-de-categorias",
+    "geradoEm": "2026-07-02",
+    "observacao": "Arquivo JSON de seed inicial para o aplicativo CompraCerta. Importar apenas uma vez no banco local."
+  },
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Alimentos",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Alimentos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 2,
+      "nome": "Açougue",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Açougue",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 3,
+      "nome": "Carnes",
+      "categoriaPaiId": 2,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Açougue > Carnes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 4,
+      "nome": "Carne - Plant Based",
+      "categoriaPaiId": 3,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Açougue > Carnes > Carne - Plant Based",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 5,
+      "nome": "Carne - Temperos",
+      "categoriaPaiId": 3,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Açougue > Carnes > Carne - Temperos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 6,
+      "nome": "Carne Bovina",
+      "categoriaPaiId": 3,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Açougue > Carnes > Carne Bovina",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 7,
+      "nome": "Carne Aves",
+      "categoriaPaiId": 3,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Açougue > Carnes > Carne Aves",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 8,
+      "nome": "Carne Suína",
+      "categoriaPaiId": 3,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Açougue > Carnes > Carne Suína",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 9,
+      "nome": "Carnes Exóticas e Especiais",
+      "categoriaPaiId": 3,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Açougue > Carnes > Carnes Exóticas e Especiais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 10,
+      "nome": "Alimentos Congelados",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 11,
+      "nome": "Pratos Congelados",
+      "categoriaPaiId": 10,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Pratos Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 12,
+      "nome": "Lanches Congelados",
+      "categoriaPaiId": 11,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Pratos Congelados > Lanches Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 13,
+      "nome": "Carnes, Aves e Peixes",
+      "categoriaPaiId": 11,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Pratos Congelados > Carnes, Aves e Peixes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 14,
+      "nome": "Massas Congeladas",
+      "categoriaPaiId": 11,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Pratos Congelados > Massas Congeladas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 15,
+      "nome": "Sopas Congeladas",
+      "categoriaPaiId": 11,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Pratos Congelados > Sopas Congeladas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 16,
+      "nome": "Tortas Congeladas",
+      "categoriaPaiId": 11,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Pratos Congelados > Tortas Congeladas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 17,
+      "nome": "Legumes e Vegetais Congelados",
+      "categoriaPaiId": 11,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Pratos Congelados > Legumes e Vegetais Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 18,
+      "nome": "Pratos Prontos Congelados",
+      "categoriaPaiId": 11,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Pratos Congelados > Pratos Prontos Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 19,
+      "nome": "Sobremesas Congeladas",
+      "categoriaPaiId": 10,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Sobremesas Congeladas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 20,
+      "nome": "Açaí",
+      "categoriaPaiId": 19,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Sobremesas Congeladas > Açaí",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 21,
+      "nome": "Sobremesas Diversas",
+      "categoriaPaiId": 19,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Sobremesas Congeladas > Sobremesas Diversas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 22,
+      "nome": "Sorvetes",
+      "categoriaPaiId": 19,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Sobremesas Congeladas > Sorvetes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 23,
+      "nome": "Sazonal Industrializado",
+      "categoriaPaiId": 10,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Sazonal Industrializado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 24,
+      "nome": "Sazonal Industrializado - Suínos",
+      "categoriaPaiId": 23,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Sazonal Industrializado > Sazonal Industrializado - Suínos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 25,
+      "nome": "Sazonal Industrializado - Aves",
+      "categoriaPaiId": 23,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Congelados > Sazonal Industrializado > Sazonal Industrializado - Aves",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 26,
+      "nome": "Alimentos Refrigerados",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 27,
+      "nome": "Frios e Embutidos",
+      "categoriaPaiId": 26,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frios e Embutidos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 28,
+      "nome": "Cortes Especiais",
+      "categoriaPaiId": 27,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frios e Embutidos > Cortes Especiais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 29,
+      "nome": "Linguiças",
+      "categoriaPaiId": 27,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frios e Embutidos > Linguiças",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 30,
+      "nome": "Mortadela",
+      "categoriaPaiId": 27,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frios e Embutidos > Mortadela",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 31,
+      "nome": "Presunto",
+      "categoriaPaiId": 27,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frios e Embutidos > Presunto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 32,
+      "nome": "Salames",
+      "categoriaPaiId": 27,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frios e Embutidos > Salames",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 33,
+      "nome": "Salsichas",
+      "categoriaPaiId": 27,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frios e Embutidos > Salsichas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 34,
+      "nome": "Salgados e Defumados",
+      "categoriaPaiId": 27,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frios e Embutidos > Salgados e Defumados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 35,
+      "nome": "Frutas, Legumes e Verduras",
+      "categoriaPaiId": 26,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frutas, Legumes e Verduras",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 36,
+      "nome": "Legumes Refrigerados",
+      "categoriaPaiId": 35,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frutas, Legumes e Verduras > Legumes Refrigerados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 37,
+      "nome": "Verduras Refrigeradas",
+      "categoriaPaiId": 35,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frutas, Legumes e Verduras > Verduras Refrigeradas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 38,
+      "nome": "Frutas Refrigeradas",
+      "categoriaPaiId": 35,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frutas, Legumes e Verduras > Frutas Refrigeradas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 39,
+      "nome": "Caldos e Temperos",
+      "categoriaPaiId": 35,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Frutas, Legumes e Verduras > Caldos e Temperos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 40,
+      "nome": "Iogurtes",
+      "categoriaPaiId": 26,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 41,
+      "nome": "Iogurte Funcional",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Iogurte Funcional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 42,
+      "nome": "Iogurte Liquido",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Iogurte Liquido",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 43,
+      "nome": "Iogurte Natural",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Iogurte Natural",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 44,
+      "nome": "Iogurte Polpa",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Iogurte Polpa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 45,
+      "nome": "Iogurte para Sobremesa",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Iogurte para Sobremesa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 46,
+      "nome": "Leite Fermentado",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Leite Fermentado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 47,
+      "nome": "Iogurte Petit Suisse",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Iogurte Petit Suisse",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 48,
+      "nome": "Iogurte Grego",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Iogurte Grego",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 49,
+      "nome": "Iogurtes Diferenciados",
+      "categoriaPaiId": 40,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Iogurtes > Iogurtes Diferenciados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 50,
+      "nome": "Laticínios",
+      "categoriaPaiId": 26,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 51,
+      "nome": "Chantilly",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Chantilly",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 52,
+      "nome": "Creme de Leite Refrigerado",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Creme de Leite Refrigerado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 53,
+      "nome": "Fondue",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Fondue",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 54,
+      "nome": "Leites Frescos",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Leites Frescos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 55,
+      "nome": "Margarinas, Manteigas e Gorduras",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Margarinas, Manteigas e Gorduras",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 56,
+      "nome": "Massas Refrigeradas",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Massas Refrigeradas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 57,
+      "nome": "Nata",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Nata",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 58,
+      "nome": "Pratos Prontos Refrigerados",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Pratos Prontos Refrigerados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 59,
+      "nome": "Queijo Cremoso",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Queijo Cremoso",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 60,
+      "nome": "Queijos",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Queijos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 61,
+      "nome": "Patês e Antepastos",
+      "categoriaPaiId": 50,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Laticínios > Patês e Antepastos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 62,
+      "nome": "Ovos Refrigerados",
+      "categoriaPaiId": 26,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Ovos Refrigerados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 63,
+      "nome": "Ovos Líquido",
+      "categoriaPaiId": 62,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Alimentos Refrigerados > Ovos Refrigerados > Ovos Líquido",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 64,
+      "nome": "Básico da Despensa",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Básico da Despensa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 65,
+      "nome": "Achocolatados",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Achocolatados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 66,
+      "nome": "Achocolatado Diet ou Light",
+      "categoriaPaiId": 65,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Achocolatados > Achocolatado Diet ou Light",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 67,
+      "nome": "Achocolatado Saborizado",
+      "categoriaPaiId": 65,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Achocolatados > Achocolatado Saborizado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 68,
+      "nome": "Achocolatado Em Pó",
+      "categoriaPaiId": 65,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Achocolatados > Achocolatado Em Pó",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 69,
+      "nome": "Achocolatado Maltado",
+      "categoriaPaiId": 65,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Achocolatados > Achocolatado Maltado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 70,
+      "nome": "Achocolatado à Base de Soja",
+      "categoriaPaiId": 65,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Achocolatados > Achocolatado à Base de Soja",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 71,
+      "nome": "Achocolatado Líquido",
+      "categoriaPaiId": 65,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Achocolatados > Achocolatado Líquido",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 72,
+      "nome": "Açúcar",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 73,
+      "nome": "Açúcar Cristal",
+      "categoriaPaiId": 72,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar > Açúcar Cristal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 74,
+      "nome": "Açúcar Orgânico",
+      "categoriaPaiId": 72,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar > Açúcar Orgânico",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 75,
+      "nome": "Açúcar para Confeitaria",
+      "categoriaPaiId": 72,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar > Açúcar para Confeitaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 76,
+      "nome": "Açúcar em Cubo",
+      "categoriaPaiId": 72,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar > Açúcar em Cubo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 77,
+      "nome": "Açúcar Demerara",
+      "categoriaPaiId": 72,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar > Açúcar Demerara",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 78,
+      "nome": "Açúcar Mascavo",
+      "categoriaPaiId": 72,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar > Açúcar Mascavo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 79,
+      "nome": "Açúcar em Sachê",
+      "categoriaPaiId": 72,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar > Açúcar em Sachê",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 80,
+      "nome": "Açúcar Refinado",
+      "categoriaPaiId": 72,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Açúcar > Açúcar Refinado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 81,
+      "nome": "Cafés",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Cafés",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 82,
+      "nome": "Café em Cápsula",
+      "categoriaPaiId": 81,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Cafés > Café em Cápsula",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 83,
+      "nome": "Café em Grão",
+      "categoriaPaiId": 81,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Cafés > Café em Grão",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 84,
+      "nome": "Café Solúvel",
+      "categoriaPaiId": 81,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Cafés > Café Solúvel",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 85,
+      "nome": "Café Torrado e Moído",
+      "categoriaPaiId": 81,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Cafés > Café Torrado e Moído",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 86,
+      "nome": "Cestas",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Cestas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 87,
+      "nome": "Cesta Básica",
+      "categoriaPaiId": 86,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Cestas > Cesta Básica",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 88,
+      "nome": "Cesta de Natal",
+      "categoriaPaiId": 86,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Cestas > Cesta de Natal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 89,
+      "nome": "Farináceos",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 90,
+      "nome": "Farinha",
+      "categoriaPaiId": 89,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos > Farinha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 91,
+      "nome": "Mistura",
+      "categoriaPaiId": 89,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos > Mistura",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 92,
+      "nome": "Fubá",
+      "categoriaPaiId": 89,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos > Fubá",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 93,
+      "nome": "Farinha De Rosca",
+      "categoriaPaiId": 89,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos > Farinha De Rosca",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 94,
+      "nome": "Trigo",
+      "categoriaPaiId": 89,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos > Trigo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 95,
+      "nome": "Cuzcuz",
+      "categoriaPaiId": 89,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos > Cuzcuz",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 96,
+      "nome": "Purê de Batata",
+      "categoriaPaiId": 89,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos > Purê de Batata",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 97,
+      "nome": "Farofa Pronta",
+      "categoriaPaiId": 89,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Farináceos > Farofa Pronta",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 98,
+      "nome": "Grãos e Cereais",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 99,
+      "nome": "Polvilho",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Polvilho",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 100,
+      "nome": "Sagu",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Sagu",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 101,
+      "nome": "Tapióca",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Tapióca",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 102,
+      "nome": "Amendoim",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Amendoim",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 103,
+      "nome": "Arroz",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Arroz",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 104,
+      "nome": "Canjica",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Canjica",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 105,
+      "nome": "Canjiquinha",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Canjiquinha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 106,
+      "nome": "Evilha",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Evilha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 107,
+      "nome": "Feijão",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Feijão",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 108,
+      "nome": "Grão de Bico",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Grão de Bico",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 109,
+      "nome": "Grãos Secos",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Grãos Secos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 110,
+      "nome": "Lentilha",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Lentilha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 111,
+      "nome": "Pipoca",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Pipoca",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 112,
+      "nome": "Soja",
+      "categoriaPaiId": 98,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Grãos e Cereais > Soja",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 113,
+      "nome": "Leite em Pó",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leite em Pó",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 114,
+      "nome": "Leite em Pó de Soja",
+      "categoriaPaiId": 113,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leite em Pó > Leite em Pó de Soja",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 115,
+      "nome": "Leite em Pó Desnatado",
+      "categoriaPaiId": 113,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leite em Pó > Leite em Pó Desnatado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 116,
+      "nome": "Leite em Pó Integral",
+      "categoriaPaiId": 113,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leite em Pó > Leite em Pó Integral",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 117,
+      "nome": "Leite em Pó Modificado",
+      "categoriaPaiId": 113,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leite em Pó > Leite em Pó Modificado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 118,
+      "nome": "Leite em Pó Sachês",
+      "categoriaPaiId": 113,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leite em Pó > Leite em Pó Sachês",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 119,
+      "nome": "Leites",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leites",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 120,
+      "nome": "Leite Desnatado",
+      "categoriaPaiId": 119,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leites > Leite Desnatado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 121,
+      "nome": "Leite Integral",
+      "categoriaPaiId": 119,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leites > Leite Integral",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 122,
+      "nome": "Leite Semi-desnatado",
+      "categoriaPaiId": 119,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leites > Leite Semi-desnatado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 123,
+      "nome": "Leites Especiais",
+      "categoriaPaiId": 119,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leites > Leites Especiais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 124,
+      "nome": "Leite Zero Lactose",
+      "categoriaPaiId": 119,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leites > Leite Zero Lactose",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 125,
+      "nome": "Leite Vegetal",
+      "categoriaPaiId": 119,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Leites > Leite Vegetal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 126,
+      "nome": "Massas",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Massas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 127,
+      "nome": "Massa Instantânea",
+      "categoriaPaiId": 126,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Massas > Massa Instantânea",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 128,
+      "nome": "Massas Secas",
+      "categoriaPaiId": 126,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Massas > Massas Secas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 129,
+      "nome": "Massas Sem Glúten",
+      "categoriaPaiId": 126,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Massas > Massas Sem Glúten",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 130,
+      "nome": "Óleos e Azeites",
+      "categoriaPaiId": 64,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Óleos e Azeites",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 131,
+      "nome": "Azeite",
+      "categoriaPaiId": 130,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Óleos e Azeites > Azeite",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 132,
+      "nome": "Óleo Misto",
+      "categoriaPaiId": 130,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Óleos e Azeites > Óleo Misto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 133,
+      "nome": "Óleos",
+      "categoriaPaiId": 130,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Óleos e Azeites > Óleos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 134,
+      "nome": "Óleo Composto",
+      "categoriaPaiId": 130,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Básico da Despensa > Óleos e Azeites > Óleo Composto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 135,
+      "nome": "Cereais",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Cereais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 136,
+      "nome": "Aveia",
+      "categoriaPaiId": 135,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Cereais > Aveia",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 137,
+      "nome": "Aveia em Floco",
+      "categoriaPaiId": 136,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Cereais > Aveia > Aveia em Floco",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 138,
+      "nome": "Farinha de Aveia",
+      "categoriaPaiId": 136,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Cereais > Aveia > Farinha de Aveia",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 139,
+      "nome": "Aveia Saborizada",
+      "categoriaPaiId": 136,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Cereais > Aveia > Aveia Saborizada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 140,
+      "nome": "Cereais Matinais",
+      "categoriaPaiId": 135,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Cereais > Cereais Matinais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 141,
+      "nome": "Cereais Naturais",
+      "categoriaPaiId": 140,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Cereais > Cereais Matinais > Cereais Naturais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 142,
+      "nome": "Cereais Sabores",
+      "categoriaPaiId": 140,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Cereais > Cereais Matinais > Cereais Sabores",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 143,
+      "nome": "Cereais Funcionais",
+      "categoriaPaiId": 140,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Cereais > Cereais Matinais > Cereais Funcionais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 144,
+      "nome": "Granola e Mix de Cereais",
+      "categoriaPaiId": 140,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Cereais > Cereais Matinais > Granola e Mix de Cereais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 145,
+      "nome": "Complemento da Despensa",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 146,
+      "nome": "Saudáveis",
+      "categoriaPaiId": 145,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Saudáveis",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 147,
+      "nome": "Farináceos Saudáveis",
+      "categoriaPaiId": 146,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Saudáveis > Farináceos Saudáveis",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 148,
+      "nome": "Snacks",
+      "categoriaPaiId": 146,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Saudáveis > Snacks",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 149,
+      "nome": "Grãos e Sementes",
+      "categoriaPaiId": 146,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Saudáveis > Grãos e Sementes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 150,
+      "nome": "Suplementos Alimentares",
+      "categoriaPaiId": 146,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Saudáveis > Suplementos Alimentares",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 151,
+      "nome": "Nutrição",
+      "categoriaPaiId": 145,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Nutrição",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 152,
+      "nome": "Alimentar Adulto",
+      "categoriaPaiId": 151,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Nutrição > Alimentar Adulto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 153,
+      "nome": "Purê de Frutas",
+      "categoriaPaiId": 151,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Nutrição > Purê de Frutas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 154,
+      "nome": "Emagrecedor",
+      "categoriaPaiId": 151,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Nutrição > Emagrecedor",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 155,
+      "nome": "Alimentar e Energético",
+      "categoriaPaiId": 151,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Nutrição > Alimentar e Energético",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 156,
+      "nome": "Biscoitos",
+      "categoriaPaiId": 145,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Biscoitos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 157,
+      "nome": "Biscoitos Doces",
+      "categoriaPaiId": 156,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Biscoitos > Biscoitos Doces",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 158,
+      "nome": "Biscoitos Salgados",
+      "categoriaPaiId": 156,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Biscoitos > Biscoitos Salgados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 159,
+      "nome": "Sazonal de Mercearia",
+      "categoriaPaiId": 145,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Sazonal de Mercearia",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 160,
+      "nome": "Colombas",
+      "categoriaPaiId": 159,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Sazonal de Mercearia > Colombas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 161,
+      "nome": "Ovo de Páscoa",
+      "categoriaPaiId": 159,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Sazonal de Mercearia > Ovo de Páscoa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 162,
+      "nome": "Panetone e Chocotones",
+      "categoriaPaiId": 159,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Sazonal de Mercearia > Panetone e Chocotones",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 163,
+      "nome": "Presenteáveis",
+      "categoriaPaiId": 159,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Sazonal de Mercearia > Presenteáveis",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 164,
+      "nome": "Adoçantes",
+      "categoriaPaiId": 145,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Adoçantes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 165,
+      "nome": "Adoçantes Líquido",
+      "categoriaPaiId": 164,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Adoçantes > Adoçantes Líquido",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 166,
+      "nome": "Adoçantes em Pó",
+      "categoriaPaiId": 164,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Adoçantes > Adoçantes em Pó",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 167,
+      "nome": "Adoçantes Culinário",
+      "categoriaPaiId": 164,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Adoçantes > Adoçantes Culinário",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 168,
+      "nome": "Xilitol",
+      "categoriaPaiId": 164,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Adoçantes > Xilitol",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 169,
+      "nome": "Sucralose",
+      "categoriaPaiId": 164,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Adoçantes > Sucralose",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 170,
+      "nome": "Eritritol",
+      "categoriaPaiId": 164,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Adoçantes > Eritritol",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 171,
+      "nome": "Chá",
+      "categoriaPaiId": 145,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Chá",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 172,
+      "nome": "Chá Misto",
+      "categoriaPaiId": 171,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Chá > Chá Misto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 173,
+      "nome": "Chá Mate",
+      "categoriaPaiId": 171,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Chá > Chá Mate",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 174,
+      "nome": "Chá Preto",
+      "categoriaPaiId": 171,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Complemento da Despensa > Chá > Chá Preto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 175,
+      "nome": "Doces e Sobremesas",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 176,
+      "nome": "Confeitaria",
+      "categoriaPaiId": 175,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 177,
+      "nome": "Leite Condensado",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Leite Condensado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 178,
+      "nome": "Creme de Leite",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Creme de Leite",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 179,
+      "nome": "Amido de Milho",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Amido de Milho",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 180,
+      "nome": "Confeitos e Granulados",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Confeitos e Granulados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 181,
+      "nome": "Derivados de Coco",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Derivados de Coco",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 182,
+      "nome": "Fermento",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Fermento",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 183,
+      "nome": "Gelatina",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Gelatina",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 184,
+      "nome": "Mistura para Bolos",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Mistura para Bolos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 185,
+      "nome": "Sobremesas",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Sobremesas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 186,
+      "nome": "Doces",
+      "categoriaPaiId": 176,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Confeitaria > Doces",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 187,
+      "nome": "Bomboniere",
+      "categoriaPaiId": 175,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Bomboniere",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 188,
+      "nome": "Chocolates",
+      "categoriaPaiId": 187,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Bomboniere > Chocolates",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 189,
+      "nome": "Balas e Doces",
+      "categoriaPaiId": 187,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Bomboniere > Balas e Doces",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 190,
+      "nome": "Bombons",
+      "categoriaPaiId": 187,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Bomboniere > Bombons",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 191,
+      "nome": "Acompanhamentos",
+      "categoriaPaiId": 175,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Acompanhamentos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 192,
+      "nome": "Geléias",
+      "categoriaPaiId": 191,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Acompanhamentos > Geléias",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 193,
+      "nome": "Doces em Calda",
+      "categoriaPaiId": 191,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Acompanhamentos > Doces em Calda",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 194,
+      "nome": "Doces em Massas",
+      "categoriaPaiId": 191,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Acompanhamentos > Doces em Massas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 195,
+      "nome": "Doces em Pasta",
+      "categoriaPaiId": 191,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Acompanhamentos > Doces em Pasta",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 196,
+      "nome": "Mel e Derivados",
+      "categoriaPaiId": 191,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Doces e Sobremesas > Acompanhamentos > Mel e Derivados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 197,
+      "nome": "Hortifruti",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Hortifruti",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 198,
+      "nome": "Frutas",
+      "categoriaPaiId": 197,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 199,
+      "nome": "Frutas Secas",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Frutas Secas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 200,
+      "nome": "Frutas Especiais",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Frutas Especiais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 201,
+      "nome": "Frutas Fracionadas",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Frutas Fracionadas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 202,
+      "nome": "Maçã",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Maçã",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 203,
+      "nome": "Mamão",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Mamão",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 204,
+      "nome": "Melão e Melância",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Melão e Melância",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 205,
+      "nome": "Pêras",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Pêras",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 206,
+      "nome": "Frutas Tropicais",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Frutas Tropicais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 207,
+      "nome": "Uvas",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Uvas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 208,
+      "nome": "Frutas Orgânicas",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Frutas Orgânicas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 209,
+      "nome": "Banana",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Banana",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 210,
+      "nome": "Frutas Cítricas",
+      "categoriaPaiId": 198,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Frutas > Frutas Cítricas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 211,
+      "nome": "Legumes e Verduras",
+      "categoriaPaiId": 197,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Hortifruti > Legumes e Verduras",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 212,
+      "nome": "Hidropônicos",
+      "categoriaPaiId": 211,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Legumes e Verduras > Hidropônicos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 213,
+      "nome": "Orgânicos",
+      "categoriaPaiId": 211,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Legumes e Verduras > Orgânicos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 214,
+      "nome": "Temperos",
+      "categoriaPaiId": 211,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Legumes e Verduras > Temperos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 215,
+      "nome": "Cogumelos",
+      "categoriaPaiId": 211,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Legumes e Verduras > Cogumelos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 216,
+      "nome": "Hortaliças",
+      "categoriaPaiId": 211,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Legumes e Verduras > Hortaliças",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 217,
+      "nome": "Legumes",
+      "categoriaPaiId": 211,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Legumes e Verduras > Legumes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 218,
+      "nome": "Ovos",
+      "categoriaPaiId": 197,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Hortifruti > Ovos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 219,
+      "nome": "Ovos Orgânicos",
+      "categoriaPaiId": 218,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Ovos > Ovos Orgânicos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 220,
+      "nome": "Ovos Brancos",
+      "categoriaPaiId": 218,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Ovos > Ovos Brancos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 221,
+      "nome": "Ovos Vermelhos",
+      "categoriaPaiId": 218,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Ovos > Ovos Vermelhos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 222,
+      "nome": "Ovos Caipira",
+      "categoriaPaiId": 218,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Ovos > Ovos Caipira",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 223,
+      "nome": "Ovos Especiais",
+      "categoriaPaiId": 218,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Hortifruti > Ovos > Ovos Especiais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 224,
+      "nome": "Mercearia Salgada",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 225,
+      "nome": "Molhos e Condimentos",
+      "categoriaPaiId": 224,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 226,
+      "nome": "Especiarias",
+      "categoriaPaiId": 225,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos > Especiarias",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 227,
+      "nome": "Extrato de Tomate",
+      "categoriaPaiId": 225,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos > Extrato de Tomate",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 228,
+      "nome": "Atomatados",
+      "categoriaPaiId": 225,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos > Atomatados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 229,
+      "nome": "Ketchup e Mostarda",
+      "categoriaPaiId": 225,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos > Ketchup e Mostarda",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 230,
+      "nome": "Maionese",
+      "categoriaPaiId": 225,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos > Maionese",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 231,
+      "nome": "Molhos",
+      "categoriaPaiId": 225,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos > Molhos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 232,
+      "nome": "Sal",
+      "categoriaPaiId": 225,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos > Sal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 233,
+      "nome": "Vinagres",
+      "categoriaPaiId": 225,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Molhos e Condimentos > Vinagres",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 234,
+      "nome": "Alimentos em Conserva",
+      "categoriaPaiId": 224,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Alimentos em Conserva",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 235,
+      "nome": "Vegetais em Conserva",
+      "categoriaPaiId": 234,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Alimentos em Conserva > Vegetais em Conserva",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 236,
+      "nome": "Outros Alimentos em Conserva",
+      "categoriaPaiId": 234,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Alimentos em Conserva > Outros Alimentos em Conserva",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 237,
+      "nome": "Étnicos",
+      "categoriaPaiId": 224,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Étnicos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 238,
+      "nome": "Árabe",
+      "categoriaPaiId": 237,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Étnicos > Árabe",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 239,
+      "nome": "Kosher",
+      "categoriaPaiId": 237,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Étnicos > Kosher",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 240,
+      "nome": "Mexicano",
+      "categoriaPaiId": 237,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Étnicos > Mexicano",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 241,
+      "nome": "Oriental",
+      "categoriaPaiId": 237,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Étnicos > Oriental",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 242,
+      "nome": "Peixes em Conserva",
+      "categoriaPaiId": 224,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Peixes em Conserva",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 243,
+      "nome": "Atum",
+      "categoriaPaiId": 242,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Peixes em Conserva > Atum",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 244,
+      "nome": "Sardinha",
+      "categoriaPaiId": 242,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Peixes em Conserva > Sardinha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 245,
+      "nome": "Outros Peixes em Conserva",
+      "categoriaPaiId": 242,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Peixes em Conserva > Outros Peixes em Conserva",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 246,
+      "nome": "Pratos Prontos",
+      "categoriaPaiId": 224,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Pratos Prontos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 247,
+      "nome": "Prato Pronto - Feijão",
+      "categoriaPaiId": 246,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Pratos Prontos > Prato Pronto - Feijão",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 248,
+      "nome": "Prato Pronto - Massas",
+      "categoriaPaiId": 246,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Pratos Prontos > Prato Pronto - Massas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 249,
+      "nome": "Prato Pronto - Soja",
+      "categoriaPaiId": 246,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Pratos Prontos > Prato Pronto - Soja",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 250,
+      "nome": "Refeição Pronta",
+      "categoriaPaiId": 246,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Pratos Prontos > Refeição Pronta",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 251,
+      "nome": "Prato Pronto - Arroz",
+      "categoriaPaiId": 246,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Pratos Prontos > Prato Pronto - Arroz",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 252,
+      "nome": "Enlatados",
+      "categoriaPaiId": 246,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Pratos Prontos > Enlatados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 253,
+      "nome": "Sopas e Cremes",
+      "categoriaPaiId": 224,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Sopas e Cremes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 254,
+      "nome": "Cremes",
+      "categoriaPaiId": 253,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Sopas e Cremes > Cremes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 255,
+      "nome": "Sopas",
+      "categoriaPaiId": 253,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Mercearia Salgada > Sopas e Cremes > Sopas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 256,
+      "nome": "Padaria",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 257,
+      "nome": "Fabricação Própria Padaria",
+      "categoriaPaiId": 256,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Padaria > Fabricação Própria Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 258,
+      "nome": "Acompanhamentos Padaria",
+      "categoriaPaiId": 257,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Fabricação Própria Padaria > Acompanhamentos Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 259,
+      "nome": "Bolos e Doces",
+      "categoriaPaiId": 257,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Fabricação Própria Padaria > Bolos e Doces",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 260,
+      "nome": "Confeitaria Gelada",
+      "categoriaPaiId": 257,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Fabricação Própria Padaria > Confeitaria Gelada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 261,
+      "nome": "Insumos da Padaria",
+      "categoriaPaiId": 257,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Fabricação Própria Padaria > Insumos da Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 262,
+      "nome": "Pães Fabricação Própria",
+      "categoriaPaiId": 257,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Fabricação Própria Padaria > Pães Fabricação Própria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 263,
+      "nome": "Pães Orgânicos",
+      "categoriaPaiId": 257,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Fabricação Própria Padaria > Pães Orgânicos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 264,
+      "nome": "Lanche",
+      "categoriaPaiId": 256,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Padaria > Lanche",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 265,
+      "nome": "Biscoitos Doces da Padaria",
+      "categoriaPaiId": 264,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Lanche > Biscoitos Doces da Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 266,
+      "nome": "Torradas da Padaria",
+      "categoriaPaiId": 264,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Lanche > Torradas da Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 267,
+      "nome": "Biscoitos Salgados da Padaria",
+      "categoriaPaiId": 264,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Lanche > Biscoitos Salgados da Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 268,
+      "nome": "Padaria Industrializada",
+      "categoriaPaiId": 256,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Padaria > Padaria Industrializada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 269,
+      "nome": "Ingredientes Culinários Padaria",
+      "categoriaPaiId": 268,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Padaria Industrializada > Ingredientes Culinários Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 270,
+      "nome": "Pães",
+      "categoriaPaiId": 268,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Padaria Industrializada > Pães",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 271,
+      "nome": "Bolos e Doces da Padaria",
+      "categoriaPaiId": 268,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Padaria Industrializada > Bolos e Doces da Padaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 272,
+      "nome": "Confeitaria Sazonal",
+      "categoriaPaiId": 268,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Padaria > Padaria Industrializada > Confeitaria Sazonal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 273,
+      "nome": "Peixaria",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Peixaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 274,
+      "nome": "Peixes Congelados",
+      "categoriaPaiId": 273,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 275,
+      "nome": "Frutos do Mar Congelados",
+      "categoriaPaiId": 274,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Congelados > Frutos do Mar Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 276,
+      "nome": "Pescados Congelados",
+      "categoriaPaiId": 274,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Congelados > Pescados Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 277,
+      "nome": "Bacalhau Congelado",
+      "categoriaPaiId": 274,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Congelados > Bacalhau Congelado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 278,
+      "nome": "Peixes Frescos",
+      "categoriaPaiId": 273,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Frescos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 279,
+      "nome": "Frutos do Mar",
+      "categoriaPaiId": 278,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Frescos > Frutos do Mar",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 280,
+      "nome": "Insumos da Peixaria",
+      "categoriaPaiId": 278,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Frescos > Insumos da Peixaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 281,
+      "nome": "Pescados",
+      "categoriaPaiId": 278,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Frescos > Pescados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 282,
+      "nome": "Pratos Prontos da Peixaria",
+      "categoriaPaiId": 278,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Frescos > Pratos Prontos da Peixaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 283,
+      "nome": "Peixes Salgados",
+      "categoriaPaiId": 273,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Salgados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 284,
+      "nome": "Bacalhau",
+      "categoriaPaiId": 283,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Peixaria > Peixes Salgados > Bacalhau",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 285,
+      "nome": "Rotisserie",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 286,
+      "nome": "Entradas e Acompanhamentos",
+      "categoriaPaiId": 285,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Rotisserie > Entradas e Acompanhamentos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 287,
+      "nome": "Acompanhamentos Rotisserie",
+      "categoriaPaiId": 286,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Entradas e Acompanhamentos > Acompanhamentos Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 288,
+      "nome": "Saladas Rotisserie",
+      "categoriaPaiId": 286,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Entradas e Acompanhamentos > Saladas Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 289,
+      "nome": "Sopas e Cremes Rotisserie",
+      "categoriaPaiId": 286,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Entradas e Acompanhamentos > Sopas e Cremes Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 290,
+      "nome": "Tortas e Quiches Rotisserie",
+      "categoriaPaiId": 286,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Entradas e Acompanhamentos > Tortas e Quiches Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 291,
+      "nome": "Fabricação Própria",
+      "categoriaPaiId": 285,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 292,
+      "nome": "Prato Principal",
+      "categoriaPaiId": 291,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria > Prato Principal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 293,
+      "nome": "Refeição Completa",
+      "categoriaPaiId": 291,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria > Refeição Completa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 294,
+      "nome": "Pratos Semi Prontos",
+      "categoriaPaiId": 291,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria > Pratos Semi Prontos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 295,
+      "nome": "Doces Rotisserie",
+      "categoriaPaiId": 291,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria > Doces Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 296,
+      "nome": "Insumos da Rotisserie",
+      "categoriaPaiId": 291,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria > Insumos da Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 297,
+      "nome": "Serviços Diferenciados",
+      "categoriaPaiId": 291,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria > Serviços Diferenciados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 298,
+      "nome": "Central de Produção",
+      "categoriaPaiId": 291,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria > Central de Produção",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 299,
+      "nome": "Insumos da Lanchonete",
+      "categoriaPaiId": 291,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Fabricação Própria > Insumos da Lanchonete",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 300,
+      "nome": "Lanchonete",
+      "categoriaPaiId": 285,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Rotisserie > Lanchonete",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 301,
+      "nome": "Bebidas Rotisserie",
+      "categoriaPaiId": 300,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Lanchonete > Bebidas Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 302,
+      "nome": "Combinados Rotisserie",
+      "categoriaPaiId": 300,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Lanchonete > Combinados Rotisserie",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 303,
+      "nome": "Salgados da Lanchonete",
+      "categoriaPaiId": 300,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Lanchonete > Salgados da Lanchonete",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 304,
+      "nome": "Sanduíches da Lanchonete",
+      "categoriaPaiId": 300,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Lanchonete > Sanduíches da Lanchonete",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 305,
+      "nome": "Doces da Lanchonete",
+      "categoriaPaiId": 300,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Lanchonete > Doces da Lanchonete",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 306,
+      "nome": "Sobremesas da Lanchonete",
+      "categoriaPaiId": 300,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Rotisserie > Lanchonete > Sobremesas da Lanchonete",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 307,
+      "nome": "Salgadinhos e Aperitivos",
+      "categoriaPaiId": 1,
+      "nivel": 2,
+      "caminhoCompleto": "Alimentos > Salgadinhos e Aperitivos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 308,
+      "nome": "Aperitivos",
+      "categoriaPaiId": 307,
+      "nivel": 3,
+      "caminhoCompleto": "Alimentos > Salgadinhos e Aperitivos > Aperitivos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 309,
+      "nome": "Salgadinhos",
+      "categoriaPaiId": 308,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Salgadinhos e Aperitivos > Aperitivos > Salgadinhos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 310,
+      "nome": "Torradas",
+      "categoriaPaiId": 308,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Salgadinhos e Aperitivos > Aperitivos > Torradas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 311,
+      "nome": "Batata Palha",
+      "categoriaPaiId": 308,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Salgadinhos e Aperitivos > Aperitivos > Batata Palha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 312,
+      "nome": "Pipoca Pronta",
+      "categoriaPaiId": 308,
+      "nivel": 4,
+      "caminhoCompleto": "Alimentos > Salgadinhos e Aperitivos > Aperitivos > Pipoca Pronta",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 313,
+      "nome": "Bebidas",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Bebidas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 314,
+      "nome": "Bebidas Alcóolicas",
+      "categoriaPaiId": 313,
+      "nivel": 2,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 315,
+      "nome": "Alcoólicos Congelados",
+      "categoriaPaiId": 314,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Alcoólicos Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 316,
+      "nome": "Caipirinha",
+      "categoriaPaiId": 315,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Alcoólicos Congelados > Caipirinha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 317,
+      "nome": "Coquetéis",
+      "categoriaPaiId": 314,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Coquetéis",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 318,
+      "nome": "Drink Pronto",
+      "categoriaPaiId": 317,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Coquetéis > Drink Pronto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 319,
+      "nome": "Destilados",
+      "categoriaPaiId": 314,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Destilados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 320,
+      "nome": "Aguardente",
+      "categoriaPaiId": 319,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Destilados > Aguardente",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 321,
+      "nome": "Conhaque",
+      "categoriaPaiId": 319,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Destilados > Conhaque",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 322,
+      "nome": "Gin",
+      "categoriaPaiId": 319,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Destilados > Gin",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 323,
+      "nome": "Saquê",
+      "categoriaPaiId": 319,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Destilados > Saquê",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 324,
+      "nome": "Tequila",
+      "categoriaPaiId": 319,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Destilados > Tequila",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 325,
+      "nome": "Vodka",
+      "categoriaPaiId": 319,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Destilados > Vodka",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 326,
+      "nome": "Whisky",
+      "categoriaPaiId": 319,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Destilados > Whisky",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 327,
+      "nome": "Licores",
+      "categoriaPaiId": 314,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Licores",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 328,
+      "nome": "Licor Aperitivo",
+      "categoriaPaiId": 327,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Bebidas Alcóolicas > Licores > Licor Aperitivo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 329,
+      "nome": "Cervejas",
+      "categoriaPaiId": 313,
+      "nivel": 2,
+      "caminhoCompleto": "Bebidas > Cervejas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 330,
+      "nome": "Cervejas Escura",
+      "categoriaPaiId": 329,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Escura",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 331,
+      "nome": "Cerveja Escura Importada",
+      "categoriaPaiId": 330,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Escura > Cerveja Escura Importada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 332,
+      "nome": "Cerveja Escura Nacional",
+      "categoriaPaiId": 330,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Escura > Cerveja Escura Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 333,
+      "nome": "Kit de Cerveja Escura",
+      "categoriaPaiId": 330,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Escura > Kit de Cerveja Escura",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 334,
+      "nome": "Cervejas Pilsen",
+      "categoriaPaiId": 329,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Pilsen",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 335,
+      "nome": "Cerveja Pielsen Nacional",
+      "categoriaPaiId": 334,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Pilsen > Cerveja Pielsen Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 336,
+      "nome": "Cerveja Pielsen Importada",
+      "categoriaPaiId": 334,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Pilsen > Cerveja Pielsen Importada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 337,
+      "nome": "Kit de Cerveja Pielsen",
+      "categoriaPaiId": 334,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Pilsen > Kit de Cerveja Pielsen",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 338,
+      "nome": "Cervejas Premium",
+      "categoriaPaiId": 329,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Premium",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 339,
+      "nome": "Cerveja Premium Importada",
+      "categoriaPaiId": 338,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Premium > Cerveja Premium Importada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 340,
+      "nome": "Cerveja Premium Nacional",
+      "categoriaPaiId": 338,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Premium > Cerveja Premium Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 341,
+      "nome": "Cerveja Premium Orgânica",
+      "categoriaPaiId": 338,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Premium > Cerveja Premium Orgânica",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 342,
+      "nome": "Kit de Cerveja Premium",
+      "categoriaPaiId": 338,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Premium > Kit de Cerveja Premium",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 343,
+      "nome": "Cerveja Premium Barril",
+      "categoriaPaiId": 338,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Premium > Cerveja Premium Barril",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 344,
+      "nome": "Cervejas Saborizadas",
+      "categoriaPaiId": 329,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Saborizadas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 345,
+      "nome": "Cerveja Saborizada Nacional",
+      "categoriaPaiId": 344,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Saborizadas > Cerveja Saborizada Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 346,
+      "nome": "Cervejas Sem Álcool",
+      "categoriaPaiId": 329,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Sem Álcool",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 347,
+      "nome": "Cerveja Sem Álcool Importada",
+      "categoriaPaiId": 346,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Sem Álcool > Cerveja Sem Álcool Importada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 348,
+      "nome": "Cerveja Sem Álcool Nacional",
+      "categoriaPaiId": 346,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Sem Álcool > Cerveja Sem Álcool Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 349,
+      "nome": "Kit Cerveja Sem Álcool",
+      "categoriaPaiId": 346,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Sem Álcool > Kit Cerveja Sem Álcool",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 350,
+      "nome": "Cervejas Especiais e Artesanais",
+      "categoriaPaiId": 329,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Especiais e Artesanais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 351,
+      "nome": "Cerveja Especial e Artesanal Nacional",
+      "categoriaPaiId": 350,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Especiais e Artesanais > Cerveja Especial e Artesanal Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 352,
+      "nome": "Cerveja Especial e Artesanal Importada",
+      "categoriaPaiId": 350,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Especiais e Artesanais > Cerveja Especial e Artesanal Importada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 353,
+      "nome": "Kit de Cerveja Especial e Artesanal",
+      "categoriaPaiId": 350,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Cervejas > Cervejas Especiais e Artesanais > Kit de Cerveja Especial e Artesanal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 354,
+      "nome": "Não Alcoólicas",
+      "categoriaPaiId": 313,
+      "nivel": 2,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 355,
+      "nome": "Chá Pronto",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Chá Pronto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 356,
+      "nome": "Chá Pronto Para Beber",
+      "categoriaPaiId": 355,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Chá Pronto > Chá Pronto Para Beber",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 357,
+      "nome": "Chás Refrigerados",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Chás Refrigerados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 358,
+      "nome": "Kombuchas",
+      "categoriaPaiId": 357,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Chás Refrigerados > Kombuchas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 359,
+      "nome": "Coquetéis Não Alcoólicos",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Coquetéis Não Alcoólicos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 360,
+      "nome": "Drink Pronto Não Alcóolico",
+      "categoriaPaiId": 359,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Coquetéis Não Alcoólicos > Drink Pronto Não Alcóolico",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 361,
+      "nome": "Energético",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Energético",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 362,
+      "nome": "Energético Importado",
+      "categoriaPaiId": 361,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Energético > Energético Importado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 363,
+      "nome": "Energético Nacional",
+      "categoriaPaiId": 361,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Energético > Energético Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 364,
+      "nome": "Hidratação",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Hidratação",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 365,
+      "nome": "Água Saborizada",
+      "categoriaPaiId": 364,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Hidratação > Água Saborizada",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 366,
+      "nome": "Água com Gás",
+      "categoriaPaiId": 364,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Hidratação > Água com Gás",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 367,
+      "nome": "Água sem Gás",
+      "categoriaPaiId": 364,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Hidratação > Água sem Gás",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 368,
+      "nome": "Água de Coco",
+      "categoriaPaiId": 364,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Hidratação > Água de Coco",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 369,
+      "nome": "Isotônico",
+      "categoriaPaiId": 364,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Hidratação > Isotônico",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 370,
+      "nome": "Água Especial",
+      "categoriaPaiId": 364,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Hidratação > Água Especial",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 371,
+      "nome": "Não Alcoólicos Congelados",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Não Alcoólicos Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 372,
+      "nome": "Sucos, Frutas e Polpas Congelados",
+      "categoriaPaiId": 371,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Não Alcoólicos Congelados > Sucos, Frutas e Polpas Congelados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 373,
+      "nome": "Gelo",
+      "categoriaPaiId": 371,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Não Alcoólicos Congelados > Gelo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 374,
+      "nome": "Refresco",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Refresco",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 375,
+      "nome": "Refresco em Pó",
+      "categoriaPaiId": 374,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Refresco > Refresco em Pó",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 376,
+      "nome": "Refrigerantes",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Refrigerantes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 377,
+      "nome": "Cola",
+      "categoriaPaiId": 376,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Refrigerantes > Cola",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 378,
+      "nome": "Demais Refrigerantes",
+      "categoriaPaiId": 376,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Refrigerantes > Demais Refrigerantes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 379,
+      "nome": "Guaraná",
+      "categoriaPaiId": 376,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Refrigerantes > Guaraná",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 380,
+      "nome": "Tônica",
+      "categoriaPaiId": 376,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Refrigerantes > Tônica",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 381,
+      "nome": "Sucos",
+      "categoriaPaiId": 354,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Sucos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 382,
+      "nome": "Bebida Mista",
+      "categoriaPaiId": 381,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Sucos > Bebida Mista",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 383,
+      "nome": "Bebidas Vegetais",
+      "categoriaPaiId": 381,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Sucos > Bebidas Vegetais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 384,
+      "nome": "Suco Concentrado",
+      "categoriaPaiId": 381,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Sucos > Suco Concentrado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 385,
+      "nome": "Suco Integral",
+      "categoriaPaiId": 381,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Sucos > Suco Integral",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 386,
+      "nome": "Suco Natural",
+      "categoriaPaiId": 381,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Sucos > Suco Natural",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 387,
+      "nome": "Suco Pronto",
+      "categoriaPaiId": 381,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Sucos > Suco Pronto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 388,
+      "nome": "Suco Refrigerado Pronto",
+      "categoriaPaiId": 381,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Não Alcoólicas > Sucos > Suco Refrigerado Pronto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 389,
+      "nome": "Vinhos",
+      "categoriaPaiId": 313,
+      "nivel": 2,
+      "caminhoCompleto": "Bebidas > Vinhos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 390,
+      "nome": "Brancos",
+      "categoriaPaiId": 389,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 391,
+      "nome": "Vinho Branco Argentino",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Vinho Branco Argentino",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 392,
+      "nome": "Vinho Branco Chileno",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Vinho Branco Chileno",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 393,
+      "nome": "Vinho Branco Francês",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Vinho Branco Francês",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 394,
+      "nome": "Vinho Branco Italiano",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Vinho Branco Italiano",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 395,
+      "nome": "Vinho Branco Nacional",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Vinho Branco Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 396,
+      "nome": "Outros Paises - Vinhos Brancos",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Outros Paises - Vinhos Brancos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 397,
+      "nome": "Vinho Branco Português",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Vinho Branco Português",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 398,
+      "nome": "Vinho Branco Espanhol",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Vinho Branco Espanhol",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 399,
+      "nome": "Vinho Branco Meia Garrafa",
+      "categoriaPaiId": 390,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Brancos > Vinho Branco Meia Garrafa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 400,
+      "nome": "Espumante",
+      "categoriaPaiId": 389,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Vinhos > Espumante",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 401,
+      "nome": "Espumante Importado",
+      "categoriaPaiId": 400,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Espumante > Espumante Importado",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 402,
+      "nome": "Espumante Nacional",
+      "categoriaPaiId": 400,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Espumante > Espumante Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 403,
+      "nome": "Sidra",
+      "categoriaPaiId": 400,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Espumante > Sidra",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 404,
+      "nome": "Sidra - Sem Álcool",
+      "categoriaPaiId": 400,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Espumante > Sidra - Sem Álcool",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 405,
+      "nome": "Tintos",
+      "categoriaPaiId": 389,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 406,
+      "nome": "Vinho Tinto Argentino",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Vinho Tinto Argentino",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 407,
+      "nome": "Vinho Tinto Chileno",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Vinho Tinto Chileno",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 408,
+      "nome": "Vinho Tinto Francês",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Vinho Tinto Francês",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 409,
+      "nome": "Vinho Tinto Italiano",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Vinho Tinto Italiano",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 410,
+      "nome": "Vinho Tinto Nacional",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Vinho Tinto Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 411,
+      "nome": "Outros Paises - Vinhos Tintos",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Outros Paises - Vinhos Tintos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 412,
+      "nome": "Vinho Tinto Português",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Vinho Tinto Português",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 413,
+      "nome": "Vinho Tinto Meia Garrafa",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Vinho Tinto Meia Garrafa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 414,
+      "nome": "Vinho Tinto Espanhol",
+      "categoriaPaiId": 405,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Tintos > Vinho Tinto Espanhol",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 415,
+      "nome": "Rosés",
+      "categoriaPaiId": 389,
+      "nivel": 3,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 416,
+      "nome": "Vinho Rosé Argentino",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Vinho Rosé Argentino",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 417,
+      "nome": "Vinho Rosé Chileno",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Vinho Rosé Chileno",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 418,
+      "nome": "Vinho Rosé Francês",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Vinho Rosé Francês",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 419,
+      "nome": "Vinho Rosé Italiano",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Vinho Rosé Italiano",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 420,
+      "nome": "Vinho Rosé Nacional",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Vinho Rosé Nacional",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 421,
+      "nome": "Outros Paises - Vinhos Rosé",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Outros Paises - Vinhos Rosé",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 422,
+      "nome": "Vinho Rosé Português",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Vinho Rosé Português",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 423,
+      "nome": "Vinho Rosé Espanhol",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Vinho Rosé Espanhol",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 424,
+      "nome": "Vinho Rosé Meia Garrafa",
+      "categoriaPaiId": 415,
+      "nivel": 4,
+      "caminhoCompleto": "Bebidas > Vinhos > Rosés > Vinho Rosé Meia Garrafa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 425,
+      "nome": "Limpeza",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Limpeza",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 426,
+      "nome": "Acessórios de Limpeza",
+      "categoriaPaiId": 425,
+      "nivel": 2,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 427,
+      "nome": "Bacia",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Bacia",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 428,
+      "nome": "Balde",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Balde",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 429,
+      "nome": "Desentupidores",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Desentupidores",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 430,
+      "nome": "Escova",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Escova",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 431,
+      "nome": "Feirinha",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Feirinha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 432,
+      "nome": "Lã de Aço e Esponja",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Lã de Aço e Esponja",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 433,
+      "nome": "Lixeira",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Lixeira",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 434,
+      "nome": "Luva",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Luva",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 435,
+      "nome": "Odorizador",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Odorizador",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 436,
+      "nome": "Pá para Lixo",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Pá para Lixo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 437,
+      "nome": "Pano e Flanela",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Pano e Flanela",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 438,
+      "nome": "Rodo",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Rodo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 439,
+      "nome": "Vassoura",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Vassoura",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 440,
+      "nome": "Desodorizador",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Desodorizador",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 441,
+      "nome": "Outros Acessórios de Limpeza",
+      "categoriaPaiId": 426,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Acessórios de Limpeza > Outros Acessórios de Limpeza",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 442,
+      "nome": "Cuidados com a Roupa",
+      "categoriaPaiId": 425,
+      "nivel": 2,
+      "caminhoCompleto": "Limpeza > Cuidados com a Roupa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 443,
+      "nome": "Alvejante",
+      "categoriaPaiId": 442,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Cuidados com a Roupa > Alvejante",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 444,
+      "nome": "Amaciante",
+      "categoriaPaiId": 442,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Cuidados com a Roupa > Amaciante",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 445,
+      "nome": "Lava Roupas em Pó",
+      "categoriaPaiId": 442,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Cuidados com a Roupa > Lava Roupas em Pó",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 446,
+      "nome": "Lava Roupas Liquido",
+      "categoriaPaiId": 442,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Cuidados com a Roupa > Lava Roupas Liquido",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 447,
+      "nome": "Facilitadores - Passa Roupas",
+      "categoriaPaiId": 442,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Cuidados com a Roupa > Facilitadores - Passa Roupas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 448,
+      "nome": "Tira Manchas",
+      "categoriaPaiId": 442,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Cuidados com a Roupa > Tira Manchas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 449,
+      "nome": "Limpeza da Cozinha",
+      "categoriaPaiId": 425,
+      "nivel": 2,
+      "caminhoCompleto": "Limpeza > Limpeza da Cozinha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 450,
+      "nome": "Detergente",
+      "categoriaPaiId": 449,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza da Cozinha > Detergente",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 451,
+      "nome": "Desengordurante",
+      "categoriaPaiId": 449,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza da Cozinha > Desengordurante",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 452,
+      "nome": "Limpa Alumínio",
+      "categoriaPaiId": 449,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza da Cozinha > Limpa Alumínio",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 453,
+      "nome": "Limpa Forno",
+      "categoriaPaiId": 449,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza da Cozinha > Limpa Forno",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 454,
+      "nome": "Limpeza de Banheiro",
+      "categoriaPaiId": 425,
+      "nivel": 2,
+      "caminhoCompleto": "Limpeza > Limpeza de Banheiro",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 455,
+      "nome": "Desinfetante",
+      "categoriaPaiId": 454,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza de Banheiro > Desinfetante",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 456,
+      "nome": "Limpador Sanitário",
+      "categoriaPaiId": 454,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza de Banheiro > Limpador Sanitário",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 457,
+      "nome": "Limpeza Geral",
+      "categoriaPaiId": 425,
+      "nivel": 2,
+      "caminhoCompleto": "Limpeza > Limpeza Geral",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 458,
+      "nome": "Água Sanitária",
+      "categoriaPaiId": 457,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza Geral > Água Sanitária",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 459,
+      "nome": "Álcool",
+      "categoriaPaiId": 457,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza Geral > Álcool",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 460,
+      "nome": "Limpa Vidro",
+      "categoriaPaiId": 457,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza Geral > Limpa Vidro",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 461,
+      "nome": "Limpadores",
+      "categoriaPaiId": 457,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza Geral > Limpadores",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 462,
+      "nome": "Sabão",
+      "categoriaPaiId": 457,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza Geral > Sabão",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 463,
+      "nome": "Limpa Carpete",
+      "categoriaPaiId": 457,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Limpeza Geral > Limpa Carpete",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 464,
+      "nome": "Proteção para Casa",
+      "categoriaPaiId": 425,
+      "nivel": 2,
+      "caminhoCompleto": "Limpeza > Proteção para Casa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 465,
+      "nome": "Inseticidas",
+      "categoriaPaiId": 464,
+      "nivel": 3,
+      "caminhoCompleto": "Limpeza > Proteção para Casa > Inseticidas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 466,
+      "nome": "Descartáveis",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Descartáveis",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 467,
+      "nome": "Artigos para Festa",
+      "categoriaPaiId": 466,
+      "nivel": 2,
+      "caminhoCompleto": "Descartáveis > Artigos para Festa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 468,
+      "nome": "Acessório para Festa",
+      "categoriaPaiId": 467,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Artigos para Festa > Acessório para Festa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 469,
+      "nome": "Vela de Aniversário",
+      "categoriaPaiId": 467,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Artigos para Festa > Vela de Aniversário",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 470,
+      "nome": "Casa e Cozinha",
+      "categoriaPaiId": 466,
+      "nivel": 2,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 471,
+      "nome": "Coador de Papel",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Coador de Papel",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 472,
+      "nome": "Copo Descartável",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Copo Descartável",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 473,
+      "nome": "Cozinhar e Armazenar",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Cozinhar e Armazenar",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 474,
+      "nome": "Fósforo",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Fósforo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 475,
+      "nome": "Guardanapo",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Guardanapo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 476,
+      "nome": "Palito",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Palito",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 477,
+      "nome": "Papel Toalha",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Papel Toalha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 478,
+      "nome": "Prato Descartável",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Prato Descartável",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 479,
+      "nome": "Protetor de Alumínio para Fogão",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Protetor de Alumínio para Fogão",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 480,
+      "nome": "Rolo de Alumínio",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Rolo de Alumínio",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 481,
+      "nome": "Sacos para Lixo",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Sacos para Lixo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 482,
+      "nome": "Talher Descartável",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Talher Descartável",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 483,
+      "nome": "Vela Comum",
+      "categoriaPaiId": 470,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Casa e Cozinha > Vela Comum",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 484,
+      "nome": "Descartáveis Higiênicos",
+      "categoriaPaiId": 466,
+      "nivel": 2,
+      "caminhoCompleto": "Descartáveis > Descartáveis Higiênicos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 485,
+      "nome": "Absorvente",
+      "categoriaPaiId": 484,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Descartáveis Higiênicos > Absorvente",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 486,
+      "nome": "Fralda Adulto",
+      "categoriaPaiId": 484,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Descartáveis Higiênicos > Fralda Adulto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 487,
+      "nome": "Lenço de Papel",
+      "categoriaPaiId": 484,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Descartáveis Higiênicos > Lenço de Papel",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 488,
+      "nome": "Lenço Umedecido",
+      "categoriaPaiId": 484,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Descartáveis Higiênicos > Lenço Umedecido",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 489,
+      "nome": "Papel Higiênico",
+      "categoriaPaiId": 484,
+      "nivel": 3,
+      "caminhoCompleto": "Descartáveis > Descartáveis Higiênicos > Papel Higiênico",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 490,
+      "nome": "Bebê e Criança",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Bebê e Criança",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 491,
+      "nome": "Cuidados Pessoais Infantil",
+      "categoriaPaiId": 490,
+      "nivel": 2,
+      "caminhoCompleto": "Bebê e Criança > Cuidados Pessoais Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 492,
+      "nome": "Creme Dental Infantil",
+      "categoriaPaiId": 491,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Cuidados Pessoais Infantil > Creme Dental Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 493,
+      "nome": "Cuidados com Cabelo Infantil",
+      "categoriaPaiId": 491,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Cuidados Pessoais Infantil > Cuidados com Cabelo Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 494,
+      "nome": "Cuidados com Corpo Infantil",
+      "categoriaPaiId": 491,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Cuidados Pessoais Infantil > Cuidados com Corpo Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 495,
+      "nome": "Escova Dental Infantil",
+      "categoriaPaiId": 491,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Cuidados Pessoais Infantil > Escova Dental Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 496,
+      "nome": "Fralda Infantil",
+      "categoriaPaiId": 491,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Cuidados Pessoais Infantil > Fralda Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 497,
+      "nome": "Higiene Bucal Infantil",
+      "categoriaPaiId": 491,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Cuidados Pessoais Infantil > Higiene Bucal Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 498,
+      "nome": "Nutrição Infantil",
+      "categoriaPaiId": 490,
+      "nivel": 2,
+      "caminhoCompleto": "Bebê e Criança > Nutrição Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 499,
+      "nome": "Cereais Infantil",
+      "categoriaPaiId": 498,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Nutrição Infantil > Cereais Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 500,
+      "nome": "Complemento Nutrição Infantil",
+      "categoriaPaiId": 498,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Nutrição Infantil > Complemento Nutrição Infantil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 501,
+      "nome": "Leites e Fórmulas",
+      "categoriaPaiId": 498,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Nutrição Infantil > Leites e Fórmulas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 502,
+      "nome": "Papinhas",
+      "categoriaPaiId": 498,
+      "nivel": 3,
+      "caminhoCompleto": "Bebê e Criança > Nutrição Infantil > Papinhas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 503,
+      "nome": "Perfumaria",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Perfumaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 504,
+      "nome": "Cuidados com Cabelo",
+      "categoriaPaiId": 503,
+      "nivel": 2,
+      "caminhoCompleto": "Perfumaria > Cuidados com Cabelo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 505,
+      "nome": "Acessórios para o Cabelo",
+      "categoriaPaiId": 504,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Cabelo > Acessórios para o Cabelo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 506,
+      "nome": "Coloração do Cabelo",
+      "categoriaPaiId": 504,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Cabelo > Coloração do Cabelo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 507,
+      "nome": "Condicionador",
+      "categoriaPaiId": 504,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Cabelo > Condicionador",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 508,
+      "nome": "Fixadores",
+      "categoriaPaiId": 504,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Cabelo > Fixadores",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 509,
+      "nome": "Hidratação e Tratamento do Cabelo",
+      "categoriaPaiId": 504,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Cabelo > Hidratação e Tratamento do Cabelo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 510,
+      "nome": "Shampoo",
+      "categoriaPaiId": 504,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Cabelo > Shampoo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 511,
+      "nome": "Cuidados com Corpo",
+      "categoriaPaiId": 503,
+      "nivel": 2,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 512,
+      "nome": "Acessórios Descartáveis",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Acessórios Descartáveis",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 513,
+      "nome": "Acessórios para Banho",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Acessórios para Banho",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 514,
+      "nome": "Álcool em Gel",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Álcool em Gel",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 515,
+      "nome": "Desodorante",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Desodorante",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 516,
+      "nome": "Hidratação e Tratamento do Corpo",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Hidratação e Tratamento do Corpo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 517,
+      "nome": "Perfume",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Perfume",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 518,
+      "nome": "Preservativos",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Preservativos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 519,
+      "nome": "Proteção Labial",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Proteção Labial",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 520,
+      "nome": "Repelentes",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Repelentes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 521,
+      "nome": "Sabonete",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Sabonete",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 522,
+      "nome": "Hidratação Labial",
+      "categoriaPaiId": 511,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Corpo > Hidratação Labial",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 523,
+      "nome": "Cuidados com Rosto",
+      "categoriaPaiId": 503,
+      "nivel": 2,
+      "caminhoCompleto": "Perfumaria > Cuidados com Rosto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 524,
+      "nome": "Proteção Solar",
+      "categoriaPaiId": 523,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Rosto > Proteção Solar",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 525,
+      "nome": "Hidratação e Tratamento do Rosto",
+      "categoriaPaiId": 523,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Rosto > Hidratação e Tratamento do Rosto",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 526,
+      "nome": "Maquiagem",
+      "categoriaPaiId": 523,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Rosto > Maquiagem",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 527,
+      "nome": "Pós Barba",
+      "categoriaPaiId": 523,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Rosto > Pós Barba",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 528,
+      "nome": "Depilação",
+      "categoriaPaiId": 523,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cuidados com Rosto > Depilação",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 529,
+      "nome": "Cutelaria",
+      "categoriaPaiId": 503,
+      "nivel": 2,
+      "caminhoCompleto": "Perfumaria > Cutelaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 530,
+      "nome": "Acessórios de Cutelaria",
+      "categoriaPaiId": 529,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cutelaria > Acessórios de Cutelaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 531,
+      "nome": "Kit de Cutelaria",
+      "categoriaPaiId": 529,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cutelaria > Kit de Cutelaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 532,
+      "nome": "Pinça",
+      "categoriaPaiId": 529,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cutelaria > Pinça",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 533,
+      "nome": "Unhas",
+      "categoriaPaiId": 529,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Cutelaria > Unhas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 534,
+      "nome": "Higiene Bucal",
+      "categoriaPaiId": 503,
+      "nivel": 2,
+      "caminhoCompleto": "Perfumaria > Higiene Bucal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 535,
+      "nome": "Creme Dental",
+      "categoriaPaiId": 534,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Higiene Bucal > Creme Dental",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 536,
+      "nome": "Enxaguante Bucal",
+      "categoriaPaiId": 534,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Higiene Bucal > Enxaguante Bucal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 537,
+      "nome": "Escova Dental",
+      "categoriaPaiId": 534,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Higiene Bucal > Escova Dental",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 538,
+      "nome": "Fio Dental",
+      "categoriaPaiId": 534,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Higiene Bucal > Fio Dental",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 539,
+      "nome": "Limpador de Língua",
+      "categoriaPaiId": 534,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Higiene Bucal > Limpador de Língua",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 540,
+      "nome": "Acessórios Perfumaria",
+      "categoriaPaiId": 503,
+      "nivel": 2,
+      "caminhoCompleto": "Perfumaria > Acessórios Perfumaria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 541,
+      "nome": "Necessaire",
+      "categoriaPaiId": 540,
+      "nivel": 3,
+      "caminhoCompleto": "Perfumaria > Acessórios Perfumaria > Necessaire",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 542,
+      "nome": "PetShop",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "PetShop",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 543,
+      "nome": "Brinquedos e Utilidades",
+      "categoriaPaiId": 542,
+      "nivel": 2,
+      "caminhoCompleto": "PetShop > Brinquedos e Utilidades",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 544,
+      "nome": "Brinquedos e Utilidades - Cães",
+      "categoriaPaiId": 543,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Brinquedos e Utilidades > Brinquedos e Utilidades - Cães",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 545,
+      "nome": "Brinquedos e Utilidades - Gatos",
+      "categoriaPaiId": 543,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Brinquedos e Utilidades > Brinquedos e Utilidades - Gatos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 546,
+      "nome": "Brinquedos e Utilidades - Outros Pets",
+      "categoriaPaiId": 543,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Brinquedos e Utilidades > Brinquedos e Utilidades - Outros Pets",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 547,
+      "nome": "Brinquedos e Utilidades - Aves",
+      "categoriaPaiId": 543,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Brinquedos e Utilidades > Brinquedos e Utilidades - Aves",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 548,
+      "nome": "Brinquedos e Utilidades - Peixes",
+      "categoriaPaiId": 543,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Brinquedos e Utilidades > Brinquedos e Utilidades - Peixes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 549,
+      "nome": "Cuidado e Higiene",
+      "categoriaPaiId": 542,
+      "nivel": 2,
+      "caminhoCompleto": "PetShop > Cuidado e Higiene",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 550,
+      "nome": "Higiene - Cães",
+      "categoriaPaiId": 549,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Cuidado e Higiene > Higiene - Cães",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 551,
+      "nome": "Higiene - Gatos",
+      "categoriaPaiId": 549,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Cuidado e Higiene > Higiene - Gatos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 552,
+      "nome": "Ração",
+      "categoriaPaiId": 542,
+      "nivel": 2,
+      "caminhoCompleto": "PetShop > Ração",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 553,
+      "nome": "Ração - Aves",
+      "categoriaPaiId": 552,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Ração > Ração - Aves",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 554,
+      "nome": "Ração - Cães",
+      "categoriaPaiId": 552,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Ração > Ração - Cães",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 555,
+      "nome": "Ração - Gatos",
+      "categoriaPaiId": 552,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Ração > Ração - Gatos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 556,
+      "nome": "Ração - Peixes",
+      "categoriaPaiId": 552,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Ração > Ração - Peixes",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 557,
+      "nome": "Ração - Outros Pets",
+      "categoriaPaiId": 552,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Ração > Ração - Outros Pets",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 558,
+      "nome": "Snack e Biscoito",
+      "categoriaPaiId": 542,
+      "nivel": 2,
+      "caminhoCompleto": "PetShop > Snack e Biscoito",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 559,
+      "nome": "Snack - Cães",
+      "categoriaPaiId": 558,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Snack e Biscoito > Snack - Cães",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 560,
+      "nome": "Snack - Gatos",
+      "categoriaPaiId": 558,
+      "nivel": 3,
+      "caminhoCompleto": "PetShop > Snack e Biscoito > Snack - Gatos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 561,
+      "nome": "Bazar",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Bazar",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 562,
+      "nome": "Automotivos",
+      "categoriaPaiId": 561,
+      "nivel": 2,
+      "caminhoCompleto": "Bazar > Automotivos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 563,
+      "nome": "Limpeza e Manutenção Automotiva",
+      "categoriaPaiId": 562,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Automotivos > Limpeza e Manutenção Automotiva",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 564,
+      "nome": "Casa",
+      "categoriaPaiId": 561,
+      "nivel": 2,
+      "caminhoCompleto": "Bazar > Casa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 565,
+      "nome": "Arrumação e Organização",
+      "categoriaPaiId": 564,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Casa > Arrumação e Organização",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 566,
+      "nome": "Faça Você Mesmo",
+      "categoriaPaiId": 564,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Casa > Faça Você Mesmo",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 567,
+      "nome": "Decoração Sazonal",
+      "categoriaPaiId": 564,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Casa > Decoração Sazonal",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 568,
+      "nome": "Móveis e Colchões",
+      "categoriaPaiId": 564,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Casa > Móveis e Colchões",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 569,
+      "nome": "Cozinha",
+      "categoriaPaiId": 564,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Casa > Cozinha",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 570,
+      "nome": "Decoração da Casa",
+      "categoriaPaiId": 564,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Casa > Decoração da Casa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 571,
+      "nome": "Jardinagem",
+      "categoriaPaiId": 561,
+      "nivel": 2,
+      "caminhoCompleto": "Bazar > Jardinagem",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 572,
+      "nome": "Acessórios e Ferramentas",
+      "categoriaPaiId": 571,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Jardinagem > Acessórios e Ferramentas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 573,
+      "nome": "Flores e Plantas",
+      "categoriaPaiId": 571,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Jardinagem > Flores e Plantas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 574,
+      "nome": "Lazer",
+      "categoriaPaiId": 561,
+      "nivel": 2,
+      "caminhoCompleto": "Bazar > Lazer",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 575,
+      "nome": "Bicicletas",
+      "categoriaPaiId": 574,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Lazer > Bicicletas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 576,
+      "nome": "Brinquedos",
+      "categoriaPaiId": 574,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Lazer > Brinquedos",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 577,
+      "nome": "Camping",
+      "categoriaPaiId": 574,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Lazer > Camping",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 578,
+      "nome": "Churrasco",
+      "categoriaPaiId": 574,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Lazer > Churrasco",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 579,
+      "nome": "Esporte",
+      "categoriaPaiId": 574,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Lazer > Esporte",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 580,
+      "nome": "Praia e Piscina",
+      "categoriaPaiId": 574,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Lazer > Praia e Piscina",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 581,
+      "nome": "Viagem",
+      "categoriaPaiId": 574,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Lazer > Viagem",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 582,
+      "nome": "Papelaria e Livraria",
+      "categoriaPaiId": 561,
+      "nivel": 2,
+      "caminhoCompleto": "Bazar > Papelaria e Livraria",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 583,
+      "nome": "Desenho e Escrita",
+      "categoriaPaiId": 582,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Papelaria e Livraria > Desenho e Escrita",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 584,
+      "nome": "Livros e Revistas",
+      "categoriaPaiId": 582,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Papelaria e Livraria > Livros e Revistas",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 585,
+      "nome": "Livros",
+      "categoriaPaiId": 561,
+      "nivel": 2,
+      "caminhoCompleto": "Bazar > Livros",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 586,
+      "nome": "Álbuns",
+      "categoriaPaiId": 585,
+      "nivel": 3,
+      "caminhoCompleto": "Bazar > Livros > Álbuns",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 587,
+      "nome": "Têxtil",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Têxtil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 588,
+      "nome": "Moda",
+      "categoriaPaiId": 587,
+      "nivel": 2,
+      "caminhoCompleto": "Têxtil > Moda",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 589,
+      "nome": "Calçados",
+      "categoriaPaiId": 588,
+      "nivel": 3,
+      "caminhoCompleto": "Têxtil > Moda > Calçados",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 590,
+      "nome": "Caras do Brasil",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Caras do Brasil",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 591,
+      "nome": "Produtos Especiais",
+      "categoriaPaiId": 590,
+      "nivel": 2,
+      "caminhoCompleto": "Caras do Brasil > Produtos Especiais",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 592,
+      "nome": "Organização e Decoração",
+      "categoriaPaiId": 591,
+      "nivel": 3,
+      "caminhoCompleto": "Caras do Brasil > Produtos Especiais > Organização e Decoração",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 593,
+      "nome": "Opções Alimentares",
+      "categoriaPaiId": 591,
+      "nivel": 3,
+      "caminhoCompleto": "Caras do Brasil > Produtos Especiais > Opções Alimentares",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 594,
+      "nome": "Eletro",
+      "categoriaPaiId": null,
+      "nivel": 1,
+      "caminhoCompleto": "Eletro",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 595,
+      "nome": "Eletroportáteis",
+      "categoriaPaiId": 594,
+      "nivel": 2,
+      "caminhoCompleto": "Eletro > Eletroportáteis",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    },
+    {
+      "id": 596,
+      "nome": "Eletroportáteis - Casa",
+      "categoriaPaiId": 595,
+      "nivel": 3,
+      "caminhoCompleto": "Eletro > Eletroportáteis > Eletroportáteis - Casa",
+      "origem": "extra_mercado",
+      "isPadrao": true,
+      "ativo": true
+    }
+  ]
+}
