@@ -2,11 +2,11 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
-## Proxima versao
+## 0.6.0 - Historico de Compras
 
-Status: versao `0.6.0` preparada localmente para Historico de Compras.
+Status: publicada no GitHub em 2026-07-03.
 
-### Destaques previstos
+### Destaques
 
 - Historico de compras realizadas.
 - Registro de compras com multiplos itens.
@@ -15,6 +15,11 @@ Status: versao `0.6.0` preparada localmente para Historico de Compras.
 - Filtro por periodo na tela de historico.
 - Carregamento incremental com "Carregar mais".
 - Base para relatorios e consumo futuro.
+
+### Observacoes
+
+- Release alinhada ao mapa de versoes do `VERSIONING.md`.
+- `flutter analyze` e `flutter test` foram executados com sucesso.
 
 ## 0.5.0 - Estoque
 

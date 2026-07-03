@@ -2,7 +2,7 @@
 
 Aplicativo Flutter preparado para evoluir como uma solucao de apoio a compras, organizacao de itens e modulos inteligentes futuros.
 
-O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos e modulo de Estoque com release `0.5.0` preparada localmente. Lista de compras e inteligencia artificial ainda nao foram implementadas.
+O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos, modulo de Estoque e Historico de Compras com release `0.6.0`. Lista de compras e inteligencia artificial ainda nao foram implementadas.
 
 ## Documentacao oficial
 
@@ -106,6 +106,20 @@ Decisoes importantes:
 - A tela de estoque permite alternar entre todos os produtos e apenas itens abaixo do minimo.
 - O modulo segue Repository Pattern com datasource local, repository, usecases e providers Riverpod.
 
+## Modulo de historico de compras
+
+O modulo `features/compras` implementa o registro e a consulta de compras realizadas.
+
+Decisoes importantes:
+
+- O banco local usa as tabelas `compras` e `itens_compra`.
+- Cada compra possui data, observacoes opcionais e um ou mais itens.
+- Cada item referencia um produto existente e ativo no momento do registro.
+- A tela de historico permite filtro por periodo e carregamento incremental.
+- A paginacao usa ordenacao estavel por data e id.
+- Indices locais otimizam consultas por data, compra e produto.
+- O modulo segue Repository Pattern com datasource local, repository, usecases e providers Riverpod.
+
 ## Estrutura de pastas
 
 ```text
@@ -143,6 +157,17 @@ lib/
       presentation/
         pages/
     produtos/
+      application/
+      data/
+        datasources/
+        repositories/
+      domain/
+        entities/
+        repositories/
+        usecases/
+      presentation/
+        pages/
+    compras/
       application/
       data/
         datasources/
@@ -212,7 +237,7 @@ Android SDK, licencas Android, Chrome e recursos de rede foram reconhecidos corr
 
 1. Habilitar Developer Mode no Windows.
 2. Rodar `flutter pub get` novamente apos habilitar Developer Mode.
-3. Resolver a verificacao SSH do GitHub para concluir o push pendente.
-4. Criar tag Git da versao `0.5.0` somente apos aprovacao.
-5. Iniciar Sprint 06 - Historico de Compras.
+3. Resolver a verificacao SSH do GitHub para voltar a usar o remoto SSH.
+4. Criar tag Git da versao `0.6.0` somente apos aprovacao.
+5. Iniciar Sprint 07 - Lista de Compras.
 6. Manter entidades, contratos e casos de uso antes das telas nas proximas features.

@@ -15,6 +15,10 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+Nenhuma mudanca registrada.
+
+## [0.6.0] - 2026-07-03
+
 ### Added
 
 - Modulo de Historico de Compras com Clean Architecture, Riverpod e Repository Pattern.
