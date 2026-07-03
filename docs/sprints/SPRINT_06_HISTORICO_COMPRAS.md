@@ -80,3 +80,9 @@ Nova feature `compras` com datasource local, repository, usecases e providers.
 - Banco documentado.
 - Testes adicionados.
 - Changelog atualizado.
+- Filtro por periodo implementado na UI.
+- Carregamento incremental implementado na UI.
+- Paginacao estabilizada por data e id.
+- Indices de historico adicionados.
+- `flutter analyze` executado com sucesso.
+- `flutter test` executado com sucesso.

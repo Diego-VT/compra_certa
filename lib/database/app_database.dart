@@ -62,6 +62,30 @@ class MovimentacoesEstoque extends Table {
   DateTimeColumn get criadoEm => dateTime().withDefault(currentDateAndTime)();
 }
 
+@TableIndex(
+  name: 'idx_compras_data_compra_id',
+  columns: {
+    IndexedColumn(#dataCompra, orderBy: OrderingMode.desc),
+    IndexedColumn(#id, orderBy: OrderingMode.desc),
+  },
+)
+class Compras extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  DateTimeColumn get dataCompra => dateTime()();
+  TextColumn get observacoes => text().nullable()();
+  DateTimeColumn get criadoEm => dateTime().withDefault(currentDateAndTime)();
+}
+
+@TableIndex(name: 'idx_itens_compra_compra_id', columns: {#compraId})
+@TableIndex(name: 'idx_itens_compra_produto_id', columns: {#produtoId})
+class ItensCompra extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get compraId => integer().references(Compras, #id)();
+  IntColumn get produtoId => integer().references(Produtos, #id)();
+  RealColumn get quantidade => real()();
+  RealColumn get valorUnitario => real().nullable()();
+}
+
 @DriftDatabase(
   tables: [
     Categorias,
@@ -69,13 +93,15 @@ class MovimentacoesEstoque extends Table {
     Produtos,
     Estoques,
     MovimentacoesEstoque,
+    Compras,
+    ItensCompra,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration {
@@ -88,9 +114,25 @@ class AppDatabase extends _$AppDatabase {
           await migrator.createTable(estoques);
           await migrator.createTable(movimentacoesEstoque);
         }
+        if (from < 4) {
+          await migrator.createTable(compras);
+          await migrator.createTable(itensCompra);
+        }
       },
       beforeOpen: (details) async {
         await customStatement('PRAGMA foreign_keys = ON');
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_compras_data_compra_id '
+          'ON compras (data_compra DESC, id DESC)',
+        );
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_itens_compra_compra_id '
+          'ON itens_compra (compra_id)',
+        );
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_itens_compra_produto_id '
+          'ON itens_compra (produto_id)',
+        );
       },
     );
   }

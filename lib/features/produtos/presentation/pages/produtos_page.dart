@@ -44,6 +44,11 @@ class _ProdutosPageState extends ConsumerState<ProdutosPage> {
         title: const Text('Produtos'),
         actions: [
           IconButton(
+            tooltip: 'Historico de compras',
+            onPressed: () => context.goNamed(AppRoute.compras.name),
+            icon: const Icon(Icons.receipt_long_outlined),
+          ),
+          IconButton(
             tooltip: 'Estoque',
             onPressed: () => context.goNamed(AppRoute.estoque.name),
             icon: const Icon(Icons.inventory_outlined),

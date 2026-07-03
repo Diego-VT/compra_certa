@@ -15,7 +15,25 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
-Nenhuma mudanca registrada.
+### Added
+
+- Modulo de Historico de Compras com Clean Architecture, Riverpod e Repository Pattern.
+- Tabelas Drift `compras` e `itens_compra`.
+- Migration do schema local para a versao `4`.
+- Tela de historico de compras realizadas.
+- Tela de detalhe da compra.
+- Tela de registro de compra com multiplos itens.
+- Consulta de compras por periodo com `limit` e `offset`.
+- Filtro por periodo na tela de historico.
+- Carregamento incremental do historico com acao "Carregar mais".
+- Indices locais para consultas de historico e itens de compra.
+- Testes automatizados para registro, detalhe, filtro por periodo e paginacao de compras.
+
+### Changed
+
+- Produtos e Estoque agora possuem atalho de navegacao para Historico de Compras.
+- Paginacao do historico agora usa ordenacao estavel por data e id.
+- Filtro de data final passa a incluir compras feitas durante todo o dia selecionado.
 
 ## [0.5.0] - 2026-07-02
 

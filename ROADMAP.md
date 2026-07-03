@@ -126,7 +126,7 @@ Controlar quantidade atual de produtos.
 
 ### Status
 
-Planejada.
+Concluida.
 
 ### Objetivo
 
@@ -137,8 +137,11 @@ Registrar compras realizadas.
 - Tabela `compras`.
 - Tabela `itens_compra`.
 - Tela de historico.
+- Tela de detalhe da compra.
+- Tela de registro de compra.
 - Consulta por periodo.
 - Carregamento incremental ou filtrado do historico.
+- Indices para consultas por data e itens por compra/produto.
 
 ## Sprint 7 - Lista de Compras
 

@@ -4,14 +4,16 @@ Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuar
 
 ## Proxima versao
 
-Status: versao `0.6.0` planejada para Historico de Compras apos resolucao do push pendente da `0.5.0`.
+Status: versao `0.6.0` preparada localmente para Historico de Compras.
 
 ### Destaques previstos
 
-- Historico de compras.
-- Registro de compras realizadas.
-- Itens de compra.
-- Consultas por periodo.
+- Historico de compras realizadas.
+- Registro de compras com multiplos itens.
+- Detalhe da compra.
+- Consultas por periodo com carregamento limitado.
+- Filtro por periodo na tela de historico.
+- Carregamento incremental com "Carregar mais".
 - Base para relatorios e consumo futuro.
 
 ## 0.5.0 - Estoque

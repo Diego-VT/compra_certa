@@ -97,12 +97,14 @@ Regra futura:
 
 ## Historico de consumo
 
-Regra futura:
-
-- Compras finalizadas devem alimentar historico.
-- Historico deve apoiar relatorios e sugestoes.
+- Compra deve ter data.
+- Compra deve ter ao menos um item.
+- Item de compra deve referenciar produto existente e ativo no momento do registro.
+- Quantidade comprada deve ser maior que zero.
+- Valor unitario e opcional, mas nao pode ser negativo quando informado.
+- Compras registradas alimentam historico para relatorios e sugestoes futuras.
 - Dados historicos nao devem depender da existencia de estoque atual.
-- Produtos inativos devem continuar visiveis em historico.
+- Produtos inativos devem continuar visiveis em historico ja registrado.
 - Historico deve ser consultado por periodo, produto ou categoria para evitar carregar todo o volume.
 - Relatorios devem usar agregacoes sob demanda.
 

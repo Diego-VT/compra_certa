@@ -2,9 +2,9 @@
 
 ## Visao geral
 
-O banco local do CompraCerta usa Drift/SQLite. O modelo atual cobre categorias, produtos, controle de seeds, estoque e movimentacoes de estoque. O modelo futuro prepara compras, listas e sugestoes inteligentes.
+O banco local do CompraCerta usa Drift/SQLite. O modelo atual cobre categorias, produtos, controle de seeds, estoque, movimentacoes de estoque e historico de compras. O modelo futuro prepara listas e sugestoes inteligentes.
 
-Schema atual: `3`.
+Schema atual: `4`.
 
 ## Tabelas atuais
 
@@ -115,33 +115,56 @@ Registrar entradas, saidas e ajustes de estoque para auditoria e evolucao futura
 
 - `produtoId` referencia `produtos.id`.
 
-## Tabelas futuras
-
 ## `compras`
 
-Representara compras realizadas.
+### Justificativa
 
-Campos previstos:
+Registrar compras realizadas para consulta historica e evolucao futura de relatorios e sugestoes.
 
-- `id`
-- `dataCompra`
-- `local`
-- `valorTotal`
-- `observacoes`
-- `criadoEm`
+### Campos
+
+| Campo | Tipo | Descricao |
+| --- | --- | --- |
+| `id` | inteiro auto incrementado | Chave primaria. |
+| `dataCompra` | data/hora | Data em que a compra foi realizada. |
+| `observacoes` | texto nullable | Observacoes livres da compra. |
+| `criadoEm` | data/hora | Data de criacao do registro. |
+
+### Relacionamentos
+
+- `itens_compra.compraId` referencia `compras.id`.
+
+### Indices
+
+- `idx_compras_data_compra_id` otimiza consultas de historico por data e ordenacao incremental.
 
 ## `itens_compra`
 
-Itens comprados dentro de uma compra.
+### Justificativa
 
-Campos previstos:
+Registrar os produtos, quantidades e valores opcionais de cada compra.
 
-- `id`
-- `compraId`
-- `produtoId`
-- `quantidade`
-- `precoUnitario`
-- `precoTotal`
+### Campos
+
+| Campo | Tipo | Descricao |
+| --- | --- | --- |
+| `id` | inteiro auto incrementado | Chave primaria. |
+| `compraId` | inteiro | Compra vinculada. |
+| `produtoId` | inteiro | Produto comprado. |
+| `quantidade` | real | Quantidade comprada. |
+| `valorUnitario` | real nullable | Valor unitario informado, quando existir. |
+
+### Relacionamentos
+
+- `compraId` referencia `compras.id`.
+- `produtoId` referencia `produtos.id`.
+
+### Indices
+
+- `idx_itens_compra_compra_id` otimiza carregamento dos itens de uma compra.
+- `idx_itens_compra_produto_id` prepara consultas historicas por produto.
+
+## Tabelas futuras
 
 ## `listas_compras`
 

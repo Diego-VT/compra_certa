@@ -4,7 +4,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## Backlog
 
-- Historico de compras.
 - Lista de compras.
 - Dashboard.
 - Motor inteligente local.
@@ -42,5 +41,6 @@ Nenhum item ativo no momento.
 - Categorias.
 - Produtos.
 - Sprint 04 - Melhorias em Produtos.
+- Sprint 06 - Historico de Compras.
 - Documentacao inicial.
 - Consolidacao de documentacao e governanca.

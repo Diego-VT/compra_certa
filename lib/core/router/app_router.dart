@@ -3,6 +3,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/bootstrap/presentation/bootstrap_page.dart';
 import '../../features/categorias/presentation/pages/categorias_page.dart';
+import '../../features/compras/presentation/pages/compra_detail_page.dart';
+import '../../features/compras/presentation/pages/compra_form_page.dart';
+import '../../features/compras/presentation/pages/compras_page.dart';
 import '../../features/estoque/presentation/pages/ajuste_estoque_page.dart';
 import '../../features/estoque/presentation/pages/estoque_page.dart';
 import '../../features/produtos/presentation/pages/produto_form_page.dart';
@@ -16,6 +19,9 @@ enum AppRoute {
   editarProduto,
   estoque,
   ajustarEstoque,
+  compras,
+  novaCompra,
+  detalheCompra,
 }
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -57,6 +63,36 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               );
 
               return AjusteEstoquePage(produtoId: produtoId!);
+            },
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/compras',
+        name: AppRoute.compras.name,
+        builder: (context, state) => const ComprasPage(),
+        routes: [
+          GoRoute(
+            path: 'nova',
+            name: AppRoute.novaCompra.name,
+            builder: (context, state) => const CompraFormPage(),
+          ),
+          GoRoute(
+            path: ':id',
+            name: AppRoute.detalheCompra.name,
+            redirect: (context, state) {
+              final id = int.tryParse(state.pathParameters['id'] ?? '');
+
+              if (id == null || id <= 0) {
+                return '/compras';
+              }
+
+              return null;
+            },
+            builder: (context, state) {
+              final id = int.tryParse(state.pathParameters['id'] ?? '');
+
+              return CompraDetailPage(compraId: id!);
             },
           ),
         ],
