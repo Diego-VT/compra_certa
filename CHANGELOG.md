@@ -13,9 +13,34 @@ Tipos de mudanca:
 - Fixed: correcoes de erros.
 - Security: ajustes de seguranca ou privacidade.
 
+## [0.7.0] - 2026-07-03
+
+### Added
+
+- Modulo de Lista de Compras com Clean Architecture, Riverpod e Repository Pattern.
+- Tabelas Drift `listas_compras` e `itens_lista_compras`.
+- Migration do schema local para a versao `5`.
+- Tela de listas de compras com filtro por status e carregamento incremental.
+- Tela de criacao de lista.
+- Tela de detalhe da lista com adicao de itens e marcacao de comprado.
+- Geracao de lista a partir de produtos ativos abaixo do minimo.
+- Indices locais para consultas de listas e itens.
+- Testes automatizados para criacao, duplicidade, marcacao de item e geracao por estoque baixo.
+
+### Changed
+
+- Produtos, Estoque e Historico de Compras agora possuem atalho para Listas de Compras.
+
+### Verified
+
+- `flutter analyze` executado com sucesso durante a preparacao da release `0.7.0`.
+- `flutter test` executado com sucesso durante a preparacao da release `0.7.0`.
+
 ## [Unreleased]
 
-Nenhuma mudanca registrada.
+### Notes
+
+- Proximas entregas continuam em planejamento.
 
 ## [0.6.0] - 2026-07-03
 

@@ -125,6 +125,149 @@ Agentes nao devem:
 - Documentacao atualizada quando necessario.
 - Nenhuma alteracao acidental em projeto externo.
 
+## Política de Consulta Automática da Documentação
+
+Esta política deve ser seguida obrigatoriamente por qualquer agente de IA (ChatGPT, Codex, GitHub Copilot, Gemini, Claude ou qualquer outro) que participe do desenvolvimento do projeto CompraCerta.
+
+### 1. Fonte oficial do projeto
+
+Toda a documentacao oficial do projeto deve ser considerada a Single Source of Truth (SSOT).
+
+Antes de responder qualquer solicitacao do usuario ou iniciar qualquer implementacao, o agente deve identificar automaticamente toda a documentacao relacionada ao contexto da solicitacao.
+
+### 2. Consulta automática
+
+Sempre que receber uma nova solicitacao, o agente deve localizar e consultar automaticamente toda a documentacao pertinente.
+
+Exemplos de documentos que podem ser consultados:
+
+#### Raiz do projeto
+
+- README.md
+- AGENTS.md
+- CONTRIBUTING.md
+- CHANGELOG.md
+- ROADMAP.md
+- DECISIONS.md
+- PRODUCT_VISION.md
+- PRODUCT_BACKLOG.md
+- USER_STORIES.md
+- MVP.md
+- PROJECT_BOARD.md
+- MILESTONES.md
+- SECURITY.md
+- TECH_DEBT.md
+- UI_UX_GUIDELINES.md
+- CODE_STYLE.md
+- VERSIONING.md
+- RELEASE_NOTES.md
+
+#### Pasta docs/
+
+- PRD.md
+- ARQUITETURA.md
+- MODELO_DADOS.md
+- REGRAS_NEGOCIO.md
+- PLANO_TESTES.md
+- PRODUCT_STRATEGY.md
+- NON_FUNCTIONAL_REQUIREMENTS.md
+- RELEASE_PROCESS.md
+
+#### Pasta docs/sprints/
+
+Sempre consultar automaticamente a documentacao da Sprint correspondente antes de qualquer implementacao.
+
+### 3. Não solicitar informações já documentadas
+
+O agente nao deve solicitar ao usuario informacoes que ja estejam registradas na documentacao oficial do projeto.
+
+Sempre utilizar a documentacao existente como contexto principal antes de fazer perguntas.
+
+### 4. Identificação de conflitos
+
+Caso existam informacoes conflitantes entre documentos, o agente deve:
+
+- identificar claramente o conflito;
+- explicar o impacto tecnico ou funcional;
+- sugerir a melhor solucao;
+- aguardar aprovacao do usuario antes de prosseguir.
+
+Nunca assumir uma interpretacao quando houver conflito.
+
+### 5. Ausência de documentação
+
+Caso alguma informacao necessaria nao exista na documentacao, o agente deve:
+
+- identificar exatamente qual informacao esta faltando;
+- sugerir qual documento deveria ser atualizado;
+- somente então solicitar esclarecimentos ao usuario.
+
+### 6. Validação antes da implementação
+
+Antes de iniciar qualquer implementacao, o agente deve verificar automaticamente se:
+
+- existe Sprint planejada para a funcionalidade;
+- existe User Story correspondente;
+- existe item no Product Backlog;
+- a funcionalidade esta prevista no Roadmap;
+- as Regras de Negocio estao documentadas;
+- o Modelo de Dados suporta a implementacao;
+- a arquitetura permite a alteracao;
+- nao existem conflitos com funcionalidades ja implementadas.
+
+Caso alguma dessas validacoes falhe, o agente deve apresentar um relatorio tecnico antes de iniciar qualquer implementacao.
+
+### 7. Hierarquia oficial da documentação
+
+Quando existir conflito entre documentos, seguir obrigatoriamente a seguinte ordem de prioridade:
+
+1. Solicitacao atual do usuario (quando altera ou complementa o escopo).
+2. AGENTS.md.
+3. Documento da Sprint atual.
+4. PRODUCT_BACKLOG.md.
+5. USER_STORIES.md.
+6. ROADMAP.md.
+7. PRD.md.
+8. REGRAS_NEGOCIO.md.
+9. MODELO_DADOS.md.
+10. Demais documentos do projeto.
+
+Nunca ignorar essa hierarquia.
+
+### 8. Fluxo obrigatório
+
+Antes de qualquer implementacao:
+
+1. Identificar automaticamente a documentacao relacionada.
+2. Validar consistencia entre os documentos.
+3. Identificar conflitos.
+4. Identificar dependencias.
+5. Explicar resumidamente o plano de implementacao.
+6. Somente entao iniciar o desenvolvimento.
+
+### 9. Objetivo da política
+
+Esta politica tem como objetivos:
+
+- transformar a documentacao na referencia oficial do projeto;
+- reduzir prompts repetitivos;
+- evitar retrabalho;
+- evitar inconsistencias entre documentacao e codigo;
+- garantir rastreabilidade das decisoes;
+- manter alinhamento entre arquitetura, regras de negocio e implementacao;
+- facilitar a colaboracao entre diferentes agentes de IA e desenvolvedores.
+
+### Resultado esperado
+
+Apos esta atualizacao, qualquer agente de IA deve conseguir iniciar uma Sprint apenas com um comando simples, como:
+
+- "Iniciar Sprint 05"
+- "Revisar Sprint 06"
+- "Finalizar Sprint 07"
+- "Preparar proxima Release"
+
+Utilizando automaticamente toda a documentacao oficial do projeto como contexto, sem necessidade de o usuario repetir regras, padroes ou processos ja documentados.
+
 ## Governanca do Projeto
 
 Todo agente de IA ou automacao que atuar no CompraCerta deve tratar a documentacao oficial como fonte de verdade do produto e da engenharia.

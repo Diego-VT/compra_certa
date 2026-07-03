@@ -2,6 +2,24 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
+## 0.7.0 - Lista de Compras
+
+Status: preparada para revisao tecnica em 2026-07-03.
+
+### Destaques
+
+- Criacao de listas de compras offline.
+- Adicao de produtos a lista.
+- Marcacao de itens comprados.
+- Geracao de lista a partir de estoque baixo.
+- Base para sugestoes locais futuras.
+
+### Observacoes
+
+- Release alinhada ao mapa de versoes do `VERSIONING.md`.
+- `flutter analyze` e `flutter test` foram executados com sucesso.
+- Commit, push e criacao de tag Git foram mantidos pendentes aguardando aprovacao do usuario.
+
 ## 0.6.0 - Historico de Compras
 
 Status: publicada no GitHub em 2026-07-03.

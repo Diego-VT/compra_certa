@@ -2,7 +2,7 @@
 
 ## Status
 
-Release `0.5.0` preparada localmente; push e tag Git pendentes por verificacao SSH do GitHub.
+Revisada e finalizada tecnicamente. Validação concluida com `flutter analyze` e `flutter test`; commit, push e tag Git permanecem pendentes até aprovacao do usuario.
 
 ## Objetivo
 
@@ -95,9 +95,9 @@ Nova feature `estoque` seguindo Clean Architecture.
 - [x] Revisao tecnica realizada.
 - [x] Relatorio final preparado.
 - [x] Aprovacao do usuario para commit e push.
-- [x] Commit local criado.
-- [x] Release `0.5.0` preparada localmente.
-- [x] Push autorizado.
+- [ ] Commit local criado.
+- [ ] Release `0.5.0` preparada localmente.
+- [ ] Push autorizado.
 - [ ] Push concluido.
 - [ ] Tag Git `0.5.0` criada.
 
@@ -107,9 +107,10 @@ Nova feature `estoque` seguindo Clean Architecture.
 - Repository Pattern preservado.
 - Riverpod usado para injecao de dependencia e estado assincromo.
 - Go Router atualizado para rotas de estoque.
-- Drift/SQLite atualizado para schema `3`.
+- Drift/SQLite atualizado para schema `5` no estado atual do projeto.
 - Consulta de produtos abaixo do minimo filtrada diretamente no banco.
 - Funcionalidades principais permanecem offline.
+- A implementacao foi validada com `flutter analyze` e `flutter test` sem falhas.
 
 ## Pendencias Acompanhadas
 
