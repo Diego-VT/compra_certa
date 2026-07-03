@@ -108,7 +108,7 @@ Concluida.
 
 ### Status
 
-Em revisao.
+Concluida.
 
 ### Objetivo
 
@@ -147,7 +147,7 @@ Registrar compras realizadas.
 
 ### Status
 
-Planejada.
+Em revisao.
 
 ### Objetivo
 
@@ -159,13 +159,15 @@ Criar listas planejadas de compras.
 - Tabela `itens_lista_compras`.
 - Adicionar produtos a lista.
 - Marcar itens comprados.
+- Gerar lista a partir de estoque baixo.
 - Funcionamento offline.
+- Indices para consultas por status, lista e produto.
 
 ## Sprint 8 - Dashboard
 
 ### Status
 
-Planejada.
+Em revisao.
 
 ### Objetivo
 

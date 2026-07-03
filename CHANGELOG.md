@@ -36,6 +36,27 @@ Tipos de mudanca:
 - `flutter analyze` executado com sucesso durante a preparacao da release `0.7.0`.
 - `flutter test` executado com sucesso durante a preparacao da release `0.7.0`.
 
+## [0.8.0] - 2026-07-03
+
+### Added
+
+- Dashboard inicial com resumo operacional do app.
+- Cards para produtos abaixo do minimo, listas abertas e compras recentes.
+- Seção de resumo rapido com destaque para itens que exigem atencao.
+- Estados de vazio, erro e recarregamento para a tela de dashboard.
+- Navegacao contextual a partir dos cards para estoque, listas de compras e historico.
+- Testes automatizados para o comportamento do dashboard.
+
+### Changed
+
+- Tela inicial do app passou a abrir no dashboard.
+- Interface do dashboard tornou-se mais informativa e acionavel para uso diario.
+
+### Verified
+
+- `flutter analyze` executado com sucesso durante a preparacao da release `0.8.0`.
+- `flutter test` executado com sucesso durante a preparacao da release `0.8.0`.
+
 ## [Unreleased]
 
 ### Notes

@@ -2,6 +2,24 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
+## 0.8.0 - Dashboard
+
+Status: preparada para revisao tecnica em 2026-07-03.
+
+### Destaques
+
+- Novo dashboard inicial com resumo operacional do app.
+- Indicadores rapidos para estoque, listas abertas e compras recentes.
+- Navegacao direta para os modulos mais relevantes.
+- Melhor experiencia para identificar itens que exigem atencao.
+- Base para evolucoes futuras de analytics e acompanhamento.
+
+### Observacoes
+
+- Release alinhada ao mapa de versoes do `VERSIONING.md`.
+- `flutter analyze` e `flutter test` foram executados com sucesso.
+- Commit, push e criacao de tag Git foram mantidos pendentes aguardando aprovacao do usuario.
+
 ## 0.7.0 - Lista de Compras
 
 Status: preparada para revisao tecnica em 2026-07-03.
