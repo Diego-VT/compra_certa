@@ -20,6 +20,12 @@ class DashboardPage extends ConsumerWidget {
         title: const Text('Dashboard'),
         actions: [
           IconButton(
+            tooltip: 'Sugestoes',
+            onPressed: () =>
+                context.goNamed(AppRoute.sugestoesInteligentes.name),
+            icon: const Icon(Icons.auto_awesome_outlined),
+          ),
+          IconButton(
             tooltip: 'Listas de compras',
             onPressed: () => context.goNamed(AppRoute.listasCompras.name),
             icon: const Icon(Icons.shopping_cart_outlined),
@@ -114,9 +120,7 @@ class DashboardPage extends ConsumerWidget {
 
   List<Widget> _buildListasDetails(List<ListaCompraListItemEntity> listas) {
     if (listas.isEmpty) {
-      return const [
-        _EmptyState(message: 'Não há listas abertas no momento.'),
-      ];
+      return const [_EmptyState(message: 'Não há listas abertas no momento.')];
     }
 
     return listas.take(3).map((lista) {
@@ -125,16 +129,16 @@ class DashboardPage extends ConsumerWidget {
         contentPadding: EdgeInsets.zero,
         leading: const Icon(Icons.list_alt_outlined, size: 18),
         title: Text(lista.nome),
-        subtitle: Text('Itens: ${lista.totalItens} · comprados: ${lista.totalComprados}'),
+        subtitle: Text(
+          'Itens: ${lista.totalItens} · comprados: ${lista.totalComprados}',
+        ),
       );
     }).toList();
   }
 
   List<Widget> _buildComprasDetails(List<CompraListItemEntity> compras) {
     if (compras.isEmpty) {
-      return const [
-        _EmptyState(message: 'Nenhuma compra recente registrada.'),
-      ];
+      return const [_EmptyState(message: 'Nenhuma compra recente registrada.')];
     }
 
     return compras.take(3).map((compra) {
@@ -147,7 +151,9 @@ class DashboardPage extends ConsumerWidget {
               ? compra.observacoes!
               : 'Compra registrada',
         ),
-        subtitle: Text('Itens: ${compra.totalItens} · ${_formatDate(compra.dataCompra)}'),
+        subtitle: Text(
+          'Itens: ${compra.totalItens} · ${_formatDate(compra.dataCompra)}',
+        ),
       );
     }).toList();
   }
@@ -216,10 +222,7 @@ class _ChipLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Chip(
-      label: Text(label),
-      visualDensity: VisualDensity.compact,
-    );
+    return Chip(label: Text(label), visualDensity: VisualDensity.compact);
   }
 }
 
@@ -325,7 +328,12 @@ class _ErrorStateCard extends StatelessWidget {
               children: [
                 Icon(Icons.error_outline, color: colorScheme.error),
                 const SizedBox(width: 8),
-                Expanded(child: Text(message, style: Theme.of(context).textTheme.titleMedium)),
+                Expanded(
+                  child: Text(
+                    message,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 8),

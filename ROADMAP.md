@@ -147,7 +147,7 @@ Registrar compras realizadas.
 
 ### Status
 
-Em revisao.
+Concluida.
 
 ### Objetivo
 
@@ -185,7 +185,7 @@ Exibir resumo operacional do app.
 
 ### Status
 
-Planejada.
+Concluida.
 
 ### Objetivo
 

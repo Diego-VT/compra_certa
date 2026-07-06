@@ -64,6 +64,28 @@ Tipos de mudanca:
 
 - Proximas entregas continuam em planejamento.
 
+## [0.9.0] - 2026-07-06
+
+### Added
+
+- Feature `inteligencia` com sugestoes locais sob demanda.
+- Sugestao por estoque baixo com explicacao.
+- Sugestao por consumo recorrente recente com explicacao.
+- Tela de sugestoes acessivel pelo dashboard.
+- Criacao de lista de compras a partir de uma sugestao.
+- Regras principais do motor local isoladas em servico de dominio.
+- Testes automatizados para regras, tela e criacao de lista por sugestao.
+
+### Changed
+
+- Dashboard passou a oferecer acesso rapido a tela de sugestoes.
+- Documentacao tecnica atualizada para refletir a feature `inteligencia` sem alteracao de schema.
+
+### Verified
+
+- `flutter analyze` executado com sucesso durante a preparacao da Sprint 09.
+- `flutter test` executado com sucesso durante a preparacao da Sprint 09.
+
 ## [0.6.0] - 2026-07-03
 
 ### Added

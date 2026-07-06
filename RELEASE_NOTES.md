@@ -2,6 +2,26 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
+## 0.9.0 - Motor Inteligente Local
+
+Status: preparada para publicacao no GitHub em 2026-07-06, com commit e push aprovados pelo usuario.
+
+### Destaques
+
+- Novo motor inteligente local com sugestoes explicaveis.
+- Sugestoes por estoque abaixo do minimo.
+- Sugestoes por consumo recorrente recente.
+- Criacao de lista de compras a partir de uma sugestao.
+- Funcionamento offline, sem IA externa e sem modelo local pesado.
+
+### Observacoes
+
+- Release alinhada ao mapa de versoes do `VERSIONING.md`.
+- Nao houve alteracao de schema Drift/SQLite nesta etapa.
+- `flutter analyze` e `flutter test` foram executados com sucesso.
+- Commit e push foram aprovados para fechamento em 2026-07-06.
+- Criacao de tag Git permanece fora deste fechamento ate solicitacao explicita.
+
 ## 0.8.0 - Dashboard
 
 Status: publicada no GitHub em 2026-07-06.

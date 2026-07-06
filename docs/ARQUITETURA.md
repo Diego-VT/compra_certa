@@ -83,6 +83,7 @@ Atuais:
 - `estoque`
 - `compras`
 - `listas_compras`
+- `inteligencia`
 
 ### `services/`
 
@@ -115,6 +116,8 @@ feature/
 ### Domain
 
 Contem entidades, contratos e usecases. Nao deve depender de Flutter, Drift ou UI.
+
+Na feature `inteligencia`, o calculo de quantidade sugerida, motivo e explicacao fica em servico de dominio para manter as regras locais testaveis sem acoplamento ao banco.
 
 ### Data
 
@@ -169,6 +172,7 @@ Rotas atuais:
 /compras
 /compras/nova
 /compras/:id
+/sugestoes
 /listas-compras
 /listas-compras/nova
 /listas-compras/:id
@@ -221,6 +225,7 @@ Principios:
 - Evitar uso excessivo de imagens e assets pesados.
 - Manter funcoes principais offline: cadastro, produtos, categorias, estoque e lista de compras.
 - Carregar historico, dashboard e relatorios sob demanda.
+- Gerar sugestoes inteligentes locais sob demanda, sem processamento continuo em segundo plano.
 
 Critérios de performance:
 

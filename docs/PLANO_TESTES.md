@@ -149,15 +149,19 @@ Cobrem:
 - filtro e paginacao de listas;
 - funcionamento offline.
 
-## Testes futuros de motor inteligente
+## Testes atuais de motor inteligente
 
-Devem cobrir:
+Cobrem:
 
 - sugestao por estoque baixo;
 - sugestao por recorrencia;
 - ignorar produtos inativos;
 - explicacao da sugestao;
 - fallback sem IA externa.
+- validacao de limite para preservar processamento leve.
+- regra de dominio isolada do datasource.
+- tela de sugestoes com dados e estado vazio.
+- criacao de lista de compras a partir de uma sugestao.
 
 ## Testes futuros de IA
 

@@ -9,6 +9,7 @@ import '../../features/compras/presentation/pages/compras_page.dart';
 import '../../features/dashboard/presentation/pages/dashboard_page.dart';
 import '../../features/estoque/presentation/pages/ajuste_estoque_page.dart';
 import '../../features/estoque/presentation/pages/estoque_page.dart';
+import '../../features/inteligencia/presentation/pages/sugestoes_inteligentes_page.dart';
 import '../../features/listas_compras/presentation/pages/lista_compra_detail_page.dart';
 import '../../features/listas_compras/presentation/pages/lista_compra_form_page.dart';
 import '../../features/listas_compras/presentation/pages/listas_compras_page.dart';
@@ -27,6 +28,7 @@ enum AppRoute {
   compras,
   novaCompra,
   detalheCompra,
+  sugestoesInteligentes,
   listasCompras,
   novaListaCompra,
   detalheListaCompra,
@@ -139,6 +141,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/dashboard',
         name: AppRoute.dashboard.name,
         builder: (context, state) => const DashboardPage(),
+      ),
+      GoRoute(
+        path: '/sugestoes',
+        name: AppRoute.sugestoesInteligentes.name,
+        builder: (context, state) => const SugestoesInteligentesPage(),
       ),
       GoRoute(
         path: '/produtos',

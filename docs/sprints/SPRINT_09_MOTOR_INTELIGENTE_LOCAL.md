@@ -1,5 +1,9 @@
 # Sprint 09 - Motor Inteligente Local
 
+## Status
+
+Concluida em 2026-07-06. Implementacao do motor inteligente local finalizada com sugestoes sob demanda, validacao automatizada, documentacao atualizada e aprovacao do usuario para commit e push.
+
 ## Objetivo
 
 Gerar sugestoes de compra com regras locais leves e explicaveis.
@@ -35,7 +39,8 @@ Feature ou service local de inteligencia sob domain/application.
 
 ## Tabelas Afetadas
 
-- Futuras: `sugestoes_inteligentes`.
+- Sem alteracao de schema nesta etapa.
+- Futuras: `sugestoes_inteligentes`, caso a persistencia de sugestoes seja aprovada em sprint posterior.
 - Leitura de estoque e historico.
 
 ## Providers
@@ -44,18 +49,19 @@ Feature ou service local de inteligencia sob domain/application.
 
 ## Repositories
 
-- `SugestaoInteligenteRepository` se houver persistencia.
+- `SugestaoInteligenteRepository` para gerar sugestoes locais sob demanda.
 
 ## Usecases
 
 - Gerar sugestoes locais.
-- Listar sugestoes.
-- Marcar sugestao como aplicada ou ignorada.
+- Listar sugestoes geradas sob demanda.
+- Criar lista de compras a partir de uma sugestao gerada sob demanda.
+- Marcar sugestao como ignorada permanece fora desta primeira implementacao por nao haver persistencia.
 
 ## Telas Previstas
 
 - Lista de sugestoes.
-- Inclusao de sugestao em lista de compras.
+- Criacao de lista de compras a partir de sugestao.
 
 ## Testes Necessarios
 
@@ -76,6 +82,19 @@ Feature ou service local de inteligencia sob domain/application.
 
 ## Checklist de Conclusao
 
-- Regras documentadas.
-- Testes unitarios.
-- Impacto de performance avaliado.
+- [x] Regras documentadas.
+- [x] Feature `inteligencia` iniciada.
+- [x] Sugestao por estoque baixo implementada.
+- [x] Sugestao por consumo recorrente implementada.
+- [x] Regras principais movidas para servico de dominio.
+- [x] Criacao de lista a partir de sugestao implementada.
+- [x] Testes unitarios iniciais criados.
+- [x] Testes de widget da tela de sugestoes criados.
+- [x] Teste de criacao de lista a partir de sugestao criado.
+- [x] Impacto de performance avaliado para processamento sob demanda.
+- [x] `flutter analyze` executado.
+- [x] `flutter test` executado.
+- [x] Tela revisada.
+- [x] Documentacao final atualizada.
+- [x] Revisao tecnica final.
+- [x] Aprovacao do usuario para commit e push.

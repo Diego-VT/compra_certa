@@ -84,8 +84,6 @@ Regra futura:
 
 ## Sugestao automatica de compra
 
-Regra futura:
-
 - Sugestoes podem ser geradas por regras locais.
 - Produto abaixo do minimo deve ser candidato a sugestao.
 - Produtos inativos devem ser ignorados.
@@ -94,6 +92,10 @@ Regra futura:
 - Sugestoes locais devem usar regras leves e explicaveis.
 - IA local pesada nao deve rodar no dispositivo.
 - IA externa deve ser opcional e acionada sob demanda.
+- Na Sprint 09, sugestoes sao geradas sob demanda e nao sao persistidas.
+- Produto comprado ao menos duas vezes na janela recente pode ser candidato a sugestao por consumo recorrente.
+- Sugestoes por estoque baixo tem prioridade sobre sugestoes por consumo recorrente para o mesmo produto.
+- Aceitar uma sugestao na Sprint 09 cria uma nova lista de compras com o item sugerido.
 
 ## Historico de consumo
 

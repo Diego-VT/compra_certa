@@ -38,7 +38,7 @@ Objetivo: registrar compras e permitir consultas otimizadas.
 
 ## M-007 - Lista Inteligente
 
-Status: em revisao.
+Status: concluida.
 
 Objetivo: criar listas manuais e sugeridas com base em estoque.
 
@@ -50,7 +50,7 @@ Objetivo: exibir indicadores principais sob demanda.
 
 ## M-009 - IA
 
-Status: planejada.
+Status: em andamento.
 
 Objetivo: adicionar inteligencia local e IA externa opcional.
 

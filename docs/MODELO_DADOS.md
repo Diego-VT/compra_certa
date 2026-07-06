@@ -6,6 +6,8 @@ O banco local do CompraCerta usa Drift/SQLite. O modelo atual cobre categorias, 
 
 Schema atual: `5`.
 
+A Sprint 09 inicia o Motor Inteligente Local sem alteracao de schema. As sugestoes sao calculadas sob demanda a partir de estoque, produtos ativos e historico de compras.
+
 ## Tabelas atuais
 
 ## `categorias`
@@ -224,7 +226,7 @@ Registrar produtos planejados, quantidade desejada e marcacao de compra.
 
 ## `sugestoes_inteligentes`
 
-Sugestoes geradas por regras locais ou IA.
+Sugestoes geradas por regras locais ou IA. A tabela permanece futura; a primeira implementacao do motor local nao persiste sugestoes para evitar migration prematura.
 
 Campos previstos:
 

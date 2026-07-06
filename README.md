@@ -2,7 +2,7 @@
 
 Aplicativo Flutter preparado para evoluir como uma solucao de apoio a compras, organizacao de itens e modulos inteligentes futuros.
 
-O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos, modulo de Estoque, Historico de Compras, Lista de Compras e Dashboard em revisao. Inteligencia artificial ainda nao foi implementada.
+O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos, modulo de Estoque, Historico de Compras, Lista de Compras, Dashboard e Motor Inteligente Local concluido. Inteligencia artificial externa ainda nao foi implementada.
 
 ## Documentacao oficial
 
@@ -214,6 +214,17 @@ lib/
         usecases/
       presentation/
         pages/
+    inteligencia/
+      application/
+      data/
+        datasources/
+        repositories/
+      domain/
+        entities/
+        repositories/
+        usecases/
+      presentation/
+        pages/
     listas_compras/
       application/
       data/
@@ -285,7 +296,6 @@ Android SDK, licencas Android, Chrome e recursos de rede foram reconhecidos corr
 1. Habilitar Developer Mode no Windows.
 2. Rodar `flutter pub get` novamente apos habilitar Developer Mode.
 3. Resolver a verificacao SSH do GitHub para voltar a usar o remoto SSH.
-4. Revisar e aprovar Sprint 07 - Lista de Compras.
-5. Iniciar Sprint 09 - Motor Inteligente Local.
-6. Criar tags Git das versoes `0.7.0` e `0.8.0` quando o fluxo de release exigir.
-7. Manter entidades, contratos e casos de uso antes das telas nas proximas features.
+4. Iniciar Sprint 10 - Integracao com IA conforme documentacao oficial.
+5. Preparar versao `0.9.0` no manifesto do app quando o fluxo de release exigir.
+6. Manter entidades, contratos e casos de uso antes das telas nas proximas features.
