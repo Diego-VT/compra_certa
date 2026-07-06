@@ -10,6 +10,7 @@ class ProdutoListItemEntity {
     required this.quantidadeIdeal,
     required this.isAtivo,
     this.marca,
+    this.observacoes,
   });
 
   final int id;
@@ -19,6 +20,7 @@ class ProdutoListItemEntity {
   final String categoriaCaminho;
   final String unidadeMedida;
   final String? marca;
+  final String? observacoes;
   final double quantidadeMinima;
   final double quantidadeIdeal;
   final bool isAtivo;

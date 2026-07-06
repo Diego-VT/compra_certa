@@ -8,6 +8,7 @@ import '../../../categorias/domain/entities/categoria_entity.dart';
 import '../../application/produto_providers.dart';
 import '../../domain/entities/produto_filtro.dart';
 import '../../domain/entities/produto_list_item_entity.dart';
+import '../widgets/categoria_picker_field.dart';
 
 class ProdutosPage extends ConsumerStatefulWidget {
   const ProdutosPage({super.key});
@@ -143,7 +144,7 @@ class _ProdutosFilters extends StatelessWidget {
               controller: buscaController,
               textInputAction: TextInputAction.search,
               decoration: InputDecoration(
-                labelText: 'Buscar por nome',
+                labelText: 'Buscar produto',
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: filtro.busca.isEmpty
                     ? null
@@ -160,24 +161,10 @@ class _ProdutosFilters extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             categoriasState.when(
-              data: (categorias) => DropdownButtonFormField<int?>(
-                initialValue: filtro.categoriaId,
-                decoration: const InputDecoration(labelText: 'Categoria'),
-                items: [
-                  const DropdownMenuItem<int?>(
-                    value: null,
-                    child: Text('Todas as categorias'),
-                  ),
-                  ...categorias.map(
-                    (categoria) => DropdownMenuItem<int?>(
-                      value: categoria.id,
-                      child: Text(
-                        categoria.caminhoCompleto,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                ],
+              data: (categorias) => CategoriaPickerField(
+                categorias: categorias,
+                categoriaId: filtro.categoriaId,
+                allowAll: true,
                 onChanged: onCategoriaChanged,
               ),
               error: (error, stackTrace) => Align(
@@ -231,12 +218,26 @@ class _ProdutosList extends ConsumerWidget {
       return const Center(child: Text('Nenhum produto encontrado.'));
     }
 
+    final itens = _agruparPorCategoriaRaiz(produtos);
+
     return ListView.separated(
       padding: const EdgeInsets.all(16),
-      itemCount: produtos.length,
+      itemCount: itens.length,
       separatorBuilder: (context, index) => const SizedBox(height: 8),
       itemBuilder: (context, index) {
-        final produto = produtos[index];
+        final item = itens[index];
+
+        if (item is _ProdutoCategoriaHeader) {
+          return Padding(
+            padding: const EdgeInsets.only(top: 8, bottom: 4),
+            child: Text(
+              item.nome,
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          );
+        }
+
+        final produto = (item as _ProdutoCategoriaItem).produto;
 
         return _ProdutoCard(
           produto: produto,
@@ -250,6 +251,30 @@ class _ProdutosList extends ConsumerWidget {
     );
   }
 
+  List<_ProdutoListDisplayItem> _agruparPorCategoriaRaiz(
+    List<ProdutoListItemEntity> produtos,
+  ) {
+    final itens = <_ProdutoListDisplayItem>[];
+    String? categoriaAtual;
+
+    for (final produto in produtos) {
+      final categoriaRaiz = _categoriaRaiz(produto.categoriaCaminho);
+
+      if (categoriaRaiz != categoriaAtual) {
+        categoriaAtual = categoriaRaiz;
+        itens.add(_ProdutoCategoriaHeader(categoriaRaiz));
+      }
+
+      itens.add(_ProdutoCategoriaItem(produto));
+    }
+
+    return itens;
+  }
+
+  String _categoriaRaiz(String caminho) {
+    return caminho.split(' > ').first;
+  }
+
   Future<void> _alterarStatus(
     WidgetRef ref,
     ProdutoListItemEntity produto,
@@ -261,6 +286,22 @@ class _ProdutosList extends ConsumerWidget {
     ref.invalidate(produtosProvider);
     ref.invalidate(produtoPorIdProvider(produto.id));
   }
+}
+
+sealed class _ProdutoListDisplayItem {
+  const _ProdutoListDisplayItem();
+}
+
+class _ProdutoCategoriaHeader extends _ProdutoListDisplayItem {
+  const _ProdutoCategoriaHeader(this.nome);
+
+  final String nome;
+}
+
+class _ProdutoCategoriaItem extends _ProdutoListDisplayItem {
+  const _ProdutoCategoriaItem(this.produto);
+
+  final ProdutoListItemEntity produto;
 }
 
 class _ProdutoCard extends StatelessWidget {

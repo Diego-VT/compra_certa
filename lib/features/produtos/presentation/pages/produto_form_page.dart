@@ -9,6 +9,7 @@ import '../../../categorias/domain/entities/categoria_entity.dart';
 import '../../application/produto_providers.dart';
 import '../../domain/entities/produto_entity.dart';
 import '../../domain/entities/produto_form_data.dart';
+import '../widgets/categoria_picker_field.dart';
 
 class ProdutoFormPage extends ConsumerStatefulWidget {
   const ProdutoFormPage({super.key, this.produtoId});
@@ -130,9 +131,9 @@ class _ProdutoFormPageState extends ConsumerState<ProdutoFormPage> {
     );
 
     try {
-      final produtoId = await ref.read(salvarProdutoUseCaseProvider).call(
-        produto,
-      );
+      final produtoId = await ref
+          .read(salvarProdutoUseCaseProvider)
+          .call(produto);
       ref.invalidate(produtosProvider);
       ref.invalidate(produtosListagemProvider);
       ref.invalidate(produtoPorIdProvider(produtoId));
@@ -199,20 +200,9 @@ class _ProdutoFormBody extends StatelessWidget {
             validator: _requiredValidator,
           ),
           const SizedBox(height: 12),
-          DropdownButtonFormField<int>(
-            initialValue: categoriaId,
-            decoration: const InputDecoration(labelText: 'Categoria'),
-            items: categorias
-                .map(
-                  (categoria) => DropdownMenuItem<int>(
-                    value: categoria.id,
-                    child: Text(
-                      categoria.caminhoCompleto,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                )
-                .toList(growable: false),
+          CategoriaPickerField(
+            categorias: categorias,
+            categoriaId: categoriaId,
             onChanged: onCategoriaChanged,
             validator: (value) {
               if (value == null) {

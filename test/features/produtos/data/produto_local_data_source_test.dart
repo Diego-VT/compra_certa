@@ -36,6 +36,41 @@ void main() {
             origem: const Value('teste'),
           ),
         );
+    await database
+        .into(database.categorias)
+        .insert(
+          CategoriasCompanion(
+            id: const Value(3),
+            nome: const Value('Basico da Despensa'),
+            categoriaPaiId: const Value(1),
+            nivel: const Value(2),
+            caminhoCompleto: const Value('Alimentos > Basico da Despensa'),
+            origem: const Value('teste'),
+          ),
+        );
+    await database
+        .into(database.categorias)
+        .insert(
+          CategoriasCompanion(
+            id: const Value(4),
+            nome: const Value('Bebidas'),
+            nivel: const Value(1),
+            caminhoCompleto: const Value('Bebidas'),
+            origem: const Value('teste'),
+          ),
+        );
+    await database
+        .into(database.categorias)
+        .insert(
+          CategoriasCompanion(
+            id: const Value(5),
+            nome: const Value('Refrigerantes'),
+            categoriaPaiId: const Value(4),
+            nivel: const Value(2),
+            caminhoCompleto: const Value('Bebidas > Refrigerantes'),
+            origem: const Value('teste'),
+          ),
+        );
   });
 
   tearDown(() async {
@@ -133,6 +168,57 @@ void main() {
     expect(inativos.map((produto) => produto.nome), ['Sabao em po']);
   });
 
+  test(
+    'filtra categoria pai incluindo descendentes sem misturar secoes',
+    () async {
+      await dataSource.salvarProduto(
+        const ProdutoFormData(
+          nome: 'Cafe',
+          categoriaId: 3,
+          unidadeMedida: 'un',
+          quantidadeMinima: 1,
+          quantidadeIdeal: 2,
+          isAtivo: true,
+        ),
+      );
+      await dataSource.salvarProduto(
+        const ProdutoFormData(
+          nome: 'Refrigerante',
+          categoriaId: 5,
+          unidadeMedida: 'un',
+          quantidadeMinima: 1,
+          quantidadeIdeal: 2,
+          isAtivo: true,
+        ),
+      );
+      await dataSource.salvarProduto(
+        const ProdutoFormData(
+          nome: 'Sabao em po',
+          categoriaId: 2,
+          unidadeMedida: 'un',
+          quantidadeMinima: 1,
+          quantidadeIdeal: 2,
+          isAtivo: true,
+        ),
+      );
+
+      final alimentos = await dataSource.listarProdutosParaExibicao(
+        const ProdutoFiltro(categoriaId: 1, status: ProdutoStatusFiltro.todos),
+      );
+      final bebidas = await dataSource.listarProdutosParaExibicao(
+        const ProdutoFiltro(categoriaId: 4, status: ProdutoStatusFiltro.todos),
+      );
+
+      expect(alimentos.map((produto) => produto.nome), ['Cafe']);
+      expect(
+        alimentos.single.categoriaCaminho,
+        'Alimentos > Basico da Despensa',
+      );
+      expect(bebidas.map((produto) => produto.nome), ['Refrigerante']);
+      expect(bebidas.single.categoriaCaminho, 'Bebidas > Refrigerantes');
+    },
+  );
+
   test('busca trata caracteres especiais como texto literal', () async {
     await dataSource.salvarProduto(
       const ProdutoFormData(
@@ -184,6 +270,56 @@ void main() {
 
     expect(percentual.map((produto) => produto.nome), ['Cafe 100% arabica']);
     expect(sublinhado.map((produto) => produto.nome), ['Sabao_em_po']);
+  });
+
+  test('busca inteligente ignora acentos e combina campos do produto', () async {
+    await dataSource.salvarProduto(
+      const ProdutoFormData(
+        nome: 'Café especial',
+        categoriaId: 3,
+        unidadeMedida: 'pct',
+        marca: 'Torra Boa',
+        quantidadeMinima: 1,
+        quantidadeIdeal: 2,
+        observacoes: 'Graos selecionados',
+        isAtivo: true,
+      ),
+    );
+    await dataSource.salvarProduto(
+      const ProdutoFormData(
+        nome: 'Detergente neutro',
+        categoriaId: 2,
+        unidadeMedida: 'un',
+        marca: 'Casa Limpa',
+        quantidadeMinima: 1,
+        quantidadeIdeal: 2,
+        isAtivo: true,
+      ),
+    );
+
+    final semAcento = await dataSource.listarProdutosParaExibicao(
+      const ProdutoFiltro(busca: 'cafe', status: ProdutoStatusFiltro.todos),
+    );
+    final porMarca = await dataSource.listarProdutosParaExibicao(
+      const ProdutoFiltro(
+        busca: 'torra cafe',
+        status: ProdutoStatusFiltro.todos,
+      ),
+    );
+    final porCategoria = await dataSource.listarProdutosParaExibicao(
+      const ProdutoFiltro(
+        busca: 'despensa cafe',
+        status: ProdutoStatusFiltro.todos,
+      ),
+    );
+    final porObservacao = await dataSource.listarProdutosParaExibicao(
+      const ProdutoFiltro(busca: 'graos', status: ProdutoStatusFiltro.todos),
+    );
+
+    expect(semAcento.map((produto) => produto.nome), ['Café especial']);
+    expect(porMarca.map((produto) => produto.nome), ['Café especial']);
+    expect(porCategoria.map((produto) => produto.nome), ['Café especial']);
+    expect(porObservacao.map((produto) => produto.nome), ['Café especial']);
   });
 
   test('altera status do produto sem remover do banco', () async {

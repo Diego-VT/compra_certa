@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../produtos/application/produto_providers.dart';
-import '../../../produtos/domain/entities/produto_list_item_entity.dart';
 import '../../application/lista_compra_providers.dart';
 import '../../application/listas_compras_paginadas_provider.dart';
 import '../../domain/entities/lista_compra_entity.dart';
@@ -22,10 +21,19 @@ class ListaCompraDetailPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Detalhe da lista')),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _showAddItemSheet(context, ref),
-        icon: const Icon(Icons.add),
-        label: const Text('Item'),
+      floatingActionButton: listaState.maybeWhen(
+        data: (lista) {
+          if (lista?.status != ListaCompraStatus.aberta) {
+            return null;
+          }
+
+          return FloatingActionButton.extended(
+            onPressed: () => _showAddItemSheet(context),
+            icon: const Icon(Icons.add),
+            label: const Text('Item'),
+          );
+        },
+        orElse: () => null,
       ),
       body: listaState.when(
         data: (lista) {
@@ -49,7 +57,7 @@ class ListaCompraDetailPage extends ConsumerWidget {
     );
   }
 
-  Future<void> _showAddItemSheet(BuildContext context, WidgetRef ref) async {
+  Future<void> _showAddItemSheet(BuildContext context) async {
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
@@ -130,7 +138,9 @@ class _ListaDetail extends ConsumerWidget {
 
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Lista concluída e registrada no histórico.')),
+          const SnackBar(
+            content: Text('Lista concluída e registrada no histórico.'),
+          ),
         );
       }
     } catch (error) {
@@ -165,7 +175,9 @@ class _ListaItemTile extends ConsumerWidget {
         title: Text(item.produtoNome),
         subtitle: Text(_subtitle()),
         enabled: canEdit,
-        onChanged: canEdit ? (value) => _marcarComprado(ref, value ?? false) : null,
+        onChanged: canEdit
+            ? (value) => _marcarComprado(ref, value ?? false)
+            : null,
       ),
     );
   }
@@ -214,12 +226,16 @@ class _AddItemSheet extends ConsumerStatefulWidget {
 }
 
 class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
+  static const _produtosPorPagina = 20;
+
   final _formKey = GlobalKey<FormState>();
-  final _quantidadeController = TextEditingController();
+  final _quantidadeController = TextEditingController(text: '1');
   final _observacoesController = TextEditingController();
   final _buscaController = TextEditingController();
   final _buscaFocusNode = FocusNode();
   int? _produtoId;
+  String? _produtoErro;
+  int _produtosVisiveis = _produtosPorPagina;
   bool _isSaving = false;
 
   @override
@@ -241,134 +257,251 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final produtosState = ref.watch(produtosListagemProvider);
+    final produtosState = ref.watch(produtosProvider);
     final bottomInset = MediaQuery.viewInsetsOf(context).bottom;
 
-    return Padding(
-      padding: EdgeInsets.fromLTRB(16, 16, 16, bottomInset + 16),
-      child: produtosState.when(
-        data: (produtos) {
-          final ativos = produtos
-              .where((produto) => produto.isAtivo)
-              .where(_filtrarPorBusca)
-              .toList(growable: false);
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(16, 16, 16, bottomInset + 16),
+        child: SizedBox(
+          height: MediaQuery.sizeOf(context).height * 0.82,
+          child: produtosState.when(
+            data: (produtos) {
+              final ativos =
+                  produtos
+                      .where((produto) => produto.isAtivo)
+                      .map(
+                        (produto) => _ProdutoOpcao(
+                          id: produto.id,
+                          nome: produto.nome,
+                          unidadeMedida: produto.unidadeMedida,
+                          marca: produto.marca,
+                          observacoes: produto.observacoes,
+                        ),
+                      )
+                      .toList(growable: false)
+                    ..sort((a, b) => a.nome.compareTo(b.nome));
 
-          return _buildForm(ativos);
-        },
-        error: (error, stackTrace) => Text(
-          'Nao foi possivel carregar produtos.\n$error',
-          textAlign: TextAlign.center,
+              return _buildForm(ativos);
+            },
+            error: (error, stackTrace) => Text(
+              'Nao foi possivel carregar produtos.\n$error',
+              textAlign: TextAlign.center,
+            ),
+            loading: () => const Center(child: CircularProgressIndicator()),
+          ),
         ),
-        loading: () => const Center(child: CircularProgressIndicator()),
       ),
     );
   }
 
-  Widget _buildForm(List<ProdutoListItemEntity> produtos) {
+  Widget _buildForm(List<_ProdutoOpcao> produtos) {
+    final busca = _buscaController.text.trim().toLowerCase();
+    final produtosFiltrados = busca.isEmpty
+        ? produtos
+        : produtos
+              .where((produto) => _filtrarPorBusca(produto, busca))
+              .toList(growable: false);
+    final produtosPagina = produtosFiltrados
+        .take(_produtosVisiveis)
+        .toList(growable: false);
+    final hasMore = produtosFiltrados.length > produtosPagina.length;
+    final produtoSelecionado = _produtoSelecionado(produtos);
+    final emptyMessage = produtos.isEmpty
+        ? 'Nenhum produto ativo disponivel. Cadastre ou reative um produto antes de adicionar itens.'
+        : 'Nenhum produto encontrado para a busca atual.';
+
     return Form(
       key: _formKey,
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextFormField(
-              controller: _buscaController,
-              focusNode: _buscaFocusNode,
-              decoration: const InputDecoration(
-                labelText: 'Buscar produto',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.search),
-              ),
-              textInputAction: TextInputAction.search,
-              onChanged: (_) => setState(() {}),
+      child: Column(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Adicionar item',
+              style: Theme.of(context).textTheme.titleLarge,
             ),
-            const SizedBox(height: 12),
-            if (produtos.isEmpty)
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 12),
-                child: Text(
-                  'Nenhum produto encontrado para a busca atual.',
-                  style: TextStyle(color: Colors.grey),
+          ),
+          const SizedBox(height: 12),
+          RawAutocomplete<_ProdutoOpcao>(
+            textEditingController: _buscaController,
+            focusNode: _buscaFocusNode,
+            optionsBuilder: (textEditingValue) {
+              final busca = textEditingValue.text.trim().toLowerCase();
+
+              if (busca.isEmpty) {
+                return const Iterable<_ProdutoOpcao>.empty();
+              }
+
+              return produtos.where((produto) {
+                return _filtrarPorBusca(produto, busca);
+              });
+            },
+            displayStringForOption: (produto) => produto.nome,
+            fieldViewBuilder: (
+              context,
+              controller,
+              focusNode,
+              onFieldSubmitted,
+            ) {
+              return TextFormField(
+                controller: controller,
+                focusNode: focusNode,
+                decoration: const InputDecoration(
+                  labelText: 'Buscar produto',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.search),
                 ),
-              )
-            else
-              DropdownButtonFormField<int>(
-              initialValue: _produtoId,
-              decoration: const InputDecoration(
-                labelText: 'Produto',
-                border: OutlineInputBorder(),
-              ),
-              items: produtos
-                  .map(
-                    (produto) => DropdownMenuItem(
-                      value: produto.id,
-                      child: Text(produto.nome),
+                textInputAction: TextInputAction.search,
+                onChanged: (_) {
+                  setState(() {
+                    _produtoId = null;
+                    _produtoErro = null;
+                    _produtosVisiveis = _produtosPorPagina;
+                  });
+                },
+              );
+            },
+            optionsViewBuilder: (
+              context,
+              onSelected,
+              options,
+            ) {
+              return Align(
+                alignment: Alignment.topLeft,
+                child: Material(
+                  elevation: 4,
+                  borderRadius: BorderRadius.circular(12),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxHeight: 240),
+                    child: ListView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: options.length,
+                      itemBuilder: (context, index) {
+                        final option = options.elementAt(index);
+
+                        return ListTile(
+                          title: Text(option.nome),
+                          subtitle: Text(
+                            [
+                              option.marca ?? '',
+                              option.unidadeMedida,
+                              option.observacoes ?? '',
+                            ]
+                                .where((value) => value.isNotEmpty)
+                                .join(' • '),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          onTap: () => onSelected(option),
+                        );
+                      },
                     ),
-                  )
-                  .toList(),
-              onChanged: (value) => setState(() => _produtoId = value),
-              validator: (value) {
-                if (value == null) {
-                  return 'Selecione um produto.';
-                }
-
-                return null;
-              },
-            ),
-            const SizedBox(height: 12),
-            TextFormField(
-              controller: _quantidadeController,
-              decoration: const InputDecoration(
-                labelText: 'Quantidade planejada',
-                border: OutlineInputBorder(),
-              ),
-              keyboardType: const TextInputType.numberWithOptions(
-                decimal: true,
-              ),
-              inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp(r'[0-9,.]')),
-              ],
-              validator: (value) {
-                final quantidade = _parseDouble(value);
-
-                if (quantidade == null || quantidade <= 0) {
-                  return 'Informe uma quantidade maior que zero.';
-                }
-
-                return null;
-              },
-            ),
-            const SizedBox(height: 12),
-            TextFormField(
-              controller: _observacoesController,
-              decoration: const InputDecoration(
-                labelText: 'Observacoes',
-                border: OutlineInputBorder(),
-              ),
-              maxLines: 2,
-            ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton.icon(
-                onPressed: _isSaving ? null : _salvar,
-                icon: _isSaving
-                    ? const SizedBox.square(
-                        dimension: 18,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const Icon(Icons.add),
-                label: const Text('Adicionar'),
+                  ),
+                ),
+              );
+            },
+            onSelected: (produto) {
+              setState(() {
+                _produtoId = produto.id;
+                _produtoErro = null;
+                _buscaController.text = produto.nome;
+              });
+            },
+          ),
+          const SizedBox(height: 12),
+          if (_produtoErro != null) ...[
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                _produtoErro!,
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             ),
+            const SizedBox(height: 8),
           ],
-        ),
+          Expanded(
+            child: _ProdutosPaginadosList(
+              produtos: produtosPagina,
+              totalProdutos: produtosFiltrados.length,
+              hasMore: hasMore,
+              produtoId: _produtoId,
+              emptyMessage: emptyMessage,
+              onProdutoSelected: (produto) {
+                setState(() {
+                  _produtoId = produto.id;
+                  _produtoErro = null;
+                  _buscaController.text = produto.nome;
+                });
+              },
+              onLoadMore: _carregarMaisProdutos,
+            ),
+          ),
+          const SizedBox(height: 12),
+          TextFormField(
+            controller: _quantidadeController,
+            decoration: InputDecoration(
+              labelText: produtoSelecionado == null
+                  ? 'Quantidade planejada'
+                  : 'Quantidade planejada (${produtoSelecionado.unidadeMedida})',
+              border: const OutlineInputBorder(),
+            ),
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp(r'[0-9,.]')),
+            ],
+            validator: (value) {
+              final quantidade = _parseDouble(value);
+
+              if (quantidade == null || quantidade <= 0) {
+                return 'Informe uma quantidade maior que zero.';
+              }
+
+              return null;
+            },
+          ),
+          const SizedBox(height: 12),
+          TextFormField(
+            controller: _observacoesController,
+            decoration: const InputDecoration(
+              labelText: 'Observacoes',
+              border: OutlineInputBorder(),
+            ),
+            maxLines: 2,
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton.icon(
+              onPressed: _isSaving ? null : _salvar,
+              icon: _isSaving
+                  ? const SizedBox.square(
+                      dimension: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.add),
+              label: const Text('Adicionar'),
+            ),
+          ),
+        ],
       ),
     );
   }
 
   Future<void> _salvar() async {
-    if (!_formKey.currentState!.validate()) {
+    final form = _formKey.currentState;
+    final produtoId = _produtoId;
+    final quantidade = _parseDouble(_quantidadeController.text);
+
+    if (produtoId == null) {
+      setState(() => _produtoErro = 'Selecione um produto.');
+    }
+
+    if (form == null || !form.validate() || produtoId == null) {
+      return;
+    }
+
+    if (quantidade == null || quantidade <= 0) {
       return;
     }
 
@@ -380,16 +513,20 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
           .call(
             ListaCompraItemFormData(
               listaCompraId: widget.listaId,
-              produtoId: _produtoId!,
-              quantidadePlanejada: _parseDouble(_quantidadeController.text)!,
+              produtoId: produtoId,
+              quantidadePlanejada: quantidade,
               observacoes: _observacoesController.text,
             ),
           );
 
       ref.invalidate(listaCompraPorIdProvider(widget.listaId));
       ref.invalidate(listasComprasProvider);
+      ref.read(listasComprasPaginadasProvider.notifier).resetar();
 
       if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Item adicionado a lista.')),
+        );
         Navigator.of(context).pop();
       }
     } catch (error) {
@@ -405,14 +542,29 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
     }
   }
 
-  bool _filtrarPorBusca(ProdutoListItemEntity produto) {
-    final busca = _buscaController.text.trim().toLowerCase();
-
+  bool _filtrarPorBusca(_ProdutoOpcao produto, String busca) {
     if (busca.isEmpty) {
       return true;
     }
 
-    return produto.nome.toLowerCase().contains(busca);
+    return <String?>[
+      produto.nome,
+      produto.marca,
+      produto.unidadeMedida,
+      produto.observacoes,
+    ].any(
+      (campo) => campo?.toLowerCase().contains(busca) ?? false,
+    );
+  }
+
+  _ProdutoOpcao? _produtoSelecionado(List<_ProdutoOpcao> produtos) {
+    for (final produto in produtos) {
+      if (produto.id == _produtoId) {
+        return produto;
+      }
+    }
+
+    return null;
   }
 
   double? _parseDouble(String? value) {
@@ -424,4 +576,127 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
 
     return double.tryParse(normalized);
   }
+
+  void _carregarMaisProdutos() {
+    setState(() {
+      _produtosVisiveis += _produtosPorPagina;
+    });
+  }
+}
+
+class _ProdutosPaginadosList extends StatelessWidget {
+  const _ProdutosPaginadosList({
+    required this.produtos,
+    required this.totalProdutos,
+    required this.hasMore,
+    required this.produtoId,
+    required this.emptyMessage,
+    required this.onProdutoSelected,
+    required this.onLoadMore,
+  });
+
+  final List<_ProdutoOpcao> produtos;
+  final int totalProdutos;
+  final bool hasMore;
+  final int? produtoId;
+  final String emptyMessage;
+  final ValueChanged<_ProdutoOpcao> onProdutoSelected;
+  final VoidCallback onLoadMore;
+
+  @override
+  Widget build(BuildContext context) {
+    if (produtos.isEmpty) {
+      return Center(
+        child: Text(
+          emptyMessage,
+          textAlign: TextAlign.center,
+        ),
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Produtos (${produtos.length}/$totalProdutos)',
+          style: Theme.of(context).textTheme.labelLarge,
+        ),
+        const SizedBox(height: 8),
+        Expanded(
+          child: ListView.separated(
+            itemCount: produtos.length + (hasMore ? 1 : 0),
+            separatorBuilder: (context, index) => const SizedBox(height: 6),
+            itemBuilder: (context, index) {
+              if (index == produtos.length) {
+                return OutlinedButton.icon(
+                  onPressed: onLoadMore,
+                  icon: const Icon(Icons.expand_more),
+                  label: const Text('Carregar mais produtos'),
+                );
+              }
+
+              final produto = produtos[index];
+              final isSelected = produto.id == produtoId;
+
+              return _ProdutoOpcaoTile(
+                produto: produto,
+                isSelected: isSelected,
+                onTap: () => onProdutoSelected(produto),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ProdutoOpcaoTile extends StatelessWidget {
+  const _ProdutoOpcaoTile({
+    required this.produto,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  final _ProdutoOpcao produto;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return ListTile(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: BorderSide(
+          color: isSelected ? colorScheme.primary : colorScheme.outlineVariant,
+        ),
+      ),
+      leading: Icon(
+        isSelected ? Icons.check_circle : Icons.radio_button_unchecked,
+        color: isSelected ? colorScheme.primary : null,
+      ),
+      title: Text(produto.nome, maxLines: 1, overflow: TextOverflow.ellipsis),
+      subtitle: Text('Unidade: ${produto.unidadeMedida}'),
+      selected: isSelected,
+      onTap: onTap,
+    );
+  }
+}
+
+class _ProdutoOpcao {
+  const _ProdutoOpcao({
+    required this.id,
+    required this.nome,
+    required this.unidadeMedida,
+    this.marca,
+    this.observacoes,
+  });
+
+  final int id;
+  final String nome;
+  final String unidadeMedida;
+  final String? marca;
+  final String? observacoes;
 }

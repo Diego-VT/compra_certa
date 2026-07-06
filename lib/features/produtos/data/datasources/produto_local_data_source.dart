@@ -39,19 +39,18 @@ class ProdutoLocalDataSourceImpl implements ProdutoLocalDataSource {
     ProdutoFiltro filtro,
   ) async {
     final query = _database.select(_database.produtos);
-    final buscaNormalizada = filtro.busca.trim();
-
-    if (buscaNormalizada.isNotEmpty) {
-      query.where(
-        (table) => table.nome.like(
-          '%${_escapeLike(buscaNormalizada)}%',
-          escapeChar: r'\',
-        ),
-      );
-    }
+    final busca = _ProdutoBusca.from(filtro.busca);
+    final categorias = await _database.select(_database.categorias).get();
+    final categoriasPorId = {
+      for (final categoria in categorias) categoria.id: categoria,
+    };
 
     if (filtro.categoriaId != null) {
-      query.where((table) => table.categoriaId.equals(filtro.categoriaId!));
+      final categoriaIds = _categoriaComDescendentes(
+        filtro.categoriaId!,
+        categorias,
+      );
+      query.where((table) => table.categoriaId.isIn(categoriaIds));
     }
 
     switch (filtro.status) {
@@ -66,12 +65,8 @@ class ProdutoLocalDataSourceImpl implements ProdutoLocalDataSource {
     query.orderBy([(table) => OrderingTerm.asc(table.nome)]);
 
     final produtos = await query.get();
-    final categorias = await _database.select(_database.categorias).get();
-    final categoriasPorId = {
-      for (final categoria in categorias) categoria.id: categoria,
-    };
 
-    return produtos
+    final itens = produtos
         .map((produto) {
           final categoria = categoriasPorId[produto.categoriaId];
 
@@ -87,9 +82,14 @@ class ProdutoLocalDataSourceImpl implements ProdutoLocalDataSource {
             quantidadeMinima: produto.quantidadeMinima,
             quantidadeIdeal: produto.quantidadeIdeal,
             isAtivo: produto.isAtivo,
+            observacoes: produto.observacoes,
           );
         })
-        .toList(growable: false);
+        .where((produto) => _correspondeBusca(produto, busca))
+        .toList()
+      ..sort((a, b) => _compararProdutos(a, b, busca));
+
+    return itens;
   }
 
   @override
@@ -168,10 +168,193 @@ class ProdutoLocalDataSourceImpl implements ProdutoLocalDataSource {
     return normalized;
   }
 
-  String _escapeLike(String value) {
+  bool _correspondeBusca(ProdutoListItemEntity produto, _ProdutoBusca busca) {
+    if (busca.isEmpty) {
+      return true;
+    }
+
+    if (busca.exigeTextoLiteral &&
+        !_textoLiteralProduto(produto).contains(busca.textoLiteral)) {
+      return false;
+    }
+
+    final textoBusca = _textoBuscaProduto(produto);
+
+    return busca.termos.every(textoBusca.contains);
+  }
+
+  int _compararProdutos(
+    ProdutoListItemEntity a,
+    ProdutoListItemEntity b,
+    _ProdutoBusca busca,
+  ) {
+    if (!busca.isEmpty) {
+      final scoreCompare =
+          _scoreBusca(b, busca.termos).compareTo(_scoreBusca(a, busca.termos));
+
+      if (scoreCompare != 0) {
+        return scoreCompare;
+      }
+    }
+
+    final categoriaCompare = a.categoriaCaminho.compareTo(b.categoriaCaminho);
+
+    if (categoriaCompare != 0) {
+      return categoriaCompare;
+    }
+
+    return a.nome.compareTo(b.nome);
+  }
+
+  int _scoreBusca(ProdutoListItemEntity produto, List<String> termos) {
+    final nome = _normalizarTexto(produto.nome);
+    final marca = _normalizarTexto(produto.marca ?? '');
+    final categoria = _normalizarTexto(produto.categoriaCaminho);
+    final unidade = _normalizarTexto(produto.unidadeMedida);
+    final textoBusca = _textoBuscaProduto(produto);
+    var score = 0;
+
+    for (final termo in termos) {
+      if (nome == termo) {
+        score += 50;
+      } else if (nome.startsWith(termo)) {
+        score += 30;
+      } else if (nome.contains(termo)) {
+        score += 20;
+      }
+
+      if (marca.contains(termo)) {
+        score += 12;
+      }
+
+      if (categoria.contains(termo)) {
+        score += 8;
+      }
+
+      if (unidade.contains(termo)) {
+        score += 4;
+      }
+
+      if (textoBusca.contains(termo)) {
+        score += 1;
+      }
+    }
+
+    return score;
+  }
+
+  String _textoBuscaProduto(ProdutoListItemEntity produto) {
+    return _normalizarTexto(
+      [
+        produto.nome,
+        produto.marca,
+        produto.unidadeMedida,
+        produto.categoriaNome,
+        produto.categoriaCaminho,
+        produto.observacoes,
+      ].whereType<String>().join(' '),
+    );
+  }
+
+  String _textoLiteralProduto(ProdutoListItemEntity produto) {
+    return [
+      produto.nome,
+      produto.marca,
+      produto.unidadeMedida,
+      produto.categoriaNome,
+      produto.categoriaCaminho,
+      produto.observacoes,
+    ].whereType<String>().join(' ').toLowerCase();
+  }
+
+  String _normalizarTexto(String value) {
     return value
-        .replaceAll(r'\', r'\\')
-        .replaceAll('%', r'\%')
-        .replaceAll('_', r'\_');
+        .trim()
+        .toLowerCase()
+        .replaceAll(RegExp(r'[áàâãä]'), 'a')
+        .replaceAll(RegExp(r'[éèêë]'), 'e')
+        .replaceAll(RegExp(r'[íìîï]'), 'i')
+        .replaceAll(RegExp(r'[óòôõö]'), 'o')
+        .replaceAll(RegExp(r'[úùûü]'), 'u')
+        .replaceAll('ç', 'c')
+        .replaceAll(RegExp(r'[^a-z0-9]+'), ' ')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+  }
+
+  List<int> _categoriaComDescendentes(
+    int categoriaId,
+    List<Categoria> categorias,
+  ) {
+    final filhosPorPai = <int, List<Categoria>>{};
+
+    for (final categoria in categorias) {
+      final paiId = categoria.categoriaPaiId;
+
+      if (paiId == null) {
+        continue;
+      }
+
+      filhosPorPai.putIfAbsent(paiId, () => []).add(categoria);
+    }
+
+    final resultado = <int>{categoriaId};
+    final pendentes = <int>[categoriaId];
+
+    while (pendentes.isNotEmpty) {
+      final atual = pendentes.removeLast();
+      final filhos = filhosPorPai[atual] ?? const <Categoria>[];
+
+      for (final filho in filhos) {
+        if (resultado.add(filho.id)) {
+          pendentes.add(filho.id);
+        }
+      }
+    }
+
+    return resultado.toList(growable: false);
+  }
+}
+
+class _ProdutoBusca {
+  const _ProdutoBusca({
+    required this.termos,
+    required this.textoLiteral,
+    required this.exigeTextoLiteral,
+  });
+
+  factory _ProdutoBusca.from(String value) {
+    final textoLiteral = value.trim().toLowerCase();
+    final termos = _normalizarTexto(value)
+        .split(' ')
+        .where((termo) => termo.isNotEmpty)
+        .toList(growable: false);
+
+    return _ProdutoBusca(
+      termos: termos,
+      textoLiteral: textoLiteral,
+      exigeTextoLiteral: RegExp(r'[%_]').hasMatch(textoLiteral),
+    );
+  }
+
+  final List<String> termos;
+  final String textoLiteral;
+  final bool exigeTextoLiteral;
+
+  bool get isEmpty => termos.isEmpty && textoLiteral.isEmpty;
+
+  static String _normalizarTexto(String value) {
+    return value
+        .trim()
+        .toLowerCase()
+        .replaceAll(RegExp(r'[áàâãä]'), 'a')
+        .replaceAll(RegExp(r'[éèêë]'), 'e')
+        .replaceAll(RegExp(r'[íìîï]'), 'i')
+        .replaceAll(RegExp(r'[óòôõö]'), 'o')
+        .replaceAll(RegExp(r'[úùûü]'), 'u')
+        .replaceAll('ç', 'c')
+        .replaceAll(RegExp(r'[^a-z0-9]+'), ' ')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
   }
 }
