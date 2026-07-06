@@ -81,6 +81,8 @@ Atuais:
 - `produtos`
 - `bootstrap`
 - `estoque`
+- `compras`
+- `listas_compras`
 
 ### `services/`
 
@@ -164,6 +166,12 @@ Rotas atuais:
 /produtos/:id/editar
 /estoque
 /estoque/:produtoId/ajustar
+/compras
+/compras/nova
+/compras/:id
+/listas-compras
+/listas-compras/nova
+/listas-compras/:id
 ```
 
 Boas praticas:
@@ -183,8 +191,12 @@ Tabelas atuais:
 - `seed_executions`
 - `estoques`
 - `movimentacoes_estoque`
+- `compras`
+- `itens_compra`
+- `listas_compras`
+- `itens_lista_compras`
 
-Schema atual: `3`.
+Schema atual: `5`.
 
 Boas praticas:
 

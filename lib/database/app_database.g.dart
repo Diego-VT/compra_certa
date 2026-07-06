@@ -3010,6 +3010,1000 @@ class ItensCompraCompanion extends UpdateCompanion<ItensCompraData> {
   }
 }
 
+class $ListasComprasTable extends ListasCompras
+    with TableInfo<$ListasComprasTable, ListasCompra> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ListasComprasTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _nomeMeta = const VerificationMeta('nome');
+  @override
+  late final GeneratedColumn<String> nome = GeneratedColumn<String>(
+    'nome',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _criadoEmMeta = const VerificationMeta(
+    'criadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> criadoEm = GeneratedColumn<DateTime>(
+    'criado_em',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _atualizadoEmMeta = const VerificationMeta(
+    'atualizadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> atualizadoEm = GeneratedColumn<DateTime>(
+    'atualizado_em',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _concluidoEmMeta = const VerificationMeta(
+    'concluidoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> concluidoEm = GeneratedColumn<DateTime>(
+    'concluido_em',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    nome,
+    status,
+    criadoEm,
+    atualizadoEm,
+    concluidoEm,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'listas_compras';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ListasCompra> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('nome')) {
+      context.handle(
+        _nomeMeta,
+        nome.isAcceptableOrUnknown(data['nome']!, _nomeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nomeMeta);
+    }
+    if (data.containsKey('status')) {
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_statusMeta);
+    }
+    if (data.containsKey('criado_em')) {
+      context.handle(
+        _criadoEmMeta,
+        criadoEm.isAcceptableOrUnknown(data['criado_em']!, _criadoEmMeta),
+      );
+    }
+    if (data.containsKey('atualizado_em')) {
+      context.handle(
+        _atualizadoEmMeta,
+        atualizadoEm.isAcceptableOrUnknown(
+          data['atualizado_em']!,
+          _atualizadoEmMeta,
+        ),
+      );
+    }
+    if (data.containsKey('concluido_em')) {
+      context.handle(
+        _concluidoEmMeta,
+        concluidoEm.isAcceptableOrUnknown(
+          data['concluido_em']!,
+          _concluidoEmMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ListasCompra map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ListasCompra(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      nome: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}nome'],
+      )!,
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      criadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}criado_em'],
+      )!,
+      atualizadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}atualizado_em'],
+      ),
+      concluidoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}concluido_em'],
+      ),
+    );
+  }
+
+  @override
+  $ListasComprasTable createAlias(String alias) {
+    return $ListasComprasTable(attachedDatabase, alias);
+  }
+}
+
+class ListasCompra extends DataClass implements Insertable<ListasCompra> {
+  final int id;
+  final String nome;
+  final String status;
+  final DateTime criadoEm;
+  final DateTime? atualizadoEm;
+  final DateTime? concluidoEm;
+  const ListasCompra({
+    required this.id,
+    required this.nome,
+    required this.status,
+    required this.criadoEm,
+    this.atualizadoEm,
+    this.concluidoEm,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['nome'] = Variable<String>(nome);
+    map['status'] = Variable<String>(status);
+    map['criado_em'] = Variable<DateTime>(criadoEm);
+    if (!nullToAbsent || atualizadoEm != null) {
+      map['atualizado_em'] = Variable<DateTime>(atualizadoEm);
+    }
+    if (!nullToAbsent || concluidoEm != null) {
+      map['concluido_em'] = Variable<DateTime>(concluidoEm);
+    }
+    return map;
+  }
+
+  ListasComprasCompanion toCompanion(bool nullToAbsent) {
+    return ListasComprasCompanion(
+      id: Value(id),
+      nome: Value(nome),
+      status: Value(status),
+      criadoEm: Value(criadoEm),
+      atualizadoEm: atualizadoEm == null && nullToAbsent
+          ? const Value.absent()
+          : Value(atualizadoEm),
+      concluidoEm: concluidoEm == null && nullToAbsent
+          ? const Value.absent()
+          : Value(concluidoEm),
+    );
+  }
+
+  factory ListasCompra.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ListasCompra(
+      id: serializer.fromJson<int>(json['id']),
+      nome: serializer.fromJson<String>(json['nome']),
+      status: serializer.fromJson<String>(json['status']),
+      criadoEm: serializer.fromJson<DateTime>(json['criadoEm']),
+      atualizadoEm: serializer.fromJson<DateTime?>(json['atualizadoEm']),
+      concluidoEm: serializer.fromJson<DateTime?>(json['concluidoEm']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'nome': serializer.toJson<String>(nome),
+      'status': serializer.toJson<String>(status),
+      'criadoEm': serializer.toJson<DateTime>(criadoEm),
+      'atualizadoEm': serializer.toJson<DateTime?>(atualizadoEm),
+      'concluidoEm': serializer.toJson<DateTime?>(concluidoEm),
+    };
+  }
+
+  ListasCompra copyWith({
+    int? id,
+    String? nome,
+    String? status,
+    DateTime? criadoEm,
+    Value<DateTime?> atualizadoEm = const Value.absent(),
+    Value<DateTime?> concluidoEm = const Value.absent(),
+  }) => ListasCompra(
+    id: id ?? this.id,
+    nome: nome ?? this.nome,
+    status: status ?? this.status,
+    criadoEm: criadoEm ?? this.criadoEm,
+    atualizadoEm: atualizadoEm.present ? atualizadoEm.value : this.atualizadoEm,
+    concluidoEm: concluidoEm.present ? concluidoEm.value : this.concluidoEm,
+  );
+  ListasCompra copyWithCompanion(ListasComprasCompanion data) {
+    return ListasCompra(
+      id: data.id.present ? data.id.value : this.id,
+      nome: data.nome.present ? data.nome.value : this.nome,
+      status: data.status.present ? data.status.value : this.status,
+      criadoEm: data.criadoEm.present ? data.criadoEm.value : this.criadoEm,
+      atualizadoEm: data.atualizadoEm.present
+          ? data.atualizadoEm.value
+          : this.atualizadoEm,
+      concluidoEm: data.concluidoEm.present
+          ? data.concluidoEm.value
+          : this.concluidoEm,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ListasCompra(')
+          ..write('id: $id, ')
+          ..write('nome: $nome, ')
+          ..write('status: $status, ')
+          ..write('criadoEm: $criadoEm, ')
+          ..write('atualizadoEm: $atualizadoEm, ')
+          ..write('concluidoEm: $concluidoEm')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, nome, status, criadoEm, atualizadoEm, concluidoEm);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ListasCompra &&
+          other.id == this.id &&
+          other.nome == this.nome &&
+          other.status == this.status &&
+          other.criadoEm == this.criadoEm &&
+          other.atualizadoEm == this.atualizadoEm &&
+          other.concluidoEm == this.concluidoEm);
+}
+
+class ListasComprasCompanion extends UpdateCompanion<ListasCompra> {
+  final Value<int> id;
+  final Value<String> nome;
+  final Value<String> status;
+  final Value<DateTime> criadoEm;
+  final Value<DateTime?> atualizadoEm;
+  final Value<DateTime?> concluidoEm;
+  const ListasComprasCompanion({
+    this.id = const Value.absent(),
+    this.nome = const Value.absent(),
+    this.status = const Value.absent(),
+    this.criadoEm = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+    this.concluidoEm = const Value.absent(),
+  });
+  ListasComprasCompanion.insert({
+    this.id = const Value.absent(),
+    required String nome,
+    required String status,
+    this.criadoEm = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+    this.concluidoEm = const Value.absent(),
+  }) : nome = Value(nome),
+       status = Value(status);
+  static Insertable<ListasCompra> custom({
+    Expression<int>? id,
+    Expression<String>? nome,
+    Expression<String>? status,
+    Expression<DateTime>? criadoEm,
+    Expression<DateTime>? atualizadoEm,
+    Expression<DateTime>? concluidoEm,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (nome != null) 'nome': nome,
+      if (status != null) 'status': status,
+      if (criadoEm != null) 'criado_em': criadoEm,
+      if (atualizadoEm != null) 'atualizado_em': atualizadoEm,
+      if (concluidoEm != null) 'concluido_em': concluidoEm,
+    });
+  }
+
+  ListasComprasCompanion copyWith({
+    Value<int>? id,
+    Value<String>? nome,
+    Value<String>? status,
+    Value<DateTime>? criadoEm,
+    Value<DateTime?>? atualizadoEm,
+    Value<DateTime?>? concluidoEm,
+  }) {
+    return ListasComprasCompanion(
+      id: id ?? this.id,
+      nome: nome ?? this.nome,
+      status: status ?? this.status,
+      criadoEm: criadoEm ?? this.criadoEm,
+      atualizadoEm: atualizadoEm ?? this.atualizadoEm,
+      concluidoEm: concluidoEm ?? this.concluidoEm,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (nome.present) {
+      map['nome'] = Variable<String>(nome.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (criadoEm.present) {
+      map['criado_em'] = Variable<DateTime>(criadoEm.value);
+    }
+    if (atualizadoEm.present) {
+      map['atualizado_em'] = Variable<DateTime>(atualizadoEm.value);
+    }
+    if (concluidoEm.present) {
+      map['concluido_em'] = Variable<DateTime>(concluidoEm.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ListasComprasCompanion(')
+          ..write('id: $id, ')
+          ..write('nome: $nome, ')
+          ..write('status: $status, ')
+          ..write('criadoEm: $criadoEm, ')
+          ..write('atualizadoEm: $atualizadoEm, ')
+          ..write('concluidoEm: $concluidoEm')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ItensListaComprasTable extends ItensListaCompras
+    with TableInfo<$ItensListaComprasTable, ItensListaCompra> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ItensListaComprasTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _listaCompraIdMeta = const VerificationMeta(
+    'listaCompraId',
+  );
+  @override
+  late final GeneratedColumn<int> listaCompraId = GeneratedColumn<int>(
+    'lista_compra_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES listas_compras (id)',
+    ),
+  );
+  static const VerificationMeta _produtoIdMeta = const VerificationMeta(
+    'produtoId',
+  );
+  @override
+  late final GeneratedColumn<int> produtoId = GeneratedColumn<int>(
+    'produto_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES produtos (id)',
+    ),
+  );
+  static const VerificationMeta _quantidadePlanejadaMeta =
+      const VerificationMeta('quantidadePlanejada');
+  @override
+  late final GeneratedColumn<double> quantidadePlanejada =
+      GeneratedColumn<double>(
+        'quantidade_planejada',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _quantidadeCompradaMeta =
+      const VerificationMeta('quantidadeComprada');
+  @override
+  late final GeneratedColumn<double> quantidadeComprada =
+      GeneratedColumn<double>(
+        'quantidade_comprada',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(0),
+      );
+  static const VerificationMeta _isCompradoMeta = const VerificationMeta(
+    'isComprado',
+  );
+  @override
+  late final GeneratedColumn<bool> isComprado = GeneratedColumn<bool>(
+    'is_comprado',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_comprado" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _observacoesMeta = const VerificationMeta(
+    'observacoes',
+  );
+  @override
+  late final GeneratedColumn<String> observacoes = GeneratedColumn<String>(
+    'observacoes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _criadoEmMeta = const VerificationMeta(
+    'criadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> criadoEm = GeneratedColumn<DateTime>(
+    'criado_em',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _atualizadoEmMeta = const VerificationMeta(
+    'atualizadoEm',
+  );
+  @override
+  late final GeneratedColumn<DateTime> atualizadoEm = GeneratedColumn<DateTime>(
+    'atualizado_em',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    listaCompraId,
+    produtoId,
+    quantidadePlanejada,
+    quantidadeComprada,
+    isComprado,
+    observacoes,
+    criadoEm,
+    atualizadoEm,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'itens_lista_compras';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ItensListaCompra> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('lista_compra_id')) {
+      context.handle(
+        _listaCompraIdMeta,
+        listaCompraId.isAcceptableOrUnknown(
+          data['lista_compra_id']!,
+          _listaCompraIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_listaCompraIdMeta);
+    }
+    if (data.containsKey('produto_id')) {
+      context.handle(
+        _produtoIdMeta,
+        produtoId.isAcceptableOrUnknown(data['produto_id']!, _produtoIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_produtoIdMeta);
+    }
+    if (data.containsKey('quantidade_planejada')) {
+      context.handle(
+        _quantidadePlanejadaMeta,
+        quantidadePlanejada.isAcceptableOrUnknown(
+          data['quantidade_planejada']!,
+          _quantidadePlanejadaMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_quantidadePlanejadaMeta);
+    }
+    if (data.containsKey('quantidade_comprada')) {
+      context.handle(
+        _quantidadeCompradaMeta,
+        quantidadeComprada.isAcceptableOrUnknown(
+          data['quantidade_comprada']!,
+          _quantidadeCompradaMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_comprado')) {
+      context.handle(
+        _isCompradoMeta,
+        isComprado.isAcceptableOrUnknown(data['is_comprado']!, _isCompradoMeta),
+      );
+    }
+    if (data.containsKey('observacoes')) {
+      context.handle(
+        _observacoesMeta,
+        observacoes.isAcceptableOrUnknown(
+          data['observacoes']!,
+          _observacoesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('criado_em')) {
+      context.handle(
+        _criadoEmMeta,
+        criadoEm.isAcceptableOrUnknown(data['criado_em']!, _criadoEmMeta),
+      );
+    }
+    if (data.containsKey('atualizado_em')) {
+      context.handle(
+        _atualizadoEmMeta,
+        atualizadoEm.isAcceptableOrUnknown(
+          data['atualizado_em']!,
+          _atualizadoEmMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ItensListaCompra map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ItensListaCompra(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      listaCompraId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}lista_compra_id'],
+      )!,
+      produtoId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}produto_id'],
+      )!,
+      quantidadePlanejada: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}quantidade_planejada'],
+      )!,
+      quantidadeComprada: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}quantidade_comprada'],
+      )!,
+      isComprado: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_comprado'],
+      )!,
+      observacoes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}observacoes'],
+      ),
+      criadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}criado_em'],
+      )!,
+      atualizadoEm: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}atualizado_em'],
+      ),
+    );
+  }
+
+  @override
+  $ItensListaComprasTable createAlias(String alias) {
+    return $ItensListaComprasTable(attachedDatabase, alias);
+  }
+}
+
+class ItensListaCompra extends DataClass
+    implements Insertable<ItensListaCompra> {
+  final int id;
+  final int listaCompraId;
+  final int produtoId;
+  final double quantidadePlanejada;
+  final double quantidadeComprada;
+  final bool isComprado;
+  final String? observacoes;
+  final DateTime criadoEm;
+  final DateTime? atualizadoEm;
+  const ItensListaCompra({
+    required this.id,
+    required this.listaCompraId,
+    required this.produtoId,
+    required this.quantidadePlanejada,
+    required this.quantidadeComprada,
+    required this.isComprado,
+    this.observacoes,
+    required this.criadoEm,
+    this.atualizadoEm,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['lista_compra_id'] = Variable<int>(listaCompraId);
+    map['produto_id'] = Variable<int>(produtoId);
+    map['quantidade_planejada'] = Variable<double>(quantidadePlanejada);
+    map['quantidade_comprada'] = Variable<double>(quantidadeComprada);
+    map['is_comprado'] = Variable<bool>(isComprado);
+    if (!nullToAbsent || observacoes != null) {
+      map['observacoes'] = Variable<String>(observacoes);
+    }
+    map['criado_em'] = Variable<DateTime>(criadoEm);
+    if (!nullToAbsent || atualizadoEm != null) {
+      map['atualizado_em'] = Variable<DateTime>(atualizadoEm);
+    }
+    return map;
+  }
+
+  ItensListaComprasCompanion toCompanion(bool nullToAbsent) {
+    return ItensListaComprasCompanion(
+      id: Value(id),
+      listaCompraId: Value(listaCompraId),
+      produtoId: Value(produtoId),
+      quantidadePlanejada: Value(quantidadePlanejada),
+      quantidadeComprada: Value(quantidadeComprada),
+      isComprado: Value(isComprado),
+      observacoes: observacoes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(observacoes),
+      criadoEm: Value(criadoEm),
+      atualizadoEm: atualizadoEm == null && nullToAbsent
+          ? const Value.absent()
+          : Value(atualizadoEm),
+    );
+  }
+
+  factory ItensListaCompra.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ItensListaCompra(
+      id: serializer.fromJson<int>(json['id']),
+      listaCompraId: serializer.fromJson<int>(json['listaCompraId']),
+      produtoId: serializer.fromJson<int>(json['produtoId']),
+      quantidadePlanejada: serializer.fromJson<double>(
+        json['quantidadePlanejada'],
+      ),
+      quantidadeComprada: serializer.fromJson<double>(
+        json['quantidadeComprada'],
+      ),
+      isComprado: serializer.fromJson<bool>(json['isComprado']),
+      observacoes: serializer.fromJson<String?>(json['observacoes']),
+      criadoEm: serializer.fromJson<DateTime>(json['criadoEm']),
+      atualizadoEm: serializer.fromJson<DateTime?>(json['atualizadoEm']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'listaCompraId': serializer.toJson<int>(listaCompraId),
+      'produtoId': serializer.toJson<int>(produtoId),
+      'quantidadePlanejada': serializer.toJson<double>(quantidadePlanejada),
+      'quantidadeComprada': serializer.toJson<double>(quantidadeComprada),
+      'isComprado': serializer.toJson<bool>(isComprado),
+      'observacoes': serializer.toJson<String?>(observacoes),
+      'criadoEm': serializer.toJson<DateTime>(criadoEm),
+      'atualizadoEm': serializer.toJson<DateTime?>(atualizadoEm),
+    };
+  }
+
+  ItensListaCompra copyWith({
+    int? id,
+    int? listaCompraId,
+    int? produtoId,
+    double? quantidadePlanejada,
+    double? quantidadeComprada,
+    bool? isComprado,
+    Value<String?> observacoes = const Value.absent(),
+    DateTime? criadoEm,
+    Value<DateTime?> atualizadoEm = const Value.absent(),
+  }) => ItensListaCompra(
+    id: id ?? this.id,
+    listaCompraId: listaCompraId ?? this.listaCompraId,
+    produtoId: produtoId ?? this.produtoId,
+    quantidadePlanejada: quantidadePlanejada ?? this.quantidadePlanejada,
+    quantidadeComprada: quantidadeComprada ?? this.quantidadeComprada,
+    isComprado: isComprado ?? this.isComprado,
+    observacoes: observacoes.present ? observacoes.value : this.observacoes,
+    criadoEm: criadoEm ?? this.criadoEm,
+    atualizadoEm: atualizadoEm.present ? atualizadoEm.value : this.atualizadoEm,
+  );
+  ItensListaCompra copyWithCompanion(ItensListaComprasCompanion data) {
+    return ItensListaCompra(
+      id: data.id.present ? data.id.value : this.id,
+      listaCompraId: data.listaCompraId.present
+          ? data.listaCompraId.value
+          : this.listaCompraId,
+      produtoId: data.produtoId.present ? data.produtoId.value : this.produtoId,
+      quantidadePlanejada: data.quantidadePlanejada.present
+          ? data.quantidadePlanejada.value
+          : this.quantidadePlanejada,
+      quantidadeComprada: data.quantidadeComprada.present
+          ? data.quantidadeComprada.value
+          : this.quantidadeComprada,
+      isComprado: data.isComprado.present
+          ? data.isComprado.value
+          : this.isComprado,
+      observacoes: data.observacoes.present
+          ? data.observacoes.value
+          : this.observacoes,
+      criadoEm: data.criadoEm.present ? data.criadoEm.value : this.criadoEm,
+      atualizadoEm: data.atualizadoEm.present
+          ? data.atualizadoEm.value
+          : this.atualizadoEm,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ItensListaCompra(')
+          ..write('id: $id, ')
+          ..write('listaCompraId: $listaCompraId, ')
+          ..write('produtoId: $produtoId, ')
+          ..write('quantidadePlanejada: $quantidadePlanejada, ')
+          ..write('quantidadeComprada: $quantidadeComprada, ')
+          ..write('isComprado: $isComprado, ')
+          ..write('observacoes: $observacoes, ')
+          ..write('criadoEm: $criadoEm, ')
+          ..write('atualizadoEm: $atualizadoEm')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    listaCompraId,
+    produtoId,
+    quantidadePlanejada,
+    quantidadeComprada,
+    isComprado,
+    observacoes,
+    criadoEm,
+    atualizadoEm,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ItensListaCompra &&
+          other.id == this.id &&
+          other.listaCompraId == this.listaCompraId &&
+          other.produtoId == this.produtoId &&
+          other.quantidadePlanejada == this.quantidadePlanejada &&
+          other.quantidadeComprada == this.quantidadeComprada &&
+          other.isComprado == this.isComprado &&
+          other.observacoes == this.observacoes &&
+          other.criadoEm == this.criadoEm &&
+          other.atualizadoEm == this.atualizadoEm);
+}
+
+class ItensListaComprasCompanion extends UpdateCompanion<ItensListaCompra> {
+  final Value<int> id;
+  final Value<int> listaCompraId;
+  final Value<int> produtoId;
+  final Value<double> quantidadePlanejada;
+  final Value<double> quantidadeComprada;
+  final Value<bool> isComprado;
+  final Value<String?> observacoes;
+  final Value<DateTime> criadoEm;
+  final Value<DateTime?> atualizadoEm;
+  const ItensListaComprasCompanion({
+    this.id = const Value.absent(),
+    this.listaCompraId = const Value.absent(),
+    this.produtoId = const Value.absent(),
+    this.quantidadePlanejada = const Value.absent(),
+    this.quantidadeComprada = const Value.absent(),
+    this.isComprado = const Value.absent(),
+    this.observacoes = const Value.absent(),
+    this.criadoEm = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+  });
+  ItensListaComprasCompanion.insert({
+    this.id = const Value.absent(),
+    required int listaCompraId,
+    required int produtoId,
+    required double quantidadePlanejada,
+    this.quantidadeComprada = const Value.absent(),
+    this.isComprado = const Value.absent(),
+    this.observacoes = const Value.absent(),
+    this.criadoEm = const Value.absent(),
+    this.atualizadoEm = const Value.absent(),
+  }) : listaCompraId = Value(listaCompraId),
+       produtoId = Value(produtoId),
+       quantidadePlanejada = Value(quantidadePlanejada);
+  static Insertable<ItensListaCompra> custom({
+    Expression<int>? id,
+    Expression<int>? listaCompraId,
+    Expression<int>? produtoId,
+    Expression<double>? quantidadePlanejada,
+    Expression<double>? quantidadeComprada,
+    Expression<bool>? isComprado,
+    Expression<String>? observacoes,
+    Expression<DateTime>? criadoEm,
+    Expression<DateTime>? atualizadoEm,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (listaCompraId != null) 'lista_compra_id': listaCompraId,
+      if (produtoId != null) 'produto_id': produtoId,
+      if (quantidadePlanejada != null)
+        'quantidade_planejada': quantidadePlanejada,
+      if (quantidadeComprada != null) 'quantidade_comprada': quantidadeComprada,
+      if (isComprado != null) 'is_comprado': isComprado,
+      if (observacoes != null) 'observacoes': observacoes,
+      if (criadoEm != null) 'criado_em': criadoEm,
+      if (atualizadoEm != null) 'atualizado_em': atualizadoEm,
+    });
+  }
+
+  ItensListaComprasCompanion copyWith({
+    Value<int>? id,
+    Value<int>? listaCompraId,
+    Value<int>? produtoId,
+    Value<double>? quantidadePlanejada,
+    Value<double>? quantidadeComprada,
+    Value<bool>? isComprado,
+    Value<String?>? observacoes,
+    Value<DateTime>? criadoEm,
+    Value<DateTime?>? atualizadoEm,
+  }) {
+    return ItensListaComprasCompanion(
+      id: id ?? this.id,
+      listaCompraId: listaCompraId ?? this.listaCompraId,
+      produtoId: produtoId ?? this.produtoId,
+      quantidadePlanejada: quantidadePlanejada ?? this.quantidadePlanejada,
+      quantidadeComprada: quantidadeComprada ?? this.quantidadeComprada,
+      isComprado: isComprado ?? this.isComprado,
+      observacoes: observacoes ?? this.observacoes,
+      criadoEm: criadoEm ?? this.criadoEm,
+      atualizadoEm: atualizadoEm ?? this.atualizadoEm,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (listaCompraId.present) {
+      map['lista_compra_id'] = Variable<int>(listaCompraId.value);
+    }
+    if (produtoId.present) {
+      map['produto_id'] = Variable<int>(produtoId.value);
+    }
+    if (quantidadePlanejada.present) {
+      map['quantidade_planejada'] = Variable<double>(quantidadePlanejada.value);
+    }
+    if (quantidadeComprada.present) {
+      map['quantidade_comprada'] = Variable<double>(quantidadeComprada.value);
+    }
+    if (isComprado.present) {
+      map['is_comprado'] = Variable<bool>(isComprado.value);
+    }
+    if (observacoes.present) {
+      map['observacoes'] = Variable<String>(observacoes.value);
+    }
+    if (criadoEm.present) {
+      map['criado_em'] = Variable<DateTime>(criadoEm.value);
+    }
+    if (atualizadoEm.present) {
+      map['atualizado_em'] = Variable<DateTime>(atualizadoEm.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ItensListaComprasCompanion(')
+          ..write('id: $id, ')
+          ..write('listaCompraId: $listaCompraId, ')
+          ..write('produtoId: $produtoId, ')
+          ..write('quantidadePlanejada: $quantidadePlanejada, ')
+          ..write('quantidadeComprada: $quantidadeComprada, ')
+          ..write('isComprado: $isComprado, ')
+          ..write('observacoes: $observacoes, ')
+          ..write('criadoEm: $criadoEm, ')
+          ..write('atualizadoEm: $atualizadoEm')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3021,6 +4015,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $MovimentacoesEstoqueTable(this);
   late final $ComprasTable compras = $ComprasTable(this);
   late final $ItensCompraTable itensCompra = $ItensCompraTable(this);
+  late final $ListasComprasTable listasCompras = $ListasComprasTable(this);
+  late final $ItensListaComprasTable itensListaCompras =
+      $ItensListaComprasTable(this);
   late final Index idxComprasDataCompraId = Index(
     'idx_compras_data_compra_id',
     'CREATE INDEX idx_compras_data_compra_id ON compras (data_compra DESC, id DESC)',
@@ -3032,6 +4029,22 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final Index idxItensCompraProdutoId = Index(
     'idx_itens_compra_produto_id',
     'CREATE INDEX idx_itens_compra_produto_id ON itens_compra (produto_id)',
+  );
+  late final Index idxListasComprasStatusId = Index(
+    'idx_listas_compras_status_id',
+    'CREATE INDEX idx_listas_compras_status_id ON listas_compras (status, id)',
+  );
+  late final Index idxItensListaComprasListaId = Index(
+    'idx_itens_lista_compras_lista_id',
+    'CREATE INDEX idx_itens_lista_compras_lista_id ON itens_lista_compras (lista_compra_id)',
+  );
+  late final Index idxItensListaComprasProdutoId = Index(
+    'idx_itens_lista_compras_produto_id',
+    'CREATE INDEX idx_itens_lista_compras_produto_id ON itens_lista_compras (produto_id)',
+  );
+  late final Index idxItensListaComprasListaProduto = Index(
+    'idx_itens_lista_compras_lista_produto',
+    'CREATE UNIQUE INDEX idx_itens_lista_compras_lista_produto ON itens_lista_compras (lista_compra_id, produto_id)',
   );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
@@ -3045,9 +4058,15 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     movimentacoesEstoque,
     compras,
     itensCompra,
+    listasCompras,
+    itensListaCompras,
     idxComprasDataCompraId,
     idxItensCompraCompraId,
     idxItensCompraProdutoId,
+    idxListasComprasStatusId,
+    idxItensListaComprasListaId,
+    idxItensListaComprasProdutoId,
+    idxItensListaComprasListaProduto,
   ];
 }
 
@@ -3708,6 +4727,27 @@ final class $$ProdutosTableReferences
       manager.$state.copyWith(prefetchedData: cache),
     );
   }
+
+  static MultiTypedResultKey<$ItensListaComprasTable, List<ItensListaCompra>>
+  _itensListaComprasRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.itensListaCompras,
+        aliasName: 'produtos__id__itens_lista_compras__produto_id',
+      );
+
+  $$ItensListaComprasTableProcessedTableManager get itensListaComprasRefs {
+    final manager = $$ItensListaComprasTableTableManager(
+      $_db,
+      $_db.itensListaCompras,
+    ).filter((f) => f.produtoId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _itensListaComprasRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
 }
 
 class $$ProdutosTableFilterComposer
@@ -3858,6 +4898,31 @@ class $$ProdutosTableFilterComposer
           }) => $$ItensCompraTableFilterComposer(
             $db: $db,
             $table: $db.itensCompra,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> itensListaComprasRefs(
+    Expression<bool> Function($$ItensListaComprasTableFilterComposer f) f,
+  ) {
+    final $$ItensListaComprasTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.itensListaCompras,
+      getReferencedColumn: (t) => t.produtoId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ItensListaComprasTableFilterComposer(
+            $db: $db,
+            $table: $db.itensListaCompras,
             $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
             joinBuilder: joinBuilder,
             $removeJoinBuilderFromRootComposer:
@@ -4098,6 +5163,32 @@ class $$ProdutosTableAnnotationComposer
     );
     return f(composer);
   }
+
+  Expression<T> itensListaComprasRefs<T extends Object>(
+    Expression<T> Function($$ItensListaComprasTableAnnotationComposer a) f,
+  ) {
+    final $$ItensListaComprasTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.itensListaCompras,
+          getReferencedColumn: (t) => t.produtoId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$ItensListaComprasTableAnnotationComposer(
+                $db: $db,
+                $table: $db.itensListaCompras,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
 }
 
 class $$ProdutosTableTableManager
@@ -4118,6 +5209,7 @@ class $$ProdutosTableTableManager
             bool estoquesRefs,
             bool movimentacoesEstoqueRefs,
             bool itensCompraRefs,
+            bool itensListaComprasRefs,
           })
         > {
   $$ProdutosTableTableManager(_$AppDatabase db, $ProdutosTable table)
@@ -4197,6 +5289,7 @@ class $$ProdutosTableTableManager
                 estoquesRefs = false,
                 movimentacoesEstoqueRefs = false,
                 itensCompraRefs = false,
+                itensListaComprasRefs = false,
               }) {
                 return PrefetchHooks(
                   db: db,
@@ -4204,6 +5297,7 @@ class $$ProdutosTableTableManager
                     if (estoquesRefs) db.estoques,
                     if (movimentacoesEstoqueRefs) db.movimentacoesEstoque,
                     if (itensCompraRefs) db.itensCompra,
+                    if (itensListaComprasRefs) db.itensListaCompras,
                   ],
                   addJoins:
                       <
@@ -4302,6 +5396,27 @@ class $$ProdutosTableTableManager
                               ),
                           typedResults: items,
                         ),
+                      if (itensListaComprasRefs)
+                        await $_getPrefetchedData<
+                          Produto,
+                          $ProdutosTable,
+                          ItensListaCompra
+                        >(
+                          currentTable: table,
+                          referencedTable: $$ProdutosTableReferences
+                              ._itensListaComprasRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$ProdutosTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).itensListaComprasRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.produtoId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
                     ];
                   },
                 );
@@ -4327,6 +5442,7 @@ typedef $$ProdutosTableProcessedTableManager =
         bool estoquesRefs,
         bool movimentacoesEstoqueRefs,
         bool itensCompraRefs,
+        bool itensListaComprasRefs,
       })
     >;
 typedef $$EstoquesTableCreateCompanionBuilder =
@@ -5698,6 +6814,838 @@ typedef $$ItensCompraTableProcessedTableManager =
       ItensCompraData,
       PrefetchHooks Function({bool compraId, bool produtoId})
     >;
+typedef $$ListasComprasTableCreateCompanionBuilder =
+    ListasComprasCompanion Function({
+      Value<int> id,
+      required String nome,
+      required String status,
+      Value<DateTime> criadoEm,
+      Value<DateTime?> atualizadoEm,
+      Value<DateTime?> concluidoEm,
+    });
+typedef $$ListasComprasTableUpdateCompanionBuilder =
+    ListasComprasCompanion Function({
+      Value<int> id,
+      Value<String> nome,
+      Value<String> status,
+      Value<DateTime> criadoEm,
+      Value<DateTime?> atualizadoEm,
+      Value<DateTime?> concluidoEm,
+    });
+
+final class $$ListasComprasTableReferences
+    extends BaseReferences<_$AppDatabase, $ListasComprasTable, ListasCompra> {
+  $$ListasComprasTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static MultiTypedResultKey<$ItensListaComprasTable, List<ItensListaCompra>>
+  _itensListaComprasRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.itensListaCompras,
+        aliasName: 'listas_compras__id__itens_lista_compras__lista_compra_id',
+      );
+
+  $$ItensListaComprasTableProcessedTableManager get itensListaComprasRefs {
+    final manager = $$ItensListaComprasTableTableManager(
+      $_db,
+      $_db.itensListaCompras,
+    ).filter((f) => f.listaCompraId.id.sqlEquals($_itemColumn<int>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _itensListaComprasRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$ListasComprasTableFilterComposer
+    extends Composer<_$AppDatabase, $ListasComprasTable> {
+  $$ListasComprasTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get nome => $composableBuilder(
+    column: $table.nome,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get concluidoEm => $composableBuilder(
+    column: $table.concluidoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> itensListaComprasRefs(
+    Expression<bool> Function($$ItensListaComprasTableFilterComposer f) f,
+  ) {
+    final $$ItensListaComprasTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.itensListaCompras,
+      getReferencedColumn: (t) => t.listaCompraId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ItensListaComprasTableFilterComposer(
+            $db: $db,
+            $table: $db.itensListaCompras,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$ListasComprasTableOrderingComposer
+    extends Composer<_$AppDatabase, $ListasComprasTable> {
+  $$ListasComprasTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get nome => $composableBuilder(
+    column: $table.nome,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get concluidoEm => $composableBuilder(
+    column: $table.concluidoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ListasComprasTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ListasComprasTable> {
+  $$ListasComprasTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get nome =>
+      $composableBuilder(column: $table.nome, builder: (column) => column);
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get criadoEm =>
+      $composableBuilder(column: $table.criadoEm, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get concluidoEm => $composableBuilder(
+    column: $table.concluidoEm,
+    builder: (column) => column,
+  );
+
+  Expression<T> itensListaComprasRefs<T extends Object>(
+    Expression<T> Function($$ItensListaComprasTableAnnotationComposer a) f,
+  ) {
+    final $$ItensListaComprasTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.itensListaCompras,
+          getReferencedColumn: (t) => t.listaCompraId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$ItensListaComprasTableAnnotationComposer(
+                $db: $db,
+                $table: $db.itensListaCompras,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+}
+
+class $$ListasComprasTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ListasComprasTable,
+          ListasCompra,
+          $$ListasComprasTableFilterComposer,
+          $$ListasComprasTableOrderingComposer,
+          $$ListasComprasTableAnnotationComposer,
+          $$ListasComprasTableCreateCompanionBuilder,
+          $$ListasComprasTableUpdateCompanionBuilder,
+          (ListasCompra, $$ListasComprasTableReferences),
+          ListasCompra,
+          PrefetchHooks Function({bool itensListaComprasRefs})
+        > {
+  $$ListasComprasTableTableManager(_$AppDatabase db, $ListasComprasTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ListasComprasTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ListasComprasTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ListasComprasTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> nome = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<DateTime> criadoEm = const Value.absent(),
+                Value<DateTime?> atualizadoEm = const Value.absent(),
+                Value<DateTime?> concluidoEm = const Value.absent(),
+              }) => ListasComprasCompanion(
+                id: id,
+                nome: nome,
+                status: status,
+                criadoEm: criadoEm,
+                atualizadoEm: atualizadoEm,
+                concluidoEm: concluidoEm,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String nome,
+                required String status,
+                Value<DateTime> criadoEm = const Value.absent(),
+                Value<DateTime?> atualizadoEm = const Value.absent(),
+                Value<DateTime?> concluidoEm = const Value.absent(),
+              }) => ListasComprasCompanion.insert(
+                id: id,
+                nome: nome,
+                status: status,
+                criadoEm: criadoEm,
+                atualizadoEm: atualizadoEm,
+                concluidoEm: concluidoEm,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$ListasComprasTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({itensListaComprasRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (itensListaComprasRefs) db.itensListaCompras,
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (itensListaComprasRefs)
+                    await $_getPrefetchedData<
+                      ListasCompra,
+                      $ListasComprasTable,
+                      ItensListaCompra
+                    >(
+                      currentTable: table,
+                      referencedTable: $$ListasComprasTableReferences
+                          ._itensListaComprasRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $$ListasComprasTableReferences(
+                            db,
+                            table,
+                            p0,
+                          ).itensListaComprasRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where(
+                            (e) => e.listaCompraId == item.id,
+                          ),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$ListasComprasTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ListasComprasTable,
+      ListasCompra,
+      $$ListasComprasTableFilterComposer,
+      $$ListasComprasTableOrderingComposer,
+      $$ListasComprasTableAnnotationComposer,
+      $$ListasComprasTableCreateCompanionBuilder,
+      $$ListasComprasTableUpdateCompanionBuilder,
+      (ListasCompra, $$ListasComprasTableReferences),
+      ListasCompra,
+      PrefetchHooks Function({bool itensListaComprasRefs})
+    >;
+typedef $$ItensListaComprasTableCreateCompanionBuilder =
+    ItensListaComprasCompanion Function({
+      Value<int> id,
+      required int listaCompraId,
+      required int produtoId,
+      required double quantidadePlanejada,
+      Value<double> quantidadeComprada,
+      Value<bool> isComprado,
+      Value<String?> observacoes,
+      Value<DateTime> criadoEm,
+      Value<DateTime?> atualizadoEm,
+    });
+typedef $$ItensListaComprasTableUpdateCompanionBuilder =
+    ItensListaComprasCompanion Function({
+      Value<int> id,
+      Value<int> listaCompraId,
+      Value<int> produtoId,
+      Value<double> quantidadePlanejada,
+      Value<double> quantidadeComprada,
+      Value<bool> isComprado,
+      Value<String?> observacoes,
+      Value<DateTime> criadoEm,
+      Value<DateTime?> atualizadoEm,
+    });
+
+final class $$ItensListaComprasTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $ItensListaComprasTable,
+          ItensListaCompra
+        > {
+  $$ItensListaComprasTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $ListasComprasTable _listaCompraIdTable(_$AppDatabase db) => db
+      .listasCompras
+      .createAlias('itens_lista_compras__lista_compra_id__listas_compras__id');
+
+  $$ListasComprasTableProcessedTableManager get listaCompraId {
+    final $_column = $_itemColumn<int>('lista_compra_id')!;
+
+    final manager = $$ListasComprasTableTableManager(
+      $_db,
+      $_db.listasCompras,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_listaCompraIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static $ProdutosTable _produtoIdTable(_$AppDatabase db) =>
+      db.produtos.createAlias('itens_lista_compras__produto_id__produtos__id');
+
+  $$ProdutosTableProcessedTableManager get produtoId {
+    final $_column = $_itemColumn<int>('produto_id')!;
+
+    final manager = $$ProdutosTableTableManager(
+      $_db,
+      $_db.produtos,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_produtoIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$ItensListaComprasTableFilterComposer
+    extends Composer<_$AppDatabase, $ItensListaComprasTable> {
+  $$ItensListaComprasTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get quantidadePlanejada => $composableBuilder(
+    column: $table.quantidadePlanejada,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get quantidadeComprada => $composableBuilder(
+    column: $table.quantidadeComprada,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isComprado => $composableBuilder(
+    column: $table.isComprado,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get observacoes => $composableBuilder(
+    column: $table.observacoes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$ListasComprasTableFilterComposer get listaCompraId {
+    final $$ListasComprasTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.listaCompraId,
+      referencedTable: $db.listasCompras,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ListasComprasTableFilterComposer(
+            $db: $db,
+            $table: $db.listasCompras,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$ProdutosTableFilterComposer get produtoId {
+    final $$ProdutosTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableFilterComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$ItensListaComprasTableOrderingComposer
+    extends Composer<_$AppDatabase, $ItensListaComprasTable> {
+  $$ItensListaComprasTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get quantidadePlanejada => $composableBuilder(
+    column: $table.quantidadePlanejada,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get quantidadeComprada => $composableBuilder(
+    column: $table.quantidadeComprada,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isComprado => $composableBuilder(
+    column: $table.isComprado,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get observacoes => $composableBuilder(
+    column: $table.observacoes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get criadoEm => $composableBuilder(
+    column: $table.criadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$ListasComprasTableOrderingComposer get listaCompraId {
+    final $$ListasComprasTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.listaCompraId,
+      referencedTable: $db.listasCompras,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ListasComprasTableOrderingComposer(
+            $db: $db,
+            $table: $db.listasCompras,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$ProdutosTableOrderingComposer get produtoId {
+    final $$ProdutosTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableOrderingComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$ItensListaComprasTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ItensListaComprasTable> {
+  $$ItensListaComprasTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<double> get quantidadePlanejada => $composableBuilder(
+    column: $table.quantidadePlanejada,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get quantidadeComprada => $composableBuilder(
+    column: $table.quantidadeComprada,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isComprado => $composableBuilder(
+    column: $table.isComprado,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get observacoes => $composableBuilder(
+    column: $table.observacoes,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get criadoEm =>
+      $composableBuilder(column: $table.criadoEm, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get atualizadoEm => $composableBuilder(
+    column: $table.atualizadoEm,
+    builder: (column) => column,
+  );
+
+  $$ListasComprasTableAnnotationComposer get listaCompraId {
+    final $$ListasComprasTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.listaCompraId,
+      referencedTable: $db.listasCompras,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ListasComprasTableAnnotationComposer(
+            $db: $db,
+            $table: $db.listasCompras,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$ProdutosTableAnnotationComposer get produtoId {
+    final $$ProdutosTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.produtoId,
+      referencedTable: $db.produtos,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProdutosTableAnnotationComposer(
+            $db: $db,
+            $table: $db.produtos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$ItensListaComprasTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ItensListaComprasTable,
+          ItensListaCompra,
+          $$ItensListaComprasTableFilterComposer,
+          $$ItensListaComprasTableOrderingComposer,
+          $$ItensListaComprasTableAnnotationComposer,
+          $$ItensListaComprasTableCreateCompanionBuilder,
+          $$ItensListaComprasTableUpdateCompanionBuilder,
+          (ItensListaCompra, $$ItensListaComprasTableReferences),
+          ItensListaCompra,
+          PrefetchHooks Function({bool listaCompraId, bool produtoId})
+        > {
+  $$ItensListaComprasTableTableManager(
+    _$AppDatabase db,
+    $ItensListaComprasTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ItensListaComprasTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ItensListaComprasTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ItensListaComprasTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> listaCompraId = const Value.absent(),
+                Value<int> produtoId = const Value.absent(),
+                Value<double> quantidadePlanejada = const Value.absent(),
+                Value<double> quantidadeComprada = const Value.absent(),
+                Value<bool> isComprado = const Value.absent(),
+                Value<String?> observacoes = const Value.absent(),
+                Value<DateTime> criadoEm = const Value.absent(),
+                Value<DateTime?> atualizadoEm = const Value.absent(),
+              }) => ItensListaComprasCompanion(
+                id: id,
+                listaCompraId: listaCompraId,
+                produtoId: produtoId,
+                quantidadePlanejada: quantidadePlanejada,
+                quantidadeComprada: quantidadeComprada,
+                isComprado: isComprado,
+                observacoes: observacoes,
+                criadoEm: criadoEm,
+                atualizadoEm: atualizadoEm,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int listaCompraId,
+                required int produtoId,
+                required double quantidadePlanejada,
+                Value<double> quantidadeComprada = const Value.absent(),
+                Value<bool> isComprado = const Value.absent(),
+                Value<String?> observacoes = const Value.absent(),
+                Value<DateTime> criadoEm = const Value.absent(),
+                Value<DateTime?> atualizadoEm = const Value.absent(),
+              }) => ItensListaComprasCompanion.insert(
+                id: id,
+                listaCompraId: listaCompraId,
+                produtoId: produtoId,
+                quantidadePlanejada: quantidadePlanejada,
+                quantidadeComprada: quantidadeComprada,
+                isComprado: isComprado,
+                observacoes: observacoes,
+                criadoEm: criadoEm,
+                atualizadoEm: atualizadoEm,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$ItensListaComprasTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({listaCompraId = false, produtoId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (listaCompraId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.listaCompraId,
+                                referencedTable:
+                                    $$ItensListaComprasTableReferences
+                                        ._listaCompraIdTable(db),
+                                referencedColumn:
+                                    $$ItensListaComprasTableReferences
+                                        ._listaCompraIdTable(db)
+                                        .id,
+                              )
+                              as T;
+                    }
+                    if (produtoId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.produtoId,
+                                referencedTable:
+                                    $$ItensListaComprasTableReferences
+                                        ._produtoIdTable(db),
+                                referencedColumn:
+                                    $$ItensListaComprasTableReferences
+                                        ._produtoIdTable(db)
+                                        .id,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$ItensListaComprasTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ItensListaComprasTable,
+      ItensListaCompra,
+      $$ItensListaComprasTableFilterComposer,
+      $$ItensListaComprasTableOrderingComposer,
+      $$ItensListaComprasTableAnnotationComposer,
+      $$ItensListaComprasTableCreateCompanionBuilder,
+      $$ItensListaComprasTableUpdateCompanionBuilder,
+      (ItensListaCompra, $$ItensListaComprasTableReferences),
+      ItensListaCompra,
+      PrefetchHooks Function({bool listaCompraId, bool produtoId})
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -5716,4 +7664,8 @@ class $AppDatabaseManager {
       $$ComprasTableTableManager(_db, _db.compras);
   $$ItensCompraTableTableManager get itensCompra =>
       $$ItensCompraTableTableManager(_db, _db.itensCompra);
+  $$ListasComprasTableTableManager get listasCompras =>
+      $$ListasComprasTableTableManager(_db, _db.listasCompras);
+  $$ItensListaComprasTableTableManager get itensListaCompras =>
+      $$ItensListaComprasTableTableManager(_db, _db.itensListaCompras);
 }

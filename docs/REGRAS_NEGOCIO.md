@@ -110,14 +110,18 @@ Regra futura:
 
 ## Lista de compras
 
-Regra futura:
-
 - Lista pode conter produtos ativos.
 - Item pode ser marcado como comprado.
 - Lista concluida deve poder gerar historico de compra.
 - Lista nao deve alterar estoque automaticamente sem regra explicita.
 - Lista de compras deve funcionar offline.
 - Itens devem ser carregados por lista, nao como colecao global sem filtro.
+- Lista deve ter nome.
+- Quantidade planejada deve ser maior que zero.
+- Produto inativo nao pode ser adicionado a lista.
+- O mesmo produto nao deve ser duplicado na mesma lista.
+- Geracao por estoque baixo deve considerar apenas produtos ativos abaixo do minimo.
+- Usuario deve confirmar a geracao por estoque baixo antes de salvar.
 
 ## IA
 

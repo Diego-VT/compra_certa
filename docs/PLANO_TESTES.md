@@ -34,6 +34,7 @@ Exemplos atuais:
 - filtro de produtos por nome, categoria e status;
 - alteracao logica de status do produto.
 - regras de estoque para entrada, saida, ajuste e minimo.
+- regras de lista de compras para criacao, duplicidade, marcacao e geracao por estoque baixo.
 
 ## Testes de repository
 
@@ -135,16 +136,17 @@ Cobrem:
 - consulta de produtos ativos abaixo do minimo;
 - exclusao de produto com saldo igual ao minimo da consulta de reposicao.
 
-## Testes futuros de lista de compras
+## Testes atuais de lista de compras
 
-Devem cobrir:
+Cobrem:
 
 - criacao de lista;
-- adicao de produto;
-- remocao logica ou cancelamento de item;
+- adicao de produto ativo;
+- bloqueio de item duplicado;
 - marcar item como comprado;
-- concluir lista;
-- gerar historico de compra, quando implementado.
+- geracao por estoque baixo;
+- bloqueio de produto inativo;
+- filtro e paginacao de listas;
 - funcionamento offline.
 
 ## Testes futuros de motor inteligente

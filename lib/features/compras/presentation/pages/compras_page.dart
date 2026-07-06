@@ -20,6 +20,11 @@ class ComprasPage extends ConsumerWidget {
         title: const Text('Historico de compras'),
         actions: [
           IconButton(
+            tooltip: 'Listas de compras',
+            onPressed: () => context.goNamed(AppRoute.listasCompras.name),
+            icon: const Icon(Icons.shopping_cart_outlined),
+          ),
+          IconButton(
             tooltip: 'Estoque',
             onPressed: () => context.goNamed(AppRoute.estoque.name),
             icon: const Icon(Icons.inventory_outlined),

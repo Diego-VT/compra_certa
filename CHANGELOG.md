@@ -36,7 +36,7 @@ Tipos de mudanca:
 - `flutter analyze` executado com sucesso durante a preparacao da release `0.7.0`.
 - `flutter test` executado com sucesso durante a preparacao da release `0.7.0`.
 
-## [0.8.0] - 2026-07-03
+## [0.8.0] - 2026-07-06
 
 ### Added
 
@@ -54,6 +54,7 @@ Tipos de mudanca:
 
 ### Verified
 
+- `dart run build_runner build --delete-conflicting-outputs` executado com sucesso durante a preparacao da release `0.8.0`.
 - `flutter analyze` executado com sucesso durante a preparacao da release `0.8.0`.
 - `flutter test` executado com sucesso durante a preparacao da release `0.8.0`.
 

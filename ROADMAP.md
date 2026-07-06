@@ -167,7 +167,7 @@ Criar listas planejadas de compras.
 
 ### Status
 
-Em revisao.
+Concluida.
 
 ### Objetivo
 

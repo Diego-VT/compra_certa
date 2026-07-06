@@ -1,5 +1,9 @@
 # Sprint 08 - Dashboard
 
+## Status
+
+Concluida. Implementacao inicial do dashboard concluida com indicadores basicos, testes automatizados e validacao tecnica executada em 2026-07-06.
+
 ## Objetivo
 
 Exibir indicadores operacionais do app de forma leve e sob demanda.
@@ -74,6 +78,10 @@ Feature `dashboard` consumindo usecases de outros modulos.
 
 ## Checklist de Conclusao
 
-- Performance avaliada.
-- Testes criados.
-- Documentacao atualizada.
+- [x] Performance avaliada.
+- [x] Testes criados.
+- [x] Documentacao atualizada.
+- [x] `flutter analyze` executado.
+- [x] `flutter test` executado.
+- [x] Revisao tecnica final.
+- [x] Aprovacao do usuario para commit e push.

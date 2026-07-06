@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('exibe a tela inicial de produtos', (tester) async {
+  testWidgets('exibe o dashboard como tela inicial', (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -16,9 +16,9 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
 
-    expect(find.text('Produtos'), findsOneWidget);
-    expect(find.text('Nenhum produto encontrado.'), findsOneWidget);
+    expect(find.text('Dashboard'), findsOneWidget);
   });
 }

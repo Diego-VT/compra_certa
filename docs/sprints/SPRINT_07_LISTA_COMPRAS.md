@@ -78,6 +78,12 @@ Nova feature `listas_compras`.
 
 ## Checklist de Conclusao
 
-- Regras documentadas.
-- Testes criados.
-- Roadmap atualizado.
+- [x] Regras documentadas.
+- [x] Banco documentado.
+- [x] Testes criados.
+- [x] Roadmap atualizado.
+- [x] Geracao por estoque baixo implementada com revisao do usuario.
+- [x] `flutter analyze` executado.
+- [x] `flutter test` executado.
+- [ ] Revisao tecnica final.
+- [ ] Aprovacao do usuario para commit e push.

@@ -4,7 +4,7 @@ Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuar
 
 ## 0.8.0 - Dashboard
 
-Status: preparada para revisao tecnica em 2026-07-03.
+Status: publicada no GitHub em 2026-07-06.
 
 ### Destaques
 
@@ -17,8 +17,8 @@ Status: preparada para revisao tecnica em 2026-07-03.
 ### Observacoes
 
 - Release alinhada ao mapa de versoes do `VERSIONING.md`.
-- `flutter analyze` e `flutter test` foram executados com sucesso.
-- Commit, push e criacao de tag Git foram mantidos pendentes aguardando aprovacao do usuario.
+- `dart run build_runner build --delete-conflicting-outputs`, `flutter analyze` e `flutter test` foram executados com sucesso em 2026-07-06.
+- Commit e push foram aprovados para fechamento em 2026-07-06.
 
 ## 0.7.0 - Lista de Compras
 

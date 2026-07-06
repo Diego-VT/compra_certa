@@ -20,31 +20,31 @@ Objetivo: cadastrar, editar, listar e filtrar produtos.
 
 ## M-004 - Melhorias em Produtos
 
-Status: em andamento.
+Status: concluida.
 
 Objetivo: consolidar usabilidade de busca, filtros e status.
 
 ## M-005 - Estoque
 
-Status: planejada.
+Status: concluida.
 
 Objetivo: controlar quantidade atual, minimo e ideal.
 
 ## M-006 - Historico de Compras
 
-Status: planejada.
+Status: concluida.
 
 Objetivo: registrar compras e permitir consultas otimizadas.
 
 ## M-007 - Lista Inteligente
 
-Status: planejada.
+Status: em revisao.
 
 Objetivo: criar listas manuais e sugeridas com base em estoque.
 
 ## M-008 - Dashboard
 
-Status: planejada.
+Status: concluida.
 
 Objetivo: exibir indicadores principais sob demanda.
 

@@ -6,8 +6,12 @@ import '../../features/categorias/presentation/pages/categorias_page.dart';
 import '../../features/compras/presentation/pages/compra_detail_page.dart';
 import '../../features/compras/presentation/pages/compra_form_page.dart';
 import '../../features/compras/presentation/pages/compras_page.dart';
+import '../../features/dashboard/presentation/pages/dashboard_page.dart';
 import '../../features/estoque/presentation/pages/ajuste_estoque_page.dart';
 import '../../features/estoque/presentation/pages/estoque_page.dart';
+import '../../features/listas_compras/presentation/pages/lista_compra_detail_page.dart';
+import '../../features/listas_compras/presentation/pages/lista_compra_form_page.dart';
+import '../../features/listas_compras/presentation/pages/listas_compras_page.dart';
 import '../../features/produtos/presentation/pages/produto_form_page.dart';
 import '../../features/produtos/presentation/pages/produtos_page.dart';
 
@@ -17,16 +21,20 @@ enum AppRoute {
   produtos,
   novoProduto,
   editarProduto,
+  dashboard,
   estoque,
   ajustarEstoque,
   compras,
   novaCompra,
   detalheCompra,
+  listasCompras,
+  novaListaCompra,
+  detalheListaCompra,
 }
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final router = GoRouter(
-    initialLocation: '/produtos',
+    initialLocation: '/dashboard',
     routes: [
       GoRoute(
         path: '/',
@@ -96,6 +104,41 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             },
           ),
         ],
+      ),
+      GoRoute(
+        path: '/listas-compras',
+        name: AppRoute.listasCompras.name,
+        builder: (context, state) => const ListasComprasPage(),
+        routes: [
+          GoRoute(
+            path: 'nova',
+            name: AppRoute.novaListaCompra.name,
+            builder: (context, state) => const ListaCompraFormPage(),
+          ),
+          GoRoute(
+            path: ':id',
+            name: AppRoute.detalheListaCompra.name,
+            redirect: (context, state) {
+              final id = int.tryParse(state.pathParameters['id'] ?? '');
+
+              if (id == null || id <= 0) {
+                return '/listas-compras';
+              }
+
+              return null;
+            },
+            builder: (context, state) {
+              final id = int.tryParse(state.pathParameters['id'] ?? '');
+
+              return ListaCompraDetailPage(listaId: id!);
+            },
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/dashboard',
+        name: AppRoute.dashboard.name,
+        builder: (context, state) => const DashboardPage(),
       ),
       GoRoute(
         path: '/produtos',

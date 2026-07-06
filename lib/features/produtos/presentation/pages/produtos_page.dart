@@ -44,6 +44,16 @@ class _ProdutosPageState extends ConsumerState<ProdutosPage> {
         title: const Text('Produtos'),
         actions: [
           IconButton(
+            tooltip: 'Dashboard',
+            onPressed: () => context.goNamed(AppRoute.dashboard.name),
+            icon: const Icon(Icons.dashboard_outlined),
+          ),
+          IconButton(
+            tooltip: 'Listas de compras',
+            onPressed: () => context.goNamed(AppRoute.listasCompras.name),
+            icon: const Icon(Icons.shopping_cart_outlined),
+          ),
+          IconButton(
             tooltip: 'Historico de compras',
             onPressed: () => context.goNamed(AppRoute.compras.name),
             icon: const Icon(Icons.receipt_long_outlined),

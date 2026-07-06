@@ -171,7 +171,7 @@ Tasks:
 - Criar tela de lista.
 - Criar testes de fluxo.
 
-Estimativa: media.
+Estimativa: em revisao.
 
 ## Epic E-006 - Inteligencia e Analise
 

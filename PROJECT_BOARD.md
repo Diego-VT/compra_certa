@@ -4,8 +4,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## Backlog
 
-- Lista de compras.
-- Dashboard.
 - Motor inteligente local.
 - Integracao com IA.
 - Relatorios.
@@ -15,17 +13,16 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## To Do
 
-- Detalhar regras da lista de compras.
 - Planejar estrategia de testes de release.
 
 ## Doing
 
-Nenhum item ativo no momento.
+- Nenhuma sprint ativa no momento. Proximo passo: Sprint 09 - Motor Inteligente Local.
 
 ## Review
 
-- Sprint 05 - Estoque.
-- Release 0.5.0 - Estoque.
+- Sprint 07 - Lista de Compras.
+- Release 0.7.0 - Lista de Compras.
 - Diretrizes de performance.
 - Processo de release.
 
@@ -41,6 +38,9 @@ Nenhum item ativo no momento.
 - Categorias.
 - Produtos.
 - Sprint 04 - Melhorias em Produtos.
+- Sprint 05 - Estoque.
 - Sprint 06 - Historico de Compras.
+- Sprint 08 - Dashboard.
+- Release 0.8.0 - Dashboard.
 - Documentacao inicial.
 - Consolidacao de documentacao e governanca.

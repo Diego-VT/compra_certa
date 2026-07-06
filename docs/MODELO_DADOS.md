@@ -2,9 +2,9 @@
 
 ## Visao geral
 
-O banco local do CompraCerta usa Drift/SQLite. O modelo atual cobre categorias, produtos, controle de seeds, estoque, movimentacoes de estoque e historico de compras. O modelo futuro prepara listas e sugestoes inteligentes.
+O banco local do CompraCerta usa Drift/SQLite. O modelo atual cobre categorias, produtos, controle de seeds, estoque, movimentacoes de estoque, historico de compras e listas de compras. O modelo futuro prepara sugestoes inteligentes.
 
-Schema atual: `4`.
+Schema atual: `5`.
 
 ## Tabelas atuais
 
@@ -164,33 +164,63 @@ Registrar os produtos, quantidades e valores opcionais de cada compra.
 - `idx_itens_compra_compra_id` otimiza carregamento dos itens de uma compra.
 - `idx_itens_compra_produto_id` prepara consultas historicas por produto.
 
-## Tabelas futuras
-
 ## `listas_compras`
 
-Listas planejadas de compras.
+### Justificativa
 
-Campos previstos:
+Planejar compras futuras e acompanhar itens comprados sem depender de internet.
 
-- `id`
-- `nome`
-- `status`
-- `criadoEm`
-- `concluidoEm`
+### Campos
+
+| Campo | Tipo | Descricao |
+| --- | --- | --- |
+| `id` | inteiro auto incrementado | Chave primaria. |
+| `nome` | texto | Nome da lista. |
+| `status` | texto | Status da lista: `aberta` ou `concluida`. |
+| `criadoEm` | data/hora | Data de criacao. |
+| `atualizadoEm` | data/hora nullable | Ultima alteracao. |
+| `concluidoEm` | data/hora nullable | Data de conclusao futura. |
+
+### Relacionamentos
+
+- `itens_lista_compras.listaCompraId` referencia `listas_compras.id`.
+
+### Indices
+
+- `idx_listas_compras_status_id` otimiza consultas por status e carregamento incremental.
 
 ## `itens_lista_compras`
 
-Itens planejados em uma lista.
+### Justificativa
 
-Campos previstos:
+Registrar produtos planejados, quantidade desejada e marcacao de compra.
 
-- `id`
-- `listaCompraId`
-- `produtoId`
-- `quantidadePlanejada`
-- `quantidadeComprada`
-- `isComprado`
-- `observacoes`
+### Campos
+
+| Campo | Tipo | Descricao |
+| --- | --- | --- |
+| `id` | inteiro auto incrementado | Chave primaria. |
+| `listaCompraId` | inteiro | Lista vinculada. |
+| `produtoId` | inteiro | Produto planejado. |
+| `quantidadePlanejada` | real | Quantidade desejada. |
+| `quantidadeComprada` | real | Quantidade efetivamente comprada. |
+| `isComprado` | booleano | Indica item marcado como comprado. |
+| `observacoes` | texto nullable | Observacoes do item. |
+| `criadoEm` | data/hora | Data de criacao. |
+| `atualizadoEm` | data/hora nullable | Ultima alteracao. |
+
+### Relacionamentos
+
+- `listaCompraId` referencia `listas_compras.id`.
+- `produtoId` referencia `produtos.id`.
+
+### Indices
+
+- `idx_itens_lista_compras_lista_id` otimiza carregamento dos itens de uma lista.
+- `idx_itens_lista_compras_produto_id` prepara consultas por produto.
+- `idx_itens_lista_compras_lista_produto` evita duplicidade do mesmo produto na mesma lista.
+
+## Tabelas futuras
 
 ## `sugestoes_inteligentes`
 
@@ -229,6 +259,7 @@ O modelo atual permite evoluir para inteligencia por:
 - minimo e ideal por produto;
 - saldo atual por produto;
 - movimentacoes auditaveis de estoque;
-- historico futuro de compras;
+- historico de compras;
+- listas de compras offline;
 - sugestoes auditaveis.
 - preferencias locais para notificacoes.

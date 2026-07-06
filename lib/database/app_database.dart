@@ -86,6 +86,35 @@ class ItensCompra extends Table {
   RealColumn get valorUnitario => real().nullable()();
 }
 
+@TableIndex(name: 'idx_listas_compras_status_id', columns: {#status, #id})
+class ListasCompras extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get nome => text()();
+  TextColumn get status => text()();
+  DateTimeColumn get criadoEm => dateTime().withDefault(currentDateAndTime)();
+  DateTimeColumn get atualizadoEm => dateTime().nullable()();
+  DateTimeColumn get concluidoEm => dateTime().nullable()();
+}
+
+@TableIndex(name: 'idx_itens_lista_compras_lista_id', columns: {#listaCompraId})
+@TableIndex(name: 'idx_itens_lista_compras_produto_id', columns: {#produtoId})
+@TableIndex(
+  name: 'idx_itens_lista_compras_lista_produto',
+  columns: {#listaCompraId, #produtoId},
+  unique: true,
+)
+class ItensListaCompras extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get listaCompraId => integer().references(ListasCompras, #id)();
+  IntColumn get produtoId => integer().references(Produtos, #id)();
+  RealColumn get quantidadePlanejada => real()();
+  RealColumn get quantidadeComprada => real().withDefault(const Constant(0))();
+  BoolColumn get isComprado => boolean().withDefault(const Constant(false))();
+  TextColumn get observacoes => text().nullable()();
+  DateTimeColumn get criadoEm => dateTime().withDefault(currentDateAndTime)();
+  DateTimeColumn get atualizadoEm => dateTime().nullable()();
+}
+
 @DriftDatabase(
   tables: [
     Categorias,
@@ -95,13 +124,15 @@ class ItensCompra extends Table {
     MovimentacoesEstoque,
     Compras,
     ItensCompra,
+    ListasCompras,
+    ItensListaCompras,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? openConnection());
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration {
@@ -118,6 +149,10 @@ class AppDatabase extends _$AppDatabase {
           await migrator.createTable(compras);
           await migrator.createTable(itensCompra);
         }
+        if (from < 5) {
+          await migrator.createTable(listasCompras);
+          await migrator.createTable(itensListaCompras);
+        }
       },
       beforeOpen: (details) async {
         await customStatement('PRAGMA foreign_keys = ON');
@@ -132,6 +167,23 @@ class AppDatabase extends _$AppDatabase {
         await customStatement(
           'CREATE INDEX IF NOT EXISTS idx_itens_compra_produto_id '
           'ON itens_compra (produto_id)',
+        );
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_listas_compras_status_id '
+          'ON listas_compras (status, id)',
+        );
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_itens_lista_compras_lista_id '
+          'ON itens_lista_compras (lista_compra_id)',
+        );
+        await customStatement(
+          'CREATE INDEX IF NOT EXISTS idx_itens_lista_compras_produto_id '
+          'ON itens_lista_compras (produto_id)',
+        );
+        await customStatement(
+          'CREATE UNIQUE INDEX IF NOT EXISTS '
+          'idx_itens_lista_compras_lista_produto '
+          'ON itens_lista_compras (lista_compra_id, produto_id)',
         );
       },
     );

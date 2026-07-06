@@ -29,6 +29,11 @@ class EstoquePage extends ConsumerWidget {
         title: const Text('Estoque'),
         actions: [
           IconButton(
+            tooltip: 'Listas de compras',
+            onPressed: () => context.goNamed(AppRoute.listasCompras.name),
+            icon: const Icon(Icons.shopping_cart_outlined),
+          ),
+          IconButton(
             tooltip: 'Historico de compras',
             onPressed: () => context.goNamed(AppRoute.compras.name),
             icon: const Icon(Icons.receipt_long_outlined),
