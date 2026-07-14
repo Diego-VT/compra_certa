@@ -60,6 +60,22 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+### Added
+
+- Inicio da Sprint 11 com feature `relatorios`.
+- Tela de relatorios com filtros rapidos por periodo.
+- Resumo agregado de compras, itens, quantidades e valor do periodo.
+- Produtos mais comprados por quantidade.
+- Consumo por categoria com consultas agregadas no banco.
+- Atalho para relatorios no dashboard.
+- Teste de navegacao para relatorios a partir do dashboard.
+
+### Verified
+
+- Testes focados de relatorios executados durante o inicio da Sprint 11.
+- `flutter analyze` executado com sucesso durante o encerramento da Sprint 11.
+- `flutter test` executado com sucesso durante o encerramento da Sprint 11.
+
 ### Notes
 
 - Proximas entregas continuam em planejamento.

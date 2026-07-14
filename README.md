@@ -2,7 +2,7 @@
 
 Aplicativo Flutter preparado para evoluir como uma solucao de apoio a compras, organizacao de itens e modulos inteligentes futuros.
 
-O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos, modulo de Estoque, Historico de Compras, Lista de Compras, Dashboard, Motor Inteligente Local e camada opcional de IA externa por contrato. A IA externa fica desativada por padrao, usa prompt versionado, sanitizacao de contexto, acionamento manual e fallback local.
+O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos, modulo de Estoque, Historico de Compras, Lista de Compras, Dashboard, Motor Inteligente Local, camada opcional de IA externa por contrato e Relatorios. A IA externa fica desativada por padrao, usa prompt versionado, sanitizacao de contexto, acionamento manual e fallback local.
 
 ## Documentacao oficial
 
@@ -146,6 +146,19 @@ Decisoes importantes:
 - A navegacao contextual permite acessar rapidamente estoque, listas de compras e historico.
 - O modulo segue Repository Pattern com repository, usecase e providers Riverpod.
 
+## Modulo de relatorios
+
+O modulo `features/relatorios` inicia a analise de compras e consumo por periodo.
+
+Decisoes importantes:
+
+- Os relatorios sao carregados sob demanda.
+- As consultas usam agregacoes no banco local, sem carregar todo o historico na memoria.
+- A tela inicial exibe resumo do periodo, produtos mais comprados e consumo por categoria.
+- O modulo nao altera o schema Drift/SQLite nesta etapa.
+- Exportacao permanece preparada como evolucao futura.
+- O modulo segue Repository Pattern com datasource local, repository, usecase e providers Riverpod.
+
 ## Estrutura de pastas
 
 ```text
@@ -236,6 +249,17 @@ lib/
         usecases/
       presentation/
         pages/
+    relatorios/
+      application/
+      data/
+        datasources/
+        repositories/
+      domain/
+        entities/
+        repositories/
+        usecases/
+      presentation/
+        pages/
     estoque/
       application/
       data/
@@ -296,6 +320,6 @@ Android SDK, licencas Android, Chrome e recursos de rede foram reconhecidos corr
 1. Habilitar Developer Mode no Windows.
 2. Rodar `flutter pub get` novamente apos habilitar Developer Mode.
 3. Resolver a verificacao SSH do GitHub para voltar a usar o remoto SSH.
-4. Iniciar Sprint 11 - Relatorios conforme documentacao oficial.
+4. Iniciar Sprint 12 - Notificacoes conforme documentacao oficial.
 5. Planejar estrategia de testes de release para o marco `1.0.0`.
 6. Manter entidades, contratos e casos de uso antes das telas nas proximas features.

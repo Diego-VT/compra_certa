@@ -26,6 +26,11 @@ class DashboardPage extends ConsumerWidget {
             icon: const Icon(Icons.auto_awesome_outlined),
           ),
           IconButton(
+            tooltip: 'Relatorios',
+            onPressed: () => context.goNamed(AppRoute.relatorios.name),
+            icon: const Icon(Icons.analytics_outlined),
+          ),
+          IconButton(
             tooltip: 'Listas de compras',
             onPressed: () => context.goNamed(AppRoute.listasCompras.name),
             icon: const Icon(Icons.shopping_cart_outlined),

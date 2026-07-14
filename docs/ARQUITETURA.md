@@ -84,6 +84,7 @@ Atuais:
 - `compras`
 - `listas_compras`
 - `inteligencia`
+- `relatorios`
 
 ### `services/`
 
@@ -177,6 +178,7 @@ Rotas atuais:
 /compras/nova
 /compras/:id
 /sugestoes
+/relatorios
 /listas-compras
 /listas-compras/nova
 /listas-compras/:id

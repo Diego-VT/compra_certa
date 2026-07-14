@@ -15,6 +15,7 @@ import '../../features/listas_compras/presentation/pages/lista_compra_form_page.
 import '../../features/listas_compras/presentation/pages/listas_compras_page.dart';
 import '../../features/produtos/presentation/pages/produto_form_page.dart';
 import '../../features/produtos/presentation/pages/produtos_page.dart';
+import '../../features/relatorios/presentation/pages/relatorios_page.dart';
 
 enum AppRoute {
   bootstrap,
@@ -32,6 +33,7 @@ enum AppRoute {
   listasCompras,
   novaListaCompra,
   detalheListaCompra,
+  relatorios,
 }
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -146,6 +148,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/sugestoes',
         name: AppRoute.sugestoesInteligentes.name,
         builder: (context, state) => const SugestoesInteligentesPage(),
+      ),
+      GoRoute(
+        path: '/relatorios',
+        name: AppRoute.relatorios.name,
+        builder: (context, state) => const RelatoriosPage(),
       ),
       GoRoute(
         path: '/produtos',

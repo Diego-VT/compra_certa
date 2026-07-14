@@ -2,6 +2,25 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
+## Sprint 11 - Relatorios
+
+Status: concluida em 2026-07-14 e preparada para publicacao no GitHub conforme processo oficial.
+
+### Destaques
+
+- Nova tela de relatorios.
+- Filtros rapidos por periodo.
+- Resumo de compras e itens do periodo.
+- Produtos mais comprados.
+- Consumo por categoria.
+
+### Observacoes
+
+- Relatorios usam consultas agregadas no banco.
+- Nao houve alteracao de schema Drift/SQLite.
+- Exportacao permanece futura.
+- `flutter analyze` e `flutter test` foram executados com sucesso.
+
 ## 0.10.0 - Integracao com IA
 
 Status: preparada em 2026-07-14 conforme `VERSIONING.md` e `docs/RELEASE_PROCESS.md`.

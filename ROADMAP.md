@@ -220,7 +220,7 @@ Adicionar camada opcional de IA externa.
 
 ### Status
 
-Planejada.
+Concluida.
 
 ### Objetivo
 

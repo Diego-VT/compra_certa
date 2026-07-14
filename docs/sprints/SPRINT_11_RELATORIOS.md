@@ -1,5 +1,9 @@
 # Sprint 11 - Relatorios
 
+## Status
+
+Concluida em 2026-07-14. Sprint finalizada com feature `relatorios`, tela inicial, filtros rapidos por periodo, consultas agregadas no banco, testes automatizados, revisao tecnica e documentacao atualizada.
+
 ## Objetivo
 
 Permitir analise de compras, produtos e consumo por periodo.
@@ -74,6 +78,16 @@ Feature `relatorios` consumindo dados de compras e produtos.
 
 ## Checklist de Conclusao
 
-- Consultas revisadas.
-- Testes criados.
-- Documentacao atualizada.
+- [x] Feature `relatorios` iniciada.
+- [x] Consulta agregada de resumo por periodo criada.
+- [x] Consulta de produtos mais comprados criada.
+- [x] Consulta de consumo por categoria criada.
+- [x] Tela de relatorios criada.
+- [x] Filtros rapidos por periodo criados.
+- [x] Atalho no dashboard criado.
+- [x] Testes iniciais de agregacao criados.
+- [x] Testes iniciais de tela e estado vazio criados.
+- [x] Revisao final da sprint.
+- [x] Teste de navegacao pelo dashboard criado.
+- [x] `flutter analyze` executado no encerramento.
+- [x] `flutter test` executado no encerramento.

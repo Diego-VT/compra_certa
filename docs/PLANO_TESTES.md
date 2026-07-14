@@ -184,6 +184,17 @@ Testes iniciais da Sprint 10 cobrem:
 - nao acionamento da IA quando nao ha sugestoes locais;
 - acionamento manual pela tela de sugestoes.
 
+## Testes atuais de relatorios
+
+Cobrem:
+
+- agregacao de compras por produto e categoria;
+- filtro por periodo;
+- estado vazio sem compras;
+- validacao de periodo invalido;
+- tela de relatorios com dados agregados;
+- estado vazio da tela de relatorios.
+
 ## Criterios de aceite para PRs
 
 - `flutter analyze` sem issues.

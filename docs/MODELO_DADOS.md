@@ -265,3 +265,7 @@ O modelo atual permite evoluir para inteligencia por:
 - listas de compras offline;
 - sugestoes auditaveis.
 - preferencias locais para notificacoes.
+
+## Relatorios
+
+A Sprint 11 inicia relatorios sem alteracao de schema. Os relatorios leem `compras`, `itens_compra`, `produtos` e `categorias` com consultas agregadas sob demanda.
