@@ -44,5 +44,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 - Sprint 10 - Integracao com IA.
 - Release 0.10.0 - Integracao com IA.
 - Sprint 11 - Relatorios.
+- Release 0.11.0 - Relatorios.
 - Documentacao inicial.
 - Consolidacao de documentacao e governanca.

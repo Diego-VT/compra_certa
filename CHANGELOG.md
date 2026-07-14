@@ -60,6 +60,12 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+### Notes
+
+- Proximas entregas continuam em planejamento.
+
+## [0.11.0] - 2026-07-14
+
 ### Added
 
 - Inicio da Sprint 11 com feature `relatorios`.
@@ -75,10 +81,6 @@ Tipos de mudanca:
 - Testes focados de relatorios executados durante o inicio da Sprint 11.
 - `flutter analyze` executado com sucesso durante o encerramento da Sprint 11.
 - `flutter test` executado com sucesso durante o encerramento da Sprint 11.
-
-### Notes
-
-- Proximas entregas continuam em planejamento.
 
 ## [0.10.0] - 2026-07-14
 

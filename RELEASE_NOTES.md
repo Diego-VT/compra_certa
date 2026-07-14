@@ -2,9 +2,9 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
-## Sprint 11 - Relatorios
+## 0.11.0 - Relatorios
 
-Status: publicada no GitHub em 2026-07-14 conforme processo oficial.
+Status: preparada em 2026-07-14 conforme `VERSIONING.md` e `docs/RELEASE_PROCESS.md`.
 
 ### Destaques
 
