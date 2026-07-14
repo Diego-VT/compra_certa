@@ -1,0 +1,4 @@
+enum NotificacaoEventoTipo {
+  estoqueBaixo,
+  listaPendente,
+}

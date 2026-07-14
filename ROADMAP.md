@@ -238,7 +238,7 @@ Permitir analise de produtos, compras e consumo.
 
 ### Status
 
-Planejada.
+Concluida.
 
 ### Objetivo
 

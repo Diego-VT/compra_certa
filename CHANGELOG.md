@@ -60,9 +60,16 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+### Added
+
+- Inicio da Sprint 12 com foco em notificacoes locais, preferencias do usuario e eventos de estoque baixo/listas pendentes.
+- Contrato local de notificacoes em `services/notificacoes`, cliente padrao desativado e usecases para detectar, agendar e cancelar eventos notificaveis.
+- Preferencias padrao para habilitar/desabilitar notificacoes gerais, estoque baixo e listas pendentes.
+- Testes de dominio para regras de disparo, preferencias e deduplicacao de notificacoes.
+
 ### Notes
 
-- Proximas entregas continuam em planejamento.
+- Sprint 12 em andamento conforme roadmap e documentacao oficial.
 
 ## [0.11.0] - 2026-07-14
 

@@ -2,6 +2,25 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
+## 0.12.0 - Notificacoes
+
+Status: sprint finalizada em 2026-07-14 conforme processo oficial. Versao ainda pendente de preparacao formal em `pubspec.yaml`.
+
+### Destaques
+
+- Base tecnica para notificacoes locais.
+- Preferencias padrao para ativar ou desativar notificacoes.
+- Eventos notificaveis para estoque baixo.
+- Eventos notificaveis para listas de compras pendentes.
+- Agendamento e cancelamento com deduplicacao por evento.
+
+### Observacoes
+
+- A integracao nativa com plugin de notificacoes Android/iOS permanece futura.
+- O cliente padrao fica desativado para evitar permissao/plataforma obrigatoria nesta etapa.
+- Nao houve alteracao de schema Drift/SQLite.
+- `flutter analyze` e `flutter test` foram executados com sucesso.
+
 ## 0.11.0 - Relatorios
 
 Status: publicada no GitHub em 2026-07-14 conforme processo oficial.

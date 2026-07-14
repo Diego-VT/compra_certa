@@ -4,7 +4,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## Backlog
 
-- Notificacoes.
 - Release APK/AAB.
 - Preparacao iOS.
 
@@ -14,7 +13,7 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## Doing
 
-- Nenhuma sprint ativa no momento. Proximo passo: Sprint 12 - Notificacoes.
+- Nenhuma sprint ativa no momento. Proximo passo: Sprint 13 - Release APK/AAB.
 
 ## Review
 
@@ -45,5 +44,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 - Release 0.10.0 - Integracao com IA.
 - Sprint 11 - Relatorios.
 - Release 0.11.0 - Relatorios.
+- Sprint 12 - Notificacoes.
 - Documentacao inicial.
 - Consolidacao de documentacao e governanca.

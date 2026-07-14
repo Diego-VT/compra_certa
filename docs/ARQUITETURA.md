@@ -85,6 +85,7 @@ Atuais:
 - `listas_compras`
 - `inteligencia`
 - `relatorios`
+- `notificacoes`
 
 ### `services/`
 
@@ -93,6 +94,7 @@ Servicos externos ou de plataforma.
 Atuais:
 
 - `ia`: contrato de cliente de IA externa, prompt versionado e cliente padrao desativado.
+- `notificacoes`: contrato de notificacoes locais, request tipado e cliente padrao desativado para preservar funcionamento offline sem dependencia de plataforma ate a integracao nativa.
 
 ### `shared/`
 
@@ -233,6 +235,7 @@ Principios:
 - Carregar historico, dashboard e relatorios sob demanda.
 - Gerar sugestoes inteligentes locais sob demanda, sem processamento continuo em segundo plano.
 - Consultar IA externa apenas por acao manual do usuario e com fallback local.
+- Detectar eventos notificaveis sob demanda, sem processamento continuo em segundo plano.
 
 Critérios de performance:
 

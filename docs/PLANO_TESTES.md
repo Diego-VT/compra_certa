@@ -35,6 +35,7 @@ Exemplos atuais:
 - alteracao logica de status do produto.
 - regras de estoque para entrada, saida, ajuste e minimo.
 - regras de lista de compras para criacao, duplicidade, marcacao e geracao por estoque baixo.
+- regras de notificacao para estoque baixo, listas pendentes, preferencias e deduplicacao.
 
 ## Testes de repository
 
@@ -194,6 +195,18 @@ Cobrem:
 - validacao de periodo invalido;
 - tela de relatorios com dados agregados;
 - estado vazio da tela de relatorios.
+
+## Testes atuais de notificacoes
+
+Cobrem:
+
+- deteccao de eventos de estoque baixo;
+- deteccao de listas de compras pendentes;
+- respeito a preferencia geral de notificacoes;
+- respeito a preferencias por tipo de alerta;
+- chaves e IDs estaveis por evento notificavel;
+- agendamento sem duplicar o mesmo evento;
+- cancelamento sem repetir o mesmo evento.
 
 ## Criterios de aceite para PRs
 
