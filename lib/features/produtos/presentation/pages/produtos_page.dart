@@ -284,6 +284,7 @@ class _ProdutosList extends ConsumerWidget {
         .call(id: produto.id, isAtivo: !produto.isAtivo);
     ref.invalidate(produtosListagemProvider);
     ref.invalidate(produtosProvider);
+    ref.invalidate(produtosAtivosBuscaProvider);
     ref.invalidate(produtoPorIdProvider(produto.id));
   }
 }

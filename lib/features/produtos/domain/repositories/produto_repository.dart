@@ -4,6 +4,8 @@ import '../entities/produto_form_data.dart';
 import '../entities/produto_list_item_entity.dart';
 
 abstract class ProdutoRepository {
+  Future<int> seedProdutosIniciais();
+
   Future<List<ProdutoEntity>> listarProdutos();
 
   Future<List<ProdutoListItemEntity>> listarProdutosParaExibicao(

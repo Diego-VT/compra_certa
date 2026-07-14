@@ -4,11 +4,28 @@ import '../../domain/entities/produto_form_data.dart';
 import '../../domain/entities/produto_list_item_entity.dart';
 import '../../domain/repositories/produto_repository.dart';
 import '../datasources/produto_local_data_source.dart';
+import '../datasources/produto_seed_asset_data_source.dart';
 
 class ProdutoRepositoryImpl implements ProdutoRepository {
-  const ProdutoRepositoryImpl({required this.localDataSource});
+  const ProdutoRepositoryImpl({
+    required this.localDataSource,
+    required this.seedAssetDataSource,
+  });
+
+  static const seedKey = 'produtos_seed_compra_certa_v1';
 
   final ProdutoLocalDataSource localDataSource;
+  final ProdutoSeedAssetDataSource seedAssetDataSource;
+
+  @override
+  Future<int> seedProdutosIniciais() async {
+    final produtos = await seedAssetDataSource.carregarProdutos();
+
+    return localDataSource.executarSeedInicial(
+      seedKey: seedKey,
+      produtos: produtos,
+    );
+  }
 
   @override
   Future<ProdutoEntity?> buscarProdutoPorId(int id) {

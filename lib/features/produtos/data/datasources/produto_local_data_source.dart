@@ -5,8 +5,14 @@ import '../../domain/entities/produto_entity.dart';
 import '../../domain/entities/produto_filtro.dart';
 import '../../domain/entities/produto_form_data.dart';
 import '../../domain/entities/produto_list_item_entity.dart';
+import '../models/produto_seed_model.dart';
 
 abstract class ProdutoLocalDataSource {
+  Future<int> executarSeedInicial({
+    required String seedKey,
+    required List<ProdutoSeedModel> produtos,
+  });
+
   Future<List<ProdutoEntity>> listarProdutos();
 
   Future<List<ProdutoListItemEntity>> listarProdutosParaExibicao(
@@ -24,6 +30,73 @@ class ProdutoLocalDataSourceImpl implements ProdutoLocalDataSource {
   const ProdutoLocalDataSourceImpl(this._database);
 
   final AppDatabase _database;
+
+  @override
+  Future<int> executarSeedInicial({
+    required String seedKey,
+    required List<ProdutoSeedModel> produtos,
+  }) {
+    return _database.transaction(() async {
+      final seedJaExecutado = await (_database.select(
+        _database.seedExecutions,
+      )..where((table) => table.seedKey.equals(seedKey))).getSingleOrNull();
+
+      if (seedJaExecutado != null) {
+        return 0;
+      }
+
+      var inseridos = 0;
+
+      for (final produto in produtos) {
+        final categoria = await (_database.select(_database.categorias)..where(
+              (table) => table.id.equals(produto.categoriaId),
+            ))
+            .getSingleOrNull();
+
+        if (categoria == null) {
+          continue;
+        }
+
+        final existente =
+            await (_database.select(_database.produtos)..where(
+                  (table) =>
+                      table.nome.equals(produto.nome) &
+                      table.categoriaId.equals(produto.categoriaId),
+                ))
+                .getSingleOrNull();
+
+        if (existente != null) {
+          continue;
+        }
+
+        await _database
+            .into(_database.produtos)
+            .insert(
+              ProdutosCompanion.insert(
+                nome: produto.nome.trim(),
+                categoriaId: produto.categoriaId,
+                unidadeMedida: produto.unidadeMedida.trim(),
+                marca: Value(_emptyToNull(produto.marca)),
+                quantidadeMinima: Value(produto.quantidadeMinima),
+                quantidadeIdeal: Value(produto.quantidadeIdeal),
+                observacoes: Value(_emptyToNull(produto.observacoes)),
+                isAtivo: Value(produto.isAtivo),
+              ),
+            );
+
+        inseridos++;
+      }
+
+      await _database
+          .into(_database.seedExecutions)
+          .insert(
+            SeedExecutionsCompanion.insert(seedKey: seedKey),
+            mode: InsertMode.insertOrIgnore,
+          );
+
+      return inseridos;
+    });
+  }
 
   @override
   Future<List<ProdutoEntity>> listarProdutos() async {

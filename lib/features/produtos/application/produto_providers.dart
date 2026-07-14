@@ -1,7 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/di/dependency_providers.dart';
+import '../../categorias/application/categoria_providers.dart';
 import '../data/datasources/produto_local_data_source.dart';
+import '../data/datasources/produto_seed_asset_data_source.dart';
 import '../data/repositories/produto_repository_impl.dart';
 import '../domain/entities/produto_entity.dart';
 import '../domain/entities/produto_filtro.dart';
@@ -12,15 +14,29 @@ import '../domain/usecases/buscar_produto_por_id.dart';
 import '../domain/usecases/listar_produtos.dart';
 import '../domain/usecases/listar_produtos_para_exibicao.dart';
 import '../domain/usecases/salvar_produto.dart';
+import '../domain/usecases/seed_produtos_iniciais.dart';
 
 final produtoLocalDataSourceProvider = Provider<ProdutoLocalDataSource>((ref) {
   return ProdutoLocalDataSourceImpl(ref.watch(appDatabaseProvider));
 });
 
+final produtoSeedAssetDataSourceProvider = Provider<ProdutoSeedAssetDataSource>(
+  (ref) {
+    return const ProdutoSeedAssetDataSourceImpl();
+  },
+);
+
 final produtoRepositoryProvider = Provider<ProdutoRepository>((ref) {
   return ProdutoRepositoryImpl(
     localDataSource: ref.watch(produtoLocalDataSourceProvider),
+    seedAssetDataSource: ref.watch(produtoSeedAssetDataSourceProvider),
   );
+});
+
+final seedProdutosIniciaisUseCaseProvider = Provider<SeedProdutosIniciais>((
+  ref,
+) {
+  return SeedProdutosIniciais(ref.watch(produtoRepositoryProvider));
 });
 
 final listarProdutosUseCaseProvider = Provider<ListarProdutos>((ref) {
@@ -50,17 +66,36 @@ final produtoFiltroProvider = StateProvider<ProdutoFiltro>((ref) {
   return const ProdutoFiltro();
 });
 
-final produtosProvider = FutureProvider<List<ProdutoEntity>>((ref) {
+final seedProdutosIniciaisProvider = FutureProvider<int>((ref) async {
+  await ref.watch(seedCategoriasIniciaisProvider.future);
+
+  return ref.watch(seedProdutosIniciaisUseCaseProvider).call();
+});
+
+final produtosProvider = FutureProvider<List<ProdutoEntity>>((ref) async {
+  await ref.watch(seedProdutosIniciaisProvider.future);
+
   return ref.watch(listarProdutosUseCaseProvider).call();
 });
 
 final produtosListagemProvider = FutureProvider<List<ProdutoListItemEntity>>((
   ref,
-) {
+) async {
+  await ref.watch(seedProdutosIniciaisProvider.future);
+
   final filtro = ref.watch(produtoFiltroProvider);
 
   return ref.watch(listarProdutosParaExibicaoUseCaseProvider).call(filtro);
 });
+
+final produtosAtivosBuscaProvider =
+    FutureProvider.family<List<ProdutoListItemEntity>, String>((ref, busca) async {
+      await ref.watch(seedProdutosIniciaisProvider.future);
+
+      return ref
+          .watch(listarProdutosParaExibicaoUseCaseProvider)
+          .call(ProdutoFiltro(busca: busca, status: ProdutoStatusFiltro.ativos));
+    });
 
 final produtoPorIdProvider = FutureProvider.family<ProdutoEntity?, int>((
   ref,

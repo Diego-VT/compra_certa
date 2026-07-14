@@ -136,6 +136,7 @@ class _ProdutoFormPageState extends ConsumerState<ProdutoFormPage> {
           .call(produto);
       ref.invalidate(produtosProvider);
       ref.invalidate(produtosListagemProvider);
+      ref.invalidate(produtosAtivosBuscaProvider);
       ref.invalidate(produtoPorIdProvider(produtoId));
 
       if (mounted) {

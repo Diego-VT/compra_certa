@@ -257,7 +257,8 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final produtosState = ref.watch(produtosProvider);
+    final busca = _buscaController.text;
+    final produtosState = ref.watch(produtosAtivosBuscaProvider(busca));
     final bottomInset = MediaQuery.viewInsetsOf(context).bottom;
 
     return SafeArea(
@@ -266,23 +267,21 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
         child: SizedBox(
           height: MediaQuery.sizeOf(context).height * 0.82,
           child: produtosState.when(
+            skipLoadingOnReload: true,
             data: (produtos) {
-              final ativos =
-                  produtos
-                      .where((produto) => produto.isAtivo)
-                      .map(
-                        (produto) => _ProdutoOpcao(
-                          id: produto.id,
-                          nome: produto.nome,
-                          unidadeMedida: produto.unidadeMedida,
-                          marca: produto.marca,
-                          observacoes: produto.observacoes,
-                        ),
-                      )
-                      .toList(growable: false)
-                    ..sort((a, b) => a.nome.compareTo(b.nome));
+              final opcoes = produtos
+                  .map(
+                    (produto) => _ProdutoOpcao(
+                      id: produto.id,
+                      nome: produto.nome,
+                      unidadeMedida: produto.unidadeMedida,
+                      marca: produto.marca,
+                      observacoes: produto.observacoes,
+                    ),
+                  )
+                  .toList(growable: false);
 
-              return _buildForm(ativos);
+              return _buildForm(opcoes);
             },
             error: (error, stackTrace) => Text(
               'Nao foi possivel carregar produtos.\n$error',
@@ -296,20 +295,13 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
   }
 
   Widget _buildForm(List<_ProdutoOpcao> produtos) {
-    final busca = _buscaController.text.trim().toLowerCase();
-    final produtosFiltrados = busca.isEmpty
-        ? produtos
-        : produtos
-              .where((produto) => _filtrarPorBusca(produto, busca))
-              .toList(growable: false);
-    final produtosPagina = produtosFiltrados
-        .take(_produtosVisiveis)
-        .toList(growable: false);
-    final hasMore = produtosFiltrados.length > produtosPagina.length;
+    final busca = _buscaController.text.trim();
+    final produtosPagina = produtos.take(_produtosVisiveis).toList(growable: false);
+    final hasMore = produtos.length > produtosPagina.length;
     final produtoSelecionado = _produtoSelecionado(produtos);
-    final emptyMessage = produtos.isEmpty
+    final emptyMessage = busca.isEmpty
         ? 'Nenhum produto ativo disponivel. Cadastre ou reative um produto antes de adicionar itens.'
-        : 'Nenhum produto encontrado para a busca atual.';
+        : 'Nenhum produto ativo encontrado para "$busca".';
 
     return Form(
       key: _formKey,
@@ -327,15 +319,7 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
             textEditingController: _buscaController,
             focusNode: _buscaFocusNode,
             optionsBuilder: (textEditingValue) {
-              final busca = textEditingValue.text.trim().toLowerCase();
-
-              if (busca.isEmpty) {
-                return const Iterable<_ProdutoOpcao>.empty();
-              }
-
-              return produtos.where((produto) {
-                return _filtrarPorBusca(produto, busca);
-              });
+              return produtos;
             },
             displayStringForOption: (produto) => produto.nome,
             fieldViewBuilder: (
@@ -423,7 +407,7 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
           Expanded(
             child: _ProdutosPaginadosList(
               produtos: produtosPagina,
-              totalProdutos: produtosFiltrados.length,
+              totalProdutos: produtos.length,
               hasMore: hasMore,
               produtoId: _produtoId,
               emptyMessage: emptyMessage,
@@ -540,21 +524,6 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
         setState(() => _isSaving = false);
       }
     }
-  }
-
-  bool _filtrarPorBusca(_ProdutoOpcao produto, String busca) {
-    if (busca.isEmpty) {
-      return true;
-    }
-
-    return <String?>[
-      produto.nome,
-      produto.marca,
-      produto.unidadeMedida,
-      produto.observacoes,
-    ].any(
-      (campo) => campo?.toLowerCase().contains(busca) ?? false,
-    );
   }
 
   _ProdutoOpcao? _produtoSelecionado(List<_ProdutoOpcao> produtos) {

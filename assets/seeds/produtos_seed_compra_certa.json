@@ -1,0 +1,236 @@
+{
+  "metadata": {
+    "nomeBase": "Produtos iniciais CompraCerta",
+    "totalProdutos": 32,
+    "observacao": "Produtos comuns de supermercado para uso inicial em listas de compras."
+  },
+  "produtos": [
+    {
+      "nome": "Arroz",
+      "categoriaId": 103,
+      "unidadeMedida": "kg",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 5,
+      "observacoes": "Item basico de despensa"
+    },
+    {
+      "nome": "Feijao",
+      "categoriaId": 107,
+      "unidadeMedida": "kg",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 3,
+      "observacoes": "Item basico de despensa"
+    },
+    {
+      "nome": "Cafe",
+      "categoriaId": 85,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2,
+      "observacoes": "Cafe torrado e moido"
+    },
+    {
+      "nome": "Acucar",
+      "categoriaId": 80,
+      "unidadeMedida": "kg",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Leite integral",
+      "categoriaId": 121,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 2,
+      "quantidadeIdeal": 6
+    },
+    {
+      "nome": "Leite em po",
+      "categoriaId": 116,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Achocolatado em po",
+      "categoriaId": 68,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Macarrao",
+      "categoriaId": 64,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 2,
+      "quantidadeIdeal": 5
+    },
+    {
+      "nome": "Oleo de soja",
+      "categoriaId": 64,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 3
+    },
+    {
+      "nome": "Sal",
+      "categoriaId": 64,
+      "unidadeMedida": "kg",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 1
+    },
+    {
+      "nome": "Farinha de trigo",
+      "categoriaId": 64,
+      "unidadeMedida": "kg",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Molho de tomate",
+      "categoriaId": 64,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 2,
+      "quantidadeIdeal": 6
+    },
+    {
+      "nome": "Refrigerante cola",
+      "categoriaId": 377,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 3
+    },
+    {
+      "nome": "Refrigerante guarana",
+      "categoriaId": 379,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 3
+    },
+    {
+      "nome": "Suco pronto",
+      "categoriaId": 387,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 3
+    },
+    {
+      "nome": "Agua mineral",
+      "categoriaId": 370,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 6,
+      "quantidadeIdeal": 12
+    },
+    {
+      "nome": "Detergente",
+      "categoriaId": 450,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 4
+    },
+    {
+      "nome": "Sabao em po",
+      "categoriaId": 445,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Sabao em barra",
+      "categoriaId": 462,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 3
+    },
+    {
+      "nome": "Agua sanitaria",
+      "categoriaId": 458,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Desinfetante",
+      "categoriaId": 455,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 3
+    },
+    {
+      "nome": "Papel higienico",
+      "categoriaId": 489,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 4
+    },
+    {
+      "nome": "Papel toalha",
+      "categoriaId": 477,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Esponja",
+      "categoriaId": 432,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 4
+    },
+    {
+      "nome": "Creme dental",
+      "categoriaId": 535,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 3
+    },
+    {
+      "nome": "Escova dental",
+      "categoriaId": 537,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 4
+    },
+    {
+      "nome": "Shampoo",
+      "categoriaId": 503,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Condicionador",
+      "categoriaId": 503,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Macarrao instantaneo",
+      "categoriaId": 64,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 2,
+      "quantidadeIdeal": 6
+    },
+    {
+      "nome": "Ovos",
+      "categoriaId": 62,
+      "unidadeMedida": "dz",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Manteiga",
+      "categoriaId": 55,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    },
+    {
+      "nome": "Queijo",
+      "categoriaId": 60,
+      "unidadeMedida": "un",
+      "quantidadeMinima": 1,
+      "quantidadeIdeal": 2
+    }
+  ]
+}

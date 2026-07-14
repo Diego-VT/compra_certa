@@ -2,6 +2,7 @@ import 'package:compra_certa/database/app_database.dart';
 import 'package:compra_certa/features/produtos/data/datasources/produto_local_data_source.dart';
 import 'package:compra_certa/features/produtos/domain/entities/produto_filtro.dart';
 import 'package:compra_certa/features/produtos/domain/entities/produto_form_data.dart';
+import 'package:compra_certa/features/produtos/data/models/produto_seed_model.dart';
 import 'package:drift/drift.dart' hide isNotNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -97,6 +98,39 @@ void main() {
     expect(produtos, hasLength(1));
     expect(produtos.single.nome, 'Arroz');
     expect(produtos.single.categoriaId, 1);
+  });
+
+  test('executa seed inicial de produtos apenas uma vez', () async {
+    const produtosSeed = [
+      ProdutoSeedModel(
+        nome: 'Arroz',
+        categoriaId: 1,
+        unidadeMedida: 'kg',
+        quantidadeMinima: 1,
+        quantidadeIdeal: 5,
+      ),
+      ProdutoSeedModel(
+        nome: 'Produto sem categoria',
+        categoriaId: 999,
+        unidadeMedida: 'un',
+        quantidadeMinima: 1,
+        quantidadeIdeal: 1,
+      ),
+    ];
+
+    final primeiraExecucao = await dataSource.executarSeedInicial(
+      seedKey: 'produtos_teste_v1',
+      produtos: produtosSeed,
+    );
+    final segundaExecucao = await dataSource.executarSeedInicial(
+      seedKey: 'produtos_teste_v1',
+      produtos: produtosSeed,
+    );
+    final produtos = await dataSource.listarProdutos();
+
+    expect(primeiraExecucao, 1);
+    expect(segundaExecucao, 0);
+    expect(produtos.map((produto) => produto.nome), ['Arroz']);
   });
 
   test('edita produto existente', () async {
