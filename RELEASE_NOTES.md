@@ -4,7 +4,7 @@ Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuar
 
 ## 0.11.0 - Relatorios
 
-Status: preparada em 2026-07-14 conforme `VERSIONING.md` e `docs/RELEASE_PROCESS.md`.
+Status: publicada no GitHub em 2026-07-14 conforme processo oficial.
 
 ### Destaques
 
