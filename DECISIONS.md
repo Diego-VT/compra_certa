@@ -164,3 +164,22 @@ Manter documentos oficiais de produto, arquitetura, processo, release, seguranca
 - Mudancas relevantes exigem atualizacao documental.
 - Sprints devem seguir processo formal de planejamento, validacao e encerramento.
 - Agentes devem consultar a documentacao antes de alterar o projeto.
+
+## 12. IA externa opcional por contrato
+
+### Decisao
+
+Iniciar a Sprint 10 com um contrato de cliente de IA em `services/ia`, prompt versionado em asset e cliente padrao desativado.
+
+### Motivo
+
+- Preservar funcionamento offline.
+- Evitar credenciais ou secrets no repositorio.
+- Permitir troca futura por provedor externo sem acoplar UI ou dominio a HTTP/API especifica.
+- Garantir que o usuario acione a IA manualmente.
+
+### Consequencias
+
+- O app passa a ter a arquitetura pronta para IA externa.
+- Sem configuracao de provedor, a experiencia usa fallback local.
+- A integracao real com API deve ser decidida e documentada antes de receber credenciais, armazenamento seguro e politica de dados definitiva.

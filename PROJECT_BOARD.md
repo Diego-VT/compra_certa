@@ -4,7 +4,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## Backlog
 
-- Integracao com IA.
 - Relatorios.
 - Notificacoes.
 - Release APK/AAB.
@@ -16,7 +15,7 @@ Quadro Kanban textual para acompanhamento do projeto.
 
 ## Doing
 
-- Nenhuma sprint ativa no momento. Proximo passo: Sprint 10 - Integracao com IA.
+- Nenhuma sprint ativa no momento. Proximo passo: Sprint 11 - Relatorios.
 
 ## Review
 
@@ -43,5 +42,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 - Release 0.8.0 - Dashboard.
 - Sprint 09 - Motor Inteligente Local.
 - Release 0.9.0 - Motor Inteligente Local.
+- Sprint 10 - Integracao com IA.
 - Documentacao inicial.
 - Consolidacao de documentacao e governanca.

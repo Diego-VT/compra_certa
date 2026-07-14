@@ -1,5 +1,9 @@
 # Sprint 10 - Integracao com IA
 
+## Status
+
+Concluida em 2026-07-14. Sprint finalizada com contrato de IA externa, prompt versionado, sanitizacao de contexto, fallback local, acionamento manual na tela de sugestoes, validacao automatizada e documentacao atualizada.
+
 ## Objetivo
 
 Adicionar integracao opcional com IA externa, acionada sob demanda.
@@ -76,6 +80,15 @@ Service externo isolado por contrato e provider.
 
 ## Checklist de Conclusao
 
-- Decisao registrada.
-- Politica de dados atualizada.
-- Testes com mocks.
+- [x] Contrato de servico de IA criado em `services/ia`.
+- [x] Cliente padrao desativado para preservar uso offline e evitar dependencia de credenciais.
+- [x] Prompt versionado registrado em asset.
+- [x] Sanitizacao de contexto implementada antes de envio para IA.
+- [x] Fallback local implementado para falha, ausencia de rede ou IA nao configurada.
+- [x] Acionamento manual adicionado na tela de sugestoes.
+- [x] Testes com mocks criados.
+- [x] Decisao registrada.
+- [x] Politica de dados atualizada.
+- [x] Revisao final da sprint.
+- [x] `flutter analyze` executado.
+- [x] `flutter test` executado.

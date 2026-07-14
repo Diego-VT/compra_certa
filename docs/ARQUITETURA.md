@@ -87,7 +87,11 @@ Atuais:
 
 ### `services/`
 
-Servicos externos ou de plataforma futuros.
+Servicos externos ou de plataforma.
+
+Atuais:
+
+- `ia`: contrato de cliente de IA externa, prompt versionado e cliente padrao desativado.
 
 ### `shared/`
 
@@ -226,6 +230,7 @@ Principios:
 - Manter funcoes principais offline: cadastro, produtos, categorias, estoque e lista de compras.
 - Carregar historico, dashboard e relatorios sob demanda.
 - Gerar sugestoes inteligentes locais sob demanda, sem processamento continuo em segundo plano.
+- Consultar IA externa apenas por acao manual do usuario e com fallback local.
 
 Critérios de performance:
 

@@ -10,17 +10,31 @@ import '../../application/inteligencia_providers.dart';
 import '../../domain/entities/sugestao_inteligente_entity.dart';
 import '../../domain/entities/sugestao_inteligente_tipo.dart';
 
-class SugestoesInteligentesPage extends ConsumerWidget {
+class SugestoesInteligentesPage extends ConsumerStatefulWidget {
   const SugestoesInteligentesPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SugestoesInteligentesPage> createState() =>
+      _SugestoesInteligentesPageState();
+}
+
+class _SugestoesInteligentesPageState
+    extends ConsumerState<SugestoesInteligentesPage> {
+  bool _isConsultandoIa = false;
+
+  @override
+  Widget build(BuildContext context) {
     final sugestoesState = ref.watch(sugestoesInteligentesProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sugestoes'),
         actions: [
+          IconButton(
+            tooltip: 'Consultar IA opcional',
+            onPressed: _isConsultandoIa ? null : _consultarIaOpcional,
+            icon: const Icon(Icons.auto_awesome),
+          ),
           IconButton(
             tooltip: 'Listas de compras',
             onPressed: () => context.goNamed(AppRoute.listasCompras.name),
@@ -66,6 +80,55 @@ class SugestoesInteligentesPage extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _consultarIaOpcional() async {
+    if (_isConsultandoIa) {
+      return;
+    }
+
+    setState(() => _isConsultandoIa = true);
+
+    final messenger = ScaffoldMessenger.of(context);
+
+    messenger.showSnackBar(
+      const SnackBar(content: Text('Consultando IA opcional...')),
+    );
+
+    try {
+      final filtro = ref.read(sugestaoInteligenteFiltroProvider);
+      final resultado = await ref
+          .read(solicitarSugestaoExternaUseCaseProvider)
+          .call(filtro);
+
+      messenger.hideCurrentSnackBar();
+
+      if (!mounted) {
+        return;
+      }
+
+      await showDialog<void>(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(resultado.titulo),
+            content: Text(resultado.mensagem),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Fechar'),
+              ),
+            ],
+          );
+        },
+      );
+    } finally {
+      messenger.hideCurrentSnackBar();
+
+      if (mounted) {
+        setState(() => _isConsultandoIa = false);
+      }
+    }
   }
 
   Future<void> _criarListaComSugestao(

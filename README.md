@@ -2,7 +2,7 @@
 
 Aplicativo Flutter preparado para evoluir como uma solucao de apoio a compras, organizacao de itens e modulos inteligentes futuros.
 
-O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos, modulo de Estoque, Historico de Compras, Lista de Compras, Dashboard e Motor Inteligente Local concluido. Inteligencia artificial externa ainda nao foi implementada.
+O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos, modulo de Estoque, Historico de Compras, Lista de Compras, Dashboard, Motor Inteligente Local e camada opcional de IA externa por contrato. A IA externa fica desativada por padrao, usa prompt versionado, sanitizacao de contexto, acionamento manual e fallback local.
 
 ## Documentacao oficial
 

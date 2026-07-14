@@ -30,3 +30,4 @@ flutter:
   assets:
     - assets/seeds/categorias_seed_compra_certa.json
     - assets/seeds/produtos_seed_compra_certa.json
+    - assets/prompts/ia_sugestoes_v1.md

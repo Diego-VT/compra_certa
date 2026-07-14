@@ -2,6 +2,26 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
+## Sprint 10 - Integracao com IA
+
+Status: concluida em 2026-07-14 e preparada para publicacao no GitHub conforme processo oficial.
+
+### Destaques
+
+- Primeira camada para IA externa opcional.
+- IA acionada manualmente na tela de sugestoes.
+- Prompt versionado para orientar respostas.
+- Contexto minimizado antes de qualquer envio.
+- Fallback local quando IA externa nao esta configurada ou falha.
+- Protecao contra multiplas consultas simultaneas.
+
+### Observacoes
+
+- Nenhuma chave de API foi adicionada ao repositorio.
+- O cliente externo permanece desativado por padrao.
+- O app continua funcionando offline.
+- `flutter analyze` e `flutter test` foram executados com sucesso.
+
 ## 0.9.0 - Motor Inteligente Local
 
 Status: preparada para publicacao no GitHub em 2026-07-06, com commit e push aprovados pelo usuario.

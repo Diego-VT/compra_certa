@@ -202,7 +202,7 @@ Gerar sugestoes sem IA externa, usando regras locais.
 
 ### Status
 
-Planejada.
+Concluida.
 
 ### Objetivo
 

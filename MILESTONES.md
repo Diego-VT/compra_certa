@@ -50,7 +50,7 @@ Objetivo: exibir indicadores principais sob demanda.
 
 ## M-009 - IA
 
-Status: em andamento.
+Status: concluida.
 
 Objetivo: adicionar inteligencia local e IA externa opcional.
 

@@ -177,6 +177,13 @@ Devem cobrir:
 - nenhum dado sensivel enviado indevidamente.
 - acionamento sob demanda, sem processamento local pesado.
 
+Testes iniciais da Sprint 10 cobrem:
+
+- contexto sanitizado antes do envio para IA;
+- fallback quando o cliente externo falha;
+- nao acionamento da IA quando nao ha sugestoes locais;
+- acionamento manual pela tela de sugestoes.
+
 ## Criterios de aceite para PRs
 
 - `flutter analyze` sem issues.

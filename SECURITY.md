@@ -64,3 +64,12 @@ Backups futuros devem:
 - Nao expor banco ou backups publicamente.
 - Revisar dependencias novas.
 - Tratar erros sem revelar dados sensiveis.
+
+## IA externa
+
+- IA externa deve ser acionada manualmente pelo usuario.
+- O app nao deve enviar dados automaticamente para terceiros.
+- O contexto enviado deve ser minimizado e sanitizado.
+- Tokens, chaves de API e configuracoes sensiveis nao devem ser versionados.
+- Falhas de IA devem usar fallback local sem bloquear funcoes principais.
+- A Sprint 10 inicia com cliente externo desativado por padrao ate existir decisao sobre provedor, credenciais e armazenamento seguro.

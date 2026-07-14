@@ -60,9 +60,23 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+### Added
+
+- Inicio da Sprint 10 com contrato de IA externa opcional.
+- Prompt versionado para sugestoes com IA.
+- Sanitizacao do contexto enviado para IA.
+- Fallback local quando IA externa nao esta configurada ou falha.
+- Acao manual para consultar IA opcional na tela de sugestoes.
+- Protecao contra consultas duplicadas a IA opcional.
+
 ### Notes
 
-- Proximas entregas continuam em planejamento.
+- Integracao real com provedor externo permanece desativada por padrao para evitar internet obrigatoria, secrets no repositorio e envio automatico de dados.
+
+### Verified
+
+- `flutter analyze` executado com sucesso durante o encerramento da Sprint 10.
+- `flutter test` executado com sucesso durante o encerramento da Sprint 10.
 
 ## [0.9.0] - 2026-07-06
 

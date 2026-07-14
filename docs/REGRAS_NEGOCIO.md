@@ -127,12 +127,13 @@ Regra futura:
 
 ## IA
 
-Regra futura:
-
 - IA externa deve ser opcional.
 - App deve funcionar sem IA.
 - Dados enviados para IA devem ser minimizados.
 - Toda sugestao de IA deve ter fallback local ou tratamento de erro.
+- IA deve ser acionada manualmente pelo usuario.
+- A Sprint 10 usa cliente externo desativado por padrao ate existir provedor configurado.
+- O contexto enviado para IA deve ser sanitizado e limitado as sugestoes locais necessarias.
 
 ## Regras gerais de performance
 
