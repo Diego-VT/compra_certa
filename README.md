@@ -296,6 +296,6 @@ Android SDK, licencas Android, Chrome e recursos de rede foram reconhecidos corr
 1. Habilitar Developer Mode no Windows.
 2. Rodar `flutter pub get` novamente apos habilitar Developer Mode.
 3. Resolver a verificacao SSH do GitHub para voltar a usar o remoto SSH.
-4. Iniciar Sprint 10 - Integracao com IA conforme documentacao oficial.
-5. Preparar versao `0.9.0` no manifesto do app quando o fluxo de release exigir.
+4. Iniciar Sprint 11 - Relatorios conforme documentacao oficial.
+5. Planejar estrategia de testes de release para o marco `1.0.0`.
 6. Manter entidades, contratos e casos de uso antes das telas nas proximas features.

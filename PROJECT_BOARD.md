@@ -43,5 +43,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 - Sprint 09 - Motor Inteligente Local.
 - Release 0.9.0 - Motor Inteligente Local.
 - Sprint 10 - Integracao com IA.
+- Release 0.10.0 - Integracao com IA.
 - Documentacao inicial.
 - Consolidacao de documentacao e governanca.

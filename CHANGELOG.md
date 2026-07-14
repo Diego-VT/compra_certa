@@ -60,6 +60,12 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+### Notes
+
+- Proximas entregas continuam em planejamento.
+
+## [0.10.0] - 2026-07-14
+
 ### Added
 
 - Inicio da Sprint 10 com contrato de IA externa opcional.
