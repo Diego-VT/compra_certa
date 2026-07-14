@@ -60,6 +60,12 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+### Notes
+
+- Proximas entregas seguem para a Sprint 13 - Release APK/AAB.
+
+## [0.12.0] - 2026-07-14
+
 ### Added
 
 - Inicio da Sprint 12 com foco em notificacoes locais, preferencias do usuario e eventos de estoque baixo/listas pendentes.
@@ -67,9 +73,10 @@ Tipos de mudanca:
 - Preferencias padrao para habilitar/desabilitar notificacoes gerais, estoque baixo e listas pendentes.
 - Testes de dominio para regras de disparo, preferencias e deduplicacao de notificacoes.
 
-### Notes
+### Verified
 
-- Sprint 12 em andamento conforme roadmap e documentacao oficial.
+- `flutter analyze` executado com sucesso durante a preparacao da release `0.12.0`.
+- `flutter test` executado com sucesso durante a preparacao da release `0.12.0`.
 
 ## [0.11.0] - 2026-07-14
 

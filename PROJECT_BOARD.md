@@ -45,5 +45,6 @@ Quadro Kanban textual para acompanhamento do projeto.
 - Sprint 11 - Relatorios.
 - Release 0.11.0 - Relatorios.
 - Sprint 12 - Notificacoes.
+- Release 0.12.0 - Notificacoes.
 - Documentacao inicial.
 - Consolidacao de documentacao e governanca.

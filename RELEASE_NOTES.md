@@ -4,7 +4,7 @@ Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuar
 
 ## 0.12.0 - Notificacoes
 
-Status: sprint finalizada em 2026-07-14 conforme processo oficial. Versao ainda pendente de preparacao formal em `pubspec.yaml`.
+Status: preparada em 2026-07-14 conforme `VERSIONING.md` e `docs/RELEASE_PROCESS.md`.
 
 ### Destaques
 

@@ -102,10 +102,11 @@ O CompraCerta usa versoes pre-1.0 para representar a conclusao incremental das s
 0.9.0 - Motor Inteligente Local
 0.10.0 - Integracao com IA externa opcional
 0.11.0 - Relatorios
+0.12.0 - Notificacoes
 1.0.0 - MVP pronto para release
 ```
 
-Observacao: `1.0.0` permanece reservado para o release tecnico/MVP conforme `MVP.md` e Sprint 13. Entregas compativeis posteriores a `0.9.0` podem usar a sequencia pre-1.0, como `0.10.0` e `0.11.0`, ate o fechamento formal do MVP.
+Observacao: `1.0.0` permanece reservado para o release tecnico/MVP conforme `MVP.md` e Sprint 13. Entregas compativeis posteriores a `0.9.0` podem usar a sequencia pre-1.0, como `0.10.0`, `0.11.0` e `0.12.0`, ate o fechamento formal do MVP.
 
 ## Regras do Projeto
 
