@@ -113,7 +113,7 @@ final gerarRelatorioListaCompraUseCaseProvider =
 
 final relatorioListaCompraPdfServiceProvider =
     Provider<RelatorioListaCompraPdfService>((ref) {
-      return const RelatorioListaCompraPdfServiceImpl();
+      return RelatorioListaCompraPdfServiceImpl();
     });
 
 final relatorioListaCompraProvider =

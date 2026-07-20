@@ -37,6 +37,18 @@ Acao recomendada: testar listagens, banco local e navegacao em Android fisico.
 
 Status: aberta.
 
+### TD-005 - Validar integracoes nativas Android
+
+Prioridade: alta.
+
+Modulo: notificacoes e relatorio PDF.
+
+Contexto: testes automatizados validam regras e geracao do documento, mas nao substituem permissao, exibicao de notificacao e compartilhamento em aparelho real.
+
+Acao recomendada: executar o checklist da Sprint 13 em dispositivo Android conectado e registrar modelo, versao do Android e resultado.
+
+Status: aberta.
+
 ### TD-002 - Planejar indices para consultas futuras
 
 Prioridade: media.

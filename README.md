@@ -2,7 +2,7 @@
 
 Aplicativo Flutter preparado para evoluir como uma solucao de apoio a compras, organizacao de itens e modulos inteligentes futuros.
 
-O projeto ja possui base profissional, documentacao de governanca, modulo de Categorias, modulo de Produtos, modulo de Estoque, Historico de Compras, Lista de Compras, Dashboard, Motor Inteligente Local, camada opcional de IA externa por contrato e Relatorios. A IA externa fica desativada por padrao, usa prompt versionado, sanitizacao de contexto, acionamento manual e fallback local.
+O projeto ja possui base profissional, documentacao de governanca, Categorias, Produtos, Estoque, Historico de Compras, Lista de Compras, Dashboard, Motor Inteligente Local, IA externa opcional por contrato, Relatorios, Notificacoes Locais e relatorio PDF da lista. A navegacao principal usa barra inferior e as funcoes essenciais permanecem offline.
 
 ## Documentacao oficial
 
@@ -89,7 +89,7 @@ Decisoes importantes:
 - A listagem permite busca por nome, filtro por categoria e filtro por status.
 - Produtos nao sao removidos fisicamente; a ativacao/desativacao usa exclusao logica por `isAtivo`.
 - A listagem permite acesso ao modulo de estoque.
-- Esta etapa nao implementa lista de compras ou inteligencia artificial.
+- Produtos integram os fluxos atuais de estoque, listas, historico e relatorios.
 
 ## Modulo de estoque
 
@@ -317,9 +317,8 @@ Android SDK, licencas Android, Chrome e recursos de rede foram reconhecidos corr
 
 ## Proximos passos
 
-1. Habilitar Developer Mode no Windows.
-2. Rodar `flutter pub get` novamente apos habilitar Developer Mode.
+1. Conectar e autorizar um dispositivo Android real.
+2. Validar notificacoes, compartilhamento PDF, navegacao e desempenho no aparelho.
 3. Resolver a verificacao SSH do GitHub para voltar a usar o remoto SSH.
-4. Iniciar Sprint 12 - Notificacoes conforme documentacao oficial.
-5. Planejar estrategia de testes de release para o marco `1.0.0`.
-6. Manter entidades, contratos e casos de uso antes das telas nas proximas features.
+4. Iniciar a Sprint 13 - Release APK/AAB apos registrar as evidencias do teste fisico.
+5. Preparar assinatura Android e estrategia do marco `1.0.0`.

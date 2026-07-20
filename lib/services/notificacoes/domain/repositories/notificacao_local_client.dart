@@ -8,4 +8,6 @@ abstract class NotificacaoLocalClient {
   Future<void> agendar(NotificacaoLocalRequest request);
 
   Future<void> cancelar(int id);
+
+  Future<void> cancelarTodos();
 }

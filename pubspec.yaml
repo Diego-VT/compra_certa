@@ -1,7 +1,7 @@
 name: compra_certa
 description: "Aplicativo CompraCerta."
 publish_to: 'none'
-version: 0.12.0+12
+version: 0.13.0+13
 
 environment:
   sdk: ^3.12.2
@@ -32,6 +32,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/fonts/roboto-regular.ttf
+    - assets/fonts/roboto-bold.ttf
+    - assets/fonts/roboto-license.txt
     - assets/seeds/categorias_seed_compra_certa.json
     - assets/seeds/produtos_seed_compra_certa.json
     - assets/prompts/ia_sugestoes_v1.md

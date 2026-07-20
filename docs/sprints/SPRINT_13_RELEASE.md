@@ -60,6 +60,27 @@ Processo de build e release, sem mudanca de arquitetura.
 - Teste manual em dispositivo fisico.
 - Instalar APK gerado.
 
+## Pre-requisitos Recebidos da Sprint 12
+
+- [x] Sincronizacao de notificacoes na abertura e retomada do aplicativo.
+- [x] Cancelamento de notificacoes obsoletas antes do novo agendamento.
+- [x] Fonte Unicode Roboto incorporada ao PDF.
+- [x] Documentacao de produto e governanca consolidada.
+- [x] Versao pos-0.12.0 definida como `0.13.0+13`.
+- [x] `flutter analyze` aprovado.
+- [x] 75 testes automatizados aprovados.
+- [x] Instalacao e inicializacao da versao de desenvolvimento no moto g20.
+- [ ] Validacao manual de notificacoes e compartilhamento do PDF no moto g20.
+
+### Roteiro da Validacao Android Pendente
+
+- [x] Instalar e abrir o aplicativo no aparelho.
+- Conceder a permissao de notificacoes quando solicitada.
+- Ativar alertas, colocar produto abaixo do estoque minimo e manter lista pendente.
+- Fechar e reabrir o aplicativo, conferindo o acionamento e a ausencia de duplicatas.
+- Concluir ou remover o evento e conferir o cancelamento da notificacao obsoleta.
+- Gerar e compartilhar um PDF contendo acentos, cedilha e simbolos.
+
 ## Criterios de Aceite
 
 - APK gerado.

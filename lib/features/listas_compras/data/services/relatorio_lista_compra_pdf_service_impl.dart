@@ -1,5 +1,4 @@
-import 'dart:typed_data';
-
+import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
@@ -9,10 +8,16 @@ import '../../domain/repositories/relatorio_lista_compra_pdf_service.dart';
 
 class RelatorioListaCompraPdfServiceImpl
     implements RelatorioListaCompraPdfService {
-  const RelatorioListaCompraPdfServiceImpl();
+  RelatorioListaCompraPdfServiceImpl();
 
   @override
   Future<Uint8List> gerar(RelatorioListaCompraEntity relatorio) async {
+    final regular = pw.Font.ttf(
+      await rootBundle.load('assets/fonts/roboto-regular.ttf'),
+    );
+    final bold = pw.Font.ttf(
+      await rootBundle.load('assets/fonts/roboto-bold.ttf'),
+    );
     final document = pw.Document(
       title: 'Lista de compras - ${relatorio.nome}',
       author: 'CompraCerta',
@@ -20,6 +25,7 @@ class RelatorioListaCompraPdfServiceImpl
 
     document.addPage(
       pw.MultiPage(
+        theme: pw.ThemeData.withFont(base: regular, bold: bold),
         pageFormat: PdfPageFormat.a4,
         margin: const pw.EdgeInsets.all(32),
         header: (context) => pw.Padding(

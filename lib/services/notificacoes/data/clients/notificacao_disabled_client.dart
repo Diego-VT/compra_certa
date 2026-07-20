@@ -15,4 +15,7 @@ class NotificacaoDisabledClient implements NotificacaoLocalClient {
 
   @override
   Future<void> cancelar(int id) async {}
+
+  @override
+  Future<void> cancelarTodos() async {}
 }

@@ -95,6 +95,7 @@ Atuais:
 
 - `ia`: contrato de cliente de IA externa, prompt versionado e cliente padrao desativado.
 - `notificacoes`: contrato de notificacoes locais, request tipado e cliente nativo isolado com `flutter_local_notifications`.
+- `documentos`: relatorio de lista gerado localmente com `pdf`, fonte Roboto incorporada e compartilhamento explicito com `printing`.
 
 ### `shared/`
 

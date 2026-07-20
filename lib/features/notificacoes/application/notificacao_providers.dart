@@ -93,7 +93,6 @@ final sincronizarEventosNotificaveisUseCaseProvider =
   return SincronizarEventosNotificaveis(
     ref.watch(detectarEventosNotificaveisUseCaseProvider),
     ref.watch(agendarEventosNotificaveisUseCaseProvider),
-    ref.watch(cancelarEventosNotificaveisUseCaseProvider),
     ref.watch(notificacaoLocalClientProvider),
   );
 });

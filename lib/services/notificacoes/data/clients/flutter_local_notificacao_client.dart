@@ -78,4 +78,10 @@ class FlutterLocalNotificacaoClient implements NotificacaoLocalClient {
     await inicializar();
     await _plugin.cancel(id: id);
   }
+
+  @override
+  Future<void> cancelarTodos() async {
+    await inicializar();
+    await _plugin.cancelAll();
+  }
 }

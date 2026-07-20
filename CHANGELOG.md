@@ -60,6 +60,12 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+### Notes
+
+- Proximo marco: Sprint 13 - Release APK/AAB.
+
+## [0.13.0] - 2026-07-20
+
 ### Added
 
 - Relatorio individual da lista de compras com resumo, progresso e itens.
@@ -75,9 +81,11 @@ Tipos de mudanca:
 - Tela de notificacoes ganhou hierarquia visual, estado destacado, icones contextuais e layout responsivo.
 - Navegacao principal ganhou barra inferior persistente nas telas de Dashboard, Produtos, Estoque, Listas e Historico.
 
-### Notes
+### Verified
 
-- Proximas entregas seguem para a Sprint 13 - Release APK/AAB.
+- `flutter analyze` executado sem problemas.
+- `flutter test` executado com os 75 testes da suite aprovados.
+- Versao de desenvolvimento instalada e inicializada no moto g20; notificacoes e compartilhamento do PDF permanecem pendentes de validacao manual.
 
 ## [0.12.0] - 2026-07-14
 

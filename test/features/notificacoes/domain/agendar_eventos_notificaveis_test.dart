@@ -58,4 +58,9 @@ class _CapturingNotificacaoClient implements NotificacaoLocalClient {
   Future<void> cancelar(int id) async {
     canceladas.add(id);
   }
+
+  @override
+  Future<void> cancelarTodos() async {
+    canceladas.add(-1);
+  }
 }

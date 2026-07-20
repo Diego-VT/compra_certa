@@ -6,6 +6,8 @@ import 'package:compra_certa/features/listas_compras/domain/usecases/gerar_relat
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   final geradoEm = DateTime(2026, 7, 20, 15, 30);
   final useCase = GerarRelatorioListaCompra(agora: () => geradoEm);
 
@@ -41,7 +43,7 @@ void main() {
   test('gera documento PDF valido', () async {
     final relatorio = useCase.call(_listaComItens());
 
-    final bytes = await const RelatorioListaCompraPdfServiceImpl().gerar(
+    final bytes = await RelatorioListaCompraPdfServiceImpl().gerar(
       relatorio,
     );
 
@@ -72,7 +74,7 @@ ListaCompraEntity _listaComItens() {
         id: 2,
         listaCompraId: 1,
         produtoId: 11,
-        produtoNome: 'Cafe',
+        produtoNome: 'Café',
         unidadeMedida: 'un',
         quantidadePlanejada: 1,
         quantidadeComprada: 0,

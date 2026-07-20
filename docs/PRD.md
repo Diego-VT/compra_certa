@@ -61,16 +61,28 @@ Criar uma base confiavel para cadastro, organizacao e evolucao inteligente de co
 - Identificacao de produtos ativos abaixo do minimo.
 - Bloqueio de estoque negativo.
 
+### Compras e listas
+
+- Historico de compras com filtro por periodo.
+- Listas manuais ou geradas por estoque baixo.
+- Edicao, remocao e marcacao de itens.
+- Relatorio individual e compartilhamento em PDF.
+
+### Analise e apoio
+
+- Dashboard operacional.
+- Sugestoes inteligentes locais.
+- IA externa opcional com fallback local.
+- Relatorios agregados por periodo e categoria.
+- Notificacoes locais e preferencias persistentes.
+- Navegacao inferior entre as areas principais.
+
 ## Funcionalidades futuras
 
-- Historico de compras.
-- Lista de compras.
-- Dashboard.
-- Motor inteligente local.
-- Integracao com IA.
-- Relatorios.
-- Notificacoes.
-- Release APK/AAB.
+- Release APK/AAB assinado.
+- Testes em dispositivo Android real.
+- Publicacao Android.
+- Sincronizacao e backup opcionais.
 
 ## Regras de negocio atuais
 

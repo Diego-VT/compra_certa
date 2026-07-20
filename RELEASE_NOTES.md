@@ -2,9 +2,9 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
-## Proxima versao - Relatorio da Lista e Navegacao
+## 0.13.0 - Relatorio da Lista e Estabilizacao
 
-Status: implementacao local concluida em 2026-07-20.
+Status: instalada e inicializada no moto g20 em 2026-07-20; validacao funcional manual ainda em andamento.
 
 ### Destaques
 
@@ -17,7 +17,8 @@ Status: implementacao local concluida em 2026-07-20.
 ### Observacoes
 
 - Nao houve alteracao no banco de dados.
-- `flutter analyze` e `flutter test` foram executados com sucesso.
+- `flutter analyze` e os 75 testes automatizados foram executados com sucesso.
+- A instalacao e a inicializacao foram validadas no moto g20; notificacoes e compartilhamento do PDF ainda dependem de interacao manual no aparelho.
 
 ## 0.12.0 - Notificacoes
 

@@ -103,6 +103,7 @@ O CompraCerta usa versoes pre-1.0 para representar a conclusao incremental das s
 0.10.0 - Integracao com IA externa opcional
 0.11.0 - Relatorios
 0.12.0 - Notificacoes
+0.13.0 - Relatorio da lista, navegacao e estabilizacao
 1.0.0 - MVP pronto para release
 ```
 

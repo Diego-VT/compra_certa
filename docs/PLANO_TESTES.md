@@ -209,6 +209,9 @@ Cobrem:
 - cancelamento sem repetir o mesmo evento.
 - persistencia local das preferencias;
 - listas abertas sem itens pendentes nao geram alerta.
+- cancelamento global de alertas antigos antes da sincronizacao;
+- geracao de PDF com fonte Unicode incorporada;
+- teste manual de permissao, exibicao e compartilhamento em Android real.
 
 ## Criterios de aceite para PRs
 

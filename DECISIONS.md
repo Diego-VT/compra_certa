@@ -183,3 +183,50 @@ Iniciar a Sprint 10 com um contrato de cliente de IA em `services/ia`, prompt ve
 - O app passa a ter a arquitetura pronta para IA externa.
 - Sem configuracao de provedor, a experiencia usa fallback local.
 - A integracao real com API deve ser decidida e documentada antes de receber credenciais, armazenamento seguro e politica de dados definitiva.
+
+## 13. Notificacoes locais por cliente de plataforma
+
+### Decisao
+
+Isolar `flutter_local_notifications` em `services/notificacoes`, sincronizar na abertura e retomada do app e solicitar permissao apenas por acao do usuario.
+
+### Consequencias
+
+- Notificacoes antigas do app sao canceladas antes de recriar os eventos validos.
+- Falhas de plataforma nao bloqueiam as funcoes principais.
+- O comportamento nativo exige validacao em dispositivo real.
+
+## 14. Preferencias simples em armazenamento chave-valor
+
+### Decisao
+
+Persistir as tres preferencias booleanas de notificacao com `shared_preferences`, sem criar tabela Drift para um unico registro de configuracao.
+
+### Consequencias
+
+- Nao houve migration do schema `5`.
+- Uma tabela dedicada sera considerada se surgirem horarios, perfis ou historico.
+
+## 15. Navegacao principal por barra inferior
+
+### Decisao
+
+Usar `AppBottomNavigation` para Dashboard, Produtos, Estoque, Listas e Historico, reservando a barra superior para acoes contextuais.
+
+## 16. Relatorio PDF offline da lista
+
+### Decisao
+
+Gerar PDF local com `pdf`, compartilhar com `printing` e incorporar Roboto nos assets para suportar Unicode sem rede.
+
+### Consequencias
+
+- Nenhum dado e enviado automaticamente.
+- O PDF e temporario e criado somente por acao do usuario.
+- A fonte e sua licenca passam a ser versionadas no app.
+
+## 17. Versao intermediaria 0.13.0
+
+### Decisao
+
+Agrupar relatorio da lista, navegacao e estabilizacao em `0.13.0+13`, preservando `1.0.0` para a Sprint 13.

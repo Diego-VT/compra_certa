@@ -135,6 +135,21 @@ Regra futura:
 - A Sprint 10 usa cliente externo desativado por padrao ate existir provedor configurado.
 - O contexto enviado para IA deve ser sanitizado e limitado as sugestoes locais necessarias.
 
+## Notificacoes
+
+- Preferencias devem ser persistidas localmente.
+- Permissao do sistema deve ser solicitada por acao explicita do usuario.
+- Eventos devem ser recalculados na abertura, retomada e sincronizacao manual.
+- Alertas antigos do app devem ser cancelados antes de recriar somente os eventos validos.
+- Falhas de notificacao nao devem bloquear o funcionamento principal.
+
+## Relatorio da lista
+
+- Relatorio deve ser gerado somente por acao do usuario.
+- PDF deve ser criado localmente e funcionar sem internet.
+- Fonte Unicode deve ser incorporada para preservar nomes e observacoes.
+- Compartilhamento deve usar o seletor nativo e nao manter copia permanente por padrao.
+
 ## Regras gerais de performance
 
 - O app deve ser leve e performatico.

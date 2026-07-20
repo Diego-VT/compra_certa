@@ -129,7 +129,6 @@ User Stories:
 
 - US-010: Como usuario, quero registrar uma compra realizada.
 - US-011: Como usuario, quero consultar compras por periodo.
-- US-012: Como usuario, quero usar historico para entender consumo.
 
 Tasks:
 
@@ -161,9 +160,8 @@ Features:
 
 User Stories:
 
-- US-013: Como usuario, quero criar uma lista de compras.
-- US-014: Como usuario, quero marcar itens comprados.
-- US-015: Como usuario, quero gerar lista com produtos abaixo do minimo.
+- US-012: Como usuario, quero criar e acompanhar uma lista de compras.
+- US-013: Como usuario, quero gerar lista com produtos abaixo do minimo.
 
 Tasks:
 
@@ -197,11 +195,12 @@ Features:
 
 User Stories:
 
-- US-016: Como usuario, quero ver indicadores de reposicao.
-- US-017: Como usuario, quero receber sugestoes com base no consumo.
-- US-018: Como usuario, quero usar IA somente quando eu decidir.
-- US-019: Como usuario, quero relatorios simples de compras.
+- US-014: Como usuario, quero visualizar o dashboard.
+- US-015: Como usuario, quero receber sugestoes inteligentes locais.
+- US-016: Como usuario, quero usar IA somente quando eu decidir.
+- US-017: Como usuario, quero relatorios simples de compras.
 - US-020: Como usuario, quero notificacoes de reposicao.
+- US-021: Como usuario, quero gerar o relatorio de uma lista de compras.
 
 Tasks:
 

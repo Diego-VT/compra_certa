@@ -12,6 +12,10 @@ import 'package:compra_certa/features/listas_compras/domain/usecases/listar_list
 import 'package:compra_certa/features/notificacoes/domain/entities/notificacao_evento_tipo.dart';
 import 'package:compra_certa/features/notificacoes/domain/entities/preferencias_notificacao_entity.dart';
 import 'package:compra_certa/features/notificacoes/domain/usecases/detectar_eventos_notificaveis.dart';
+import 'package:compra_certa/features/notificacoes/domain/usecases/agendar_eventos_notificaveis.dart';
+import 'package:compra_certa/features/notificacoes/domain/usecases/sincronizar_eventos_notificaveis.dart';
+import 'package:compra_certa/services/notificacoes/domain/entities/notificacao_local_request.dart';
+import 'package:compra_certa/services/notificacoes/domain/repositories/notificacao_local_client.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -83,6 +87,32 @@ void main() {
     );
 
     expect(await useCase.call(), isEmpty);
+  });
+
+  test('sincronizacao cancela alertas antigos antes de recriar os ativos', () async {
+    final detectar = _buildUseCase(
+      estoques: [
+        _estoque(produtoId: 1, produtoNome: 'Cafe', atual: 0, minima: 1),
+      ],
+      listas: [
+        _lista(id: 2, nome: 'Compras', totalItens: 1, comprados: 0),
+      ],
+    );
+    final client = _FakeNotificacaoClient();
+    final sincronizar = SincronizarEventosNotificaveis(
+      detectar,
+      AgendarEventosNotificaveis(client),
+      client,
+    );
+
+    final total = await sincronizar.call(
+      const PreferenciasNotificacaoEntity(alertarListasPendentes: false),
+    );
+
+    expect(client.cancelarTodosChamadas, 1);
+    expect(client.agendadas, hasLength(1));
+    expect(client.agendadas.single.id, 100001);
+    expect(total, 1);
   });
 }
 
@@ -220,5 +250,29 @@ class _FakeListaCompraRepository implements ListaCompraRepository {
   @override
   Future<ListaCompraEntity?> obterListaPorId(int id) {
     throw UnimplementedError();
+  }
+}
+
+class _FakeNotificacaoClient implements NotificacaoLocalClient {
+  final agendadas = <NotificacaoLocalRequest>[];
+  int cancelarTodosChamadas = 0;
+
+  @override
+  Future<void> inicializar() async {}
+
+  @override
+  Future<bool> solicitarPermissao() async => true;
+
+  @override
+  Future<void> agendar(NotificacaoLocalRequest request) async {
+    agendadas.add(request);
+  }
+
+  @override
+  Future<void> cancelar(int id) async {}
+
+  @override
+  Future<void> cancelarTodos() async {
+    cancelarTodosChamadas++;
   }
 }

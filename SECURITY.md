@@ -64,6 +64,7 @@ Backups futuros devem:
 - Nao expor banco ou backups publicamente.
 - Revisar dependencias novas.
 - Tratar erros sem revelar dados sensiveis.
+- Relatorios PDF devem ser gerados localmente e compartilhados apenas por acao explicita do usuario.
 
 ## IA externa
 

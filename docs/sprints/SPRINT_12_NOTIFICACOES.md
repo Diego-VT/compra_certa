@@ -73,7 +73,7 @@ Service de notificacoes isolado em `services/` e usecases de negocio.
 
 ## Riscos
 
-- Permissoes Android permanecem risco da integracao nativa futura.
+- Permissoes e exibicao Android permanecem pendentes de validacao em dispositivo real.
 - Excesso de notificacoes mitigado por chaves e IDs estaveis por evento.
 
 ## Observacoes de Encerramento
@@ -81,6 +81,7 @@ Service de notificacoes isolado em `services/` e usecases de negocio.
 - Cliente padrao integrado ao `flutter_local_notifications` para Android e iOS.
 - Permissao solicitada somente depois de uma acao explicita do usuario na tela de preferencias.
 - Sincronizacao cancela lembretes obsoletos antes de exibir os eventos ativos.
+- Sincronizacao ocorre na abertura, retomada do app e por acao manual do usuario.
 - Listas abertas sem itens pendentes nao geram notificacao.
 - Nao houve alteracao de schema Drift/SQLite.
 - Preferencias sao persistidas com armazenamento chave-valor local.
