@@ -274,7 +274,7 @@ Criterios de aceite:
 - Consultas sao agregadas e otimizadas.
 - Exportacao futura permanece preparada.
 
-## US-018 - Receber notificacoes
+## US-020 - Receber notificacoes
 
 Descricao: Como usuario, quero notificacoes de reposicao e listas pendentes.
 

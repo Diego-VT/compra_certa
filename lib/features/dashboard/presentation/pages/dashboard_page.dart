@@ -20,6 +20,12 @@ class DashboardPage extends ConsumerWidget {
         title: const Text('Dashboard'),
         actions: [
           IconButton(
+            tooltip: 'Notificacoes',
+            onPressed: () =>
+                context.goNamed(AppRoute.preferenciasNotificacao.name),
+            icon: const Icon(Icons.notifications_outlined),
+          ),
+          IconButton(
             tooltip: 'Sugestoes',
             onPressed: () =>
                 context.goNamed(AppRoute.sugestoesInteligentes.name),

@@ -50,7 +50,7 @@ class DetectarEventosNotificaveis {
       );
 
       eventos.addAll(
-        listas.map((lista) {
+        listas.where((lista) => lista.totalItens > lista.totalComprados).map((lista) {
           final pendentes = lista.totalItens - lista.totalComprados;
 
           return EventoNotificavelEntity(

@@ -4,20 +4,21 @@ Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuar
 
 ## 0.12.0 - Notificacoes
 
-Status: preparada em 2026-07-14 conforme `VERSIONING.md` e `docs/RELEASE_PROCESS.md`.
+Status: revisada em 2026-07-20 conforme `VERSIONING.md` e `docs/RELEASE_PROCESS.md`.
 
 ### Destaques
 
-- Base tecnica para notificacoes locais.
-- Preferencias padrao para ativar ou desativar notificacoes.
+- Notificacoes locais integradas ao Android e iOS.
+- Tela para ativar ou desativar notificacoes e cada tipo de alerta.
+- Preferencias preservadas entre execucoes do aplicativo.
 - Eventos notificaveis para estoque baixo.
 - Eventos notificaveis para listas de compras pendentes.
 - Agendamento e cancelamento com deduplicacao por evento.
 
 ### Observacoes
 
-- A integracao nativa com plugin de notificacoes Android/iOS permanece futura.
-- O cliente padrao fica desativado para evitar permissao/plataforma obrigatoria nesta etapa.
+- A permissao do sistema e solicitada somente por acao do usuario.
+- Os lembretes sao sincronizados sob demanda, sem processamento continuo em segundo plano.
 - Nao houve alteracao de schema Drift/SQLite.
 - `flutter analyze` e `flutter test` foram executados com sucesso.
 

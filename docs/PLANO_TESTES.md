@@ -207,6 +207,8 @@ Cobrem:
 - chaves e IDs estaveis por evento notificavel;
 - agendamento sem duplicar o mesmo evento;
 - cancelamento sem repetir o mesmo evento.
+- persistencia local das preferencias;
+- listas abertas sem itens pendentes nao geram alerta.
 
 ## Criterios de aceite para PRs
 

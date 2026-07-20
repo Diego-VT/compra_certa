@@ -44,6 +44,12 @@ class _CapturingNotificacaoClient implements NotificacaoLocalClient {
   final canceladas = <int>[];
 
   @override
+  Future<void> inicializar() async {}
+
+  @override
+  Future<bool> solicitarPermissao() async => true;
+
+  @override
   Future<void> agendar(NotificacaoLocalRequest request) async {
     agendadas.add(request);
   }

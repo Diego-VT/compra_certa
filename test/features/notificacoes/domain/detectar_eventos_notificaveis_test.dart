@@ -72,6 +72,18 @@ void main() {
     expect(eventos, hasLength(1));
     expect(eventos.single.tipo, NotificacaoEventoTipo.estoqueBaixo);
   });
+
+  test('ignora lista aberta sem itens pendentes', () async {
+    final useCase = _buildUseCase(
+      estoques: const [],
+      listas: [
+        _lista(id: 3, nome: 'Finalizada', totalItens: 2, comprados: 2),
+        _lista(id: 4, nome: 'Vazia', totalItens: 0, comprados: 0),
+      ],
+    );
+
+    expect(await useCase.call(), isEmpty);
+  });
 }
 
 DetectarEventosNotificaveis _buildUseCase({
@@ -163,6 +175,16 @@ class _FakeListaCompraRepository implements ListaCompraRepository {
 
   @override
   Future<void> adicionarItem(ListaCompraItemFormData data) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> editarItem(ListaCompraItemUpdateData data) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> removerItem(int itemId) {
     throw UnimplementedError();
   }
 

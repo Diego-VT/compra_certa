@@ -5,6 +5,12 @@ class NotificacaoDisabledClient implements NotificacaoLocalClient {
   const NotificacaoDisabledClient();
 
   @override
+  Future<void> inicializar() async {}
+
+  @override
+  Future<bool> solicitarPermissao() async => false;
+
+  @override
   Future<void> agendar(NotificacaoLocalRequest request) async {}
 
   @override

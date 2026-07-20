@@ -239,18 +239,15 @@ Campos previstos:
 - `criadoEm`
 - `resolvidoEm`
 
-## `preferencias_notificacoes`
+## Preferencias de notificacoes
 
-Preferencias futuras para notificacoes locais.
+As preferencias simples da Sprint 12 sao armazenadas localmente como chaves booleanas, fora do Drift, evitando migration para um unico registro de configuracao:
 
-Campos previstos:
+- `notificacoes_ativas`
+- `alertar_estoque_baixo`
+- `alertar_listas_pendentes`
 
-- `id`
-- `tipo`
-- `isAtivo`
-- `horarioPreferido`
-- `criadoEm`
-- `atualizadoEm`
+Uma tabela dedicada permanece opcional apenas se preferencias futuras exigirem horarios, historico ou multiplos perfis.
 
 ## Preparacao para recursos inteligentes
 

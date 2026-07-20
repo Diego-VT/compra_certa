@@ -60,6 +60,17 @@ Tipos de mudanca:
 
 ## [Unreleased]
 
+### Added
+
+- Integracao nativa de notificacoes locais para Android e iOS.
+- Tela de preferencias de notificacao acessivel pelo dashboard.
+- Persistencia local das preferencias de alertas.
+
+### Changed
+
+- Sincronizacao de lembretes agora cancela eventos obsoletos antes de exibir os ativos.
+- Listas abertas sem itens pendentes deixam de gerar notificacao.
+
 ### Notes
 
 - Proximas entregas seguem para a Sprint 13 - Release APK/AAB.

@@ -2,7 +2,7 @@
 
 ## Status
 
-Concluida em 2026-07-14. Sprint finalizada com contrato local de notificacoes, preferencias padrao, deteccao de eventos de estoque baixo e listas pendentes, agendamento/cancelamento deduplicado, testes automatizados e documentacao atualizada.
+Concluida e revisada em 2026-07-20. Sprint finalizada com notificacoes locais nativas, preferencias persistentes, tela de configuracao, deteccao de eventos de estoque baixo e listas pendentes, sincronizacao deduplicada, testes automatizados e documentacao atualizada.
 
 ## Objetivo
 
@@ -38,7 +38,7 @@ Service de notificacoes isolado em `services/` e usecases de negocio.
 
 ## Tabelas Afetadas
 
-- Futuras preferencias de notificacao, se necessario.
+- Nenhuma. As preferencias booleanas usam armazenamento chave-valor local.
 
 ## Providers
 
@@ -47,7 +47,7 @@ Service de notificacoes isolado em `services/` e usecases de negocio.
 
 ## Repositories
 
-- Repository de preferencias, se houver persistencia.
+- Repository de preferencias com persistencia local.
 
 ## Usecases
 
@@ -78,15 +78,21 @@ Service de notificacoes isolado em `services/` e usecases de negocio.
 
 ## Observacoes de Encerramento
 
-- Cliente padrao de notificacoes permanece desativado para evitar dependencia de plugin, permissao Android/iOS e comportamento de plataforma antes da Sprint 13.
+- Cliente padrao integrado ao `flutter_local_notifications` para Android e iOS.
+- Permissao solicitada somente depois de uma acao explicita do usuario na tela de preferencias.
+- Sincronizacao cancela lembretes obsoletos antes de exibir os eventos ativos.
+- Listas abertas sem itens pendentes nao geram notificacao.
 - Nao houve alteracao de schema Drift/SQLite.
-- Preferencias foram implementadas como estado padrao em provider, sem persistencia local nesta etapa.
+- Preferencias sao persistidas com armazenamento chave-valor local.
 
 ## Checklist de Conclusao
 
 - [x] Sprint iniciada conforme documentacao oficial.
 - [x] Contrato do service de notificacoes criado em `services/notificacoes`.
 - [x] Preferencias de notificacao definidas.
+- [x] Tela de preferencias criada e acessivel pelo dashboard.
+- [x] Preferencias persistidas entre execucoes.
+- [x] Integracao nativa Android/iOS implementada.
 - [x] Regras de disparo para estoque baixo implementadas.
 - [x] Regras de disparo para listas pendentes implementadas.
 - [x] Cancelamento/desativacao de notificacoes implementado.
