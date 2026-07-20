@@ -19,6 +19,10 @@ abstract class ListaCompraLocalDataSource {
 
   Future<void> adicionarItem(ListaCompraItemFormData data);
 
+  Future<void> editarItem(ListaCompraItemUpdateData data);
+
+  Future<void> removerItem(int itemId);
+
   Future<void> concluirLista(int id);
 
   Future<void> gerarHistoricoCompra(int id);
@@ -198,6 +202,66 @@ class ListaCompraLocalDataSourceImpl implements ListaCompraLocalDataSource {
           );
 
       await _marcarListaAtualizada(lista.id);
+    });
+  }
+
+  @override
+  Future<void> editarItem(ListaCompraItemUpdateData data) {
+    if (data.itemId <= 0) {
+      throw ArgumentError('Item invalido.');
+    }
+
+    if (data.quantidadePlanejada <= 0) {
+      throw ArgumentError('Quantidade planejada deve ser maior que zero.');
+    }
+
+    return _database.transaction(() async {
+      final item = await (_database.select(
+        _database.itensListaCompras,
+      )..where((table) => table.id.equals(data.itemId))).getSingleOrNull();
+
+      if (item == null) {
+        throw StateError('Item nao encontrado.');
+      }
+
+      await _obterListaAberta(item.listaCompraId);
+
+      await (_database.update(_database.itensListaCompras)
+            ..where((table) => table.id.equals(data.itemId)))
+          .write(
+            ItensListaComprasCompanion(
+              quantidadePlanejada: Value(data.quantidadePlanejada),
+              observacoes: Value(_emptyToNull(data.observacoes)),
+              atualizadoEm: Value(DateTime.now()),
+            ),
+          );
+
+      await _marcarListaAtualizada(item.listaCompraId);
+    });
+  }
+
+  @override
+  Future<void> removerItem(int itemId) {
+    if (itemId <= 0) {
+      throw ArgumentError('Item invalido.');
+    }
+
+    return _database.transaction(() async {
+      final item = await (_database.select(
+        _database.itensListaCompras,
+      )..where((table) => table.id.equals(itemId))).getSingleOrNull();
+
+      if (item == null) {
+        throw StateError('Item nao encontrado.');
+      }
+
+      await _obterListaAberta(item.listaCompraId);
+
+      await (_database.delete(
+        _database.itensListaCompras,
+      )..where((table) => table.id.equals(itemId))).go();
+
+      await _marcarListaAtualizada(item.listaCompraId);
     });
   }
 

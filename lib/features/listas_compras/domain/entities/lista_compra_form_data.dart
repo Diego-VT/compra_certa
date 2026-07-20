@@ -17,3 +17,15 @@ class ListaCompraItemFormData {
   final double quantidadePlanejada;
   final String? observacoes;
 }
+
+class ListaCompraItemUpdateData {
+  const ListaCompraItemUpdateData({
+    required this.itemId,
+    required this.quantidadePlanejada,
+    this.observacoes,
+  });
+
+  final int itemId;
+  final double quantidadePlanejada;
+  final String? observacoes;
+}

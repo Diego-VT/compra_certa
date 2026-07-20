@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -174,12 +176,201 @@ class _ListaItemTile extends ConsumerWidget {
         value: item.isComprado,
         title: Text(item.produtoNome),
         subtitle: Text(_subtitle()),
+        secondary: canEdit
+            ? PopupMenuButton<_ListaItemAction>(
+                tooltip: 'Acoes do item',
+                onSelected: (action) => _handleAction(context, ref, action),
+                itemBuilder: (context) => const [
+                  PopupMenuItem(
+                    value: _ListaItemAction.editar,
+                    child: ListTile(
+                      leading: Icon(Icons.edit_outlined),
+                      title: Text('Editar item'),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: _ListaItemAction.remover,
+                    child: ListTile(
+                      leading: Icon(Icons.delete_outline),
+                      title: Text('Remover item'),
+                    ),
+                  ),
+                ],
+              )
+            : null,
         enabled: canEdit,
         onChanged: canEdit
             ? (value) => _marcarComprado(ref, value ?? false)
             : null,
       ),
     );
+  }
+
+  Future<void> _handleAction(
+    BuildContext context,
+    WidgetRef ref,
+    _ListaItemAction action,
+  ) async {
+    switch (action) {
+      case _ListaItemAction.editar:
+        await _editarItem(context, ref);
+        return;
+      case _ListaItemAction.remover:
+        await _removerItem(context, ref);
+        return;
+    }
+  }
+
+  Future<void> _editarItem(BuildContext context, WidgetRef ref) async {
+    final quantidadeController = TextEditingController(
+      text: _formatNumber(item.quantidadePlanejada),
+    );
+    final observacoesController = TextEditingController(
+      text: item.observacoes ?? '',
+    );
+    final formKey = GlobalKey<FormState>();
+
+    final confirmar = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Editar ${item.produtoNome}'),
+        content: Form(
+          key: formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                controller: quantidadeController,
+                decoration: InputDecoration(
+                  labelText: 'Quantidade planejada (${item.unidadeMedida})',
+                  border: const OutlineInputBorder(),
+                ),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9,.]')),
+                ],
+                validator: (value) {
+                  final quantidade = _parseDouble(value);
+
+                  if (quantidade == null || quantidade <= 0) {
+                    return 'Informe uma quantidade maior que zero.';
+                  }
+
+                  return null;
+                },
+              ),
+              const SizedBox(height: 12),
+              TextFormField(
+                controller: observacoesController,
+                decoration: const InputDecoration(
+                  labelText: 'Observacoes',
+                  border: OutlineInputBorder(),
+                ),
+                maxLines: 2,
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Cancelar'),
+          ),
+          FilledButton(
+            onPressed: () {
+              if (formKey.currentState?.validate() ?? false) {
+                Navigator.of(context).pop(true);
+              }
+            },
+            child: const Text('Salvar'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmar != true) {
+      quantidadeController.dispose();
+      observacoesController.dispose();
+      return;
+    }
+
+    final quantidade = _parseDouble(quantidadeController.text);
+    final observacoes = observacoesController.text;
+    quantidadeController.dispose();
+    observacoesController.dispose();
+
+    if (quantidade == null || quantidade <= 0) {
+      return;
+    }
+
+    try {
+      await ref
+          .read(editarItemListaCompraUseCaseProvider)
+          .call(
+            ListaCompraItemUpdateData(
+              itemId: item.id,
+              quantidadePlanejada: quantidade,
+              observacoes: observacoes,
+            ),
+          );
+
+      _invalidarLista(ref);
+
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Item atualizado.')),
+        );
+      }
+    } catch (error) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Erro ao editar item: $error')));
+      }
+    }
+  }
+
+  Future<void> _removerItem(BuildContext context, WidgetRef ref) async {
+    final confirmar = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Remover item'),
+        content: Text('Deseja remover ${item.produtoNome} desta lista?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Cancelar'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Remover'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmar != true) {
+      return;
+    }
+
+    try {
+      await ref.read(removerItemListaCompraUseCaseProvider).call(item.id);
+      _invalidarLista(ref);
+
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Item removido.')),
+        );
+      }
+    } catch (error) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Erro ao remover item: $error')));
+      }
+    }
   }
 
   Future<void> _marcarComprado(WidgetRef ref, bool isComprado) async {
@@ -191,6 +382,10 @@ class _ListaItemTile extends ConsumerWidget {
           quantidadeComprada: isComprado ? item.quantidadePlanejada : 0,
         );
 
+    _invalidarLista(ref);
+  }
+
+  void _invalidarLista(WidgetRef ref) {
     ref.invalidate(listaCompraPorIdProvider(item.listaCompraId));
     ref.invalidate(listasComprasProvider);
     ref.read(listasComprasPaginadasProvider.notifier).resetar();
@@ -207,6 +402,16 @@ class _ListaItemTile extends ConsumerWidget {
     return '$planejada - comprado ${_formatNumber(item.quantidadeComprada)}';
   }
 
+  double? _parseDouble(String? value) {
+    final normalized = value?.trim().replaceAll(',', '.');
+
+    if (normalized == null || normalized.isEmpty) {
+      return null;
+    }
+
+    return double.tryParse(normalized);
+  }
+
   String _formatNumber(double value) {
     if (value == value.roundToDouble()) {
       return value.toInt().toString();
@@ -215,6 +420,8 @@ class _ListaItemTile extends ConsumerWidget {
     return value.toStringAsFixed(2);
   }
 }
+
+enum _ListaItemAction { editar, remover }
 
 class _AddItemSheet extends ConsumerStatefulWidget {
   const _AddItemSheet({required this.listaId});
@@ -233,7 +440,12 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
   final _observacoesController = TextEditingController();
   final _buscaController = TextEditingController();
   final _buscaFocusNode = FocusNode();
+  Timer? _buscaDebounce;
+  String _busca = '';
+  List<_ProdutoOpcao> _produtosCache = const [];
+  bool _hasLoadedProdutos = false;
   int? _produtoId;
+  _ProdutoOpcao? _produtoSelecionadoCache;
   String? _produtoErro;
   int _produtosVisiveis = _produtosPorPagina;
   bool _isSaving = false;
@@ -248,6 +460,7 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
 
   @override
   void dispose() {
+    _buscaDebounce?.cancel();
     _quantidadeController.dispose();
     _observacoesController.dispose();
     _buscaController.dispose();
@@ -257,8 +470,7 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final busca = _buscaController.text;
-    final produtosState = ref.watch(produtosAtivosBuscaProvider(busca));
+    final produtosState = ref.watch(produtosAtivosBuscaProvider(_busca));
     final bottomInset = MediaQuery.viewInsetsOf(context).bottom;
 
     return SafeArea(
@@ -281,13 +493,22 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
                   )
                   .toList(growable: false);
 
+              _produtosCache = opcoes;
+              _hasLoadedProdutos = true;
+
               return _buildForm(opcoes);
             },
             error: (error, stackTrace) => Text(
               'Nao foi possivel carregar produtos.\n$error',
               textAlign: TextAlign.center,
             ),
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () {
+              if (_hasLoadedProdutos) {
+                return _buildForm(_produtosCache);
+              }
+
+              return const Center(child: CircularProgressIndicator());
+            },
           ),
         ),
       ),
@@ -337,12 +558,18 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
                   prefixIcon: Icon(Icons.search),
                 ),
                 textInputAction: TextInputAction.search,
-                onChanged: (_) {
+                onChanged: (value) {
+                  if (_isProdutoSelecionadoText(value)) {
+                    return;
+                  }
+
                   setState(() {
                     _produtoId = null;
+                    _produtoSelecionadoCache = null;
                     _produtoErro = null;
                     _produtosVisiveis = _produtosPorPagina;
                   });
+                  _atualizarBuscaComDebounce(value);
                 },
               );
             },
@@ -386,11 +613,7 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
               );
             },
             onSelected: (produto) {
-              setState(() {
-                _produtoId = produto.id;
-                _produtoErro = null;
-                _buscaController.text = produto.nome;
-              });
+              _selecionarProduto(produto);
             },
           ),
           const SizedBox(height: 12),
@@ -411,13 +634,7 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
               hasMore: hasMore,
               produtoId: _produtoId,
               emptyMessage: emptyMessage,
-              onProdutoSelected: (produto) {
-                setState(() {
-                  _produtoId = produto.id;
-                  _produtoErro = null;
-                  _buscaController.text = produto.nome;
-                });
-              },
+              onProdutoSelected: _selecionarProduto,
               onLoadMore: _carregarMaisProdutos,
             ),
           ),
@@ -474,7 +691,8 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
 
   Future<void> _salvar() async {
     final form = _formKey.currentState;
-    final produtoId = _produtoId;
+    final produto = _resolverProdutoParaSalvar();
+    final produtoId = produto?.id;
     final quantidade = _parseDouble(_quantidadeController.text);
 
     if (produtoId == null) {
@@ -533,6 +751,40 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
       }
     }
 
+    return _produtoSelecionadoCache;
+  }
+
+  _ProdutoOpcao? _resolverProdutoParaSalvar() {
+    final produtoSelecionado = _produtoSelecionadoCache;
+
+    if (_produtoId != null && produtoSelecionado != null) {
+      return produtoSelecionado;
+    }
+
+    final busca = _normalizarBusca(_buscaController.text);
+    if (busca.isEmpty) {
+      return null;
+    }
+
+    final produtos = _produtosCache;
+    final produtosExatos = produtos.where((produto) {
+      return _normalizarBusca(produto.nome) == busca;
+    }).toList(growable: false);
+
+    if (produtosExatos.length == 1) {
+      _selecionarProduto(produtosExatos.single);
+      return produtosExatos.single;
+    }
+
+    final produtosCompativeis = produtos.where((produto) {
+      return _normalizarBusca(produto.nome).contains(busca);
+    }).toList(growable: false);
+
+    if (produtosCompativeis.length == 1) {
+      _selecionarProduto(produtosCompativeis.single);
+      return produtosCompativeis.single;
+    }
+
     return null;
   }
 
@@ -549,6 +801,53 @@ class _AddItemSheetState extends ConsumerState<_AddItemSheet> {
   void _carregarMaisProdutos() {
     setState(() {
       _produtosVisiveis += _produtosPorPagina;
+    });
+  }
+
+  void _selecionarProduto(_ProdutoOpcao produto) {
+    _buscaDebounce?.cancel();
+    setState(() {
+      _produtoId = produto.id;
+      _produtoSelecionadoCache = produto;
+      _produtoErro = null;
+      _buscaController.text = produto.nome;
+    });
+  }
+
+  bool _isProdutoSelecionadoText(String value) {
+    final produtoSelecionado = _produtoSelecionadoCache;
+
+    return produtoSelecionado != null &&
+        produtoSelecionado.id == _produtoId &&
+        value.trim() == produtoSelecionado.nome;
+  }
+
+  String _normalizarBusca(String value) {
+    return value
+        .trim()
+        .toLowerCase()
+        .replaceAll(RegExp(r'[áàãâä]'), 'a')
+        .replaceAll(RegExp(r'[éèêë]'), 'e')
+        .replaceAll(RegExp(r'[íìîï]'), 'i')
+        .replaceAll(RegExp(r'[óòõôö]'), 'o')
+        .replaceAll(RegExp(r'[úùûü]'), 'u')
+        .replaceAll('ç', 'c')
+        .replaceAll(RegExp(r'\s+'), ' ');
+  }
+
+  void _atualizarBuscaComDebounce(String value) {
+    _buscaDebounce?.cancel();
+    _buscaDebounce = Timer(const Duration(milliseconds: 300), () {
+      if (!mounted) {
+        return;
+      }
+
+      final busca = value.trim();
+      if (busca == _busca) {
+        return;
+      }
+
+      setState(() => _busca = busca);
     });
   }
 }

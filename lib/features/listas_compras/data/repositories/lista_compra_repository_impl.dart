@@ -16,6 +16,16 @@ class ListaCompraRepositoryImpl implements ListaCompraRepository {
   }
 
   @override
+  Future<void> editarItem(ListaCompraItemUpdateData data) {
+    return localDataSource.editarItem(data);
+  }
+
+  @override
+  Future<void> removerItem(int itemId) {
+    return localDataSource.removerItem(itemId);
+  }
+
+  @override
   Future<int> criarLista(ListaCompraFormData data) {
     return localDataSource.criarLista(data);
   }

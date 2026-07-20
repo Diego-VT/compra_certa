@@ -135,6 +135,53 @@ void main() {
     expect(lista.itens.single.quantidadeComprada, 2);
   });
 
+  test('edita quantidade e observacao do item', () async {
+    final listaId = await dataSource.criarLista(
+      const ListaCompraFormData(nome: 'Mercado'),
+    );
+    await dataSource.adicionarItem(
+      ListaCompraItemFormData(
+        listaCompraId: listaId,
+        produtoId: 1,
+        quantidadePlanejada: 2,
+        observacoes: 'antes',
+      ),
+    );
+
+    await dataSource.editarItem(
+      const ListaCompraItemUpdateData(
+        itemId: 1,
+        quantidadePlanejada: 4,
+        observacoes: 'depois',
+      ),
+    );
+
+    final lista = await dataSource.obterListaPorId(listaId);
+
+    expect(lista!.itens.single.quantidadePlanejada, 4);
+    expect(lista.itens.single.observacoes, 'depois');
+    expect(lista.itens.single.atualizadoEm, isNotNull);
+  });
+
+  test('remove item da lista aberta', () async {
+    final listaId = await dataSource.criarLista(
+      const ListaCompraFormData(nome: 'Mercado'),
+    );
+    await dataSource.adicionarItem(
+      ListaCompraItemFormData(
+        listaCompraId: listaId,
+        produtoId: 1,
+        quantidadePlanejada: 2,
+      ),
+    );
+
+    await dataSource.removerItem(1);
+
+    final lista = await dataSource.obterListaPorId(listaId);
+
+    expect(lista!.itens, isEmpty);
+  });
+
   test('conclui lista e bloqueia alteracao posterior', () async {
     final listaId = await dataSource.criarLista(
       const ListaCompraFormData(nome: 'Mercado'),
@@ -171,6 +218,16 @@ void main() {
       ),
       throwsStateError,
     );
+    await expectLater(
+      dataSource.editarItem(
+        const ListaCompraItemUpdateData(
+          itemId: 1,
+          quantidadePlanejada: 3,
+        ),
+      ),
+      throwsStateError,
+    );
+    await expectLater(dataSource.removerItem(1), throwsStateError);
   });
 
   test('gera lista por produtos abaixo do minimo', () async {

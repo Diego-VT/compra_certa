@@ -14,6 +14,10 @@ abstract class ListaCompraRepository {
 
   Future<void> adicionarItem(ListaCompraItemFormData data);
 
+  Future<void> editarItem(ListaCompraItemUpdateData data);
+
+  Future<void> removerItem(int itemId);
+
   Future<void> concluirLista(int id);
 
   Future<void> gerarHistoricoCompra(int id);

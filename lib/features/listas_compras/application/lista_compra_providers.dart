@@ -10,11 +10,13 @@ import '../domain/repositories/lista_compra_repository.dart';
 import '../domain/usecases/adicionar_item_lista_compra.dart';
 import '../domain/usecases/concluir_lista_compra.dart';
 import '../domain/usecases/criar_lista_compra.dart';
+import '../domain/usecases/editar_item_lista_compra.dart';
 import '../domain/usecases/gerar_historico_compra_lista.dart';
 import '../domain/usecases/gerar_lista_por_estoque_baixo.dart';
 import '../domain/usecases/listar_listas_compras.dart';
 import '../domain/usecases/marcar_item_lista_comprado.dart';
 import '../domain/usecases/obter_lista_compra_por_id.dart';
+import '../domain/usecases/remover_item_lista_compra.dart';
 
 final listaCompraLocalDataSourceProvider = Provider<ListaCompraLocalDataSource>(
   (ref) {
@@ -58,6 +60,16 @@ final obterListaCompraPorIdUseCaseProvider = Provider<ObterListaCompraPorId>((
 final adicionarItemListaCompraUseCaseProvider =
     Provider<AdicionarItemListaCompra>((ref) {
       return AdicionarItemListaCompra(ref.watch(listaCompraRepositoryProvider));
+    });
+
+final editarItemListaCompraUseCaseProvider =
+    Provider<EditarItemListaCompra>((ref) {
+      return EditarItemListaCompra(ref.watch(listaCompraRepositoryProvider));
+    });
+
+final removerItemListaCompraUseCaseProvider =
+    Provider<RemoverItemListaCompra>((ref) {
+      return RemoverItemListaCompra(ref.watch(listaCompraRepositoryProvider));
     });
 
 final marcarItemListaCompradoUseCaseProvider =
