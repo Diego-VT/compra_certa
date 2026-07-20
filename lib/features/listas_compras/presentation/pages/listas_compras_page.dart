@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_router.dart';
+import '../../../../core/widgets/app_bottom_navigation.dart';
 import '../../../estoque/application/estoque_providers.dart';
 import '../../application/lista_compra_providers.dart';
 import '../../application/listas_compras_paginadas_provider.dart';
@@ -19,15 +20,9 @@ class ListasComprasPage extends ConsumerWidget {
     final listasState = ref.watch(listasComprasPaginadasProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Listas de compras'),
-        actions: [
-          IconButton(
-            tooltip: 'Produtos',
-            onPressed: () => context.goNamed(AppRoute.produtos.name),
-            icon: const Icon(Icons.inventory_2_outlined),
-          ),
-        ],
+      appBar: AppBar(title: const Text('Listas de compras')),
+      bottomNavigationBar: const AppBottomNavigation(
+        currentDestination: AppMainDestination.listas,
       ),
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,

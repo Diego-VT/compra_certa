@@ -21,16 +21,58 @@ class _PreferenciasNotificacaoPageState
     final preferenciasState = ref.watch(preferenciasNotificacaoProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Notificacoes')),
+      appBar: AppBar(title: const Text('Notificações')),
       body: preferenciasState.when(
-        data: (preferencias) => ListView(
-          padding: const EdgeInsets.all(16),
+        data: _buildContent,
+        error: (error, stackTrace) => Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.error_outline, size: 40),
+                const SizedBox(height: 12),
+                const Text('Não foi possível carregar as preferências.'),
+                const SizedBox(height: 12),
+                FilledButton(
+                  onPressed: () =>
+                      ref.invalidate(preferenciasNotificacaoProvider),
+                  child: const Text('Tentar novamente'),
+                ),
+              ],
+            ),
+          ),
+        ),
+        loading: () => const Center(child: CircularProgressIndicator()),
+      ),
+    );
+  }
+
+  Widget _buildContent(PreferenciasNotificacaoEntity preferencias) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 720),
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
           children: [
+            _NotificationStatusCard(
+              isActive: preferencias.notificacoesAtivas,
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Preferências',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 8),
             Card(
+              clipBehavior: Clip.antiAlias,
               child: Column(
                 children: [
                   SwitchListTile(
-                    title: const Text('Ativar notificacoes'),
+                    secondary: const Icon(Icons.notifications_outlined),
+                    title: const Text('Ativar notificações'),
                     subtitle: const Text(
                       'Receba lembretes locais, mesmo sem internet.',
                     ),
@@ -46,9 +88,10 @@ class _PreferenciasNotificacaoPageState
                   ),
                   const Divider(height: 1),
                   SwitchListTile(
+                    secondary: const Icon(Icons.inventory_2_outlined),
                     title: const Text('Estoque baixo'),
                     subtitle: const Text(
-                      'Avisar quando um produto precisar de reposicao.',
+                      'Avisar quando um produto precisar de reposição.',
                     ),
                     value: preferencias.alertarEstoqueBaixo,
                     onChanged:
@@ -62,6 +105,7 @@ class _PreferenciasNotificacaoPageState
                   ),
                   const Divider(height: 1),
                   SwitchListTile(
+                    secondary: const Icon(Icons.list_alt_outlined),
                     title: const Text('Listas pendentes'),
                     subtitle: const Text(
                       'Avisar sobre listas abertas com itens por comprar.',
@@ -85,41 +129,29 @@ class _PreferenciasNotificacaoPageState
                   ? () => _sincronizar(preferencias, solicitarPermissao: true)
                   : null,
               icon: _sincronizando
-                  ? const SizedBox.square(
+                  ? SizedBox.square(
                       dimension: 18,
-                      child: CircularProgressIndicator(strokeWidth: 2),
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: colorScheme.onPrimary,
+                      ),
                     )
-                  : const Icon(Icons.notifications_active_outlined),
+                  : const Icon(Icons.sync),
               label: const Text('Atualizar lembretes agora'),
             ),
-            const SizedBox(height: 12),
-            Text(
-              'Os lembretes sao calculados no aparelho e nenhum dado e enviado pela internet.',
-              style: Theme.of(context).textTheme.bodySmall,
-              textAlign: TextAlign.center,
+            const SizedBox(height: 16),
+            Card(
+              color: colorScheme.surfaceContainerLow,
+              child: const ListTile(
+                leading: Icon(Icons.lock_outline),
+                title: Text('Privacidade preservada'),
+                subtitle: Text(
+                  'Os lembretes são calculados no aparelho. Nenhum dado é enviado pela internet.',
+                ),
+              ),
             ),
           ],
         ),
-        error: (error, stackTrace) => Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.error_outline, size: 40),
-                const SizedBox(height: 12),
-                const Text('Nao foi possivel carregar as preferencias.'),
-                const SizedBox(height: 12),
-                FilledButton(
-                  onPressed: () =>
-                      ref.invalidate(preferenciasNotificacaoProvider),
-                  child: const Text('Tentar novamente'),
-                ),
-              ],
-            ),
-          ),
-        ),
-        loading: () => const Center(child: CircularProgressIndicator()),
       ),
     );
   }
@@ -133,7 +165,7 @@ class _PreferenciasNotificacaoPageState
 
     final salvamento = ref.read(preferenciasNotificacaoProvider);
     if (salvamento.hasError) {
-      _mostrarMensagem('Nao foi possivel salvar as preferencias.');
+      _mostrarMensagem('Não foi possível salvar as preferências.');
       return;
     }
     await _sincronizar(
@@ -164,7 +196,7 @@ class _PreferenciasNotificacaoPageState
       }
     } catch (error) {
       if (mounted) {
-        _mostrarMensagem('Nao foi possivel atualizar os lembretes.');
+        _mostrarMensagem('Não foi possível atualizar os lembretes.');
       }
     } finally {
       if (mounted) setState(() => _sincronizando = false);
@@ -175,5 +207,70 @@ class _PreferenciasNotificacaoPageState
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(content: Text(mensagem)));
+  }
+}
+
+class _NotificationStatusCard extends StatelessWidget {
+  const _NotificationStatusCard({required this.isActive});
+
+  final bool isActive;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final background = isActive
+        ? colorScheme.primaryContainer
+        : colorScheme.surfaceContainerHighest;
+    final foreground = isActive
+        ? colorScheme.onPrimaryContainer
+        : colorScheme.onSurfaceVariant;
+
+    return Card(
+      color: background,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 26,
+              backgroundColor: foreground.withValues(alpha: 0.12),
+              child: Icon(
+                isActive
+                    ? Icons.notifications_active_outlined
+                    : Icons.notifications_off_outlined,
+                color: foreground,
+                size: 28,
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    isActive
+                        ? 'Lembretes ativados'
+                        : 'Lembretes desativados',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: foreground,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    isActive
+                        ? 'Você será avisado sobre o que precisa de atenção.'
+                        : 'Ative para acompanhar estoque e listas pendentes.',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: foreground,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

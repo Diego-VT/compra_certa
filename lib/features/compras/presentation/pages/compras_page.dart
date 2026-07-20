@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_router.dart';
+import '../../../../core/widgets/app_bottom_navigation.dart';
 import '../../application/compra_providers.dart';
 import '../../domain/entities/compra_filtro.dart';
 import '../../domain/entities/compra_list_item_entity.dart';
@@ -16,20 +17,9 @@ class ComprasPage extends ConsumerWidget {
     final comprasState = ref.watch(comprasProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Historico de compras'),
-        actions: [
-          IconButton(
-            tooltip: 'Listas de compras',
-            onPressed: () => context.goNamed(AppRoute.listasCompras.name),
-            icon: const Icon(Icons.shopping_cart_outlined),
-          ),
-          IconButton(
-            tooltip: 'Estoque',
-            onPressed: () => context.goNamed(AppRoute.estoque.name),
-            icon: const Icon(Icons.inventory_outlined),
-          ),
-        ],
+      appBar: AppBar(title: const Text('Histórico de compras')),
+      bottomNavigationBar: const AppBottomNavigation(
+        currentDestination: AppMainDestination.historico,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.goNamed(AppRoute.novaCompra.name),

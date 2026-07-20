@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_router.dart';
+import '../../../../core/widgets/app_bottom_navigation.dart';
 import '../../../categorias/application/categoria_providers.dart';
 import '../../../categorias/domain/entities/categoria_entity.dart';
 import '../../application/produto_providers.dart';
@@ -41,30 +42,9 @@ class _ProdutosPageState extends ConsumerState<ProdutosPage> {
     final categoriasState = ref.watch(categoriasProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Produtos'),
-        actions: [
-          IconButton(
-            tooltip: 'Dashboard',
-            onPressed: () => context.goNamed(AppRoute.dashboard.name),
-            icon: const Icon(Icons.dashboard_outlined),
-          ),
-          IconButton(
-            tooltip: 'Listas de compras',
-            onPressed: () => context.goNamed(AppRoute.listasCompras.name),
-            icon: const Icon(Icons.shopping_cart_outlined),
-          ),
-          IconButton(
-            tooltip: 'Historico de compras',
-            onPressed: () => context.goNamed(AppRoute.compras.name),
-            icon: const Icon(Icons.receipt_long_outlined),
-          ),
-          IconButton(
-            tooltip: 'Estoque',
-            onPressed: () => context.goNamed(AppRoute.estoque.name),
-            icon: const Icon(Icons.inventory_outlined),
-          ),
-        ],
+      appBar: AppBar(title: const Text('Produtos')),
+      bottomNavigationBar: const AppBottomNavigation(
+        currentDestination: AppMainDestination.produtos,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.goNamed(AppRoute.novoProduto.name),

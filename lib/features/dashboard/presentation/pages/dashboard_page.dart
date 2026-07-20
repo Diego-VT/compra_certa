@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_router.dart';
+import '../../../../core/widgets/app_bottom_navigation.dart';
 import '../../../compras/domain/entities/compra_list_item_entity.dart';
 import '../../../estoque/domain/entities/estoque_entity.dart';
 import '../../../listas_compras/domain/entities/lista_compra_list_item_entity.dart';
@@ -36,22 +37,10 @@ class DashboardPage extends ConsumerWidget {
             onPressed: () => context.goNamed(AppRoute.relatorios.name),
             icon: const Icon(Icons.analytics_outlined),
           ),
-          IconButton(
-            tooltip: 'Listas de compras',
-            onPressed: () => context.goNamed(AppRoute.listasCompras.name),
-            icon: const Icon(Icons.shopping_cart_outlined),
-          ),
-          IconButton(
-            tooltip: 'Historico de compras',
-            onPressed: () => context.goNamed(AppRoute.compras.name),
-            icon: const Icon(Icons.receipt_long_outlined),
-          ),
-          IconButton(
-            tooltip: 'Estoque',
-            onPressed: () => context.goNamed(AppRoute.estoque.name),
-            icon: const Icon(Icons.inventory_outlined),
-          ),
         ],
+      ),
+      bottomNavigationBar: const AppBottomNavigation(
+        currentDestination: AppMainDestination.dashboard,
       ),
       body: RefreshIndicator(
         onRefresh: () async => ref.invalidate(dashboardResumoProvider),

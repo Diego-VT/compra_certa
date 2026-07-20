@@ -91,6 +91,7 @@ Service de notificacoes isolado em `services/` e usecases de negocio.
 - [x] Contrato do service de notificacoes criado em `services/notificacoes`.
 - [x] Preferencias de notificacao definidas.
 - [x] Tela de preferencias criada e acessivel pelo dashboard.
+- [x] Tela responsiva com estado visual, feedback e orientacao de privacidade.
 - [x] Preferencias persistidas entre execucoes.
 - [x] Integracao nativa Android/iOS implementada.
 - [x] Regras de disparo para estoque baixo implementadas.

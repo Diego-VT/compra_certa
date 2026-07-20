@@ -63,6 +63,7 @@ void main() {
     expect(find.textContaining('Atenção'), findsOneWidget);
     expect(find.text('Arroz'), findsOneWidget);
     expect(find.text('Mercado da semana'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Compra semanal'), 200);
     expect(find.text('Compra semanal'), findsOneWidget);
   });
 

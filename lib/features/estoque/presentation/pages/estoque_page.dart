@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/router/app_router.dart';
+import '../../../../core/widgets/app_bottom_navigation.dart';
 import '../../application/estoque_providers.dart';
 import '../../domain/entities/estoque_entity.dart';
 import '../../domain/entities/estoque_status.dart';
@@ -25,25 +26,9 @@ class EstoquePage extends ConsumerWidget {
     };
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Estoque'),
-        actions: [
-          IconButton(
-            tooltip: 'Listas de compras',
-            onPressed: () => context.goNamed(AppRoute.listasCompras.name),
-            icon: const Icon(Icons.shopping_cart_outlined),
-          ),
-          IconButton(
-            tooltip: 'Historico de compras',
-            onPressed: () => context.goNamed(AppRoute.compras.name),
-            icon: const Icon(Icons.receipt_long_outlined),
-          ),
-          IconButton(
-            tooltip: 'Produtos',
-            onPressed: () => context.goNamed(AppRoute.produtos.name),
-            icon: const Icon(Icons.inventory_2_outlined),
-          ),
-        ],
+      appBar: AppBar(title: const Text('Estoque')),
+      bottomNavigationBar: const AppBottomNavigation(
+        currentDestination: AppMainDestination.estoque,
       ),
       body: estoqueState.when(
         data: (estoques) => Column(

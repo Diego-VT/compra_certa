@@ -47,6 +47,8 @@ O CompraCerta deve transmitir organizacao, clareza e confianca. A interface deve
 - Prioridade inicial: smartphones Android.
 - Layouts devem se adaptar a telas pequenas.
 - Evitar widgets gigantes e rolagens confusas.
+- Usar barra inferior para navegacao entre as cinco areas principais em smartphones.
+- Manter a acao atual visualmente selecionada e reservar o topo para acoes contextuais.
 
 ## Boas Praticas de Usabilidade
 
