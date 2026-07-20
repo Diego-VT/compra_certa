@@ -185,6 +185,7 @@ Rotas atuais:
 /listas-compras
 /listas-compras/nova
 /listas-compras/:id
+/listas-compras/:id/relatorio
 ```
 
 Boas praticas:
@@ -192,6 +193,7 @@ Boas praticas:
 - usar `AppRoute`;
 - evitar strings soltas;
 - centralizar rotas em `core/router`.
+- usar `AppBottomNavigation` para alternar entre Dashboard, Produtos, Estoque, Listas e Historico.
 
 ## Drift/SQLite
 

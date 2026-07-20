@@ -18,4 +18,5 @@ Cada sprint deve documentar objetivo, escopo, fora do escopo, regras, arquitetur
 - `SPRINT_10_INTEGRACAO_IA.md`
 - `SPRINT_11_RELATORIOS.md`
 - `SPRINT_12_NOTIFICACOES.md`
+- `SPRINT_12_2_RELATORIO_LISTA_COMPRAS.md`
 - `SPRINT_13_RELEASE.md`

@@ -250,6 +250,23 @@ Alertar usuario sobre reposicao e listas pendentes.
 - Preferencias de usuario.
 - Eventos de estoque baixo.
 
+## Sprint 12.2 - Relatorio da Lista de Compras
+
+### Status
+
+Concluida.
+
+### Objetivo
+
+Visualizar e compartilhar o relatorio individual de uma lista em PDF.
+
+### Entregas previstas
+
+- Resumo e progresso da lista.
+- Itens planejados, comprados e pendentes.
+- Pre-visualizacao no app.
+- Compartilhamento de PDF offline.
+
 ## Sprint 13 - Release APK/AAB
 
 ### Status

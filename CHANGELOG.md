@@ -62,6 +62,8 @@ Tipos de mudanca:
 
 ### Added
 
+- Relatorio individual da lista de compras com resumo, progresso e itens.
+- Geracao e compartilhamento de PDF offline a partir do detalhe da lista.
 - Integracao nativa de notificacoes locais para Android e iOS.
 - Tela de preferencias de notificacao acessivel pelo dashboard.
 - Persistencia local das preferencias de alertas.
@@ -70,6 +72,8 @@ Tipos de mudanca:
 
 - Sincronizacao de lembretes agora cancela eventos obsoletos antes de exibir os ativos.
 - Listas abertas sem itens pendentes deixam de gerar notificacao.
+- Tela de notificacoes ganhou hierarquia visual, estado destacado, icones contextuais e layout responsivo.
+- Navegacao principal ganhou barra inferior persistente nas telas de Dashboard, Produtos, Estoque, Listas e Historico.
 
 ### Notes
 

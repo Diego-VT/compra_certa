@@ -2,6 +2,23 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
+## Proxima versao - Relatorio da Lista e Navegacao
+
+Status: implementacao local concluida em 2026-07-20.
+
+### Destaques
+
+- Relatorio individual acessivel pelo detalhe da lista de compras.
+- Resumo visual com progresso, itens comprados e pendentes.
+- Geracao e compartilhamento de PDF offline.
+- Barra inferior para navegacao entre as areas principais.
+- Tela de preferencias de notificacao mais clara e responsiva.
+
+### Observacoes
+
+- Nao houve alteracao no banco de dados.
+- `flutter analyze` e `flutter test` foram executados com sucesso.
+
 ## 0.12.0 - Notificacoes
 
 Status: revisada em 2026-07-20 conforme `VERSIONING.md` e `docs/RELEASE_PROCESS.md`.

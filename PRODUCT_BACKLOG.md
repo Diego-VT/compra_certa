@@ -210,3 +210,16 @@ Tasks:
 - Criar relatorios agregados.
 
 Estimativa: alta.
+
+## Melhoria - Relatorio da Lista de Compras
+
+Prioridade: media.
+
+User Story: US-021.
+
+Entregas:
+
+- Pre-visualizacao individual da lista.
+- Resumo de itens comprados e pendentes.
+- Geracao e compartilhamento de PDF offline.
+- Testes de dominio, documento e interface.

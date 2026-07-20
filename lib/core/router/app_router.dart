@@ -13,6 +13,7 @@ import '../../features/inteligencia/presentation/pages/sugestoes_inteligentes_pa
 import '../../features/listas_compras/presentation/pages/lista_compra_detail_page.dart';
 import '../../features/listas_compras/presentation/pages/lista_compra_form_page.dart';
 import '../../features/listas_compras/presentation/pages/listas_compras_page.dart';
+import '../../features/listas_compras/presentation/pages/relatorio_lista_compra_page.dart';
 import '../../features/notificacoes/presentation/pages/preferencias_notificacao_page.dart';
 import '../../features/produtos/presentation/pages/produto_form_page.dart';
 import '../../features/produtos/presentation/pages/produtos_page.dart';
@@ -34,6 +35,7 @@ enum AppRoute {
   listasCompras,
   novaListaCompra,
   detalheListaCompra,
+  relatorioListaCompra,
   relatorios,
   preferenciasNotificacao,
 }
@@ -138,6 +140,16 @@ final appRouterProvider = Provider<GoRouter>((ref) {
 
               return ListaCompraDetailPage(listaId: id!);
             },
+            routes: [
+              GoRoute(
+                path: 'relatorio',
+                name: AppRoute.relatorioListaCompra.name,
+                builder: (context, state) {
+                  final id = int.parse(state.pathParameters['id']!);
+                  return RelatorioListaCompraPage(listaId: id);
+                },
+              ),
+            ],
           ),
         ],
       ),

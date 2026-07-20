@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/router/app_router.dart';
 import '../../../produtos/application/produto_providers.dart';
 import '../../application/lista_compra_providers.dart';
 import '../../application/listas_compras_paginadas_provider.dart';
@@ -22,7 +24,20 @@ class ListaCompraDetailPage extends ConsumerWidget {
     final listaState = ref.watch(listaCompraPorIdProvider(listaId));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Detalhe da lista')),
+      appBar: AppBar(
+        title: const Text('Detalhe da lista'),
+        actions: [
+          if (listaState.valueOrNull != null)
+            IconButton(
+              tooltip: 'Relatório da lista',
+              onPressed: () => context.goNamed(
+                AppRoute.relatorioListaCompra.name,
+                pathParameters: {'id': listaId.toString()},
+              ),
+              icon: const Icon(Icons.summarize_outlined),
+            ),
+        ],
+      ),
       floatingActionButton: listaState.maybeWhen(
         data: (lista) {
           if (lista?.status != ListaCompraStatus.aberta) {

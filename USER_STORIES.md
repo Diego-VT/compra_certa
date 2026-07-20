@@ -289,3 +289,20 @@ Criterios de aceite:
 - Usuario controla preferencias.
 - Notificacoes sao locais inicialmente.
 - Nao depende de internet.
+
+## US-021 - Gerar relatorio da lista de compras
+
+Descricao: Como usuario, quero visualizar e compartilhar o relatorio de uma lista de compras.
+
+Objetivo: registrar, revisar e compartilhar o planejamento e a execucao da lista.
+
+Prioridade: media.
+
+Dependencias: listas de compras e produtos.
+
+Criterios de aceite:
+
+- Relatorio mostra status, datas, progresso e itens.
+- Quantidades planejadas e compradas sao apresentadas.
+- PDF pode ser compartilhado sem internet.
+- Lista vazia possui estado orientativo.
