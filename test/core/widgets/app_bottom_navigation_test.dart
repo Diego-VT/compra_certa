@@ -37,6 +37,11 @@ void main() {
 
     await tester.pumpWidget(MaterialApp.router(routerConfig: router));
     await tester.pump();
+    expect(find.text('Início'), findsOneWidget);
+    expect(find.text('Despensa'), findsOneWidget);
+    expect(find.text('Estoque'), findsOneWidget);
+    expect(find.text('Listas'), findsOneWidget);
+    expect(find.text('Histórico'), findsOneWidget);
     await tester.tap(find.byIcon(Icons.inventory_2_outlined));
     await tester.pumpAndSettle();
 

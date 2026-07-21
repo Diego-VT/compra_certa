@@ -17,7 +17,7 @@ class AppBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return NavigationBar(
       selectedIndex: currentDestination.index,
-      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
       onDestinationSelected: (index) => _navigate(
         context,
         AppMainDestination.values[index],
@@ -31,7 +31,7 @@ class AppBottomNavigation extends StatelessWidget {
         NavigationDestination(
           icon: Icon(Icons.inventory_2_outlined),
           selectedIcon: Icon(Icons.inventory_2),
-          label: 'Produtos',
+          label: 'Despensa',
         ),
         NavigationDestination(
           icon: Icon(Icons.inventory_outlined),

@@ -13,6 +13,13 @@ Tipos de mudanca:
 - Fixed: correcoes de erros.
 - Security: ajustes de seguranca ou privacidade.
 
+## Em desenvolvimento
+
+### Alterado
+
+- Dashboard simplificado com saudação, ações rápidas, alertas de estoque zerado, estados vazios acionáveis e histórico de compras em linguagem mais clara.
+- Rótulos da navegação inferior agora permanecem visíveis em todos os destinos.
+
 ## [0.7.0] - 2026-07-03
 
 ### Added

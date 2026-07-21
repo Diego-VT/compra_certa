@@ -2,6 +2,12 @@
 
 Este arquivo registra as versoes do CompraCerta em linguagem amigavel para usuarios, testers e publicacao futura.
 
+## Próxima versão
+
+- Tela inicial mais direta, com criação rápida de listas e geração de reposição a partir dos itens abaixo do estoque mínimo.
+- Itens zerados agora recebem destaque visual de alerta e compras recentes oferecem acesso direto aos detalhes.
+- Navegação inferior com rótulos sempre visíveis para melhorar a identificação das áreas do aplicativo.
+
 ## 0.13.0 - Relatorio da Lista e Estabilizacao
 
 Status: instalada e inicializada no moto g20 em 2026-07-20; validacao funcional manual ainda em andamento.

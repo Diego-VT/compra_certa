@@ -19,9 +19,9 @@ void main() {
       produtosAbaixoMinimo: const [
         EstoqueEntity(
           produtoId: 1,
-          produtoNome: 'Arroz',
+          produtoNome: 'Açúcar',
           unidadeMedida: 'kg',
-          quantidadeAtual: 1,
+          quantidadeAtual: 0,
           quantidadeMinima: 2,
           quantidadeIdeal: 5,
           isProdutoAtivo: true,
@@ -59,12 +59,21 @@ void main() {
 
     await tester.pump();
 
-    expect(find.text('Resumo rápido'), findsOneWidget);
-    expect(find.textContaining('Atenção'), findsOneWidget);
-    expect(find.text('Arroz'), findsOneWidget);
+    expect(
+      find.text('Olá! Veja o status da sua despensa hoje.'),
+      findsOneWidget,
+    );
+    expect(find.text('Nova lista'), findsOneWidget);
+    expect(find.text('Itens acabando na despensa'), findsOneWidget);
+    expect(find.text('Açúcar'), findsOneWidget);
+    expect(find.textContaining('0 kg em estoque'), findsOneWidget);
+    expect(find.text('Gerar lista com 1 item'), findsOneWidget);
     expect(find.text('Mercado da semana'), findsOneWidget);
-    await tester.scrollUntilVisible(find.text('Compra semanal'), 200);
-    expect(find.text('Compra semanal'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Compra realizada em 03/07/2026'),
+      200,
+    );
+    expect(find.text('Compra realizada em 03/07/2026'), findsOneWidget);
   });
 
   testWidgets('navega para relatorios pelo dashboard', (tester) async {
@@ -90,7 +99,9 @@ void main() {
               ),
             ),
           ),
-          relatorioResumoProvider.overrideWith((ref) => Future.value(relatorio)),
+          relatorioResumoProvider.overrideWith(
+            (ref) => Future.value(relatorio),
+          ),
         ],
         child: const CompraCertaApp(),
       ),
@@ -98,7 +109,8 @@ void main() {
 
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
-    await tester.tap(find.byTooltip('Relatorios'));
+    expect(find.text('Criar primeira lista'), findsOneWidget);
+    await tester.tap(find.byTooltip('Relatórios'));
     await tester.pumpAndSettle();
 
     expect(find.text('Relatorios'), findsOneWidget);
